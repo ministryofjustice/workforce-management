@@ -1,0 +1,37 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+Allocation confirmation | Workforce planning
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Allocation complete
+          </h1>
+          <div class="govuk-panel__body">
+            Case reference number<br><strong>{{ data['pop-crn'] | default("J678910") }}</strong>
+          </div>
+          <div class="govuk-panel__body">
+            has been assigned to<br><strong>{{ data['allocated-officer'] }}</strong>
+          </div>
+        </div><br><br>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Details of this allocation have been added to nDelius automatically</li>
+            <li>You will need to contact <strong>{{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</strong> to inform them of the allocation</li>
+            <li>The induction interview is scheduled for <strong>28 May 2021</strong>
+
+        </p>
+
+        <p><a href="unallocated-cases">View unallocated cases</a></p>
+  </div>
+</div>
+{% endblock %}

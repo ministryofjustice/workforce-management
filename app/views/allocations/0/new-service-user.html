@@ -1,0 +1,107 @@
+{% extends "layout_workforce.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - service user
+{% endblock %}
+
+{% block main %}
+  {% if not serviceUser %}
+    <div class="govuk-width-container govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "/allocations/0/new-allocations"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-full">
+        Could not identify service user with crn {{ crn }}.
+      </div>
+    </div>
+  {% else %}
+    {% include "./partial/service-user-bar.njk" %}
+    <div class="govuk-width-container govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "/allocations/0/new-allocations"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        {{ govukSummaryList({
+          classes: 'govuk-summary-list--no-border',
+          rows: [
+            { key: { text: "Receiving from" }, value: { text: serviceUser.template.receivingFrom } },
+            { key: { text: "Offence" }, value: { text: serviceUser.template.offence } },
+            { key: { text: "Sentence" }, value: { text: serviceUser.template.sentence } },
+            { key: { text: "Requirements" }, value: { text: serviceUser.template.requirements } },
+            { key: { text: "Sentence start" }, value: { text: serviceUser.dates.sentenceStart } },
+            { key: { text: "RSR score" }, value: { text: serviceUser.template.RSR } },
+            { key: { text: "Tier" }, value: { text: serviceUser.template.tier } },
+            { key: { text: "OGR score / OSP score" }, value: { text: serviceUser.template.OGRS } },
+            { key: { text: "Mappa offender" }, value: { text: serviceUser.template.MAPPA } },
+            { key: { text: "Public interest definition" }, value: { text: serviceUser.template.PI } },
+            { key: { text: "Foreign national" }, value: { text: serviceUser.template.FNO } },
+            { key: { text: "High RoSH" }, value: { text: serviceUser.template.highRoSH } },
+            { key: { text: "Deferred sentence" }, value: { text: serviceUser.template.deferredSentence } }
+          ]
+        }) }}
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <form method="post" novalidate>
+          {% set rejectHtml %}
+            {{ govukTextarea({
+              name: "reject-reason",
+              id: "reject-reason",
+              label: {
+                text: "Reason for rejection",
+                classes: "govuk-label--s",
+                isPageHeading: false
+              }
+            }) }}
+          {% endset -%}
+          {% set serviceUserActionErrorMsg = errors.serviceUserAction|join('.  ') if errors and errors.serviceUserAction %}
+          {% set serviceUserActionError = { text: serviceUserActionErrorMsg } if serviceUserActionErrorMsg %}
+          {{ govukRadios({
+            classes: "govuk-radios--small",
+            idPrefix: "serviceUserAction",
+            name: "serviceUserAction",
+            
+            fieldset: {
+              legend: {
+                text: "Action:",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            errorMessage: serviceUserActionError,
+            items: [
+              {
+                value: "accept",
+                text: "Accept"
+              },
+              {
+                value: "reject",
+                text: "Reject",
+                conditional: {
+                  html: rejectHtml
+                }
+              }
+            ]
+          }) }}
+          {{ govukButton({
+            text: "Save and continue",
+            classes: "govuk-!-margin-right-1"
+          }) }}
+          {{ govukButton({
+            text: "Cancel",
+            classes: "govuk-button--secondary",
+            href: "/allocations/0/new-allocations"
+          }) }}
+        </form>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <a href="./coming-soon" class="govuk-link" >View PSR</a> | <a href="./coming-soon" class="govuk-link" >View CPS pack</a> | <a href="./coming-soon" class="govuk-link" >View assessments</a> | <a href="./coming-soon" class="govuk-link" >View CAS</a>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+

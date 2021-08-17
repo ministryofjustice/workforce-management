@@ -1,0 +1,207 @@
+{% extends "layout_workforce-nav.html" %}
+
+
+{% block pageTitle %}
+Southampton Team 1 | Overview | Workforce planning
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">NPS South Central Division</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Hampshire South West</h1>  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Overview</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Export</a>
+        </li>
+      </ul>
+    </nav>
+    
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+  <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Percentage capacity breakdown report</h2>
+    <p class="govuk-body-s secondary-text-col">Last updated: Today at 9:00am</p>
+
+    <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Southampton Team 1</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" aria-sort="Ascending">Name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Contracted hours</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Reduction hours</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Case contribution</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">CMS contribution</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">GS contribution</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">ARMS contribution</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">PAROMS contribution</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">SDR contribution</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">FDR contribution</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body moj-table-highlight">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Alan Paine</a></td>
+          <td class="govuk-table__cell" data-sort-value="Senior Probation Officer">
+          <div class="tooltip">SPO<span class="tooltiptext">Senior Probation Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">3.8</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">98.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">99.60%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-7.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">6.10%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="officer-view-alt">Margaret Dawson</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+          <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">22.2</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">85.70%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">35.20%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">50.60%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">4.70%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="officer-view">Faraz Haynes</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Officer">
+          <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">22.2</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">16.70%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">99.60%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">22.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-5.70%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">3.80%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">1.60%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Teigan Kaye</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Officer">
+          <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">3.8</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">122.50%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">132.10%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-9.60%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">3.50%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Elin Neale</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+          <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">75.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">62.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">13.10%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">5.40%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Donald Daniels</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+          <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">3.8</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">118.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">45.60%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-12.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">6.10%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Aman Crawford</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Officer">
+          <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">98.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">99.60%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-7.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">15.30%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Hamid Rivas</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Officer">
+          <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">22.2</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">16.70%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">22.40%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-5.70%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">2.80%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Molly O'Sullivan</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Officer">
+          <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">37</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">22.2</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">85.70%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">35.20%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">50.60%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">0.00%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">5.00%</td>
+        </tr>
+      </tbody>
+    </table> 
+
+
+
+  </div>
+</div>
+{% endblock %}

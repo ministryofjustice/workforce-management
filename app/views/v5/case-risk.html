@@ -1,0 +1,304 @@
+{% extends "layout_cases.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span style="float:left; width: 71px; height: 71px; padding :10px; margin-right: 10px; background-color: #1d70b8; color: white; font-size: 60px; font-weight: 800;">C1</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Dylan Adam Armstrong<span class="workforce-grade">J678910</span></h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"   href="case-view">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-risk">Risk register</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Risk register</h2>
+    <table class="govuk-table govuk-table-xl govuk-!-margin-bottom-9">
+      <caption class="govuk-table__caption govuk-table__caption--m">Active registrations</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Type</th>
+          <th scope="col" class="govuk-table__header">Registered</th>
+          <th scope="col" class="govuk-table__header">Next review</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Notes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Suicide/Self Harm</th>
+          <td class="govuk-table__cell">13 Dec 2020</td>
+          <td class="govuk-table__cell">13 June 2021</td>
+          <td class="govuk-table__cell">Previous suicide /self harm attempt. Needs further investigating.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Child concerns</th>
+          <td class="govuk-table__cell">13 Dec 2020</td>
+          <td class="govuk-table__cell">13 March 2021</td>
+          <td class="govuk-table__cell">awaiting outcome of social services enquiry</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Medium RoSH</th>
+          <td class="govuk-table__cell">09 Nov 2021</td>
+          <td class="govuk-table__cell">09 May 2021</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Domestic Abuse Perpetrator</th>
+          <td class="govuk-table__cell">04 July 2011</td>
+          <td class="govuk-table__cell">26 Dec 2019</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Mental health issues</th>
+          <td class="govuk-table__cell">04 July 2011</td>
+          <td class="govuk-table__cell">26 Dec 2019</td>
+          <td class="govuk-table__cell">personality disorder</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Inactive registrations</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Type</th>
+          <th scope="col" class="govuk-table__header">Registered</th>
+          <th scope="col" class="govuk-table__header">End date</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Notes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">MAPPA Considered</th>
+          <td class="govuk-table__cell"> 14 June 2012</td>
+          <td class="govuk-table__cell"> 26 Nov 2019</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!--<form action="/allocate-handler" method="post" novalidate>-->
+    <form action="allocation-reasons" method="post" novalidate>
+      <h3 id="cleared" class="govuk-heading-l">Available officers</h3>
+      <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" aria-sort="Ascending">Name</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Capacity</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Allocate</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">Alan Paine</a></td>
+            <td class="govuk-table__cell" data-sort-value="Senior Probation Officer">
+            <div class="tooltip">SPO<span class="tooltiptext">Senior Probation Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1">1</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">1</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="officer-view-alt">Margaret Dawson</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+            <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value=74>74%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="22">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="22">22</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">1</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-2" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-2"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="officer-view">Faraz Haynes</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Officer">
+            <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="88">88%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">2</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">32</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">8</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-3" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-3"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">Teigan Kaye</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Officer">
+            <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="92">92%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="23">23</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="39">16</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-3" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-3"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">Elin Neale</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+            <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="105">105%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="24">24</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="24">0</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-4" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-4"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">Donald Daniels</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+            <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="107">107%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">1</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="20">20</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="21">1</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-5" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-5"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">Aman Crawford</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Officer">
+            <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="112">112%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">1</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">29</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="38">9</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-6" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-6"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">Hamid Rivas</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Officer">
+            <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="112">112%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="27">27</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="37">10</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-7" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-7"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">Molly O'Sullivan</a></td>
+            <td class="govuk-table__cell" data-sort-value="Probation Officer">
+            <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="123"><span style="color: #d4351c;">123%</span></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">3</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="42">42</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="51">9</td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-8" name="allocate-officer" type="radio" value="VN220927">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-8"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table> 
+
+      <button class="govuk-button" data-module="govuk-button" style="float: left; margin-right: 30px;">
+        Allocate to selected officer
+      </button>
+    </form>
+    <form action="case-view#cleared" method="post" novalidate>
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Clear selection
+      </button>
+    </form>    
+  </div>
+</div>
+{% endblock %}

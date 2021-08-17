@@ -1,0 +1,167 @@
+{% extends "layout_workforce.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - New allocations
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% set newIncomingCases_tableHeadings = [
+        { key: 'slaIndicator', text: '' },
+        { key: 'name', text: 'Name' },
+        { key: 'crn', text: 'CRN' },
+        { key: 'postcode', text: 'Postcode' },
+        { key: 'probationStatus', text: 'Probation status' },
+        { key: 'offence', text: 'Offence' },
+        { key: 'tier', text: 'Indicative tier' },
+        { key: 'receivingFrom', text: 'Receiving from' },
+        { key: 'sla', text: 'Due (days)' }
+      ] %}
+      {% set serviceUsers = params.serviceUsers %}
+      {% set newServiceUsers = serviceUsers|rejectattr("currentOM", "") %}
+      {% set newIncomingCases_tableRows = [] %}
+      {% for user in newServiceUsers %}
+        {% set tableRow = [] %}
+        {% for heading in newIncomingCases_tableHeadings %}
+          {% if heading.key == 'slaIndicator' %}
+            {% if user.dates.sla <= 1 %}
+              {% set slaAlert %}
+                <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+<path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" /></svg>
+              {% endset %}
+            {% endif %}
+            {% set tableRow = (tableRow.push({ html: slaAlert or '' }), tableRow) %}
+          {% elseif heading.key == 'name' %}
+            {% set tableRow = (tableRow.push({ html: '<a href="./new-service-user/'+user.crn+'">'+user[heading.key]+'</a>' }), tableRow) %}
+          {% elseif heading.key == 'crn' or heading.key == 'postcode' %}
+            {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
+          {% elseif heading.key == 'sla' %}
+            {% set tableRow = (tableRow.push({ text: user.dates[heading.key] }), tableRow) %}
+          {% else %}
+            {% set tableRow = (tableRow.push({ text: user.template[heading.key] }), tableRow) %}
+          {% endif %}
+        {% endfor%}
+        {% set newIncomingCases_tableRows = (newIncomingCases_tableRows.push(tableRow), newIncomingCases_tableRows) %}
+      {% endfor%}
+
+      {% set bannerText %}
+        <span style="float:left">{{ todaysDate }} - {{ newIncomingCases_tableRows.length }} Unallocated cases</span>
+        <span style="float:right">Last updated {{ lastUpdateDate }}</span>
+      {% endset %}
+      {{ mojBanner({
+        type: 'information',
+        html: bannerText,
+        iconFallbackText: 'information'
+      }) }}
+      
+      {% set newIncomingCasesHtml %}
+        {{ govukTable({
+          classes: "govuk-table-xl",
+          head: newIncomingCases_tableHeadings,
+          rows: newIncomingCases_tableRows
+        }) }}
+      {% endset -%}
+
+      {% set allAllocatedCases_tableHeadings = [
+        { key: 'name', text: 'SU Name', attributes: { "aria-sort": "none" } },
+        { key: 'crn', text: 'CRN', attributes: { "aria-sort": "none" } },
+        { key: 'postcode', text: 'Postcode', attributes: { "aria-sort": "none" } },
+        { key: 'tier', text: 'Indicative tier', attributes: { "aria-sort": "none" } },
+        { key: 'allocationDate', text: 'Allocation date', attributes: { "aria-sort": "ascending" } },
+        { text: 'OM name', attributes: { "aria-sort": "none" } },
+        { text: 'OM grade', attributes: { "aria-sort": "none" } }
+      ] %}
+
+      {% set allServiceUsers = serviceUsers|selectattr("currentOM") %}
+      {% set recordsPerPage = 15 %}
+      {% set allAllocatedCases_tableRows = [] %}
+      {% set currentPage =  query.page if query.page else 1 %}
+      {% set pageSlices = ((allServiceUsers | length) / recordsPerPage)  | round(0, "ceil")  %}
+      {% set allServiceUserPages = allServiceUsers | slice(pageSlices) %}
+      {% for user in allServiceUserPages[currentPage -1] %}
+        {% set currentProbationPractitioner = '' %}
+        {% for probationPractitioner in probationPractitioners %}
+          {% if probationPractitioner.id == user.currentOM %}
+            {% set currentProbationPractitioner = probationPractitioner %}
+          {% endif %}
+        {% endfor %}
+        {% if currentProbationPractitioner != "" %}
+          {% set tableRow = [] %}
+          {% for heading in allAllocatedCases_tableHeadings %}
+            {% if heading.key == 'name' %}
+              {% set tableRow = (tableRow.push({ html: '<a href="./service-user/'+user.crn+'">'+user[heading.key]+'</a>' }), tableRow) %}
+            {% elseif heading.key == 'tier' %}
+              {% set tableRow = (tableRow.push({ text: user.template.tier }), tableRow) %}
+            {% elseif heading.key == 'allocationDate' %}
+              {% set tableRow = (tableRow.push({ text: user.dates.sentenceStart }), tableRow) %}
+            {% elseif heading.key %}
+              {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
+            {% endif %}
+          {% endfor%}
+          {% set tableRow = (tableRow.push({ html: '<a href="./practitioner/'+currentProbationPractitioner.id+'">'+currentProbationPractitioner.name+'</a>' }, { text: currentProbationPractitioner.grade }), tableRow) %}
+          {% set allAllocatedCases_tableRows = (allAllocatedCases_tableRows.push(tableRow), allAllocatedCases_tableRows) %}
+        {% endif %}
+      {% endfor%}
+
+      {% set paginationItems = [] %}
+      {% for pageNo in range(1, pageSlices+1) %}
+        {% set paginationItems = (paginationItems.push({ text: pageNo, href:'new-allocations?page='+pageNo+'#all-allocated-cases', selected: (pageNo == currentPage) }), paginationItems) %}
+      {% endfor %}
+      {% set allAllocatedCasesHtml %}
+        <div class="govuk-!-padding-bottom-3">
+          {{ mojPagination({
+            results: {
+            from: (currentPage -1 )*recordsPerPage,
+            to: currentPage*recordsPerPage,
+            count: allServiceUsers | length
+            },
+            previous: {
+            text: 'Previous',
+            href: ''
+            },
+            next: {
+            text: 'Next',
+            href: ''
+            },
+            items: paginationItems
+          }) }}
+        </div>
+
+        {{ govukTable({
+          classes: "govuk-table-xl",
+          head: allAllocatedCases_tableHeadings,
+          rows: allAllocatedCases_tableRows
+        }) }}
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "New incoming cases",
+            id: "new-incoming-cases",
+            panel: {
+              html: newIncomingCasesHtml
+            }
+          },
+          {
+            label: "All allocated cases",
+            id: "all-allocated-cases",
+            panel: {
+              html: allAllocatedCasesHtml
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    new MOJFrontend.SortableTable({
+      table: $('table')[1]
+    });
+  </script>
+{% endblock %}

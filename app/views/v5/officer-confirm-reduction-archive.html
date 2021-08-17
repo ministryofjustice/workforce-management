@@ -1,0 +1,62 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Contracted hours | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="case-view" class="govuk-back-link govuk-body">Back to case overview</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Faraz Haynes <span class="workforce-grade">Probation Officer</span></h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="officer-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases">Active cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-contracted">Contracted hours</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  aria-current="page" href="officer-view-reductions">Reductions</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Change to capacity</h2>
+
+    <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    Archiving this reduction will change their capacity to 90%.
+  </strong>
+</div>
+
+  <div class="govuk-button-group">
+    <a class="govuk-button" href="officer-view-reductions-archive-confirm">Continue</a>
+    <a class="govuk-link" href="officer-view-reductions">Cancel</a>
+  </div>
+    
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "layout_workforce.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - service user
+{% endblock %}
+
+{% block main %}
+  {% if serviceUser == '' %}
+    <div class="govuk-width-container govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "/allocations/0/new-allocations#all-allocated-cases"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-full">
+        Could not identify service user with crn {{ crn }}.
+      </div>
+    </div>
+  {% else %}
+    {% include "./partial/service-user-bar.njk" %}
+    <div class="govuk-width-container govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "/allocations/0/new-allocations#all-allocated-cases"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        {{ govukSummaryList({
+          classes: 'govuk-summary-list--no-border',
+          rows: [
+            { key: { text: "Receiving from" }, value: { text: serviceUser.template.receivingFrom } },
+            { key: { text: "Offence" }, value: { text: serviceUser.template.offence } },
+            { key: { text: "Sentence" }, value: { text: serviceUser.template.sentence } },
+            { key: { text: "Requirements" }, value: { text: serviceUser.template.requirements } },
+            { key: { text: "Sentence start" }, value: { text: serviceUser.dates.sentenceStart } },
+            { key: { text: "RSR score" }, value: { text: serviceUser.template.RSR } },
+            { key: { text: "Tier" }, value: { text: serviceUser.template.tier } },
+            { key: { text: "OGR score / OSP score" }, value: { text: serviceUser.template.OGRS } },
+            { key: { text: "Mappa offender" }, value: { text: serviceUser.template.MAPPA } },
+            { key: { text: "Public interest definition" }, value: { text: serviceUser.template.PI } },
+            { key: { text: "Foreign national" }, value: { text: serviceUser.template.FNO } },
+            { key: { text: "High RoSH" }, value: { text: serviceUser.template.highRoSH } },
+            { key: { text: "Deferred sentence" }, value: { text: serviceUser.template.deferredSentence } },
+            { key: { text: "Current OM" }, value: { html: '<a href="/allocations/0/practitioner/'+probationPractitioner.id+'">'+probationPractitioner.name+'</a>' }, actions: {
+                items: [
+                  {
+                    href: "/allocations/0/allocate/"+crn,
+                    text: "Change",
+                    visuallyHiddenText: "Current OM"
+                  }
+                ]
+              } }
+          ]
+        }) }}
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <form method="post" novalidate>
+          {% set transferReasonErrorMsg = errors["transfer-reason"]|join('.  ') if errors and errors["transfer-reason"] %}
+          {% set transferReasonError = { text: transferReasonErrorMsg } if transferReasonErrorMsg %}
+          {{ govukTextarea({
+            name: "transfer-reason",
+            id: "transfer-reason",
+            errorMessage: transferReasonError,
+            label: {
+              text: "Reason for transfer request",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+          {{ govukButton({
+            text: "Request transfer",
+            classes: "govuk-!-margin-right-1"
+          }) }}
+          {{ govukButton({
+            text: "Cancel",
+            classes: "govuk-button--secondary",
+            href: "/allocations/0/new-allocations"
+          }) }}
+        </form>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <a href="./coming-soon" class="govuk-link" >View PSR</a> | <a href="./coming-soon" class="govuk-link" >View CPS pack</a> | <a href="./coming-soon" class="govuk-link" >View assessments</a> | <a href="./coming-soon" class="govuk-link" >View CAS</a>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+

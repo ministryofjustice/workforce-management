@@ -1,0 +1,109 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Allocation reasons | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span style="float:left; width: 71px; height: 71px; padding :10px; margin-right: 10px; background-color: #1d70b8; color: white; font-size: 60px; font-weight: 800;">C1</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Dylan Adam Armstrong<span class="workforce-grade">CRN: J678910</span></h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-view">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk register</a>
+        </li>
+                 <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-allocate">Allocate to an officer</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<h2 class="govuk-heading-l">Reasons for allocation</h2>
+<form action="allocation-complete" method="post" novalidate>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+      Why are you allocating {{ data['allocated-officer'] | default("Officer Name") }} to this case?
+    </label>
+    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+  </div>
+
+  <h2 class="govuk-heading-m">Management override</h2>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="ex-reasons-hint">
+      <legend class="govuk-fieldset__legend">
+        If allocation of PO/PSO is outside the general guidance indicate reasons
+      </legend>
+      <div id="ex-reasons-hint" class="govuk-hint">
+        Select all that apply.
+      </div>
+      <div class="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons" name="ex-reasons" type="checkbox" value="complex">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons">
+            Assessed as too complex for PSO
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-2" name="ex-reasons" type="checkbox" value="suitable">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-2">
+            Assessed as suitable for PSO
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-3" name="ex-reasons" type="checkbox" value="continuity">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-3">
+            Maintain continuity with previous OM
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-4" name="ex-reasons" type="checkbox" value="staffing">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-4">
+             Insufficient staff resources of required grade
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-5" name="ex-reasons" type="checkbox" value="training">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-5">
+            Insufficiently trained PSOs in team
+          </label>
+        </div>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+</form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+.moj-tag--orange {
+  background-color: govuk-colour('orange');
+  border: 2px solid govuk-colour('orange');
+}
+
+.moj-tag--light-grey {
+  background-color: govuk-colour('light-grey');
+  border: 2px solid govuk-colour('light-grey');
+  color: $govuk-secondary-text-colour;
+}
+
+.hmpps-risk-profile {
+
+  .risk-score {
+    display: block;
+    font-weight: 800;
+    margin-top: 10px;
+  }
+
+  .low-risk {
+    color: govuk-colour('green');
+  }
+
+  .medium-risk {
+    color: govuk-colour('orange');
+  }
+
+  .high-risk {
+    color: govuk-colour('red');
+  }
+}
+
+.details-xl {
+  .govuk-details__text {
+    max-width: 100%;
+  }
+}
+
+
+// Service user MOJ header styling
+.app-organisation-nav-title {
+  float: right;
+  padding-top: 19px;
+}
+
+.moj-primary-navigation__link[aria-current]:before {
+  background-color: govuk-colour('blue');
+}
+
+.moj-primary-navigation__link {
+  &:link,
+  &:visited {
+    color:  govuk-colour('blue');
+  }
+}
+
+.rosh-highlight {
+  background-color: govuk-colour('light-grey');
+  border: solid 2px;
+  border-color: govuk-colour('mid-grey');
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.rosh-span {
+  background-color: transparent;
+  border-left-width: 0;
+  border-radius: 0;
+  border-right-width: 0;
+  border-top-width: 0;
+  margin-right: -15px;
+  padding: 0;
+}

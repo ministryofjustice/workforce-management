@@ -1,0 +1,147 @@
+{%- set activeReductions = [] -%}
+{%- set scheduledReductions = [] -%}
+{%- set archivedReductions = [] -%}
+
+{% for reduction in probationPractitioner.reductions %}
+  {% if reduction.status === 'ACTIVE' %}
+    {{ activeReductions.push(reduction) }}
+  {% endif %}
+  {% if reduction.status === 'SCHEDULED' %}
+    {{ scheduledReductions.push(reduction) }}
+  {% endif %}
+  {% if reduction.status === 'ARCHIVED' %}
+    {{ activeReductions.push(reduction) }}
+  {% endif %}
+{% endfor %}
+
+{% extends "layout_workforce-nav.html" %}
+
+{% block pageTitle %}
+{{ probationPractitioner.name }} | Reductions | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="../../case-allocate" class="govuk-back-link govuk-body">Back to case allocation</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% block officerTitle %}
+{% include "./partials/officer-view-title.html" %}
+{% endblock %}
+
+{% set currentPage = 4 %}
+{% block subNav %}
+{% include "./partials/officer-view-nav.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Reductions</h2>
+    <a class="govuk-button govuk-!-margin-bottom-8" href="officer-view-reduction-add">Add a reduction</a>
+
+    {% if activeReductions | length %}
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Active</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Type</th>
+        <th scope="col" class="govuk-table__header">Hours</th>
+        <th scope="col" class="govuk-table__header">Start date</th>
+        <th scope="col" class="govuk-table__header">End date</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+      </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+      {% for reduction in activeReductions %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ reduction.reason }}</td>
+        <td class="govuk-table__cell">{{ reduction.hours }}</td>
+        <td class="govuk-table__cell">{{ reduction.start.format(shortDateFormat) }}</td>
+        <td class="govuk-table__cell">{{ reduction.end.format(shortDateFormat) }}</td>
+        <td class="govuk-table__cell">
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-edit">Edit</a><br>
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-archive">Archive</a><br>
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-delete">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    {% if scheduledReductions | length %}
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Scheduled</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Type</th>
+        <th scope="col" class="govuk-table__header">Hours</th>
+        <th scope="col" class="govuk-table__header">Start date</th>
+        <th scope="col" class="govuk-table__header">End date</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+      </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+      {% for reduction in scheduledReductions %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ reduction.reason }}</td>
+        <td class="govuk-table__cell">{{ reduction.hours }}</td>
+        <td class="govuk-table__cell">{{ reduction.start.format(shortDateFormat) }}</td>
+        <td class="govuk-table__cell">{{ reduction.end.format(shortDateFormat) }}</td>
+        <td class="govuk-table__cell">
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-edit">Edit</a><br>
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-archive">Archive</a><br>
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-delete">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    {% if archivedReductions | length %}
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Archived</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Type</th>
+        <th scope="col" class="govuk-table__header">Hours</th>
+        <th scope="col" class="govuk-table__header">Start date</th>
+        <th scope="col" class="govuk-table__header">End date</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+      </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+      {% for reduction in archivedReductions %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ reduction.reason }}</td>
+        <td class="govuk-table__cell">{{ reduction.hours }}</td>
+        <td class="govuk-table__cell">{{ reduction.start.format(shortDateFormat) }}</td>
+        <td class="govuk-table__cell">{{ reduction.end.format(shortDateFormat) }}</td>
+        <td class="govuk-table__cell">
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-edit">Edit</a><br>
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-archive">Archive</a><br>
+          <a class="govuk-link govuk-link--no-visited-state" href="officer-view-reduction-delete">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,382 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">All regions</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Kent Surrey Sussex</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="team-view">Southampton Team 1</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Donald Turnip <span class="workforce-grade">Probation Service Officer</span></h1>  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases">Current cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="officer-view-cases-old">Historic cases</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+ <h2 class="govuk-heading-l">Historic cases</H2>
+    <table class="govuk-table govuk-table-xl">
+  
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">SU Name</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">CRN</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">Postcode</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">Indicative tier</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="ascending">Allocation date</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">Current OM</th>
+    
+    </tr>
+  </thead>
+  
+  <tbody class="govuk-table__body">
+    
+      
+        <tr class="govuk-table__row">
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/service-user/J681179">Nathan Cooper</a></td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >J681179</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >NW1 6NS</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >C2</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >31 Dec 2020</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/practitioner/4">Pauline Hollywell</a></td>
+          
+        
+        </tr>
+      
+    
+      
+        <tr class="govuk-table__row">
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/service-user/J681242">Bryan Phillips</a></td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >J681242</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >W12 0TX</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >C1</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >3 Jun 2019</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/practitioner/4">Pauline Hollywell</a></td>
+          
+        
+        </tr>
+      
+    
+      
+        <tr class="govuk-table__row">
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/service-user/J681425">Scott Richardson</a></td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >J681425</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >E3 5DU</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >C2</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >4 Sep 2020</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/practitioner/2">Maria Bury</a></td>
+          
+        
+        </tr>
+      
+    
+      
+        <tr class="govuk-table__row">
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/service-user/J681443">Raymond Lowe</a></td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >J681443</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >SE10 9GB</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >D2</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >31 Aug 2018</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/practitioner/1">Camilla Horace</a></td>
+          
+        
+        </tr>
+      
+    
+      
+        <tr class="govuk-table__row">
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/service-user/J681500">Ethan Walker</a></td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >J681500</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >SW18 4PU</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >C2</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >4 Sep 2020</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/practitioner/1">Camilla Horace</a></td>
+          
+        
+        </tr>
+      
+    
+      
+        <tr class="govuk-table__row">
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/service-user/J681524">Arthur Wood</a></td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >J681524</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >SW17 7DX</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >C2</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >22 Jan 2021</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          ></td>
+          
+        
+        </tr>
+      
+    
+      
+        <tr class="govuk-table__row">
+        
+          
+          
+          <td class="govuk-table__cell"
+          ><a href="/allocations/0/service-user/J681530">Noah Edwards</a></td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >J681530</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >E14 9ZP</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >C2</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          >24 Jan 2021</td>
+          
+        
+          
+          
+          <td class="govuk-table__cell"
+          ></td>
+          
+        
+        </tr>
+      
+    
+  </tbody>
+</table>
+
+
+    
+  </div>
+</div>
+{% endblock %}

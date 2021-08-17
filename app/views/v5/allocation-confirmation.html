@@ -1,0 +1,62 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Allocation confirmation | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="case-view" class="govuk-back-link govuk-body">Back to case view</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Hampshire South West</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Southampton Team 1</h1> 
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link" href="team-view">Overview</a>
+        </li>
+
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="unallocated-cases"><span id="notifications" class="moj-notification-badge">2</span> Unallocated cases</a>
+        </li>
+      </ul>
+    </nav>
+    
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Allocation ready
+          </h1>
+          <div class="govuk-panel__body">
+            Case reference number<br><strong>J678910</strong>
+          </div>
+          <div class="govuk-panel__body">
+            assigned to<br><strong>NPS33820</strong>
+          </div>
+        </div><br><br>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">
+          You will need to contact your admin to make this allocation on the system.
+        </p>
+  </div>
+</div>
+{% endblock %}

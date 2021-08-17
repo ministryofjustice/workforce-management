@@ -1,0 +1,108 @@
+{% extends "layout_workforce.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - service user
+{% endblock %}
+
+{% block main %}
+  {% set query = params.query %}
+  {% set showAllOM = query.showAllOM if query.showAllOM else '' %}
+  {% if not serviceUser %}
+    <div class="govuk-width-container govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "/allocations/0/new-allocations"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-full">
+        Could not identify service user with crn {{ crn }}.
+      </div>
+    </div>
+  {% else %}
+    {% include "./partial/service-user-bar.njk" %}
+    {% set currentOM = serviceUser.currentOM %}
+    <div class="govuk-width-container govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "/allocations/0/service-user/"+crn if currentOM else "/allocations/0/new-service-user/"+crn
+        }) }}
+      </div>
+      <div class="govuk-grid-column-full">
+        <form method="post" novalidate>
+          {% set tableHeadings = [
+            { key: 'name', text: 'Name' },
+            { key: 'grade', text: 'Grade' },
+            { key: 'currentPercentage', text: 'Current %' },
+            { key: 'remainingPoints', text: 'Remaining points' },
+            { key: 'noOfCases', text: 'No of cases' },
+            { key: 'lastAllocated', text: 'Date last allocated to' },
+            { key: 'allocate', text: 'Allocate' }
+          ] %}
+          {% set probationPractitioners = params.probationPractitioners %}
+          {% set tableRows = [] %}
+          {% for probationPractitioner in probationPractitioners %}
+            {% set isCurrentOM = probationPractitioner.id == currentOM %}
+            {% if showAllOM or probationPractitioner.currentPercentage < 100 or isCurrentOM %}
+              {% set tableRow = [] %}
+              {% for heading in tableHeadings %}
+                {% if heading.key == 'allocate' %}
+                  {% set allocateButtonHtml %}
+                    <div class="govuk-radios govuk-radios--small govuk-radios__item">
+                      <input class="govuk-radios__input" id="allocate-OM" name="allocate-OM" type="radio" value="{{ probationPractitioner.id }}" {{ "checked" if isCurrentOM }}>
+                      <label class="govuk-label govuk-radios__label" aria-label="Allocate to {{probationPractitioner.name}}" for="allocate-OM"></label>
+                    </div>
+                  {% endset %}
+                  {% set tableRow = (tableRow.push({ html: allocateButtonHtml }), tableRow) %}
+                {% elseif heading.key == 'currentPercentage' %}
+                  {% set tableRow = (tableRow.push({ text: probationPractitioner.currentPercentage+"%" }), tableRow) %}
+                {% elseif heading.key == 'remainingPoints' %}
+                  {% set remainingPoints=probationPractitioner.pointsAvailable-probationPractitioner.pointsUsed %}
+                  {% set tableRow = (tableRow.push({ html:'<span class="'+('govuk-error-message govuk-!-font-weight-regular' if remainingPoints < 0 else '')+'">'+remainingPoints+'</span>' }), tableRow) %}
+                {% elseif heading.key == 'name' %}
+                  {% set tableRow = (tableRow.push({ html: '<a href="../practitioner/'+probationPractitioner.id+'">'+probationPractitioner.name+'</a>' }), tableRow) %}
+                {% else %}
+                  {% set tableRow = (tableRow.push({ text: probationPractitioner[heading.key] }), tableRow) %}
+                {% endif %}
+              {% endfor %}
+              {% set tableRows = (tableRows.push(tableRow), tableRows) %}
+            {% endif %}
+          {% endfor %}
+          {% set allocateOMErrorMsg = errors['allocate-OM']|join('.  ') if errors and errors['allocate-OM'] %}
+          {% if allocateOMErrorMsg %}
+            <div class="govuk-form-group--error">
+              <span id="nationality-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ allocateOMErrorMsg }}
+              </span>
+            {% else %}
+            <div>
+            {% endif %}
+            {{ govukTable({
+              classes: "govuk-table-xl",
+              head: tableHeadings,
+              rows: tableRows
+            }) }}
+          </div>
+          {{ govukButton({
+            text: "Allocate to selected officer",
+            classes: "govuk-!-margin-right-1"
+          }) }}
+          {% if showAllOM %}
+            {{ govukButton({
+              text: "Only show suggested offender managers",
+              href: "/allocations/0/allocate/"+crn,
+              classes: "govuk-button--secondary"
+            }) }}
+          {% else %}
+            {{ govukButton({
+              text: "View all offender managers",
+              href: "/allocations/0/allocate/"+crn+"?showAllOM=true",
+              classes: "govuk-button--secondary"
+            }) }}
+          {% endif %}
+        </form>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

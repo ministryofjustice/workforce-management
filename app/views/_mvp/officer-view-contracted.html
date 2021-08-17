@@ -1,0 +1,47 @@
+{% extends "layout_workforce-nav.html" %}
+
+{% block pageTitle %}
+{{ probationPractitioner.name }} | Contracted hours | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="../../case-allocate" class="govuk-back-link govuk-body">Back to case allocation</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% block officerTitle %}
+{% include "./partials/officer-view-title.html" %}
+{% endblock %}
+
+{% set currentPage = 3 %}
+{% block subNav %}
+{% include "./partials/officer-view-nav.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Contracted hours</h2>
+    <p class="card__heading govuk-!-padding-bottom-9">{{ probationPractitioner.contractedHours }}</p>
+
+    <form method="post" novalidate>
+      <div class="govuk-form-group">
+        <h3 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--s" for="event-name">
+        Change contracted hours</label>
+        </h3>
+        <input class="govuk-input govuk-input--width-4" id="contractedHours" name="contractedHours" type="number" value="{{ probationPractitioner.contractedHours }}">
+      </div>
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+        <a class="govuk-link govuk-link--no-visited-state" href="{{versionUrl}}/officer-view/{{id}}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

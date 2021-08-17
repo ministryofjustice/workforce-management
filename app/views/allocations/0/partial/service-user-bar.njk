@@ -1,0 +1,23 @@
+{% from "./key-details-bar/macro.njk" import keyDetailsBar %}
+{% set riskClasses = { High: 'moj-badge--red', Medium: 'moj-badge--bright-purple', Low: 'moj-badge--blue' } %}
+{% if serviceUser.template.risk %}
+  {% set riskHtml %}
+    <span style="background-color: white; padding: 0px 2px 4px 2px">
+      {{ mojBadge({
+        text: serviceUser.template.risk,
+        classes: riskClasses[serviceUser.template.risk]
+      }) }}
+    </span>
+  {% endset %}
+{% endif %}
+{{ keyDetailsBar([ { key: { text: "Service user name" }, value: { text: serviceUser.name } } ], [
+      { key: { text: "CRN" }, value: { text: serviceUser.crn } },
+      { key: { text: "PNC" }, value: { text: serviceUser.pnc } },
+      { key: { text: "Age" }, value: { text: serviceUser.template.age } },
+      { key: { text: "DoB" }, value: { text: serviceUser.template.DOB } },
+      { key: { text: "Gender" }, value: { text: serviceUser.template.gender } },
+      { key: { text: "Postcode" }, value: { text: serviceUser.postcode } },
+      { key: { text: "Probabtion status" }, value: { text: serviceUser.probabtionStatus } },
+      { key: { text: "Previous / Current OM" }, value: { text: serviceUser.previousOM } },
+      { key: { text: "Risks" }, value: { html: riskHtml or '' } }
+    ]) }} 

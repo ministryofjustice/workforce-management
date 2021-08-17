@@ -1,0 +1,70 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Contracted hours | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="team-view" class="govuk-back-link govuk-body">Back to team overview</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Faraz Haynes <span class="workforce-grade">Probation Officer</span></h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="officer-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases">Active cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#3">Archived cases (on nDelius)</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="officer-view-contracted">Contracted hours</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="officer-view-reductions">Reductions</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Contracted hours</h2>
+    <p class="card__heading govuk-!-padding-bottom-9">{{ data['contracted-hours'] }}</p>
+
+    <form action="officer-confirm-hours" method="post" novalidate>
+      <div class="govuk-form-group">
+        <h3 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--s" for="event-name">
+        Change contracted hours</label>
+        </h3>
+        <input class="govuk-input govuk-input--width-4" id="contracted-hours" name="contracted-hours" type="number" value="{{ data['contracted-hours'] }}">
+      </div>
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+        <a class="govuk-link" href="officer-view">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

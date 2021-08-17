@@ -1,0 +1,152 @@
+{% extends "layout_cases-nav.html" %}
+
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Hampshire South West</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Southampton Team 1</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#"><span id="notifications" class="moj-notification-badge">3</span> Unallocated cases</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Unallocated cases</h2>
+    <div class="moj-scrollable-pane">
+      <div class="moj-scrollable-pane__wrapper">
+
+        <table class="govuk-table govuk-table-xl">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Postcode</th>
+              <th scope="col" class="govuk-table__header" aria-sort="ascending">Tier</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Documentation</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Induction date</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Action</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <strong>Dylan Adam Armstrong</strong><span class="govuk-body-s" style="display: block;">J678910</span>
+              </td>
+              <td class="govuk-table__cell">
+                Currently managed
+              </td>
+              <td class="govuk-table__cell">
+                SE14 3PU
+              </td>
+              <td class="govuk-table__cell">
+                C1
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-body-s case-doc-checklist">
+                  <li class="yep">Court outcome</li>
+                  <li class="yep">Court order</li>
+                  <li class="yep">Pre-convictions</li>
+                  <li class="yep">Pre-sentence report</li>
+                  <li class="nope">CPS pack</li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell due-date">
+                <span class="date overdue">{{ moment().add(1, 'days').format(longDateFormat) }}</span>
+                <span class="secondary overdue">Due tomorrow</span>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <span class="sr-only">to probation</span><strong>Andrei Edwards</strong>
+                <span class="govuk-body-s" style="display: block;">J680648</span>
+
+              </td>
+              <td class="govuk-table__cell">
+                New to probation
+              </td>
+              <td class="govuk-table__cell">
+                SO14 0AL
+              </td>
+              <td class="govuk-table__cell">
+                C2
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-body-s case-doc-checklist">
+                  <li class="yep">Court outcome</li>
+                  <li class="nope">Court order</li>
+                  <li class="nope">Pre-convictions</li>
+                  <li class="nope">Pre-sentence report</li>
+                  <li class="nope">CPS pack</li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell due-date">
+                <span class="date due">{{ moment().add(2, 'days').format(longDateFormat) }}</span>
+                <span class="secondary due">Due in 2 days</span>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+
+                    <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <strong>Hannah Francis</strong><span class="govuk-body-s" style="display: block;">J680660</span>
+              </td>
+              <td class="govuk-table__cell">
+                Previously managed<br>(10 Nov 2019)
+              </td>
+               <td class="govuk-table__cell">
+                SO14 4FX
+              </td>
+              <td class="govuk-table__cell">
+                C2
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-body-s case-doc-checklist">
+                  <li class="yep">Court outcome</li>
+                  <li class="yep">Court order</li>
+                  <li class="nope">Pre-convictions</li>
+                  <li class="yep">Pre-sentence report</li>
+                  <li class="yep">CPS pack</li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell due-date">
+                <span class="secondary overdue">No date provided</span>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,401 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span style="float:left; width: 71px; height: 71px; padding :10px; margin-right: 10px; background-color: #1d70b8; color: white; font-size: 60px; font-weight: 800;">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-view">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk register</a>
+        </li>
+                 <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-allocate">Allocate to an officer</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+      <h2 id="cleared" class="govuk-heading-l">Allocate to an officer</h2>
+
+
+
+<div class="moj-filter-layout">
+
+  <div class="moj-filter-layout__filter">
+
+    
+
+<div class="moj-filter">
+
+  <div class="moj-filter__header">
+
+    <div class="moj-filter__header-title">
+      <h2 class="govuk-heading-m">Filter</h2>
+    </div>
+
+    <div class="moj-filter__header-action">
+      
+    </div>
+
+  </div>
+
+  <div class="moj-filter__content">
+
+    
+
+      <div class="moj-filter__selected">
+
+        <div class="moj-filter__selected-heading">
+
+          <div class="moj-filter__heading-title">
+            <h2 class="govuk-heading-m">Selected filters</h2>
+          </div>
+
+          <div class="moj-filter__heading-action">
+            <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+          </div>
+
+        </div>
+
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Grade</h3>
+
+          <ul class="moj-filter-tags"> 
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> PO</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> PSO</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> PQIP</a></li>   
+          </ul>
+
+
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Newly Qualified Officer</h3>
+
+          <ul class="moj-filter-tags">
+            
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> No</a></li>
+            
+          </ul>
+
+
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Specialism</h3>
+
+          <ul class="moj-filter-tags">
+            
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> IOM</a></li>
+            
+          </ul>
+
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Allocations in last 15 days</h3>
+
+          <ul class="moj-filter-tags">
+            
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> 0-2</a></li>
+            
+          </ul>
+        
+
+      </div>
+    
+
+    <div class="moj-filter__options">
+
+      
+
+  
+    
+  
+
+<button class="govuk-button" data-module="govuk-button">
+  Apply filters
+</button>
+
+
+      
+
+  
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--m" for="keywords">
+    Keywords
+  </label>
+
+<input class="govuk-input" id="keywords" name="keywords" type="text">
+</div>
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  
+    Grade
+  
+  </legend>
+  
+
+  <div class="govuk-checkboxes govuk-checkboxes--small">
+    
+      
+          
+        
+        
+        
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="type">
+        PO (4)
+      </label>
+          
+        </div>
+        
+      
+    
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="type-1" name="type" type="checkbox" value="15" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="type-1">
+        PSO (5)
+      </label>
+          
+        </div>
+        
+        
+        
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="type-2">
+        PQiP (8)
+      </label>
+          
+        </div>
+        
+        
+      
+    
+  </div>
+  
+
+</fieldset>
+
+
+</div>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Newly Qualified Officer</legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-3" name="features" type="checkbox" value="3">
+        <label class="govuk-label govuk-checkboxes__label" for="features-3">Yes</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-4" name="features" type="checkbox" value="4" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="features-4">No</label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>  
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Specialism</legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-3" name="features" type="checkbox" value="3" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="features-3">IOM</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-4" name="features" type="checkbox" value="4">
+        <label class="govuk-label govuk-checkboxes__label" for="features-4">Women</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-5" name="features" type="checkbox" value="5">
+        <label class="govuk-label govuk-checkboxes__label" for="features-5">Gangs</label>
+      </div>  
+    </div>
+
+  </fieldset>
+</div>  
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Allocations in last 15 days</legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-3" name="features" type="checkbox" value="3" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="features-3">0-2</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-4" name="features" type="checkbox" value="4">
+        <label class="govuk-label govuk-checkboxes__label" for="features-4">3-4</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-5" name="features" type="checkbox" value="5">
+        <label class="govuk-label govuk-checkboxes__label" for="features-5">5+</label>
+      </div>  
+    </div>
+
+  </fieldset>
+</div>  
+
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="moj-filter-layout__content">
+
+  <div class="moj-action-bar">
+    <div class="moj-action-bar__filter"></div>
+  </div>
+
+  <div class="moj-scrollable-pane">
+
+    <div class="moj-scrollable-pane__wrapper">
+    <!--<form action="/allocate-handler" method="post" novalidate>-->
+    <form action="allocation-confirm" method="post" novalidate>
+            <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="Ascending">Capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
+          
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      {% set gradeDescriptions = {PO: 'Probation Officer', PSO: 'Probation Service Officer', NQO: 'Newly Qualified Officer', PQiP: 'Trainee Probation Officer', SPO: 'Senior Probation Officer'} %}
+        {% for probationPractitioner in team %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-{{ probationPractitioner.OM_Key }}" name="allocated-officer" type="radio" value="{{ probationPractitioner.name }}">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-{{ probationPractitioner.OM_Key }}"></label>
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell"><a href="officer-view/{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</a></td>
+            {% set gradeDescription = gradeDescriptions[probationPractitioner.grade] %}
+            <td class="govuk-table__cell" data-sort-value="{{ gradeDescription }}">
+            <div class="tooltip">{{ probationPractitioner.grade }}<span class="tooltiptext">{{ gradeDescription }}</span></div></td>
+
+            <td class="govuk-table__cell govuk-table__cell--numeric{% if probationPractitioner.capacity > 120 %} percentage-over{% endif %}" data-sort-value="{{ probationPractitioner.capacity }}">{{ probationPractitioner.capacity }}%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.allocationsInLast7.length }}">{{ probationPractitioner.allocationsInLast7.length }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.community }}">{{ probationPractitioner.totals.community }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.custody }}">{{ probationPractitioner.totals.custody }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <input type="hidden" name="allocated-capacity" value="{{ probationPractitioner.capacity }}">
+      <button class="govuk-button" data-module="govuk-button" style="float: left; margin-right: 30px;">
+        Select officer
+      </button>
+    </form>
+  
+   
+  
+
+    </div>
+
+  </div>
+</div>
+
+    <form action="case-allocate#cleared" method="post" novalidate>
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Clear selection
+      </button>
+    </form>    
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    new MOJFrontend.FilterToggleButton({
+      bigModeMediaQuery: '(min-width: 48.063em)',
+      startHidden: true,
+      toggleButton: {
+        container: $('.moj-action-bar__filter'),
+        showText: 'Filter this list',
+        hideText: 'Hide filter',
+        classes: 'govuk-button--secondary'
+      },
+      closeButton: {
+        container: $('.moj-filter__header-action'),
+        text: 'Close'
+      },
+      filter: {
+        container: $('.moj-filter')
+      }
+    });
+  </script>
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}

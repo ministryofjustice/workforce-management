@@ -37,6 +37,17 @@ module.exports = function (env) {
     documentation.
 
   ------------------------------------------------------------------ */
+/* https://medium.com/gov-design/more-efficient-prototyping-with-the-gov-uk-prototype-kit-step-by-step-84ea2832549a */
+  filters.toMonth = function(x){ 
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];   
+    if (x > 0){ return months[x - 1]; // returns date as per month      
+    } else {
+            return x ;      
+    }}
+
+  filters.toMoney = function(x){  return("£" + x );
+    //TO ADD - case to handle nothing being there 
+  }
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app

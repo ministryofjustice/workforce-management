@@ -1,0 +1,32 @@
+// DASHBOARD
+
+.moj-tertiary-nav {
+
+  li {
+    border-left: solid 1px govuk-colour('mid-grey');
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 10px;
+
+    &:first-of-type {
+      border-left: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+.moj-table-total {
+  background-color: govuk-colour('light-grey');
+}
+
+.moj-table-highlight {
+
+  tr {
+    &:hover {
+      background-color: govuk-colour('light-grey');
+    }
+  }
+}
+
+

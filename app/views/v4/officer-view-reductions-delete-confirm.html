@@ -1,0 +1,136 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Reductions | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="team-view" class="govuk-back-link govuk-body">Back to team overview</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          You have successfully deleted a reduction.
+        </p>
+      </div>
+    </div>
+
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Faraz Haynes <span class="workforce-grade">Probation Officer</span></h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="officer-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases">Active cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#3">Archived cases (on nDelius)</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-contracted">Contracted hours</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="officer-view-reductions">Reductions</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Reductions</h2>
+    
+    <h3 class="govuk-heading-m">Active</h3>
+    <p>There are no active reductions</p>
+    <a class="govuk-button govuk-!-margin-bottom-8" href="officer-view-reduction-add">Add a reduction</a>
+    
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Scheduled</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Type</th>
+          <th scope="col" class="govuk-table__header">Hours</th>
+          <th scope="col" class="govuk-table__header">Start date</th>
+          <th scope="col" class="govuk-table__header">End date</th>
+          <th scope="col" class="govuk-table__header  govuk-!-width-one-quarter">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Long term sickness absence</td>
+          <td class="govuk-table__cell">6</td>
+          <td class="govuk-table__cell">08/06/2021</td>
+          <td class="govuk-table__cell">09/06/2026</td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link--no-visited-state" href="officer-view-reduction-edit">Edit</a><br>
+            <a class="govuk-link" href="officer-view-reduction-archive">Archive</a><br>
+            <a class="govuk-link" href="officer-view-reduction-delete">Delete</a>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Archived</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Type</th>
+          <th scope="col" class="govuk-table__header">Hours</th>
+          <th scope="col" class="govuk-table__header">Start date</th>
+          <th scope="col" class="govuk-table__header">End date</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Disability</td>
+          <td class="govuk-table__cell">3</td>
+          <td class="govuk-table__cell">26/10/2020</td>
+          <td class="govuk-table__cell">01/01/2022</td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link--no-visited-state" href="officer-view-reduction-edit">View</a><br>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Phased return to work</td>
+          <td class="govuk-table__cell">2</td>
+          <td class="govuk-table__cell">20/09/2020</td>
+          <td class="govuk-table__cell">25/10/2020</td>
+          <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="officer-view-reductions-archived">View</a></td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+
+ 
+
+
+{% endblock %}

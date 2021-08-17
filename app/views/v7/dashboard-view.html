@@ -1,0 +1,210 @@
+{% extends "layout_workforce-nav-dashboard.html" %}
+
+
+{% block pageTitle %}
+Dashboard | Workforce planning
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">National</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">HMPPS</h1>  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Reporting</a>
+        </li>
+      </ul>
+    </nav>
+    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Regional over capacity ratios</h2>
+    <ul class="govuk-list moj-tertiary-nav govuk-!-padding-bottom-9">
+      <li><a href="#PO" class="govuk-body-s">PO staff over 110%</a></li>
+      <li><a href="#PSO" class="govuk-body-s">PSO staff over 110%</a></li>
+      <li><a href="#TPO" class="govuk-body-s">TPO staff over 110%</a></li>
+      <li><a href="#PSO2" class="govuk-body-s">PSO staff below 90%</a></li>
+    </ul>
+
+    <table class="govuk-table ">
+      <caption class="govuk-table__caption govuk-table__caption--m">Probation Officers over capacity</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">NPS Region</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total region POs present on WMT</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Frequency of POs above 110% capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Percentage of region POs above 110% capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Region highest capacity individual PO</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body moj-table-highlight">
+        <tr class="govuk-table__row moj-table-total">
+          <th scope="row" class="govuk-table__header">All regions</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">2266</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">1028</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">45%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">233%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">East Midlands</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">140</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">62</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">44%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">167%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">East of England</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">171</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">85</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">50%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">170%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Greater Manchester</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">165</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">96</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">58%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">178%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Kent Surrey Sussex</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">124</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">48</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">39%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">187%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">London</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">300</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">92</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">31%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">213%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">North East</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">130</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">79</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">61%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">167%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">North West</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">239</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">59</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">25%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">190%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">South Central</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">103</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">51</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">50%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">179%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">South West</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">148</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">92</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">62%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">187%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Wales</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">247</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">106</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">43%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">233%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">West Midlands</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">235</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">92</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">39%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">211%</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Yorkshire and The Humber</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">264</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">166</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">63%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">179%</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Reports</h2>
+    <nav class="moj-side-navigation" aria-label="Side navigation">
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item">
+          <a href="#1">PDU Overview</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#4">Team Overview</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#5">Regional Overview</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#6">Regional Capacities</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#7" aria-current="location">Regional Capacities, Unallocated Cases & Reductions</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#8">PDU Capacity Top 10 rankings</a></li>
+        <li class="moj-side-navigation__item moj-side-navigation__item--active">
+          <a href="#9">Regional Over Capacity Ratios</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#10">Regional Reasons for Reduction</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#11">PDU Reasons for Reduction</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#12">Regional Reducation in Hours</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#13">National Caseload Allocation by Tier</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#14">National Breakdown ratios of caseload allocation by Tier</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#15">Regional Overall Allocation of Cases</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#16">Regional Overall Allocation of Cases by percentage</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#17">Regional Overall Allocation of Custody Cases</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#18">Regional Overall Allocation of Custody Cases by percentage</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#19">Regional Overall Allocation of Cases in the Community</a></li>
+        <li class="moj-side-navigation__item">
+          <a href="#20">Regional Overall Allocation of Cases in the Community by percentage</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout_workforce.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - service user
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ govukBackLink({
+        text: "Back",
+        href: "/allocations/0/new-allocations"
+      }) }}
+    </div>
+  </div>
+  {% if serviceUser.rejected or serviceUser.transferred %}
+    {% set actionType = 'rejected' if serviceUser.rejected else 'transferred' %}
+    {% set titleText = 'Case '+actionType %}
+    {% set bodyText %}
+      <div>You have {{ actionType }} the following case</div>
+      <strong>{{ serviceUser.name }}</strong>
+      <strong>CRN: {{ crn }}</strong>
+    {% endset %}
+  {% else %}
+    {% set titleText = 'Case allocated' %}
+    {% set bodyText %}
+      <div>You have accepted the following case</div>
+      <strong>{{ serviceUser.name }}</strong> 
+      <strong>CRN: {{ crn }}</strong>
+      <div>You have allocated the case to</div>
+      <strong>{{ probationPractitioner.name }}</strong> 
+    {% endset %}
+  {% endif %}
+  {{ govukPanel({
+    titleText: titleText,
+    html: bodyText
+  }) }}
+  {# {{ govukButton({
+    text: "Continue back to new allocations",
+    classes: "govuk-button--secondary",
+    href: "/allocations/0/new-allocations"
+  }) }} #}
+{% endblock %}
