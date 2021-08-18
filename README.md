@@ -1,6 +1,10 @@
-# MoJ Prototype Kit Template
+# Workforce management prototype based on MoJ Prototype Kit Template
+Deployed here:https://workforce-management.apps.live-1.cloud-platform.service.justice.gov.uk/
+U:allocations | P:digital
 
-Create a [Gov.UK Prototype Kit] website, hosted on the [MoJ Cloud Platform].
+Currently focused on the new allocation journey.
+Previous work can be seen at:https://github.com/ministryofjustice/hmpps-workforce-prototype
+
 
 In addition to the protype kit v9.11.2, this repository contains:
 
@@ -14,14 +18,3 @@ In addition to the protype kit v9.11.2, this repository contains:
 
 * .github/workflows/cd.yaml
 * kubernetes-deploy.tpl
-
-## Usage
-
-This is a template repository. It requires a namespace on the Cloud Platform, and [github actions secrets] in the prototype github repository which enable the CD workflow.
-
-The [Cloud Platform CLI] should facilitate creating the namespace and a github repository based on this template, along with all the required [github actions secrets]
-
-[Gov.UK Prototype Kit]: https://govuk-prototype-kit.herokuapp.com/docs
-[MoJ Cloud Platform]: https://user-guide.cloud-platform.service.justice.gov.uk/documentation/concepts/about-the-cloud-platform.html
-[Cloud Platform CLI]: https://user-guide.cloud-platform.service.justice.gov.uk/documentation/getting-started/cloud-platform-cli.html
-[github actions secrets]: https://docs.github.com/en/actions/reference/encrypted-secrets
