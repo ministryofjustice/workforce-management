@@ -1,0 +1,105 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Dashboard | National | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">National</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">HMPPS</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Overview</a>
+        </li>
+
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Dashboard</a>
+        </li>
+      </ul>
+
+    </nav>
+    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Dashboard</h2>
+    <p class="govuk-!-margin-bottom-8">Last updated: Today at 8:22am</p>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Available datasets</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date generated</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">26 March 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">19 March 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12 March 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">05 March 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">26 February 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">19 February 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12 February 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">05 February 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">29 January 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">22 January 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+{% endblock %}

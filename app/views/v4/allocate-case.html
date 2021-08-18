@@ -1,0 +1,165 @@
+{% extends "layout_service-user.html" %}
+
+
+{% block pageTitle %}
+Allocate case | Southampton Team 1 | Workforce planning
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Dylan's risk profile</h3>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    
+    <section class="hmpps-risk-profile">
+      <p>Risk to known adults, children, staff and/or the public.
+      <span class="govuk-!-font-size-36 risk-score high-risk rosh-highlight rosh-span">High</span>
+      <abbr title="Risk Of Serious Harm" class="govuk-caption-m">(ROSH)</abbr></p>
+    </section>
+    <section class="hmpps-risk-profile">
+      <p>Likelihood of an offence within 2 years, leading to reconviction (proven reoffending).
+      <span class="govuk-!-font-size-36 risk-score high-risk">High (52%)</span>
+      <abbr title="Offender Group Reconviction Scale" class="govuk-caption-m">(OGRS3)</abbr></p>
+    </section>
+
+    <section class="hmpps-risk-profile">
+      <p>Committing any violent proven reoffence within 2 years.
+      <span class="govuk-!-font-size-36 risk-score low-risk">Low (12%)</span>
+      <abbr title="OASys violence predictor" class="govuk-caption-m">(OVP)</abbr></p>
+    </section>
+
+    <section class="hmpps-risk-profile">
+      <p>Likelihood of a seriously harmful re-offence within 2 years.
+      <span class="govuk-!-font-size-36 risk-score low-risk">Low (1.5%)</span>
+      <abbr title="Risk of Serious Recidivism" class="govuk-caption-m">(RSR)</abbr></p>
+    </section>   
+  </div>
+
+  <div class="govuk-grid-column-one-half rosh-highlight">
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Those at risk</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Risk</th>
+          <th scope="col" class="govuk-table__header">Risk in custody</th>
+          <th scope="col" class="govuk-table__header">Risk in community</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Known adult</th>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--orange">medium</span></td>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--red">high</span></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Children</th>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--green">low</span></td>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--orange">medium</span></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Public</th>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--green">low</span></td>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--green">low</span></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Staff</th>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--green">low</span></td>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--green">low</span></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Prisoners</th>
+          <td class="govuk-table__cell"><span class="govuk-tag moj-tag--green">low</span></td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!--<form action="/allocate-handler" method="post" novalidate>-->
+    <form action="end" method="post" novalidate>
+      <h3 class="govuk-heading-l">Available officers</h3>
+      <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" aria-sort="Ascending">Name</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Capacity</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Allocate</th>
+            
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="allocate-officer-view">Faraz Haynes</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Officer">
+          <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="88">88%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">2</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">32</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">8</td>
+          <td class="govuk-table__cell">
+            <div class="govuk-radios govuk-radios--small">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="month">
+                <label class="govuk-label govuk-radios__label" for="changed-name"></label>
+              </div>
+          </div>
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="allocate-officer-view-alt">Margaret Dawson</a></td>
+          <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+            <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value=74>74%</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="22">1</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="22">22</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">1</td>
+          <td class="govuk-table__cell">
+            <div class="govuk-radios govuk-radios--small">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="year">
+                <label class="govuk-label govuk-radios__label" for="changed-name-2"></label>
+              </div>
+            </div>
+          </td>
+        </tr>
+        
+        </tbody>
+      </table> 
+
+      <button class="govuk-button" data-module="govuk-button" style="float: left; margin-right: 30px;">
+        Allocate to selected officer
+      </button>
+    </form>
+    <form method="post" novalidate>
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Clear selection
+      </button>
+    </form>
+
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link govuk-back-link" href="unallocated-cases">Back to unallocated cases</a>
+        </li>
+      </ol>
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,292 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Southampton Team 1 | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">All regions</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">NPS South Central Division</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Hampshire South West</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Hampshire South West</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Southampton Team 1</h1>  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Overview</a>
+        </li>
+      </ul>
+    </nav>
+    
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Caseload totals</h2>
+    <p class="govuk-!-margin-bottom-2">Last updated: Today at 9:00am</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total-subset">
+          <span class="card__heading">274</span>
+          <p>total cases</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total">
+          <a href="" class="govuk-link--no-visited-state"><span class="card__heading">55</span>
+          <p>custody cases</p></a>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total">
+          <a href="" class="govuk-link--no-visited-state"><span class="card__heading">219</span>
+          <p>community cases</p></a>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l">Current workload</h2>
+    <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" aria-sort="Ascending">Name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Available</th><th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Case mix by tier</th>
+          
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="officer-view">Faraz Haynes</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">
+        <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">Yes</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="88">88%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">2</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">32</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">8</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">5</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">7</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">17</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">17</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">4</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="officer-view-alt">Margaret Dawson</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+          <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">Yes</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value=74>74%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="22">18</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="22">22</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">1</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">0</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">1</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">12</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">2</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">4</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Aman Crawford</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">
+        <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">No</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="112">112%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">9</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">29</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="38">9</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">2</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">5</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">15</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">7</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">9</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Elin Neale</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+        <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">Yes</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="105">105%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">2</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="24">24</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="24">0</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">0</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">0</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">13</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">11</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">2</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+        
+        
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Donald Daniels</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Service Officer">
+        <div class="tooltip">PSO<span class="tooltiptext">Probation Service Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">Yes</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="107">107%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">9</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="20">20</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="21">1</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">0</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">0</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">0</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">17</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">13</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+        
+        
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Teigan Kaye</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">
+        <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">No</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="92">92%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">6</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="23">23</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="39">16</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">0</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">12</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">16</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">1</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">0</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+        
+         
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Alan Paine</a></td>
+        <td class="govuk-table__cell" data-sort-value="Senior Probation Officer">
+        <div class="tooltip">SPO<span class="tooltiptext">Senior Probation Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="No">No</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1">1</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">1</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">1</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">0</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">0</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">0</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">0</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+        
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Molly O'Sullivan</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">
+        <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">Yes</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="123"><span style="color: #d4351c;">123%</span></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">5</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="42">42</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="51">9</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">5</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">20</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">18</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">2</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">2</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+        
+        
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Hamid Rivas</a></td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">
+        <div class="tooltip">PO<span class="tooltiptext">Probation Officer</span></div></td>
+        <td class="govuk-table__cell" data-sort-value="Yes">No</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="112">112%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">8</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="27">27</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="37">10</td>
+        <td class="govuk-table__cell">
+          <div class="workforce-progress-container overview">
+            <div class="workforce-progress-bar tier-a bar-width-20"><span title="5 tier A">8</span> <span class="sr-only">tier A</span></div>
+            <div class="workforce-progress-bar tier-b bar-width-20"><span title="7 tier B1">10</span> <span class="sr-only">tier B1</span></div>
+            <div class="workforce-progress-bar tier-c bar-width-20"><span title="9 tier B2">9</span> <span class="sr-only">tier B2</span></div>
+            <div class="workforce-progress-bar tier-d bar-width-20"><span title="17 tier C1">17</span> <span class="sr-only">tier C1</span></div>
+            <div class="workforce-progress-bar tier-other bar-width-20"><span title="4 tier C2">1</span> <span class="sr-only">tier C2</span></div>
+          </div>
+        </td>
+        
+        
+      </tr>
+      
+      </tbody>
+    </table> 
+  </div>
+</div>
+{% endblock %}

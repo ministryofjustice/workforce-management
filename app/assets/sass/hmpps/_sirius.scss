@@ -1,0 +1,26 @@
+//Following styles adapted from https://opg-sirius-prototypes.herokuapp.com/ proto / type is the logon
+.due-date {
+
+  span {
+    display: block;
+  }
+
+  .due {
+    border-left: 5px solid govuk-colour('turquoise');
+    font-weight: bold;
+    padding-left: 5px;
+  }
+
+  .overdue {
+    border-left: 5px solid govuk-colour('red');
+    font-weight: bold;
+    padding-left: 5px;
+  }
+
+  .secondary {
+    color: govuk-colour('black');
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.25;
+  }
+}

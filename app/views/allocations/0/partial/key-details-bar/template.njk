@@ -1,0 +1,24 @@
+<section class="key-details-bar">
+  <div class="key-details-outer govuk-width-container">
+    <div class="key-details-inner">
+      {% for title in titles %}
+        {% set key = title.key %}
+        {% set value = title.value %}
+        <span class="key-details-title">
+          <dt class="govuk-visually-hidden">{{ key.text }}</dt>
+          <dd>{{ value.text }}</dd>
+        </span>
+      {% endfor %}
+      {% for param in params %}
+        {% set key = param.key %}
+        {% set value = param.value %}
+        {% if value.html or value.text %}
+          <span class="key-details-param">
+            <dt>{{ key.text }}:</dt>
+            <dd class="govuk-!-font-weight-regular">{{ value.html | safe if value.html else value.text }}</dd>
+          </span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

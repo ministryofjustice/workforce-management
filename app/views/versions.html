@@ -1,0 +1,381 @@
+{% extends "layout_index.html" %}
+
+{% block pageTitle %}
+Prototype | HMPPS | Manage a workforce
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Alpha 2</h1>
+
+    <div class="moj-timeline">
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Case Admin 'pre-allocation' journey, and case-on-a-page</h2>
+          <p class="moj-timeline__byline">(Sprint 12)</p>
+        </div>
+        <p class="moj-timeline__date">August 3&mdash;August 16
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Exploring what case admins need from a tool in order to make a new case 'ready' to be allocated by an SPO.</p>
+          <p>Trialling a single page version of case details, to better accommodate allocation as a CTA.</p>
+          <a class="govuk-button govuk-!-margin-bottom-6" href="/v9/unallocated-cases">View prototype</a>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Feedback from assessment and ensuring prototype is 100% of journey</h2>
+          <p class="moj-timeline__byline">(Sprint 8 extended)</p>
+        </div>
+        <p class="moj-timeline__date">June 8&mdash;June 21
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Adding dashboard and export screens so we can do user research. Iterating end-to-end journey to remove content we don't need.</p>
+          <form action="/v8/unallocated-cases" method="post" novalidate>
+            <input type="hidden" name="reduction-hours" value="5.00">
+            <input type="hidden" name="reduction-start-day" value="26">
+            <input type="hidden" name="reduction-start-month" value="10">
+            <input type="hidden" name="reduction-start-year" value="2020">
+            <input type="hidden" name="reduction-end-day" value="27">
+            <input type="hidden" name="reduction-end-month" value="10">
+            <input type="hidden" name="reduction-end-year" value="2030">
+            <input type="hidden" name="contracted-hours" value="37.00">
+            <input type="hidden" name="contracted-capacity" value="88">
+            <input type="hidden" name="contracted-colour" value="under-capacity">
+            <button class="govuk-button" data-module="govuk-button">
+              View prototype
+            </button>
+          </form>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/v7/national-view">NPS Dashboard</a></li>
+            <li><a href="/v8/team-exports">Exports</a></li>
+            <li><a href="/v8/case-history-timeline">Case history timeline</a></li>
+          </ul>
+        </div>
+      </div>
+
+       <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Focus on assessment prep. Continuing minor iterations and adding and accessibility & privacy statements.</h2>
+          <p class="moj-timeline__byline">(Sprint 8)</p>
+        </div>
+        <p class="moj-timeline__date">May 25&mdash;June 7
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Updating prototype to use MoJ primary nav pattern, adding new page titles, and accessibility & privacy statements</p>
+          <form action="/v7/unallocated-cases" method="post" novalidate>
+            <input type="hidden" name="reduction-hours" value="5.00">
+            <input type="hidden" name="reduction-start-day" value="26">
+            <input type="hidden" name="reduction-start-month" value="10">
+            <input type="hidden" name="reduction-start-year" value="2020">
+            <input type="hidden" name="reduction-end-day" value="27">
+            <input type="hidden" name="reduction-end-month" value="10">
+            <input type="hidden" name="reduction-end-year" value="2030">
+            <input type="hidden" name="contracted-hours" value="37.00">
+            <input type="hidden" name="contracted-capacity" value="88">
+            <input type="hidden" name="contracted-colour" value="under-capacity">
+            <button class="govuk-button" data-module="govuk-button">
+              View prototype
+            </button>
+          </form>
+
+          <ul class="govuk-list govuk-list--bullet">
+            
+            <li><a href="/accessibility">Accessibility statement</a></li>
+            <li><a href="/privacy">Privacy statement</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Adding primary navigation, and major content update</h2>
+          <p class="moj-timeline__byline">(Sprint 7)</p>
+        </div>
+        <p class="moj-timeline__date">May 11&mdash;May 24
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Updating prototype to use MoJ primary nav pattern, adding new page titles.</p>
+          <form action="/v7/unallocated-cases" method="post" novalidate>
+            <input type="hidden" name="reduction-hours" value="5.00">
+            <input type="hidden" name="reduction-start-day" value="26">
+            <input type="hidden" name="reduction-start-month" value="10">
+            <input type="hidden" name="reduction-start-year" value="2020">
+            <input type="hidden" name="reduction-end-day" value="27">
+            <input type="hidden" name="reduction-end-month" value="10">
+            <input type="hidden" name="reduction-end-year" value="2030">
+            <input type="hidden" name="contracted-hours" value="37.00">
+            <input type="hidden" name="contracted-capacity" value="88">
+            <input type="hidden" name="contracted-colour" value="under-capacity">
+            <button class="govuk-button" data-module="govuk-button">
+              View prototype
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Filtering</h2>
+          <p class="moj-timeline__byline">(Sprint 6)</p>
+        </div>
+        <p class="moj-timeline__date">April 27&mdash;May 10
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Adding sort and filter functionality to lists. Integrating data into team and officer views.</p>
+          <form action="/v6/unallocated-cases" method="post" novalidate>
+            <input type="hidden" name="reduction-hours" value="5.00">
+            <input type="hidden" name="reduction-start-day" value="26">
+            <input type="hidden" name="reduction-start-month" value="10">
+            <input type="hidden" name="reduction-start-year" value="2020">
+            <input type="hidden" name="reduction-end-day" value="27">
+            <input type="hidden" name="reduction-end-month" value="10">
+            <input type="hidden" name="reduction-end-year" value="2030">
+            <input type="hidden" name="contracted-hours" value="37.00">
+            <input type="hidden" name="contracted-capacity" value="88">
+            <input type="hidden" name="contracted-colour" value="under-capacity">
+            <button class="govuk-button" data-module="govuk-button">
+              View prototype
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Iterate allocation journey</h2>
+          <p class="moj-timeline__byline">(Sprint 5)</p>
+        </div>
+        <p class="moj-timeline__date">April 13&mdash;April 26
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Updating offender view screen after research feedback, adding end screen to complete user journey.</p>
+          <form action="/v5/unallocated-cases" method="post" novalidate>
+            <input type="hidden" name="reduction-hours" value="5.00">
+            <input type="hidden" name="reduction-start-day" value="26">
+            <input type="hidden" name="reduction-start-month" value="10">
+            <input type="hidden" name="reduction-start-year" value="2020">
+            <input type="hidden" name="reduction-end-day" value="27">
+            <input type="hidden" name="reduction-end-month" value="10">
+            <input type="hidden" name="reduction-end-year" value="2030">
+            <input type="hidden" name="contracted-hours" value="37.00">
+            <input type="hidden" name="contracted-capacity" value="88">
+            <input type="hidden" name="contracted-colour" value="under-capacity">
+            <button class="govuk-button" data-module="govuk-button">
+              View prototype
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Reductions and richer user journey</h2>
+          <p class="moj-timeline__byline">(Sprint 4)</p>
+        </div>
+        <p class="moj-timeline__date">March 30&mdash;April 12
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Adding in reductions screens, iterating based on feedback from research in February, and accommodating technical constraints.</p>
+          <form action="/v4/team-view" method="post" novalidate>
+            <input type="hidden" name="reduction-hours" value="5.00">
+            <input type="hidden" name="reduction-start-day" value="26">
+            <input type="hidden" name="reduction-start-month" value="10">
+            <input type="hidden" name="reduction-start-year" value="2020">
+            <input type="hidden" name="reduction-end-day" value="27">
+            <input type="hidden" name="reduction-end-month" value="10">
+            <input type="hidden" name="reduction-end-year" value="2030">
+            <input type="hidden" name="contracted-hours" value="37.00">
+            <input type="hidden" name="contracted-capacity" value="88">
+            <input type="hidden" name="contracted-colour" value="under-capacity">
+            <button class="govuk-button" data-module="govuk-button">
+              View prototype
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Dual entry and reporting - dashboards</h2>
+          <p class="moj-timeline__byline">(Sprint 3)</p>
+        </div>
+        <p class="moj-timeline__date">March 16&mdash;March 29
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>The dashboard currently contains a lot of information in a spreadsheet format which is pertinent to Regions, PDU’s and teams. It is a download, and is in excel format. This is the first attempt to bring the reporting in the dashboard into the service, to better understand the feasiblity.</p>
+          <a class="govuk-button govuk-!-margin-bottom-6" href="/v3/dashboard">View prototype</a>
+        </div>
+      </div>
+
+       <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Showing risk</h2>
+          <p class="moj-timeline__byline">(Sprint 3)</p>
+        </div>
+        <p class="moj-timeline__date">March 16&mdash;March 29
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Collaborative work with the Assess Risks and Needs team, to show service user risk details as part of our allocation journey.</p>
+          <ul class="govuk-list govuk-list--bullet">
+            
+            <li><a href="/v3/allocate-case-original">Risk information as per Assess team design</a></li>
+            <li><a href="/v3/allocate-case-alt-risk-2">Layout change to reduce vertical space</a></li>
+            <li><a href="/v3/allocate-case-alt-risk">Removing 'details' component to display all information</a></li>
+            <li><a href="/v3/allocate-case">Preferred (but untested) layout change</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">MVP Detail for service user screens</h2>
+          <p class="moj-timeline__byline">(Sprint 2)</p>
+        </div>
+        <p class="moj-timeline__date">March 2&mdash;March 15
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Adding new service user screens. Second round of iteration for capacity screens, based on feedback from user research.</p>
+          <a class="govuk-button govuk-!-margin-bottom-6" href="/v2/team-view">View prototype</a>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">MVP Detail for team and individual screens</h2>
+          <p class="moj-timeline__byline">(Sprint 1)</p>
+        </div>
+        <p class="moj-timeline__date">February 15&mdash;March 1
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Iteration of capacity screens based on feedback from user research, addition of single metric to replace points.</p>
+          <a class="govuk-button govuk-!-margin-bottom-6" href="/v1/team-view">View prototype</a>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/v1/team-view-breakdown">View alternate team view with case type breakdown</a></li>
+            <li><a href="/v1/team-view-fixed-breakdown">View alternate case view with simplified breakdown</a></li>
+            <li><a href="/v1/team-view-v2">View alternate team view with table sorting</a></li>
+            <li><a href="/v1/officer-view-cases-badges">View alternate case view with tier badges</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Capacity</h2>
+          <p class="moj-timeline__byline">(Sprint 0)</p>
+        </div>
+        <p class="moj-timeline__date">January 21&mdash;February 15
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>First version of prototype using simpler views on team and individual capacity.</p>
+          <a class="govuk-button govuk-!-margin-bottom-0" href="/v0/team-view">View Prototype</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h1 class="govuk-heading-l">Alpha 1</h1>
+
+    <div class="moj-timeline">
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Allocation proof of concept</h2>
+          <p class="moj-timeline__byline">(Kanban)</p>
+        </div>
+        <p class="moj-timeline__date">December 2020
+        </p>
+
+        <div class="moj-timeline__description">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Updated layout based on gov design system and using generated dataset</li>
+            <li>Sortable data tables</li>
+            <li>View of Service user</li>
+          </ul>
+          <a class="govuk-button govuk-!-margin-bottom-0" href="/allocations/0/new-allocations">View prototype</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Related content
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list useful-links govuk-!-font-size-16">
+          <li>
+            <a href="https://dsdmoj.atlassian.net/wiki/spaces/DPP/pages/2867069124/Manage+a+workforce"
+              class="govuk-link--no-visited-state">
+              Project Confluence
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/u/1/folders/12kESGz_0io-aWUdAPZqBIISFgOfTQBUh" class="govuk-link--no-visited-state">
+              Team Google Drive
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/jonhindle/allocations-prototype" class="govuk-link--no-visited-state">
+              Prototype GitHub repository
+            </a>
+          </li>
+          <li>
+            <a href="https://still-woodland-42892.herokuapp.com/" target="_blank" 
+              class="govuk-link--no-visited-state">
+              Prototype design history
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Examples and documentation</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list useful-links govuk-!-font-size-16">
+          <li>
+            <a href="https://govuk-prototype-kit.herokuapp.com/docs/tutorials-and-examples"
+              class="govuk-link--no-visited-state">
+              GOV.UK Prototype Kit - Tutorials and examples
+            </a>
+          </li>
+          <li>
+            <a href="https://design-system.service.gov.uk/" class="govuk-link--no-visited-state">
+              GOV.UK Design System
+            </a>
+          </li>
+          <li>
+            <a href="https://moj-design-system.herokuapp.com/" class="govuk-link--no-visited-state">
+              MOJ Design System
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ctdesign/gov-design-systems-list/blob/master/README.md"
+              class="govuk-link--no-visited-state">
+              GOV Design Systems list
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  {% endblock %}

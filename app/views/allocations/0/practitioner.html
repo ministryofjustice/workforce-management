@@ -1,0 +1,138 @@
+{% extends "layout_workforce.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - probation practitioner
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {{ govukBackLink({
+      text: "Back",
+      href: data.back
+    }) }}
+  </div>
+  <div class="govuk-grid-column-full">
+
+    {% if not probationPractitioner %}
+      Could not identify probation practitioner with id {{ id }}.
+    {% else %}
+      {% set remainingPoints=probationPractitioner.pointsAvailable-probationPractitioner.pointsUsed %}
+      {{ govukSummaryList({
+        classes: 'govuk-summary-list--no-border',
+        rows: [
+          { key: { text: "Name" }, value: { text: probationPractitioner.name } },
+          { key: { text: "Grade" }, value: { text: probationPractitioner.grade } },
+          { key: { text: "Current percentage" }, value: { text: probationPractitioner.currentPercentage } },
+          { key: { text: "Points available" }, value: { text: probationPractitioner.pointsAvailable } },
+          { key: { text: "Points used" }, value: { text: probationPractitioner.pointsUsed } },
+          { key: { text: "Remaining points" }, value: { html:'<span class="'+('govuk-error-message govuk-!-font-weight-regular' if remainingPoints < 0 else '')+'">'+remainingPoints+'</span>' } },
+          { key: { text: "Number of cases" }, value: { text: probationPractitioner.noOfCases } },
+          { key: { text: "Contracted hours" }, value: { text: probationPractitioner.hoursContracted } },
+          { key: { text: "Reductions" }, value: { text: probationPractitioner.hoursReduction } },
+          { key: { text: "Last allocated date" }, value: { text: probationPractitioner.lastAllocated } }
+        ]
+      }) }}
+
+      {% set currentCases_tableHeadings = [
+        { key: 'name', text: 'SU Name', attributes: { "aria-sort": "none" } },
+        { key: 'crn', text: 'CRN', attributes: { "aria-sort": "none" } },
+        { key: 'postcode', text: 'Postcode', attributes: { "aria-sort": "none" } },
+        { key: 'tier', text: 'Indicative tier', attributes: { "aria-sort": "none" } },
+        { key: 'allocationDate', text: 'Allocation date', attributes: { "aria-sort": "ascending" } },
+        { key: 'previousOM', text: 'Previous OM', attributes: { "aria-sort": "none" } }
+      ] %}
+
+      {% set currentCases_tableRows = [] %}
+      {% for case in currentServiceUsers %}
+        {% set previousProbationPractitioner = '' %}
+        {% for probationPractitioner in probationPractitioners %}
+          {% if probationPractitioner.id == case.previousOM %}
+            {% set previousProbationPractitioner = probationPractitioner %}
+          {% endif %}
+        {% endfor %}
+        {% set tableRow=[] %}
+        {% for heading in currentCases_tableHeadings %}
+          {% if heading.key == 'previousOM' %}
+            {% if previousProbationPractitioner %}
+              {% set tableRow = (tableRow.push({ html: '<a href="/allocations/0/practitioner/'+previousProbationPractitioner.id+'">'+previousProbationPractitioner.name+'</a>' }), tableRow) %}
+            {% else %}
+              {% set tableRow = (tableRow.push({ text: '' }), tableRow) %}
+            {% endif %}
+          {% elseif heading.key == 'name' %}
+            {% set tableRow = (tableRow.push({ html: '<a href="/allocations/0/service-user/'+case.crn+'">'+case.name+'</a>' }), tableRow) %}
+          {% elseif heading.key == 'tier' %}
+            {% set tableRow = (tableRow.push({ text: case.template.tier }), tableRow) %}
+          {% elseif heading.key == 'allocationDate' %}
+            {% set tableRow = (tableRow.push({ text: case.dates.sentenceStart }), tableRow) %}
+          {% else %}
+            {% set tableRow = (tableRow.push({ text: case[heading.key] }), tableRow) %}
+          {% endif %}
+        {% endfor %}
+        {% set currentCases_tableRows = (currentCases_tableRows.push(tableRow), currentCases_tableRows) %}
+      {% endfor %}
+      <h2 class="govuk-heading-l">Current cases</H2>
+      {{ govukTable({
+        classes: "govuk-table-xl",
+        head: currentCases_tableHeadings,
+        rows: currentCases_tableRows
+      }) }}
+
+      {% set previousCases_tableHeadings = [
+        { key: 'name', text: 'SU Name', attributes: { "aria-sort": "none" } },
+        { key: 'crn', text: 'CRN', attributes: { "aria-sort": "none" } },
+        { key: 'postcode', text: 'Postcode', attributes: { "aria-sort": "none" } },
+        { key: 'tier', text: 'Indicative tier', attributes: { "aria-sort": "none" } },
+        { key: 'allocationDate', text: 'Allocation date', attributes: { "aria-sort": "ascending" } },
+        { key: 'currentOM', text: 'Current OM', attributes: { "aria-sort": "none" } }
+      ] %}
+
+      {% set previousCases_tableRows = [] %}
+      {% for case in previousServiceUsers %}
+        {% set currentProbationPractitioner = '' %}
+        {% for probationPractitioner in probationPractitioners %}
+          {% if probationPractitioner.id == case.currentOM %}
+            {% set currentProbationPractitioner = probationPractitioner %}
+          {% endif %}
+        {% endfor %}
+        {% set tableRow=[] %}
+        {% for heading in previousCases_tableHeadings %}
+          {% if heading.key == 'currentOM' %}
+            {% if currentProbationPractitioner %}
+              {% set tableRow = (tableRow.push({ html: '<a href="/allocations/0/practitioner/'+currentProbationPractitioner.id+'">'+currentProbationPractitioner.name+'</a>' }), tableRow) %}
+            {% else %}
+              {% set tableRow = (tableRow.push({ text: '' }), tableRow) %}
+            {% endif %}
+          {% elseif heading.key == 'name' %}
+            {% set tableRow = (tableRow.push({ html: '<a href="/allocations/0/service-user/'+case.crn+'">'+case.name+'</a>' }), tableRow) %}
+          {% elseif heading.key == 'tier' %}
+            {% set tableRow = (tableRow.push({ text: case.template.tier }), tableRow) %}
+          {% elseif heading.key == 'allocationDate' %}
+            {% set tableRow = (tableRow.push({ text: case.dates.sentenceStart }), tableRow) %}
+          {% else %}
+            {% set tableRow = (tableRow.push({ text: case[heading.key] }), tableRow) %}
+          {% endif %}
+        {% endfor %}
+        {% set previousCases_tableRows = (previousCases_tableRows.push(tableRow), previousCases_tableRows) %}
+      {% endfor %}
+      <h2 class="govuk-heading-l">Previous cases</H2>
+      {{ govukTable({
+        classes: "govuk-table-xl",
+        head: previousCases_tableHeadings,
+        rows: previousCases_tableRows
+      }) }}
+    {% endif %}
+  </div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    var mojFrontendSortableTable = $('table')
+    new MOJFrontend.SortableTable({
+      table: mojFrontendSortableTable[0]
+    });
+    new MOJFrontend.SortableTable({
+      table: mojFrontendSortableTable[1]
+    });
+  </script>
+{% endblock %}

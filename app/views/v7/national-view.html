@@ -1,0 +1,116 @@
+{% extends "layout_workforce-nav-dashboard.html" %}
+
+
+{% block pageTitle %}
+Dashboard | Workforce planning
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">National</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">HMPPS</h1>  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Reporting</a>
+        </li>
+      </ul>
+    </nav>
+    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+     <h2 class="govuk-heading-l">Dashboards</h2>
+
+<p>A dashboard is automatically generated Monday to Friday, retaining a rolling 10 days of previous dashboard data.
+<p class="govuk-!-padding-bottom-6">You can download the data in excel spreadsheet format, or view reports directly.</p>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Latest dashboard</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Date generated</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">21 June 2021</th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Previous dashboards</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Date generated</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">18 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">17 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">16 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">15 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">14 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">11 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">10 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">09 June 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">22 January 2021 </th>
+          <td class="govuk-table__cell"><a href="dashboard-view">View</a><br><a href="dashboard-dashboard">Download as excel spreadsheet</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}

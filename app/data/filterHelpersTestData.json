@@ -1,0 +1,58 @@
+{
+  "serviceUsers": [
+    {
+      "crn": "crn1",
+      "tier": "B2",
+      "receivingFrom": "community"
+    },
+    {
+      "crn": "crn2",
+      "tier": "C2",
+      "receivingFrom": "custody"
+    },
+    {
+      "crn": "crn3",
+      "tier": "A",
+      "receivingFrom": "licence"
+    }
+  ],
+  "probationPractitioners": [
+    {
+      "serviceUsers": [],
+      "OM_Key": "key1",
+      "CommTierB2": 1,
+      "CommTierC1": 4,
+      "CommTierC2": 1,
+      "CustTierB1": 12,
+      "CustTierB2": 10,
+      "CustTierC1": 2,
+      "LicenceTierB1": 4,
+      "LicenceTierB2": 1,
+      "LicenceTierC1": 5
+    },
+    {
+      "serviceUsers": [],
+      "OM_Key": "key2",
+      "CommTierB1": 4,
+      "CommTierB2": 2,
+      "CustTierA": 1,
+      "CustTierB1": 2,
+      "CustTierB2": 2,
+      "LicenceTierB1": 4,
+      "LicenceTierB2": 3,
+      "LicenceTierC2": 1
+    },
+    {
+      "serviceUsers": [],
+      "OM_Key": "key3",
+      "CommTierB1": 2,
+      "CommTierB2": 1,
+      "CommTierC1": 2,
+      "CustTierB1": 1,
+      "CustTierB2": 2,
+      "CustTierC2": 1,
+      "LicenceTierB1": 1,
+      "LicenceTierC1": 2
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<section class="moj-context-header">
+  <div class="moj-context-header__top-block">
+    <dt class="govuk-visually-hidden">Name:</dt>
+    <dd class="govuk-!-font-size-27 govuk-!-font-weight-bold  govuk-!-margin-left-0">{{ offenderDetails.fullName }}</dd>
+    {% if offenderDetails.crn %}
+      <dt class="no_left_border">CRN:</dt>
+      <dd>{{ offenderDetails.crn }}</dd>
+    {% endif %}
+    {% if offenderDetails.noms %}
+      <dt
+        {% if not offenderDetails.crn %}
+        class="no_left_border"
+        {% endif %}
+        >NOMS:</dt>
+      <dd>{{ offenderDetails.noms }}</dd>
+    {% endif %}
+  </div>
+  {% if offenderDetails.ispDue or offenderDetails.riskLevel or offenderDetails.paroleCase%}
+    <div class="moj-context-header__block">
+      {% if offenderDetails.ispDue %}
+        <dt>ISP due:</dt>
+        <dd>{{ offenderDetails.ispDue }}</dd>
+      {% endif %}
+      {% if offenderDetails.riskLevel %}
+        <dt>Risk level:</dt>
+        <dd>{{ offenderDetails.riskLevel }}</dd>
+      {% endif %}
+      {% if offenderDetails.paroleCase %}
+        <dt>Parole case:</dt>
+        <dd>{{ offenderDetails.paroleCase }}</dd>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>

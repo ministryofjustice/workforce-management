@@ -1,0 +1,121 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+J678910 | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"   href="case-view">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-history">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="case-risk">Risk</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-allocate">Allocate to an officer</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Probation record</h1>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Currently managed order</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="width: 30%;">Sentence</th>
+          <th scope="col" class="govuk-table__header" style="width: 36%;">Offence</th>
+          <th scope="col" class="govuk-table__header" style="width: 13%;">Start date</th>
+          <th scope="col" class="govuk-table__header" style="width: 21%;">Offender manager</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">ORA Community Order(18 Months)</th>
+          <td class="govuk-table__cell">Common assault and battery - 10501</td>
+          <td class="govuk-table__cell">5 Nov 2020</td>
+          <td class="govuk-table__cell">
+            <p class="govuk-body"><strong>Molly O'Sullivan</strong><br><span class="secondary-text-col">Allocated on 11 Nov 2020</span></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--m">Recent previous orders</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="width: 30%;">Sentence</th>
+          <th scope="col" class="govuk-table__header" style="width: 36%;">Offence</th>
+          <th scope="col" class="govuk-table__header" style="width: 13%;">End date</th>
+          <th scope="col" class="govuk-table__header" style="width: 21%;">Offender manager</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">CJA
+          Community Order (12 months)</th>
+          <td class="govuk-table__cell">Breach of a Non-Molestation Order - 06639</td>
+          <td class="govuk-table__cell">24 Feb 2021</td>
+          <td class="govuk-table__cell">
+            <p class="govuk-body"><strong>Margaret Dawson</strong><br><span class="secondary-text-col">Allocated on 28 Feb 2020</span></p>
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">CJA
+          Community Order (12 months)</th>
+          <td class="govuk-table__cell">Breach of a Non-Molestation Order - 06639</td>
+          <td class="govuk-table__cell">08 Nov 2020</td>
+          <td class="govuk-table__cell">
+            <p class="govuk-body">Daron Threvallan<br>
+            <span class="secondary-text-col">Allocated on 06 Nov 2019</span></p>
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">CJA
+          Community Order (12 months)</th>
+          <td class="govuk-table__cell">Common assault and battery - 10501</td>
+          <td class="govuk-table__cell">15 Mar 2019</td>
+          <td class="govuk-table__cell">
+            <p class="govuk-body">Daron Threvallan<br>
+            <span class="secondary-text-col">Allocated on 18 Mar 2018</span></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="#" class="govuk-link--no-visited-state">View all previous orders (12)</a>
+  </div>
+</div>
+{% endblock %}

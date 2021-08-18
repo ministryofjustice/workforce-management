@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 2</title>
+    <defs>
+        <circle id="path-1" cx="125" cy="125" r="125"></circle>
+        <circle id="path-3" cx="125" cy="125" r="125"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="250" height="250" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <circle id="path-5" cx="125" cy="125" r="125"></circle>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="250" height="250" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <circle id="path-7" cx="125" cy="125" r="125"></circle>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="250" height="250" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+        <circle id="path-9" cx="125" cy="125" r="125"></circle>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="250" height="250" fill="white">
+            <use xlink:href="#path-9"></use>
+        </mask>
+        <circle id="path-11" cx="125" cy="125" r="125"></circle>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="250" height="250" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+        <circle id="path-13" cx="125" cy="125" r="125"></circle>
+        <mask id="mask-14" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="250" height="250" fill="white">
+            <use xlink:href="#path-13"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(3.000000, 3.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Oval" stroke="#505A5F" stroke-width="6" xlink:href="#path-1"></use>
+            <g id="#B26700:10%" stroke-dasharray="78.57142857142857,1250" mask="url(#mask-2)" transform="translate(125.000000, 125.000000) rotate(-324.000000) translate(-125.000000, -125.000000) " stroke="#912B88" stroke-width="250">
+                <use mask="url(#mask-4)" xlink:href="#path-3"></use>
+            </g>
+            <g id="#E06D06:.1" stroke-dasharray="78.57142857142857,1250" mask="url(#mask-2)" transform="translate(125.000000, 125.000000) rotate(-288.000000) translate(-125.000000, -125.000000) ">
+                <use stroke="#979797" stroke-width="1" xlink:href="#path-5"></use>
+                <use stroke="#003078" mask="url(#mask-6)" stroke-width="250" xlink:href="#path-5"></use>
+            </g>
+            <g id="#FFC53A:40%" stroke-dasharray="314.2857142857143,1250" mask="url(#mask-2)" transform="translate(125.000000, 125.000000) rotate(-144.000000) translate(-125.000000, -125.000000) ">
+                <use stroke="#979797" stroke-width="1" xlink:href="#path-7"></use>
+                <use stroke="#5694CA" mask="url(#mask-8)" stroke-width="250" xlink:href="#path-7"></use>
+            </g>
+            <g id="#FAFF81:0.2" stroke-dasharray="157.1428571428571,1250" mask="url(#mask-2)" transform="translate(125.000000, 125.000000) rotate(-72.000000) translate(-125.000000, -125.000000) ">
+                <use stroke="#979797" stroke-width="1" xlink:href="#path-9"></use>
+                <use stroke="#1D70B8" mask="url(#mask-10)" stroke-width="250" xlink:href="#path-9"></use>
+            </g>
+            <g id="#161032:20%" stroke-dasharray="157.1428571428571,1250" mask="url(#mask-2)">
+                <use stroke="#979797" stroke-width="1" xlink:href="#path-11"></use>
+                <use stroke="#4C2C92" mask="url(#mask-12)" stroke-width="250" xlink:href="#path-11"></use>
+            </g>
+            <g id="#161032:20%" stroke-dasharray="157.1428571428571,1250" mask="url(#mask-2)">
+                <use stroke="#979797" stroke-width="1" xlink:href="#path-13"></use>
+                <use stroke="#4C2C92" mask="url(#mask-14)" stroke-width="250" xlink:href="#path-13"></use>
+            </g>
+        </g>
+    </g>
+</svg>

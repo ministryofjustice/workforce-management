@@ -1,0 +1,278 @@
+{%- set tiers = ["A", "B1", "B2", "C1", "C2", "D1", "D2", "E", "F", "G"] -%}
+
+{% extends "layout_workforce-nav.html" %}
+
+{% block headScripts %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{% endblock %}
+
+{% block pageTitle %}
+{{ probationPractitioner.name }} | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="../case-allocate" class="govuk-back-link govuk-body">Back to case allocation</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% block officerTitle %}
+{% include "./partials/officer-view-title.html" %}
+{% endblock %}
+
+{% set currentPage = 1 %}
+{% block subNav %}
+{% include "./partials/officer-view-nav.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Current workload</h2>
+    <p class="govuk-body-s govuk-!-margin-bottom-2">Last updated: Today at 9:00am</p>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total">
+          <a href="{{versionUrl}}/officer-view/{{id}}/officer-view-cases" class="govuk-link--no-visited-state"><span class="card__heading">{{ probationPractitioner.totals.total }}</span>
+          <p>total cases</p></a>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total-subset{% if probationPractitioner.capacity > 99 %} over-capacity{% endif %}">
+          <span class="card__heading">{{ probationPractitioner.capacity }}%</span>
+          <p>capacity</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!--<div class="workforce-progress-container">
+      <div class="workforce-progress-bar" style="width:98%"><p>98%<span style="visibility: hidden;">capacity</span></p></div>
+    </div>-->
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          View as points
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <dl>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Points available
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ probationPractitioner.pointsAvailable }}
+            </dd>
+          </div><div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Points used
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ probationPractitioner.pointsUsed }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Points remaining
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ probationPractitioner.pointsAvailable - probationPractitioner.pointsUsed }}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </details>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" style="max-width: 727px;">
+    <h2 class="govuk-heading-l">Availability</h2>
+   <!-- <ul class="govuk-list govuk-list--bullet">
+      <li>31 hours per week</li>
+      <li>6 hour reduction active until 12 Feb 21</li>
+      <li>Last allocation on 22 Jan</li>
+    </ul> -->
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Weekly hours
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ probationPractitioner.contractedHours }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="{{versionUrl}}/officer-view/{{id}}/contracted-hours">
+                Edit<span class="govuk-visually-hidden"> contracted hours</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reductions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ probationPractitioner.totalReductions }} hours until {{ probationPractitioner.nextChange.format('Do MMM YY') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state"  href="{{versionUrl}}/officer-view/{{id}}/reductions">
+                Edit<span class="govuk-visually-hidden"> reductions</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last case allocated
+            </dt>
+            <dd class="govuk-summary-list__value">
+              22 Jan (Tier B2, on licence in community)
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Cases due to end within next 4 weeks
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ casesDueToEnd.length }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            </dd>
+          </div>
+
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Releases within next 4 weeks
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ sentencesDueToEnd.length }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Parole reports to complete within next 4 weeks
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ paroleReportsDue.length }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            </dd>
+          </div>
+
+
+        </dl>
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <h3 class="govuk-heading-m">Case mix</h3>
+    <figure style="margin: 0;" class="govuk-!-padding-bottom-4">
+      <div id="piechart" style="width: 256px; height: 256px;"></div>
+      <figcaption class="visually-hidden sr-only">Pie chart showing breakdown of different case types</figcaption>
+    </figure>
+    <ul class="govuk-list">
+
+    {% for tier in tiers %}
+      {% if probationPractitioner.totals[tier] %}
+        <li><span class="caseload-swatch tier-{{ tier }}"></span>Tier {{ tier }}: {{ probationPractitioner.totals[tier] }}</li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+<!--
+     <h3 class="govuk-heading-m">Specialist areas</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      {% for specialistArea in probationPractitioner.specialistAreas %}
+        <li>{{ specialistArea }}</li>
+      {% endfor %}
+    </ul>
+
+     <h3 class="govuk-heading-m">Completed training</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      {% for completedTrainingItem in probationPractitioner.completedTraining %}
+        <li>{{ completedTrainingItem }}</li>
+      {% endfor %}
+    </ul>
+-->
+  </div>
+</div>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  var hexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+
+  function rgb2hex(rgb) {
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  }
+
+  function hex(x) {
+    return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+  }
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Case mix', 'Types'],
+      {% for tier in tiers %}
+        {% if probationPractitioner.totals[tier] %}
+          ['{{ tier }}', {{ probationPractitioner.totals[tier] }}],
+        {% endif %}
+      {% endfor %}
+    ]);
+
+    var swatch;
+    var css;
+    var swatches = [];
+
+    {% for tier in tiers %}
+      {% if probationPractitioner.totals[tier] %}
+        swatch = document.getElementsByClassName('tier-{{ tier }}');
+        css = window.getComputedStyle(swatch[0]).getPropertyValue('background-color');
+        swatches.push(rgb2hex(css))
+      {% endif %}
+    {% endfor %}
+
+    var slices = {}
+    for (var i = 0; i < swatches.length; i ++) {
+      slices[i] = { color: swatches[i] }
+    }
+
+    var options = {
+      legend: 'none',
+      enableInteractivity: false,
+      pieSliceText: 'none',
+      width: 256,
+      heightL: 256,
+      slices: slices,
+      chartArea: {
+        backgroundColor: {
+          stroke: 'black',
+          strokeWidth: 5
+        },
+        width: '100%',
+        height: '100%',
+        left: 0,
+        top: 0
+      }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+  }
+</script>
+
+{% endblock %}

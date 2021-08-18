@@ -1,0 +1,251 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Margaret Dawson | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">All regions</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Kent Surrey Sussex</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="team-view">Southampton Team 1</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Margaret Dawson<span class="workforce-grade">Probation Service Officer</span></h1>  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#3">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#3">Active cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#3">Archive</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Current workload</h2>
+    <p class="govuk-body-s govuk-!-margin-bottom-2">Last updated: Today at 9:00am</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+       <div class="card card-total-subset" style="background-color: #d4351c;">
+          <span class="card__heading">122%</span>
+          <p>capacity</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total-subset">
+          <span class="card__heading">12</span>
+          <p>support hours</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total-subset">
+          <span class="card__heading">0</span>
+          <p>hours available</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!--<div class="workforce-progress-container">
+      <div class="workforce-progress-bar" style="width:98%"><p>98%<span style="visibility: hidden;">capacity</span></p></div>
+    </div>-->
+    
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          View as points
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <dl>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Points available
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2176
+            </dd>
+          </div><div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Points used
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2327
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Points remaining
+            </dt>
+            <dd class="govuk-summary-list__value">
+              -151
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </details>
+    <!--<h3 class="govuk-heading-m">Weeks until end of case</h2>
+    <figure style="margin: 0;" class="govuk-!-padding-bottom-4">
+            <img style="max-width: 500px;" src="/public/images/bar.png"
+                 alt="Visual representation of types of active casework">
+            <figcaption class="visually-hidden">
+              
+            </figcaption>
+        </figure>
+-->
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" style="max-width: 727px;">
+    <h2 class="govuk-heading-l">Availability</h2>
+   <!-- <ul class="govuk-list govuk-list--bullet">
+      <li>31 hours per week</li>
+      <li>6 hour reduction active until 12 Feb 21</li>
+      <li>Last allocation on 22 Jan</li>
+    </ul> -->
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Weekly hours
+            </dt>
+            <dd class="govuk-summary-list__value">
+              18
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Edit<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reductions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              0
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Edit<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last case allocated
+            </dt>
+            <dd class="govuk-summary-list__value">
+              22 Dec 2020
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Cases due to end within next 2 weeks
+            </dt>
+            <dd class="govuk-summary-list__value">
+              0
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                View<span class="govuk-visually-hidden"> closing cases</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+    <h2 class="govuk-heading-l">Specialist areas</h2><!--
+    <p style="max-width: 727px;">
+      <span class="moj-badge moj-badge--blue">repeat offenders</span> 
+      <span class="moj-badge moj-badge--blue">domestic abuse</span> 
+      <span class="moj-badge moj-badge--blue">gangs</span> 
+      <span class="moj-badge moj-badge--red">no high risk</span> 
+      <span class="moj-badge moj-badge--blue">virtual inductions</span> 
+      <span class="moj-badge moj-badge--green">unpaid work</span> 
+      <span class="moj-badge moj-badge--green">management support</span> 
+    </p>
+-->
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Domestic abuse</li> 
+      <li>Women</li> 
+    </ul>
+    <h3 class="govuk-heading-m">Completed training</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Substance dependency</li> 
+    </ul>
+
+    <p><a href="">Edit</a></p>
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <h3 class="govuk-heading-m">Case mix</h3>
+    <figure style="margin: 0;" class="govuk-!-padding-bottom-4">
+            <img src="/public/images/casemixPO.png"
+                 alt="Visual representation of types of active casework">
+            <figcaption class="visually-hidden">
+              
+            </figcaption>
+        </figure>
+    <ul class="govuk-list">
+      <li><span class="caseload-swatch tier-a"></span>Tier A: 0</li>
+      <li><span class="caseload-swatch tier-b"></span>Tiers B1 and B2: 1</li> 
+      <li><span class="caseload-swatch tier-c"></span>Tiers C1 and C2: 4</li>
+      <li><span class="caseload-swatch tier-d"></span>Tiers D1 and D2: 5</li>
+      <li><span class="caseload-swatch tier-other"></span>Other: 13</li>
+    </ul>
+    <h3 class="govuk-heading-m">Percentage of hours required</h3>
+    <div class="workforce-progress-container">
+      <div class="workforce-progress-bar tier-a" style="width:0%"></div>
+      <div class="workforce-progress-bar tier-b" style="width:20%"></div>
+      <div class="workforce-progress-bar tier-c" style="width:5%"></div>
+      <div class="workforce-progress-bar tier-d" style="width:45%"></div>
+      <div class="workforce-progress-bar tier-other" style="width:30%"></div>
+    </div>
+    <ul class="govuk-list">
+      <li><span class="caseload-swatch tier-a"></span>Tier A: 0%</li>
+      <li><span class="caseload-swatch tier-b"></span>Tiers B1 and B2: 20%</li> 
+      <li><span class="caseload-swatch tier-c"></span>Tiers C1 and C2: 5%</li>
+      <li><span class="caseload-swatch tier-d"></span>Tiers D1 and D2: 45%</li>
+      <li><span class="caseload-swatch tier-other"></span>Other: 30%</li>
+    </ul>
+
+  </div>
+</div>
+{% endblock %}

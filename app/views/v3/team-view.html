@@ -1,0 +1,123 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Southampton Team 1 | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="dashboard">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">All regions</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">NPS South Central Division</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Hampshire South West</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Hampshire South West</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Southampton Team 1</h1>  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Overview</a>
+        </li>
+
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link" href="unallocated-cases"><span id="notifications" class="moj-notification-badge">3</span> Unallocated cases</a>
+        </li>
+
+        <!--<li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link" href="#2">Reports</a>
+        </li> -->
+      </ul>
+    </nav>
+    
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Caseload totals</h2>
+    <p class="govuk-!-margin-bottom-2">Last updated: Today at 9:00am</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total-subset">
+          <span class="card__heading">{{ teamTotals.total }}</span>
+          <p>total cases</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total">
+          <a href="" class="govuk-link--no-visited-state"><span class="card__heading">{{ teamTotals.custody }}</span>
+          <p>custody cases</p></a>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total">
+          <a href="" class="govuk-link--no-visited-state"><span class="card__heading">{{ teamTotals.community }}</span>
+          <p>community cases</p></a>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l">Current workload</h2>
+
+    <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" aria-sort="Ascending">Name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Available</th><th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
+          
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      {% set gradeDescriptions = {PO: 'Probation Officer', PSO: 'Probation Service Officer', TPO: 'Trainee Probation Officer', SPO: 'Senior Probation Officer'} %}
+        {% for probationPractitioner in team %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="officer-view/{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</a></td>
+            {% set gradeDescription = gradeDescriptions[probationPractitioner.grade] %}
+            <td class="govuk-table__cell" data-sort-value="{{ gradeDescription }}">
+            <div class="tooltip">{{ probationPractitioner.grade }}<span class="tooltiptext">{{ gradeDescription }}</span></div></td>
+            <td class="govuk-table__cell" data-sort-value="{{ probationPractitioner.available }}">{{ probationPractitioner.available }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.capacity }}">{{ probationPractitioner.capacity }}%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.allocationsInLast7.length }}">{{ probationPractitioner.allocationsInLast7.length }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.community }}">{{ probationPractitioner.totals.community }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.custody }}">{{ probationPractitioner.totals.custody }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+  </div>
+</div>
+{% endblock %}

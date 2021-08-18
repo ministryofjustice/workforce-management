@@ -1,0 +1,81 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Reductions | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="case-view" class="govuk-back-link govuk-body">Back to case overview</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Faraz Haynes <span class="workforce-grade">Probation Officer</span></h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="officer-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases">Active cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-contracted">Contracted hours</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="officer-view-reductions">Reductions</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <table class="govuk-table govuk-table-xl">
+      <caption class="govuk-table__caption govuk-table__caption--l">Delete reduction</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Type</th>
+          <th scope="col" class="govuk-table__header">Hours</th>
+          <th scope="col" class="govuk-table__header">Start date</th>
+          <th scope="col" class="govuk-table__header">End date</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Notes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Other</td>
+          <td class="govuk-table__cell">5</td>
+          <td class="govuk-table__cell">{{ data['reduction-start-day'] }}/{{ data['reduction-start-month'] }}/{{ data['reduction-start-year'] }}</td>
+          <td class="govuk-table__cell">{{ data['reduction-end-day'] }}/{{ data['reduction-end-month'] }}/{{ data['reduction-end-year'] }}</td>
+          <td class="govuk-table__cell">To compensate for workload
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="govuk-button-group">
+      <a class="govuk-button govuk-button--warning" href="officer-confirm-reduction-delete">Delete reduction</a>
+      <a class="govuk-link" href="officer-view-reductions">Cancel</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+ 
+
+
+{% endblock %}

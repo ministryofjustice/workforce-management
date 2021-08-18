@@ -1,0 +1,156 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+ Case history | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span style="float:left; width: 71px; height: 71px; padding :10px; margin-right: 10px; background-color: #1d70b8; color: white; font-size: 60px; font-weight: 800;">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"   href="case-view">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-history">Timeline</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="case-risk">Risk register</a>
+        </li>
+                 <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-allocate">Allocate to an officer</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Probation timeline</h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <div class="moj-timeline">
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">ORA Community Order</h2>
+          <p class="moj-timeline__byline">(18 months)</p>
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">Started 5 Nov 2020</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Common assault and battery - 10501</p>
+          <!--<h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-padding-top-0">Requirements</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Rehabilitation Activity Requirement (RAR) – 20 days</li>
+            <li>Court - Accredited Programme - Building Better Relationships (BBR)</li>
+            <li>Unpaid Work - Regular – 40 Hours</li>
+          </ul>-->
+        </div>
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">CJA
+          Community Order</h2>
+          <p class="moj-timeline__byline">(12 months)</p>
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">Ended on 24 Nov 2012</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Breach of a Non-Molestation Order - 06639</p>
+        </div>
+
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">CJA
+          Community Order</h2>
+          <p class="moj-timeline__byline">(12 months)</p>
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">Ended on 01 Feb 2013</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Breach of a Non-Molestation Order - 06639</p>
+        </div>
+
+      </div>
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">CJA
+          Community Order</h2>
+          <p class="moj-timeline__byline">(12 months)</p>
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">Ended on 20 March 2012</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Common assault and battery - 10501</p>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">
+      Offender Manager </h2>
+    <p class="govuk-body">Molly O'Sullivan<br><span class="secondary-text-col">Allocated on 11 Nov 2020</span></p>
+    <p>
+      Provider: CPA South Yorkshire<br>
+      LDU: Rotherham<br>
+      Team: Rotherham LMC<br>
+    </p>
+
+    <p>Team telephone: 0114 123 0000</p>
+
+        <h2 class="govuk-heading-m">
+      Previous Offender Manager </h2>
+    <p class="govuk-body">Margaret Dawson <br><span class="secondary-text-col">Allocated on 04 Feb 2012</span></p>
+
+    <h2 class="govuk-heading-m">Last pre-sentence report </h2>
+    <p class="govuk-body">Pre-Sentence Report - Oral<br><span class="secondary-text-col">Delivered 4 months ago (05 Nov 2020)
+      </span></p>
+
+    <h2 class="govuk-heading-m">Last OASys assessment </h2>
+    <p class="govuk-body">OASys Assessment Layer 3<br><span class="secondary-text-col">Completed on 13 Dec 2020</span></p>
+
+  </div>
+
+</div>
+{% endblock %}

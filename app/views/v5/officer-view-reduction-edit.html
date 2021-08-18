@@ -1,0 +1,210 @@
+{% extends "layout_workforce.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Reductions | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="case-view" class="govuk-back-link govuk-body">Back to case overview</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Faraz Haynes <span class="workforce-grade">Probation Officer</span></h1>    
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="officer-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases">Active cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-contracted">Contracted hours</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="officer-view-reductions">Reductions</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-!-padding-bottom-9">Reduction details</h1>
+    <form action="officer-confirm-reduction-edit" method="post" novalidate>
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="reduction-reasons">
+          Reason for reduction
+        </label></h1>
+        <select class="govuk-select" id="reduction-reasons" name="reduction-reasons">
+          <option value="Adoption Leave">Adoption Leave</option>
+          <option value="Court Duty">Court Duty</option>
+          <option value="Co-Worked Cases">Co-Worked Cases</option>
+          <option value="Disability">Disability</option>
+          <option value="Groups (Group Supervision)">Groups (Group Supervision)</option>
+          <option value="Groups (Induction)">Groups (Induction)</option>
+          <option value="Learning & Development">Learning & Development</option>
+          <option value="Level 4 and Level 5 Access">Level 4 and Level 5 Access</option>
+          <option value="Long Term Sickness Absence">Long Term Sickness Absence</option>
+          <option value="MARAC SPOC">MARAC SPOC</option>
+          <option value="Maternity Leave">Maternity Leave</option>
+          <option value="Mentoring-early 1">Mentoring-early 1</option>
+          <option value="Mentoring-early 2">Mentoring-early 2</option>
+          <option value="Mentoring-early 3">Mentoring-early 3</option>
+          <option value="Mentoring-mid 1">Mentoring-mid 1</option>
+          <option value="Mentoring-mid 2">Mentoring-mid 2</option>
+          <option value="Mentoring-mid 3">Mentoring-mid 3</option>
+          <option value="NQO">NQO</option>
+          <option value="OM Custody">OM Custody</option>
+          <option value="Other" selected>Other</option>
+          <option value="Other Paid Leave (e.g. Jury Service)">Other Paid Leave (e.g. Jury Service)</option>
+          <option value="Other Unpaid Leave">Other Unpaid Leave</option>
+          <option value="Phased Return to Work">Phased Return to Work</option>
+          <option value="PQiP15 0-6">PQiP15 0-6</option>
+          <option value="PQiP15 12-15">PQiP15 12-15</option>
+          <option value="PQiP15 6-12">PQiP15 6-12</option>
+          <option value="PQiP21 0-6">PQiP21 0-6</option>
+          <option value="PQiP21 18-21">PQiP21 18-21</option>
+          <option value="PQiP21 6-18">PQiP21 6-18</option>
+          <option value="Pre Sentence Reports – Court Duty / Sessional">Pre Sentence Reports – Court Duty / Sessional</option>
+          <option value="Pregnancy">Pregnancy</option>
+          <option value="PSO Learning & Development">PSO Learning & Development</option>
+          <option value="PSO PQiP 0-4mths">PSO PQiP 0-4mths</option>
+          <option value="PSO PQiP 10-13 mths">PSO PQiP 10-13 mths</option>
+          <option value="PSO PQiP 5-9 mths">PSO PQiP 5-9 mths</option>
+          <option value="Special Leave">Special Leave</option>
+          <option value="Split Role">Split Role</option>
+          <option value="SPOC lead">SPOC lead</option>
+          <option value="Trade Union Facility Time">Trade Union Facility Time</option>
+          <option value="VQ3">VQ3</option>
+          <option value="Wellbeing/Work-life balance">Wellbeing/Work-life balance</option>
+        </select>
+      </div>
+
+      <div class="govuk-form-group">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="reduction-hours">
+              Hours
+            </label></h1>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-3" id="reduction-hours" name="reduction-hours" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['reduction-hours'] | default('4.50') }}"></div>
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="reduction-start-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h3 class="govuk-fieldset__heading">
+              Reduction start date
+            </h3>
+          </legend>
+
+          <div id="reduction-start-hint" class="govuk-hint">
+            For example, 31 01 2021
+          </div>
+          <div class="govuk-date-input" id="reduction-start">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="reduction-start-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="reduction-start-day" name="reduction-start-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['reduction-start-day']| default('15')  }}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="reduction-start-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="reduction-start-month" name="reduction-start-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['reduction-start-month'] | default('01') }}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="reduction-start-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="reduction-start-year" name="reduction-start-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['reduction-start-year'] | default('2021') }}"></div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="reduction-end-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h3 class="govuk-fieldset__heading">
+              Reduction end date
+            </h3>
+          </legend>
+
+          <div id="reduction-start-hint" class="govuk-hint">
+            For example, 31 01 2025
+          </div>
+          <div class="govuk-date-input" id="reduction-end">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="reduction-end-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="reduction-end-day" name="reduction-end-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['reduction-end-day'] | default('15') }}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="reduction-end-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="reduction-end-month" name="reduction-end-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['reduction-end-month'] | default('01') }}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="reduction-end-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="reduction-end-year" name="reduction-end-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['reduction-end-year'] | default('2022') }}"></div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
+            Additional notes
+          </label>
+        </h1>
+        <!--<div id="more-detail-hint" class="govuk-hint">
+          assuming we'll need this later
+        </div>-->
+        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Save changes
+        </button>
+        <a class="govuk-link" href="officer-view-reductions">Cancel</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+
+ 
+
+
+{% endblock %}

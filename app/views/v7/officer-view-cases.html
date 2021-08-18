@@ -1,0 +1,624 @@
+{% extends "layout_workforce-nav.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Active cases | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="../../case-allocate" class="govuk-back-link govuk-body">Back to case allocation</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Southampton Team 1</span>
+     {% set gradeDescriptions = {PO: 'Probation Officer', PSO: 'Probation Service Officer', NQO: 'Newly Qualified Officer', PQiP: 'Trainee Probation Officer', SPO: 'Senior Probation Officer'} %}
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ probationPractitioner.name }} <span class="workforce-grade">{{ gradeDescriptions[probationPractitioner.grade] }}</span></h1> 
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="./">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Active cases</a>
+        </li>
+        <!--<li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Contracted hours</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="#">Reductions</a>
+        </li>-->
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Active cases</h2>
+
+
+<div class="moj-filter-layout">
+
+  <div class="moj-filter-layout__filter">
+
+    
+
+<div class="moj-filter">
+
+  <div class="moj-filter__header">
+
+    <div class="moj-filter__header-title">
+      <h2 class="govuk-heading-m">Filter</h2>
+    </div>
+
+    <div class="moj-filter__header-action">
+      
+    </div>
+
+  </div>
+
+  <div class="moj-filter__content">
+
+    
+
+      <div class="moj-filter__selected">
+
+        <div class="moj-filter__selected-heading">
+
+          <div class="moj-filter__heading-title">
+            <h2 class="govuk-heading-m">Selected filters</h2>
+          </div>
+
+          <div class="moj-filter__heading-action">
+            <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+          </div>
+
+        </div>
+
+        
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Type of case</h3>
+
+          <ul class="moj-filter-tags">
+            
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> Community</a></li>
+            
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> On licence</a></li>
+
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> Custody</a></li>
+            
+          </ul>
+        
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Tier</h3>
+
+          <ul class="moj-filter-tags">
+            
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> B1</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> B2</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> C1</a></li>
+            
+          </ul>
+        
+
+      </div>
+    
+
+    <div class="moj-filter__options">
+
+      
+
+  
+    
+  
+
+<button class="govuk-button" data-module="govuk-button">
+  Apply filters
+</button>
+
+
+      
+
+  
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--m" for="keywords">
+    Keywords
+  </label>
+
+<input class="govuk-input" id="keywords" name="keywords" type="text">
+</div>
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  
+    Type of case
+  
+  </legend>
+  
+
+  <div class="govuk-checkboxes govuk-checkboxes--small">
+    
+      
+          
+        
+        
+        
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="type">
+        Community (18)
+      </label>
+          
+        </div>
+        
+      
+    
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="type-1" name="type" type="checkbox" value="15" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="type-1">
+        On licence (11)
+      </label>
+          
+        </div>
+        
+        
+        
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="type-2">
+        Custody (3)
+      </label>
+          
+        </div>
+        
+        
+      
+    
+  </div>
+  
+
+</fieldset>
+
+
+</div>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Case features</legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-3" name="features" type="checkbox" value="3">
+        <label class="govuk-label govuk-checkboxes__label" for="features-3">Short term (under 12 months)</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-3" name="features" type="checkbox" value="3">
+        <label class="govuk-label govuk-checkboxes__label" for="features-3">On warrant</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-4" name="features" type="checkbox" value="4">
+        <label class="govuk-label govuk-checkboxes__label" for="features-4">Lifer/IPP</label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="features-5" name="features" type="checkbox" value="5">
+        <label class="govuk-label govuk-checkboxes__label" for="features-5">Recalled</label>
+      </div>  
+    </div>
+
+  </fieldset>
+</div>  
+
+
+
+
+
+
+  
+
+  
+
+  
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  
+    Tier
+  
+  </legend>
+  
+
+  <div class="govuk-checkboxes govuk-checkboxes--small">
+    
+      
+          
+        
+        
+        
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="1" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="status">
+        B1 (5)
+      </label>
+          
+        </div>
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="2" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="status-2">
+        B2 (3)
+      </label>
+          
+        </div>
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="3" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="status-3">
+        C1 (13)
+      </label>
+    </div>
+
+       <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="status-4" name="status" type="checkbox" value="4">
+          <label class="govuk-label govuk-checkboxes__label" for="status-4">
+        C2 (13)
+      </label>
+          
+        </div>
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="status-5" name="status" type="checkbox" value="5">
+          <label class="govuk-label govuk-checkboxes__label" for="status-5">
+        D1 (0)
+      </label>
+          
+        </div>
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="status-6" name="status" type="checkbox" value="6">
+          <label class="govuk-label govuk-checkboxes__label" for="status-6">
+        D2 (0)
+      </label>
+          
+        </div>
+        
+      
+    
+  </div>
+  
+
+</fieldset>
+
+
+</div>
+
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="moj-filter-layout__content">
+
+  <div class="moj-action-bar">
+    <div class="moj-action-bar__filter"></div>
+  </div>
+
+  <div class="moj-scrollable-pane">
+
+    <div class="moj-scrollable-pane__wrapper">
+
+      <table class="govuk-table govuk-table-xl">
+  
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">CRN</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="ascending">Tier</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">Type of case</th>
+    
+      <th scope="col" class="govuk-table__header" aria-sort="none">Sentence start</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Sentence end</th>
+</tr>
+  </thead>
+  
+  <tbody class="govuk-table__body">
+    
+      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">J681101</td>
+          <td class="govuk-table__cell">B2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">24 May 2019</td>
+          <td class="govuk-table__cell">12 Apr 2021</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681116</td>
+          <td class="govuk-table__cell">B2</td>
+          <td class="govuk-table__cell">Licence</td>
+          <td class="govuk-table__cell">15 May 2017</td>
+          <td class="govuk-table__cell">01 Mar 2021</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681161</td>
+          <td class="govuk-table__cell">B2</td>
+          <td class="govuk-table__cell">Licence</td>
+          <td class="govuk-table__cell">21 JUn 2020</td>
+          <td class="govuk-table__cell">21 Jun 2021</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681146</td>
+          <td class="govuk-table__cell">B2</td>
+          <td class="govuk-table__cell">Custody</td>
+          <td class="govuk-table__cell">11 Jan 2021</td>
+          <td class="govuk-table__cell">17 Feb 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681131</td>
+          <td class="govuk-table__cell">B2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">18 Apr 2020</td>
+          <td class="govuk-table__cell">18 Apr 2021</td>
+        </tr>  
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681107</td>
+          <td class="govuk-table__cell">C1</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">13 Jun 2019</td>
+          <td class="govuk-table__cell">03 Jun 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681167</td>
+          <td class="govuk-table__cell">C1</td>
+          <td class="govuk-table__cell">Custody</td>
+          <td class="govuk-table__cell">07 Aug 2020</td>
+          <td class="govuk-table__cell">17 Aug 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681122</td>
+          <td class="govuk-table__cell">C1</td>
+          <td class="govuk-table__cell">Licence</td>
+          <td class="govuk-table__cell">01 Jun 2020</td>
+          <td class="govuk-table__cell">12 Jul 2021</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681137</td>
+          <td class="govuk-table__cell">C1</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">29 Jan 2021</td>
+          <td class="govuk-table__cell">24 Sep 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681152</td>
+          <td class="govuk-table__cell">C1</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">30 Jun 2019</td>
+          <td class="govuk-table__cell">15 Jul 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681155</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">24 Apr 2020</td>
+          <td class="govuk-table__cell">15 Jul 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681164</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">17 Aug 2018</td>
+          <td class="govuk-table__cell">16 Aug 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681170</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">04 Aug 2019</td>
+          <td class="govuk-table__cell">18 Aug 2021</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681104</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">08 Mar 2018</td>
+          <td class="govuk-table__cell">31 Dec 2021</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681134</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">04 Aug 2020</td>
+          <td class="govuk-table__cell">06 Aug 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681140</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Licence</td>
+          <td class="govuk-table__cell">04 Mar 2021</td>
+          <td class="govuk-table__cell">02 Oct 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681149</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Licence</td>
+          <td class="govuk-table__cell">01 Feb 2020</td>
+          <td class="govuk-table__cell">04 Jul 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681110</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Custody</td>
+          <td class="govuk-table__cell">17 Aug 2020</td>
+          <td class="govuk-table__cell">04 Sep 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681119</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">17 Aug 2020</td>
+          <td class="govuk-table__cell">30 Nov 2026</td>
+        </tr>          
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681125</td>
+          <td class="govuk-table__cell">C2</td>
+          <td class="govuk-table__cell">Custody</td>
+          <td class="govuk-table__cell">19 Mar 2021</td>
+          <td class="govuk-table__cell">08 May 2023</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681113</td>
+          <td class="govuk-table__cell">D2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">27 Feb 2021</td>
+          <td class="govuk-table__cell">22 Jan 2023</td>
+        </tr>
+      
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681128</td>
+          <td class="govuk-table__cell">D2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">17 Nov 2020</td>
+          <td class="govuk-table__cell">04 Feb 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681143</td>
+          <td class="govuk-table__cell">D2</td>
+          <td class="govuk-table__cell">Custody</td>
+          <td class="govuk-table__cell">18 Dec 2020</td>
+          <td class="govuk-table__cell">14 Mar 2021</td>
+        </tr> 
+        <tr class="govuk-table__row">
+          
+          <td class="govuk-table__cell">J681158</td>
+          <td class="govuk-table__cell">D2</td>
+          <td class="govuk-table__cell">Community</td>
+          <td class="govuk-table__cell">07 Oct 2020</td>
+          <td class="govuk-table__cell">17 Oct 2023</td>
+        </tr>
+  </tbody>
+</table>    
+  
+
+    </div>
+
+  </div>
+</div>
+
+
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    new MOJFrontend.FilterToggleButton({
+      bigModeMediaQuery: '(min-width: 48.063em)',
+      startHidden: true,
+      toggleButton: {
+        container: $('.moj-action-bar__filter'),
+        showText: 'Show filter',
+        hideText: 'Hide filter',
+        classes: 'govuk-button--secondary'
+      },
+      closeButton: {
+        container: $('.moj-filter__header-action'),
+        text: 'Close'
+      },
+      filter: {
+        container: $('.moj-filter')
+      }
+    });
+  </script>
+
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}
