@@ -15,7 +15,7 @@ Allocation impact | Workforce planning
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <span style="float:left; width: 71px; height: 71px; padding :10px; margin-right: 10px; background-color: #1d70b8; color: white; font-size: 60px; font-weight: 800;">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ data['pop-name'] | default("Dylan Adam Armstrong") }}<span class="workforce-grade">CRN: {{ data['pop-crn'] | default("J678910") }}</span></h1>    
+    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
   </div>
 </div>
 
@@ -30,7 +30,7 @@ Allocation impact | Workforce planning
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk register</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
         </li>
                  <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-allocate">Allocate to an officer</a>
