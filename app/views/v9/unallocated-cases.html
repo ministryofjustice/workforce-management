@@ -34,7 +34,6 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Documentation</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Initial appointment</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Action</th>
@@ -53,23 +52,14 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <td class="govuk-table__cell due-date">
                 {{ moment().subtract(4, 'days').format(longDateFormat) }}
               </td>
-
-              <td class="govuk-table__cell">
-                <ul class="govuk-list govuk-body-s case-doc-checklist">
-                  <li class="yep">Court outcome</li>
-                  <li class="yep">Court order</li>
-                  <li class="yep">Pre-convictions</li>
-                  <li class="yep">Pre-sentence report</li>
-                  <li class="nope">CPS pack</li>
-                </ul>
-              </td>
              
               <td class="govuk-table__cell due-date">
                 {{ moment().add(1, 'days').format(longDateFormat) }}
-                <span class="secondary overdue">Due tomorrow</span>
+                <span class="secondary overdue">Tomorrow</span>
               </td>
               <td class="govuk-table__cell">
-                Currently managed<br>by <strong>Elin Neale</strong>
+                Currently managed<br>
+                <span class="govuk-body-s">(Elin Neale)</span>
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
@@ -89,20 +79,10 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <td class="govuk-table__cell  due-date">
                 {{ moment().subtract(3, 'days').format(longDateFormat) }}
               </td>
-
-              <td class="govuk-table__cell">
-                <ul class="govuk-list govuk-body-s case-doc-checklist">
-                  <li class="yep">Court outcome</li>
-                  <li class="yep">Court order</li>
-                  <li class="nope">Pre-convictions</li>
-                  <li class="nope">Pre-sentence report</li>
-                  <li class="nope">CPS pack</li>
-                </ul>
-              </td>
               
               <td class="govuk-table__cell due-date">
                 {{ moment().add(2, 'days').format(longDateFormat) }}
-                <span class="secondary due">Due in 2 days</span>
+                <span class="secondary due">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 New to probation
@@ -126,21 +106,12 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 {{ moment().subtract(1, 'days').format(longDateFormat) }}
               </td>
 
-              <td class="govuk-table__cell">
-                <ul class="govuk-list govuk-body-s case-doc-checklist">
-                  <li class="yep">Court outcome</li>
-                  <li class="yep">Court order</li>
-                  <li class="yep">Pre-convictions</li>
-                  <li class="yep">Pre-sentence report</li>
-                  <li class="yep">CPS pack</li>
-                </ul>
-              </td>
-
               <td class="govuk-table__cell due-date">
-                <span class="secondary overdue">No date provided</span>
+                No date provided
               </td>
               <td class="govuk-table__cell">
-                Previously managed<br>(10 Nov 2019)
+                Previously managed<br>
+                <span class="govuk-body-s">(10 Nov 2019)</span>
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">

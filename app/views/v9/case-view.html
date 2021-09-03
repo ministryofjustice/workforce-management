@@ -7,15 +7,30 @@ J678910 | Overview | Workforce planning
 
 {% block beforeContent %}
 <div class="govuk-breadcrumbs">
-  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">All regions</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">North East Region</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Gateshead and South Tyneside</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="unallocated-cases">Unallocated cases</a>
+    </li>
+  </ol>
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
+  <div class="govuk-grid-column-two-thirds">
+    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
   </div>
 </div>
 
@@ -31,10 +46,6 @@ J678910 | Overview | Workforce planning
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
-        </li>
-         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-allocate">Allocate to an officer</a>
-        </li>
       </ul>
     </nav>
   </div>
@@ -110,6 +121,14 @@ J678910 | Overview | Workforce planning
         </dd>
       </div>
     </dl>
+
+   <h3 class="govuk-heading-m">Related information</h3>
+    <ul class="govuk-list govuk-body-s case-doc-checklist">
+      <li class="yep">Court outcome</li>
+      <li class="yep">Court order</li>
+      <li class="yep">Pre-convictions</li>
+      <li class="yep">Pre-sentence report</li>
+    </ul>
 
     <h3 class="govuk-heading-m">CPS pack</h3>
     <p class="govuk-body"><span class="secondary-text-col">Uploaded on 20 Jul 2021</span><br>

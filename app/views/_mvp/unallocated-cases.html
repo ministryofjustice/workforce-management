@@ -66,10 +66,11 @@ Unallocated cases | Southampton Team 1 | Workforce planning
              
               <td class="govuk-table__cell due-date">
                 {{ moment().add(1, 'days').format(longDateFormat) }}
-                <span class="secondary overdue">Due tomorrow</span>
+                <span class="secondary overdue">Tomorrow</span>
               </td>
               <td class="govuk-table__cell">
-                Currently managed<br>by <strong>Elin Neale</strong>
+                Currently managed<br>
+                <span class="govuk-body-s">(Elin Neale)</span>
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
@@ -102,7 +103,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               
               <td class="govuk-table__cell due-date">
                 {{ moment().add(2, 'days').format(longDateFormat) }}
-                <span class="secondary due">Due in 2 days</span>
+                <span class="secondary due">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 New to probation
@@ -137,10 +138,11 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               </td>
 
               <td class="govuk-table__cell due-date">
-                <span class="secondary overdue">No date provided</span>
+                No date provided
               </td>
               <td class="govuk-table__cell">
-                Previously managed<br>(10 Nov 2019)
+                Previously managed<br>
+                <span class="govuk-body-s">(10 Nov 2019)</span>
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
