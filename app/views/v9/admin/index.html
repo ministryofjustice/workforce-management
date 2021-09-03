@@ -5,10 +5,12 @@ Unallocated cases | Southampton Team 1 | Workforce planning
 {% endblock %}
 
 {% block content %}
-
-{% block team %}
-{% include "./partials/team-title.html" %}
-{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Hampshire South West</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Southampton Team 1</h1>
+  </div>
+</div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -34,9 +36,9 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Postcode</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Documentation</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Initial appointment</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Induction date</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Action</th>
             </tr>
           </thead>
@@ -53,27 +55,29 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <td class="govuk-table__cell due-date">
                 {{ moment().subtract(4, 'days').format(longDateFormat) }}
               </td>
-
+              <td class="govuk-table__cell">
+                SE14 3PU
+              </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list govuk-body-s case-doc-checklist">
-                  <li class="yep">Court outcome</li>
-                  <li class="yep">Court order</li>
+                  <li class="nope">Court outcome</li>
+                  <li class="nope">Court order</li>
                   <li class="yep">Pre-convictions</li>
                   <li class="yep">Pre-sentence report</li>
                   <li class="nope">CPS pack</li>
                 </ul>
               </td>
-             
               <td class="govuk-table__cell due-date">
                 {{ moment().add(1, 'days').format(longDateFormat) }}
                 <span class="secondary overdue">Due tomorrow</span>
               </td>
               <td class="govuk-table__cell">
-                Currently managed<br>by <strong>Elin Neale</strong>
-              </td>
-              <td class="govuk-table__cell">
                 <ul class="govuk-list">
-                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Change initial appointment</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Check postcode</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Add missing documents</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Reject case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Send to team</a></li>
                 </ul>
               </td>
             </tr>
@@ -88,8 +92,10 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               </td>
               <td class="govuk-table__cell  due-date">
                 {{ moment().subtract(3, 'days').format(longDateFormat) }}
+              </td>                                                                                                               
+              <td class="govuk-table__cell">
+                SO14 0AL
               </td>
-
               <td class="govuk-table__cell">
                 <ul class="govuk-list govuk-body-s case-doc-checklist">
                   <li class="yep">Court outcome</li>
@@ -99,17 +105,17 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                   <li class="nope">CPS pack</li>
                 </ul>
               </td>
-              
               <td class="govuk-table__cell due-date">
                 {{ moment().add(2, 'days').format(longDateFormat) }}
                 <span class="secondary due">Due in 2 days</span>
               </td>
               <td class="govuk-table__cell">
-                New to probation
-              </td>
-              <td class="govuk-table__cell">
                 <ul class="govuk-list">
-                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Change initial appointment</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Check postcode</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Add missing documents</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Reject case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Send to team</a></li>
                 </ul>
               </td>
             </tr>
@@ -125,7 +131,9 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <td class="govuk-table__cell due-date">
                 {{ moment().subtract(1, 'days').format(longDateFormat) }}
               </td>
-
+              <td class="govuk-table__cell">
+                SO14 4FX
+              </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list govuk-body-s case-doc-checklist">
                   <li class="yep">Court outcome</li>
@@ -135,16 +143,16 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                   <li class="yep">CPS pack</li>
                 </ul>
               </td>
-
               <td class="govuk-table__cell due-date">
                 <span class="secondary overdue">No date provided</span>
               </td>
               <td class="govuk-table__cell">
-                Previously managed<br>(10 Nov 2019)
-              </td>
-              <td class="govuk-table__cell">
                 <ul class="govuk-list">
-                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Book initial appointment</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Check postcode</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Add missing documents</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Reject case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Send to team</a></li>
                 </ul>
               </td>
             </tr>
