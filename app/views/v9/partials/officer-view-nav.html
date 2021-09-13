@@ -6,7 +6,7 @@
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentPage === 1 %}aria-current="page"{% endif %} href="{{versionUrl}}/officer-view/{{id}}">Overview</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentPage === 2 %}aria-current="page"{% endif %} href="{{versionUrl}}/officer-view/{{id}}/officer-view-cases">Active cases</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentPage === 2 %}aria-current="page"{% endif %} href="{{versionUrl}}/officer-view/{{id}}/officer-view-cases">Active cases ({{ probationPractitioner.totals.total }})</a>
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" {% if currentPage === 3 %}aria-current="page"{% endif %} href="{{versionUrl}}/officer-view/{{id}}/contracted-hours">Contracted hours</a>

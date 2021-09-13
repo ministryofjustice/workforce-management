@@ -1,0 +1,38 @@
+table.data-table {
+    max-width: 1100px !important;
+}
+
+table.data-table tr th {
+    padding: 0 10px;
+    text-align: center;
+    background-color: white;
+}
+
+table.data-table tr td:first-child {
+    min-width: 90px !important;
+    padding: 5px 10px 5px 10px;
+}
+
+table.data-table tr:nth-child(odd) {
+    padding: 10px 5px;
+    min-width: 25px;
+}
+table.data-table tfoot tr {
+    background: #c7c0c0;
+}
+table.data-table tr, table.data-table th, table.data-table td {
+    border: 2px solid #000000;
+}
+
+table.data-table tr td:not(:first-child) {
+    text-align: center;
+}
+table.data-table tr td {
+    padding: 5px 10px 5px 10px;
+}
+table td.capacity-red {
+    color: #e00 !important;
+}
+table.data-table th, table.data-table td {
+    font-size: 16px;
+}
