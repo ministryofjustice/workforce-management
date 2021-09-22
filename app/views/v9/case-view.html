@@ -107,24 +107,22 @@ J678910 | Overview | Workforce planning
       </div>
     </dl>
 
-   <h3 class="govuk-heading-m">Related information</h3>
-    <ul class="govuk-list govuk-body-s case-doc-checklist">
-      <li class="yep">Court outcome</li>
-      <li class="yep">Court order</li>
-      <li class="yep">Pre-convictions</li>
-      <li class="yep">Pre-sentence report</li>
-    </ul>
 
+
+    
     <h3 class="govuk-heading-m">CPS pack</h3>
-    <p class="govuk-body"><span class="secondary-text-col">Uploaded on 20 Jul 2021</span><br>
+    <p class="govuk-body"><span class="secondary-text-col">Uploaded on {{ moment().subtract(1, 'days').format(longDateFormat) }}</span><br>
     <a href="#" class="govuk-link--no-visited-state">View pack</a></p>
 
-    <h3 class="govuk-heading-m">Last pre-sentence report</h3>
-    <p class="govuk-body">Pre-Sentence Report - Oral<br><span class="secondary-text-col">Delivered 05 Nov 2020</span><br>
+    <h3 class="govuk-heading-m">Pre-convictions</h3>
+   <span class="moj-badge moj-badge--red moj-badge--large" style="margin-bottom: 20px;">Missing</span>
+
+    <h3 class="govuk-heading-m">Pre-sentence report</h3>
+    <p class="govuk-body">Pre-Sentence Report - Oral<br><span class="secondary-text-col">Delivered {{ moment().subtract(4, 'days').format(longDateFormat) }}</span><br>
     <a href="#" class="govuk-link--no-visited-state">View report</a></p>
 
     <h3 class="govuk-heading-m">Last OASys assessment</h3>
-    <p class="govuk-body">OASys Assessment Layer 3<br><span class="secondary-text-col">Completed on 13 Dec 2020</span><br>
+    <p class="govuk-body">OASys Assessment Layer 3<br><span class="secondary-text-col">Completed on {{ moment().subtract(190, 'days').format(longDateFormat) }}</span><br>
     <a href="#" class="govuk-link--no-visited-state">View assessment</a></p>
 
     
