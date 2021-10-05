@@ -15,7 +15,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
     <nav class="moj-sub-navigation" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#"><span id="notifications">Unallocated cases ({{ data['unallocated-number'] | default("3") }})</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="unallocated-cases-complete"><span id="notifications">Unallocated cases ({{ data['unallocated-number'] | default("3") }})</a>
         </li>
       </ul>
     </nav>
@@ -41,32 +41,6 @@ Unallocated cases | Southampton Team 1 | Workforce planning
           </thead>
 
           <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <strong>Dylan Adam Armstrong</strong>
-                <span class="govuk-body-s" style="display: block;">J678910</span>
-              </td>
-              <td class="govuk-table__cell">
-                C1
-              </td>
-              <td class="govuk-table__cell due-date">
-                {{ moment().subtract(4, 'days').format(longDateFormat) }}
-              </td>
-             
-              <td class="govuk-table__cell due-date">
-                {{ moment().add(1, 'days').format(longDateFormat) }}
-                <span class="secondary overdue">Tomorrow</span>
-              </td>
-              <td class="govuk-table__cell">
-                Currently managed<br>
-                <span class="govuk-body-s">(Faraz Haynes)</span>
-              </td>
-              <td class="govuk-table__cell">
-                <ul class="govuk-list">
-                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
-                </ul>
-              </td>
-            </tr>
 
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
