@@ -24,7 +24,7 @@
 
 {% set currentPage = 1 %}
 {% block subNav %}
-{% include "./partials/officer-view-nav.html" %}
+{% include "./partials/officer-view-nav-mvp.html" %}
 {% endblock %}
 
 <div class="govuk-grid-row">
@@ -104,11 +104,6 @@
             <dd class="govuk-summary-list__value">
               {{ probationPractitioner.contractedHours }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="{{versionUrl}}/officer-view/{{id}}/contracted-hours">
-                Edit<span class="govuk-visually-hidden"> contracted hours</span>
-              </a>
-            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -116,11 +111,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ probationPractitioner.totalReductions }} hours until {{ probationPractitioner.nextChange.format('Do MMM YY') }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state"  href="{{versionUrl}}/officer-view/{{id}}/reductions">
-                Edit<span class="govuk-visually-hidden"> reductions</span>
-              </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -190,21 +180,7 @@
       {% endif %}
     {% endfor %}
     </ul>
-<!--
-     <h3 class="govuk-heading-m">Specialist areas</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      {% for specialistArea in probationPractitioner.specialistAreas %}
-        <li>{{ specialistArea }}</li>
-      {% endfor %}
-    </ul>
 
-     <h3 class="govuk-heading-m">Completed training</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      {% for completedTrainingItem in probationPractitioner.completedTraining %}
-        <li>{{ completedTrainingItem }}</li>
-      {% endfor %}
-    </ul>
--->
   </div>
 </div>
 

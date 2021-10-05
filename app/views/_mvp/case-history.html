@@ -6,16 +6,17 @@ J678910 | Overview | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<div class="govuk-breadcrumbs">
-  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
-</div>
+<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
 
     <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
   </div>
 </div>
 
@@ -31,9 +32,6 @@ J678910 | Overview | Workforce planning
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state"  href="case-risk">Risk</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-allocate">Allocate to an officer</a>
         </li>
       </ul>
     </nav>
@@ -65,7 +63,7 @@ J678910 | Overview | Workforce planning
           <td class="govuk-table__cell">Common assault and battery - 10501</td>
           <td class="govuk-table__cell">5 Nov 2020</td>
           <td class="govuk-table__cell">
-            <p class="govuk-body"><strong>Molly O'Sullivan</strong><br><span class="secondary-text-col">Allocated on 11 Nov 2020</span></p>
+            <p class="govuk-body">Faraz Haynes<br><span class="secondary-text-col">Allocated on 11 Nov 2020</span></p>
           </td>
         </tr>
       </tbody>
@@ -88,7 +86,7 @@ J678910 | Overview | Workforce planning
           <td class="govuk-table__cell">Breach of a Non-Molestation Order - 06639</td>
           <td class="govuk-table__cell">24 Feb 2021</td>
           <td class="govuk-table__cell">
-            <p class="govuk-body"><strong>Margaret Dawson</strong><br><span class="secondary-text-col">Allocated on 28 Feb 2020</span></p>
+            <p class="govuk-body">Margaret Dawson<br><span class="secondary-text-col">Allocated on 28 Feb 2020</span></p>
           </td>
         </tr>
 

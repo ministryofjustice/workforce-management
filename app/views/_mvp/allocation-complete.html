@@ -5,6 +5,10 @@
 Allocation complete | Workforce planning
 {% endblock %}
 
+{% block beforeContent %}
+<a href="unallocated-cases-complete" class="govuk-back-link">Back to unallocated cases</a>
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -31,7 +35,7 @@ Allocation complete | Workforce planning
           </ul>
         </p>
 
-        <p><a class="govuk-link--no-visited-state" href="unallocated-cases">View unallocated cases</a></p>
+        <p><a class="govuk-link--no-visited-state" href="unallocated-cases-complete">View unallocated cases</a></p>
   </div>
 </div>
 {% endblock %}

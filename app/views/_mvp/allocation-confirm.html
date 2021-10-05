@@ -6,9 +6,7 @@ Allocation impact | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<div class="govuk-breadcrumbs">
-  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
-</div>
+<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
 {% endblock %}
 
 {% block content %}
@@ -30,10 +28,7 @@ Allocation impact | Workforce planning
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk register</a>
-        </li>
-                 <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-allocate">Allocate to an officer</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
         </li>
       </ul>
     </nav>
@@ -51,10 +46,14 @@ Allocation impact | Workforce planning
         Allocating this case will change the capacity score of {{ data['allocated-officer'] | default("Molly O\'Sullivan") }} from 90% to 98%.
       </strong>
     </div>
+
+    <form action="allocation-complete" method="post" novalidate>
       <div class="govuk-button-group">
-      <a class="govuk-button" href="allocation-reasons">Continue</a>
-      <a class="govuk-link" href="case-allocate">Cancel</a>
-    </div>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <a class="govuk-link" href="case-allocate">Cancel</a>
+      </div>
+      <input type="hidden" name="unallocated-number" value="2">
+    </form>
   </div>
 </div>
 {% endblock %}
