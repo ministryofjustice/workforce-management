@@ -1,0 +1,120 @@
+{% extends "layout_workforce-nav.html" %}
+
+{% block pageTitle %}
+Southampton Team 1 | Overview | Workforce planning
+{% endblock %}
+
+{% block content %}
+
+{% block team %}
+{% include "./partials/team-title.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Overview</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Capacity</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">NPS Caseload</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">CRC Caseload</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Case Progress</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Dashboard</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Caseload totals</h2>
+    <p class="govuk-body-s secondary-text-col">Last updated: Today at 9:00am</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total-subset">
+          <span class="card__heading">{{ teamTotals.total }}</span>
+          <p class="govuk-!-margin-bottom-5">total cases</p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total">
+          <span class="card__heading" style="color: #1d70b8;">{{ teamTotals.community + teamTotals.licence }}</span>
+          <p>community cases</p>
+          <p>(<strong>{{ teamTotals.licence }}</strong> on licence)</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <div class="card card-total">
+          <span class="card__heading" style="color: #1d70b8;">{{ teamTotals.custody }}</span>
+          <p class="govuk-!-margin-bottom-5">custody cases</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l">Current workload</h2>
+
+    <div class="moj-scrollable-pane">
+      <div class="moj-scrollable-pane__wrapper">
+        <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" aria-sort="Ascending">Name</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="Ascending">Capacity</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% set gradeDescriptions = {PO: 'Probation Officer', PSO: 'Probation Service Officer', NQO: 'Newly Qualified Officer', PQiP: 'Trainee Probation Officer', SPO: 'Senior Probation Officer'} %}
+            {% for probationPractitioner in team %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="officer-view/{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</a></td>
+                {% set gradeDescription = gradeDescriptions[probationPractitioner.grade] %}
+                <td class="govuk-table__cell" data-sort-value="{{ gradeDescription }}">
+                <div class="tooltip">{{ probationPractitioner.grade }}<span class="tooltiptext govuk-body-s">{{ gradeDescription }}</span></div></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric{% if probationPractitioner.capacity > 99 %} percentage-extra-over{% endif %}" data-sort-value="{{ probationPractitioner.capacity }}">{{ probationPractitioner.capacity }}%</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.allocationsInLast7.length }}">{{ probationPractitioner.allocationsInLast7.length }}</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.community }}">{{ probationPractitioner.totals.community + probationPractitioner.totals.licence }}</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.custody }}">{{ probationPractitioner.totals.custody }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}
