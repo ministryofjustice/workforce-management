@@ -10,6 +10,18 @@ J678910 | Allocate | Workforce planning
 {% endblock %}
 
 {% block content %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#allocation-error">You have not selected an officer for this case</a>
+      </li>
+    </ul>
+  </div>
+</div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
@@ -42,18 +54,23 @@ J678910 | Allocate | Workforce planning
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+     <form action="allocation-complete" method="post" novalidate >
+      <div class="govuk-form-group govuk-form-group--error">
       <h2 id="cleared" class="govuk-heading-l">Allocate to an officer</h2>
+      <span id="allocation-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Select an officer to be assigned
+    </span>
 
   <div class="moj-scrollable-pane">
 
     <div class="moj-scrollable-pane__wrapper">
     <!--<form action="/allocate-handler" method="post" novalidate>-->
-    <form action="allocation-complete" method="post" novalidate>
+
             <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="padding-left: 55px;">Name</th>
           <th scope="col" class="govuk-table__header"></th>
-          <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="Ascending">Capacity</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
@@ -70,11 +87,11 @@ J678910 | Allocate | Workforce planning
               <div class="govuk-radios govuk-radios--small">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="allocate-officer-{{ probationPractitioner.OM_Key }}" name="allocated-officer" type="radio" value="{{ probationPractitioner.name }}">
-                  <label class="govuk-label govuk-radios__label" for="allocate-officer-{{ probationPractitioner.OM_Key }}"></label>
+                  <label class="govuk-label govuk-radios__label" style="margin-left: 20px; margin-top: -10px;" for="allocate-officer-{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</label>
                 </div>
               </div>
             </td>
-            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="officer-view/{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</a></td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="officer-view/{{ probationPractitioner.OM_Key }}">View officer</a></td>
             {% set gradeDescription = gradeDescriptions[probationPractitioner.grade] %}
             <td class="govuk-table__cell" data-sort-value="{{ gradeDescription }}">
             <div class="tooltip">{{ probationPractitioner.grade }}<span class="tooltiptext">{{ gradeDescription }}</span></div></td>
@@ -91,6 +108,7 @@ J678910 | Allocate | Workforce planning
       <button class="govuk-button" data-module="govuk-button" style="float: left; margin-right: 30px;">
         Select officer
       </button>
+    </div>
     </form>
   
    
@@ -100,11 +118,7 @@ J678910 | Allocate | Workforce planning
 
   </div>
 
-    <form action="case-allocate#cleared" method="post" novalidate>
-      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        Clear selection
-      </button>
-    </form>    
+   
   </div>
 </div>
 {% endblock %}

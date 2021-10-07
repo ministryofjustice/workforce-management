@@ -1,28 +1,62 @@
 {
   "probationPractitionerTemplates": [
     {
-      "OM_Surname": "Haynes",
-      "OM_Forename": "Faraz",
-      "contractedHours": 12,
+      "OM_Surname": "Villanueva",
+      "OM_Forename": "Esha",
+      "contractedHours": 29.6,
       "reductions": [
-        { "hours":"0.7", "reason":"SPOC lead", "start":"2020-12-01T00:00:00.000Z", "end":"2021-12-01T00:00:00.000Z", "status": "ACTIVE", "notes": "FNO Lead for the Sussex LDU" }
+        { "hours":"2.8", "reason":"Mentoring-early 3", "start":"2020-07-06T01:00:00.000Z", "end":"2021-01-06T00:00:00.000Z", "status": "ARCHIVED", "notes": "Buddy, PQiP starting 21-month programme on 06/07/20" },
+        { "hours":"0.5", "reason":"SPOC lead", "start":"2018-08-01T01:00:00.000Z", "end":"2019-01-25T00:00:00.000Z", "status": "ARCHIVED", "notes": "Well-being and engagement SPOC and SPOC for secure units; this involves being first port of call for our local, secure unit and fielding queries for cases across the LDU." },
+        { "hours":"1", "reason":"Other", "start":"2018-08-01T01:00:00.000Z", "end":"2018-10-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "MARAC Co-ordinator" },
+        { "hours":"4", "reason":"Other", "start":"2017-10-23T18:46:00.000Z", "end":"2018-01-12T22:40:00.000Z", "status": "ARCHIVED", "notes": "mentoring new PSOs october.November" },
+        { "hours":"30", "reason":"Maternity Leave", "start":"2019-01-28T00:00:00.000Z", "end":"2019-07-28T01:00:00.000Z", "status": "ARCHIVED", "notes": "Maternity Leave" },
+        { "hours":"1", "reason":"SPOC lead", "start":"2020-01-24T00:00:00.000Z", "end":"2021-01-24T00:00:00.000Z", "status": "ARCHIVED", "notes": "MARAC lead 4 hours a month." },
+        { "hours":"0.4", "reason":"SPOC lead", "start":"2021-01-01T00:00:00.000Z", "end":"2021-07-01T01:00:00.000Z", "status": "ACTIVE", "notes": "I&amp;IG staff member involved in developing system processes and practice improvements for the team/LDU." },
+        { "hours":"0.3", "reason":"Pregnancy", "start":"2018-10-11T01:00:00.000Z", "end":"2019-01-25T00:00:00.000Z", "status": "ARCHIVED", "notes": "Approaching third trimester of pregnancy" }
       ],
-      "serviceUsers": [
-        { "allocationDate": "2020-11-17", "tier": "B1", "sausage": "egg" }, 
-        { "allocationDate": "2020-11-15", "tier": "C2" },
-        { "sentenceEnd": "2020/12/04", "tier": "B1" },
-        { "caseEndDate": "2020/12/10", "tier": "B1" },
-        { "paroleReportDueDate": "2020/11/30", "tier": "B1" }
-      ],
-      "OM_Key": "N57A300",
+      "serviceUsers": [],
+      "OM_Key": "N57A309",
       "OM_Grade_Code": "NPSM",
-      "lastAllocated": "2020-11-18T00:00:00.000Z",
+      "lastAllocated": "2020-08-12T23:00:00.000Z",
       "specialistAreas":["Integrated Offender Management (IOM)", "Serious Group Offending (SGO)"],
       "completedTraining":["ARMS", "Domestic violence", "SARA", "Sex Offender"],
-      "CustTierB1": 10,
+      "CommTierB1": 2,
+      "CommTierB2": 4,
+      "CommTierD2": 1,
+      "CustTierA": 1,
+      "CustTierB1": 6,
       "CustTierB2": 3,
-      "CustTierC2": 1,
-      "CustTierD2": 1
+      "LicenceTierB1": 5,
+      "LicenceTierB2": 3
+    },
+    {
+      "OM_Surname": "Reader",
+      "OM_Forename": "Maisy",
+      "contractedHours": 29.6,
+      "reductions": [
+        { "hours":"22.2", "reason":"PQiP - 6 to 12 months", "start":"2018-07-03T01:00:00.000Z", "end":"2019-01-03T00:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"4.5", "reason":"Co-Worked Cases", "start":"2018-08-20T01:00:00.000Z", "end":"2018-09-30T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"3.5", "reason":"Pregnancy", "start":"2019-07-01T01:00:00.000Z", "end":"2019-08-09T01:00:00.000Z", "status": "ARCHIVED", "notes": "Mat leave begins on 09.08.19" },
+        { "hours":"7.4", "reason":"NQO", "start":"2020-08-03T01:00:00.000Z", "end":"2021-05-03T01:00:00.000Z", "status": "ACTIVE", "notes": "" },
+        { "hours":"14.8", "reason":"PQiP21 18-21", "start":"2019-08-01T01:00:00.000Z", "end":"2019-11-01T00:00:00.000Z", "status": "ARCHIVED", "notes": "Maternity leave starts 09.08.2019" },
+        { "hours":"14.8", "reason":"PQiP15 12-15", "start":"2019-05-01T01:00:00.000Z", "end":"2019-08-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"22.2", "reason":"PQiP - 6 to 12 months", "start":"2019-02-01T00:00:00.000Z", "end":"2019-08-01T01:00:00.000Z", "status": "DELETED", "notes": "" },
+        { "hours":"30", "reason":"PQiP - 1st 6 months", "start":"2017-11-20T00:00:00.000Z", "end":"2018-05-20T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"14.8", "reason":"PQiP - 12 to 18 months", "start":"2018-03-01T00:00:00.000Z", "end":"2018-09-01T01:00:00.000Z", "status": "DELETED", "notes": "" }
+      ],
+      "serviceUsers": [],
+      "OM_Key": "N57A311",
+      "OM_Grade_Code": "NPSN",
+      "lastAllocated": "2020-10-21T23:00:00.000Z",
+      "specialistAreas":["Integrated Offender Management (IOM)", "Serious Group Offending (SGO)", "Substance dependency"],
+      "completedTraining":["ARMS", "Alcohol Treatment Requirement (ATR)","Drug Rehabilitation Requirement (DRR)", "Domestic violence", "SARA", "Sex Offender"],
+      "CommTierC1": 1,
+      "CustTierB1": 6,
+      "CustTierB2": 5,
+      "CustTierC2": 2,
+      "LicenceTierB1": 1,
+      "LicenceTierB2": 2,
+      "LicenceTierC1": 10
     },
     {
       "OM_Surname": "Dawson",
@@ -57,25 +91,79 @@
       "LicenceTierC1": 1
     },
     {
-      "OM_Surname": "Crawford",
-      "OM_Forename": "Aman",
+      "OM_Surname": "Daniels",
+      "OM_Forename": "Donald",
       "contractedHours": 37,
       "reductions": [
-        { "hours":"29.6", "reason":"PQiP21 0-6", "start":"2020-07-06T01:00:00.000Z", "end":"2021-01-06T00:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"22.2", "reason":"PQiP21 6-18", "start":"2021-01-07T00:00:00.000Z", "end":"2022-01-07T00:00:00.000Z", "status": "ACTIVE", "notes": "" },
-        { "hours":"14.8", "reason":"PQiP21 18-21", "start":"2022-01-08T00:00:00.000Z", "end":"2022-04-08T01:00:00.000Z", "status": "SCHEDULED", "notes": "" }
+        { "hours":"22.2", "reason":"PQiP21 6-18", "start":"2020-07-13T01:00:00.000Z", "end":"2021-07-13T01:00:00.000Z", "status": "ACTIVE", "notes": "" },
+        { "hours":"7.4", "reason":"PSO Learning & Development", "start":"2020-01-13T00:00:00.000Z", "end":"2020-07-13T01:00:00.000Z", "status": "DELETED", "notes": "" },
+        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2020-01-13T00:00:00.000Z", "end":"2020-07-13T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"14.8", "reason":"PQiP21 18-21", "start":"2021-07-14T01:00:00.000Z", "end":"2021-10-14T01:00:00.000Z", "status": "SCHEDULED", "notes": "TPO qualifies in October." },
+        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2019-10-07T01:00:00.000Z", "end":"2020-04-07T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2020-01-01T00:00:00.000Z", "end":"2020-07-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"14.8", "reason":"PQiP15 12-15", "start":"2021-01-02T00:00:00.000Z", "end":"2021-04-02T01:00:00.000Z", "status": "ACTIVE", "notes": "Qualifies in March - base location not yet confirmed." }
       ],
       "serviceUsers": [],
-      "OM_Key": "N57A301",
+      "OM_Key": "N57A304",
       "OM_Grade_Code": "NPSP",
-      "lastAllocated": "2020-11-01T00:00:00.000Z",
-            "specialistAreas":["Integrated Offender Management (IOM)"],
-      "completedTraining":["ARMS"],
-      "CommTierC1": 1,
+      "lastAllocated": "2020-11-17T00:00:00.000Z",
+      "specialistAreas":[],
+      "completedTraining":["Domestic violence"],
+      "CustTierD2": 5
+    },
+    {
+      "OM_Surname": "O'Sullivan",
+      "OM_Forename": "Molly",
+      "contractedHours": 27,
+      "reductions": [
+        { "hours":"3.7", "reason":"Mentoring-early 2", "start":"2020-06-29T01:00:00.000Z", "end":"2020-12-29T00:00:00.000Z", "status": "ARCHIVED", "notes": "Mentoring" },
+        { "hours":"1", "reason":"SPOC lead", "start":"2018-08-01T01:00:00.000Z", "end":"2019-08-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "MARAC attendance once a month - 4 hours" },
+        { "hours":"0.5", "reason":"SPOC lead", "start":"2018-06-01T01:00:00.000Z", "end":"2019-06-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "Women's SPOC " },
+        { "hours":"14.8", "reason":"Split Role", "start":"2019-10-22T01:00:00.000Z", "end":"2019-10-23T01:00:00.000Z", "status": "ARCHIVED", "notes": "Delivering POWER training 16 &amp; 17 Sept - 2 full days." },
+        { "hours":"1", "reason":"SPOC lead", "start":"2019-08-02T01:00:00.000Z", "end":"2020-08-01T01:00:00.000Z", "status": "DELETED", "notes": "MARAC lead 4 hours per month" },
+        { "hours":"1.8", "reason":"SPOC lead", "start":"2019-07-29T01:00:00.000Z", "end":"2020-07-28T01:00:00.000Z", "status": "ARCHIVED", "notes": "SOPC Lead for Women, which involves attending and co-chair women's forum bi-monthly, divisional monthly return re. OM cases and women strategy stream meetings as well as updating team re. women's offending pathways and train the trainer, POWER, events. " },
+        { "hours":"14.8", "reason":"Other", "start":"2019-09-16T01:00:00.000Z", "end":"2019-09-17T01:00:00.000Z", "status": "ARCHIVED", "notes": "Delivering POWER training 16 &amp; 17 Sept - 2 full days." },
+        { "hours":"14.8", "reason":"Other", "start":"2019-10-22T01:00:00.000Z", "end":"2019-10-23T01:00:00.000Z", "status": "DELETED", "notes": "Delivering POWER training 16 &amp; 17 Sept - 2 full days." },
+        { "hours":"1.9", "reason":"Mentoring-mid 1", "start":"2019-10-03T01:00:00.000Z", "end":"2020-04-03T01:00:00.000Z", "status": "ARCHIVED", "notes": "Mentor to PQuiP" },
+        { "hours":"2.7", "reason":"Mentoring-mid 2", "start":"2021-01-13T00:00:00.000Z", "end":"2021-07-13T01:00:00.000Z", "status": "ACTIVE", "notes": "Mentor" }
+      ],
+      "serviceUsers": [],
+      "OM_Key": "N57A307",
+      "OM_Grade_Code": "NPSN",
+      "lastAllocated": "2020-11-04T00:00:00.000Z",
+      "specialistAreas":["Integrated Offender Management (IOM)"],
+      "completedTraining":["Domestic violence", "SARA"],
+      "CommTierB1": 4,
       "CommTierC2": 1,
-      "CustTierC1": 1,
+      "CustTierB1": 5,
+      "CustTierB2": 6,
       "CustTierC2": 1,
-      "LicenceTierC2": 3
+      "LicenceTierB1": 1,
+      "LicenceTierB2": 2
+    },
+    {
+      "OM_Surname": "Haynes",
+      "OM_Forename": "Faraz",
+      "contractedHours": 12,
+      "reductions": [
+        { "hours":"0.7", "reason":"SPOC lead", "start":"2020-12-01T00:00:00.000Z", "end":"2021-12-01T00:00:00.000Z", "status": "ACTIVE", "notes": "FNO Lead for the Sussex LDU" }
+      ],
+      "serviceUsers": [
+        { "allocationDate": "2020-11-17", "tier": "B1", "sausage": "egg" }, 
+        { "allocationDate": "2020-11-15", "tier": "C2" },
+        { "sentenceEnd": "2020/12/04", "tier": "B1" },
+        { "caseEndDate": "2020/12/10", "tier": "B1" },
+        { "paroleReportDueDate": "2020/11/30", "tier": "B1" }
+      ],
+      "OM_Key": "N57A300",
+      "OM_Grade_Code": "NPSM",
+      "lastAllocated": "2020-11-18T00:00:00.000Z",
+      "specialistAreas":["Integrated Offender Management (IOM)", "Serious Group Offending (SGO)"],
+      "completedTraining":["ARMS", "Domestic violence", "SARA", "Sex Offender"],
+      "CustTierB1": 10,
+      "CustTierB2": 3,
+      "CustTierC2": 1,
+      "CustTierD2": 1
     },
     {
       "OM_Surname": "Neale",
@@ -118,27 +206,6 @@
       "LicenceTierD2": 2
     },
     {
-      "OM_Surname": "Daniels",
-      "OM_Forename": "Donald",
-      "contractedHours": 37,
-      "reductions": [
-        { "hours":"22.2", "reason":"PQiP21 6-18", "start":"2020-07-13T01:00:00.000Z", "end":"2021-07-13T01:00:00.000Z", "status": "ACTIVE", "notes": "" },
-        { "hours":"7.4", "reason":"PSO Learning & Development", "start":"2020-01-13T00:00:00.000Z", "end":"2020-07-13T01:00:00.000Z", "status": "DELETED", "notes": "" },
-        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2020-01-13T00:00:00.000Z", "end":"2020-07-13T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"14.8", "reason":"PQiP21 18-21", "start":"2021-07-14T01:00:00.000Z", "end":"2021-10-14T01:00:00.000Z", "status": "SCHEDULED", "notes": "TPO qualifies in October." },
-        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2019-10-07T01:00:00.000Z", "end":"2020-04-07T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2020-01-01T00:00:00.000Z", "end":"2020-07-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"14.8", "reason":"PQiP15 12-15", "start":"2021-01-02T00:00:00.000Z", "end":"2021-04-02T01:00:00.000Z", "status": "ACTIVE", "notes": "Qualifies in March - base location not yet confirmed." }
-      ],
-      "serviceUsers": [],
-      "OM_Key": "N57A304",
-      "OM_Grade_Code": "NPSP",
-      "lastAllocated": "2020-11-17T00:00:00.000Z",
-      "specialistAreas":[],
-      "completedTraining":["Domestic violence"],
-      "CustTierD2": 5
-    },
-    {
       "OM_Surname": "Kaye",
       "OM_Forename": "Teigan",
       "contractedHours": 37,
@@ -157,100 +224,6 @@
       "CustTierC2": 4,
       "CustTierD2": 6,
       "LicenceTierD2": 7
-    },
-    {
-      "OM_Surname": "Paine",
-      "OM_Forename": "Alan",
-      "contractedHours": 37,
-      "reductions": [
-        { "hours":"22.2", "reason":"PQiP15 6-12", "start":"2020-07-01T01:00:00.000Z", "end":"2021-01-01T00:00:00.000Z", "status": "ARCHIVED", "notes": "" }
-      ],
-      "serviceUsers": [],
-      "OM_Key": "N57A306",
-      "OM_Grade_Code": "NPSP",
-      "lastAllocated": "2020-10-23T23:00:00.000Z",
-      "specialistAreas":["Integrated Offender Management (IOM)", "Serious Group Offending (SGO)"],
-      "completedTraining":["ARMS", "Domestic violence", "SARA", "Sex Offender"],
-      "CommTierC1": 4,
-      "CustTierC1": 3,
-      "LicenceTierC2": 1
-    },
-    {
-      "OM_Surname": "O'Sullivan",
-      "OM_Forename": "Molly",
-      "contractedHours": 27,
-      "reductions": [
-        { "hours":"3.7", "reason":"Mentoring-early 2", "start":"2020-06-29T01:00:00.000Z", "end":"2020-12-29T00:00:00.000Z", "status": "ARCHIVED", "notes": "Mentoring" },
-        { "hours":"1", "reason":"SPOC lead", "start":"2018-08-01T01:00:00.000Z", "end":"2019-08-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "MARAC attendance once a month - 4 hours" },
-        { "hours":"0.5", "reason":"SPOC lead", "start":"2018-06-01T01:00:00.000Z", "end":"2019-06-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "Women's SPOC " },
-        { "hours":"14.8", "reason":"Split Role", "start":"2019-10-22T01:00:00.000Z", "end":"2019-10-23T01:00:00.000Z", "status": "ARCHIVED", "notes": "Delivering POWER training 16 &amp; 17 Sept - 2 full days." },
-        { "hours":"1", "reason":"SPOC lead", "start":"2019-08-02T01:00:00.000Z", "end":"2020-08-01T01:00:00.000Z", "status": "DELETED", "notes": "MARAC lead 4 hours per month" },
-        { "hours":"1.8", "reason":"SPOC lead", "start":"2019-07-29T01:00:00.000Z", "end":"2020-07-28T01:00:00.000Z", "status": "ARCHIVED", "notes": "SOPC Lead for Women, which involves attending and co-chair women's forum bi-monthly, divisional monthly return re. OM cases and women strategy stream meetings as well as updating team re. women's offending pathways and train the trainer, POWER, events. " },
-        { "hours":"14.8", "reason":"Other", "start":"2019-09-16T01:00:00.000Z", "end":"2019-09-17T01:00:00.000Z", "status": "ARCHIVED", "notes": "Delivering POWER training 16 &amp; 17 Sept - 2 full days." },
-        { "hours":"14.8", "reason":"Other", "start":"2019-10-22T01:00:00.000Z", "end":"2019-10-23T01:00:00.000Z", "status": "DELETED", "notes": "Delivering POWER training 16 &amp; 17 Sept - 2 full days." },
-        { "hours":"1.9", "reason":"Mentoring-mid 1", "start":"2019-10-03T01:00:00.000Z", "end":"2020-04-03T01:00:00.000Z", "status": "ARCHIVED", "notes": "Mentor to PQuiP" },
-        { "hours":"2.7", "reason":"Mentoring-mid 2", "start":"2021-01-13T00:00:00.000Z", "end":"2021-07-13T01:00:00.000Z", "status": "ACTIVE", "notes": "Mentor" }
-      ],
-      "serviceUsers": [],
-      "OM_Key": "N57A307",
-      "OM_Grade_Code": "NPSN",
-      "lastAllocated": "2020-11-04T00:00:00.000Z",
-      "specialistAreas":["Integrated Offender Management (IOM)"],
-      "completedTraining":["Domestic violence", "SARA"],
-      "CommTierB1": 4,
-      "CommTierC2": 1,
-      "CustTierB1": 5,
-      "CustTierB2": 6,
-      "CustTierC2": 1,
-      "LicenceTierB1": 1,
-      "LicenceTierB2": 2
-    },
-    {
-      "OM_Surname": "Rivas",
-      "OM_Forename": "Hamid",
-      "contractedHours": 37,
-      "reductions": [
-        { "hours":"7.4", "reason":"PSO Learning & Development", "start":"2020-07-01T01:00:00.000Z", "end":"2021-01-01T00:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2021-01-11T00:00:00.000Z", "end":"2021-07-11T01:00:00.000Z", "status": "ACTIVE", "notes": "PQuip Training starting," }
-      ],
-      "serviceUsers": [],
-      "OM_Key": "N57A308",
-      "OM_Grade_Code": "NPSP",
-      "lastAllocated": "2020-09-27T23:00:00.000Z",
-      "specialistAreas":["Serious Group Offending (SGO)"],
-      "completedTraining":["Sex Offender"],
-      "CommTierC1": 2,
-      "CustTierC2": 2,
-      "LicenceTierC2": 1
-    },
-    {
-      "OM_Surname": "Villanueva",
-      "OM_Forename": "Esha",
-      "contractedHours": 29.6,
-      "reductions": [
-        { "hours":"2.8", "reason":"Mentoring-early 3", "start":"2020-07-06T01:00:00.000Z", "end":"2021-01-06T00:00:00.000Z", "status": "ARCHIVED", "notes": "Buddy, PQiP starting 21-month programme on 06/07/20" },
-        { "hours":"0.5", "reason":"SPOC lead", "start":"2018-08-01T01:00:00.000Z", "end":"2019-01-25T00:00:00.000Z", "status": "ARCHIVED", "notes": "Well-being and engagement SPOC and SPOC for secure units; this involves being first port of call for our local, secure unit and fielding queries for cases across the LDU." },
-        { "hours":"1", "reason":"Other", "start":"2018-08-01T01:00:00.000Z", "end":"2018-10-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "MARAC Co-ordinator" },
-        { "hours":"4", "reason":"Other", "start":"2017-10-23T18:46:00.000Z", "end":"2018-01-12T22:40:00.000Z", "status": "ARCHIVED", "notes": "mentoring new PSOs october.November" },
-        { "hours":"30", "reason":"Maternity Leave", "start":"2019-01-28T00:00:00.000Z", "end":"2019-07-28T01:00:00.000Z", "status": "ARCHIVED", "notes": "Maternity Leave" },
-        { "hours":"1", "reason":"SPOC lead", "start":"2020-01-24T00:00:00.000Z", "end":"2021-01-24T00:00:00.000Z", "status": "ARCHIVED", "notes": "MARAC lead 4 hours a month." },
-        { "hours":"0.4", "reason":"SPOC lead", "start":"2021-01-01T00:00:00.000Z", "end":"2021-07-01T01:00:00.000Z", "status": "ACTIVE", "notes": "I&amp;IG staff member involved in developing system processes and practice improvements for the team/LDU." },
-        { "hours":"0.3", "reason":"Pregnancy", "start":"2018-10-11T01:00:00.000Z", "end":"2019-01-25T00:00:00.000Z", "status": "ARCHIVED", "notes": "Approaching third trimester of pregnancy" }
-      ],
-      "serviceUsers": [],
-      "OM_Key": "N57A309",
-      "OM_Grade_Code": "NPSM",
-      "lastAllocated": "2020-08-12T23:00:00.000Z",
-      "specialistAreas":["Integrated Offender Management (IOM)", "Serious Group Offending (SGO)"],
-      "completedTraining":["ARMS", "Domestic violence", "SARA", "Sex Offender"],
-      "CommTierB1": 2,
-      "CommTierB2": 4,
-      "CommTierD2": 1,
-      "CustTierA": 1,
-      "CustTierB1": 6,
-      "CustTierB2": 3,
-      "LicenceTierB1": 5,
-      "LicenceTierB2": 3
     },
     {
       "OM_Surname": "Macdonald",
@@ -278,33 +251,60 @@
       "LicenceTierD2": 4
     },
     {
-      "OM_Surname": "Reader",
-      "OM_Forename": "Maisy",
-      "contractedHours": 29.6,
+      "OM_Surname": "Rivas",
+      "OM_Forename": "Hamid",
+      "contractedHours": 37,
       "reductions": [
-        { "hours":"22.2", "reason":"PQiP - 6 to 12 months", "start":"2018-07-03T01:00:00.000Z", "end":"2019-01-03T00:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"4.5", "reason":"Co-Worked Cases", "start":"2018-08-20T01:00:00.000Z", "end":"2018-09-30T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"3.5", "reason":"Pregnancy", "start":"2019-07-01T01:00:00.000Z", "end":"2019-08-09T01:00:00.000Z", "status": "ARCHIVED", "notes": "Mat leave begins on 09.08.19" },
-        { "hours":"7.4", "reason":"NQO", "start":"2020-08-03T01:00:00.000Z", "end":"2021-05-03T01:00:00.000Z", "status": "ACTIVE", "notes": "" },
-        { "hours":"14.8", "reason":"PQiP21 18-21", "start":"2019-08-01T01:00:00.000Z", "end":"2019-11-01T00:00:00.000Z", "status": "ARCHIVED", "notes": "Maternity leave starts 09.08.2019" },
-        { "hours":"14.8", "reason":"PQiP15 12-15", "start":"2019-05-01T01:00:00.000Z", "end":"2019-08-01T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"22.2", "reason":"PQiP - 6 to 12 months", "start":"2019-02-01T00:00:00.000Z", "end":"2019-08-01T01:00:00.000Z", "status": "DELETED", "notes": "" },
-        { "hours":"30", "reason":"PQiP - 1st 6 months", "start":"2017-11-20T00:00:00.000Z", "end":"2018-05-20T01:00:00.000Z", "status": "ARCHIVED", "notes": "" },
-        { "hours":"14.8", "reason":"PQiP - 12 to 18 months", "start":"2018-03-01T00:00:00.000Z", "end":"2018-09-01T01:00:00.000Z", "status": "DELETED", "notes": "" }
+        { "hours":"7.4", "reason":"PSO Learning & Development", "start":"2020-07-01T01:00:00.000Z", "end":"2021-01-01T00:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"29.6", "reason":"PQiP15 0-6", "start":"2021-01-11T00:00:00.000Z", "end":"2021-07-11T01:00:00.000Z", "status": "ACTIVE", "notes": "PQuip Training starting," }
       ],
       "serviceUsers": [],
-      "OM_Key": "N57A311",
-      "OM_Grade_Code": "NPSN",
-      "lastAllocated": "2020-10-21T23:00:00.000Z",
-      "specialistAreas":["Integrated Offender Management (IOM)", "Serious Group Offending (SGO)", "Substance dependency"],
-      "completedTraining":["ARMS", "Alcohol Treatment Requirement (ATR)","Drug Rehabilitation Requirement (DRR)", "Domestic violence", "SARA", "Sex Offender"],
-      "CommTierC1": 1,
-      "CustTierB1": 6,
-      "CustTierB2": 5,
+      "OM_Key": "N57A308",
+      "OM_Grade_Code": "NPSP",
+      "lastAllocated": "2020-09-27T23:00:00.000Z",
+      "specialistAreas":["Serious Group Offending (SGO)"],
+      "completedTraining":["Sex Offender"],
+      "CommTierC1": 2,
       "CustTierC2": 2,
-      "LicenceTierB1": 1,
-      "LicenceTierB2": 2,
-      "LicenceTierC1": 10
+      "LicenceTierC2": 1
+    },
+    {
+      "OM_Surname": "Crawford",
+      "OM_Forename": "Aman",
+      "contractedHours": 37,
+      "reductions": [
+        { "hours":"29.6", "reason":"PQiP21 0-6", "start":"2020-07-06T01:00:00.000Z", "end":"2021-01-06T00:00:00.000Z", "status": "ARCHIVED", "notes": "" },
+        { "hours":"22.2", "reason":"PQiP21 6-18", "start":"2021-01-07T00:00:00.000Z", "end":"2022-01-07T00:00:00.000Z", "status": "ACTIVE", "notes": "" },
+        { "hours":"14.8", "reason":"PQiP21 18-21", "start":"2022-01-08T00:00:00.000Z", "end":"2022-04-08T01:00:00.000Z", "status": "SCHEDULED", "notes": "" }
+      ],
+      "serviceUsers": [],
+      "OM_Key": "N57A301",
+      "OM_Grade_Code": "NPSP",
+      "lastAllocated": "2020-11-01T00:00:00.000Z",
+            "specialistAreas":["Integrated Offender Management (IOM)"],
+      "completedTraining":["ARMS"],
+      "CommTierC1": 1,
+      "CommTierC2": 1,
+      "CustTierC1": 1,
+      "CustTierC2": 1,
+      "LicenceTierC2": 3
+    },
+    {
+      "OM_Surname": "Paine",
+      "OM_Forename": "Alan",
+      "contractedHours": 37,
+      "reductions": [
+        { "hours":"22.2", "reason":"PQiP15 6-12", "start":"2020-07-01T01:00:00.000Z", "end":"2021-01-01T00:00:00.000Z", "status": "ARCHIVED", "notes": "" }
+      ],
+      "serviceUsers": [],
+      "OM_Key": "N57A306",
+      "OM_Grade_Code": "NPSP",
+      "lastAllocated": "2020-10-23T23:00:00.000Z",
+      "specialistAreas":["Integrated Offender Management (IOM)", "Serious Group Offending (SGO)"],
+      "completedTraining":["ARMS", "Domestic violence", "SARA", "Sex Offender"],
+      "CommTierC1": 4,
+      "CustTierC1": 3,
+      "LicenceTierC2": 1
     },
     {
       "OM_Surname": "Heath",
