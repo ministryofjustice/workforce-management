@@ -1,0 +1,75 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="step-3" method="post" novalidate>
+
+        {{ govukRadios({
+          idPrefix: "your-pdu",
+          name: "where-do-you-work",
+          fieldset: {
+            legend: {
+              text: "Which PDU in Wales?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "2-1",
+              text: "Cardiff and Vale"
+            },
+            {
+              value: "2-2",
+              text: "Cwm Taf Morgannwg"
+            },
+            {
+              value: "2-3",
+              text: "Dyfed Powys"
+            },
+            {
+              value: "2-4",
+              text: "Gwent"
+            },
+            {
+              value: "2-5",
+              text: "Inactive Level 2(N03)"
+            },
+            {
+              value: "2-6",
+              text: "North Wales"
+            },
+            {
+              value: "2-7",
+              text: "Public Protection Community"
+            },
+            {
+              value: "2-8",
+              text: "Swansea, Neath Port-Talbot"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
