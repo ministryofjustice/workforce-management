@@ -1,0 +1,83 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="step-list" method="post" novalidate>
+
+       
+{{ govukCheckboxes({
+  idPrefix: "team",
+  name: "my-team",
+  fieldset: {
+    legend: {
+      text: "Which team(s) in North Wales?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "3-1",
+      text: "NPS - Conwy - Team 1"
+    },
+    {
+      value: "3-2",
+      text: "NPS - Denbighshire - Team 1"
+    },
+    {
+      value: "3-3",
+      text: "NPS - Flintshire - Team 1"
+    },
+    {
+      value: "3-4",
+      text: "NPS - Gwynedd - Team 1"
+    },
+    {
+      value: "3-5",
+      text: "NPS - North Wales - Central IOM STC Team"
+    },
+    {
+      value: "3-6",
+      text: "NPS - North Wales - East IOM STC Team"
+    },
+    {
+      value: "3-7",
+      text: "NPS - North Wales - West IOM STC Team"
+    },
+    {
+      value: "3-8",
+      text: "NPS - Wrexham - Team 1"
+    },
+    {
+      value: "3-9",
+      text: "NPS - Ynys Mon - Team 1"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

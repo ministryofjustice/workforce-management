@@ -1,0 +1,38 @@
+{% extends "layout_cases-nav.html" %}
+{% block pageTitle %}
+Allocation complete | Workforce planning
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--l">Teams</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">NPS - Flintshire - Team 1</th>
+          <td class="govuk-table__cell"><a href="../unallocated-cases">View cases</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><span id="notifications" class="moj-notification-badge">{{ data['unallocated-number'] | default("3") }}</span> NPS - Wrexham - Team 1</th>
+          <td class="govuk-table__cell"><a href="../unallocated-cases">View cases</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">NPS - Ynys Mon - Team 1</th>
+          <td class="govuk-table__cell"><a href="../unallocated-cases">View cases</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="step-3">Edit teams</a>
+  </div>
+</div>
+{% endblock %}
+

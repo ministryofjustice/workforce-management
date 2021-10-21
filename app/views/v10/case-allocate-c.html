@@ -58,7 +58,7 @@ J678910 | Allocate | Workforce planning
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Allocations in past 7 days</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
-          
+          <th scope="col" class="govuk-table__header">Action</th>
           
         </tr>
       </thead>
@@ -70,10 +70,11 @@ J678910 | Allocate | Workforce planning
               <div class="govuk-radios govuk-radios--small">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="allocate-officer-{{ probationPractitioner.OM_Key }}" name="allocated-officer" type="radio" value="{{ probationPractitioner.name }}">
-                  <label class="govuk-label govuk-radios__label" style="margin-left: 20px; margin-top: -10px;" for="allocate-officer-{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</label><a class="govuk-link--no-visited-state govuk-body-s" href="officer-view/{{ probationPractitioner.OM_Key }}">view <span class="sr-only">officer</span></a>
+                  <label class="govuk-label govuk-radios__label" style="margin-left: 20px; margin-top: -10px;" for="allocate-officer-{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</label>
                 </div>
               </div>
             </td>
+            
             {% set gradeDescription = gradeDescriptions[probationPractitioner.grade] %}
             <td class="govuk-table__cell" data-sort-value="{{ gradeDescription }}">
             <div class="tooltip">{{ probationPractitioner.grade }}<span class="tooltiptext">{{ gradeDescription }}</span></div></td>
@@ -81,6 +82,7 @@ J678910 | Allocate | Workforce planning
             <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.allocationsInLast7.length }}">{{ probationPractitioner.allocationsInLast7.length }}</td>
             <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.community }}">{{ probationPractitioner.totals.community }}</td>
             <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.custody }}">{{ probationPractitioner.totals.custody }}</td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="officer-view/{{ probationPractitioner.OM_Key }}">View officer</a></td>
           </tr>
         {% endfor %}
       </tbody>
