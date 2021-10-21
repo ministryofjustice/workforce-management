@@ -18,7 +18,9 @@ $moj-assets-path: '/public/';
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 @import "components/card";
-@import "../../views/allocations/0/partial/key-details-bar/template";
+@import "components/cards";
+@import "../../views/allocations/0/partial/key-details-bar/template"; //???
+@import "components/accessible-autocomplete";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 // @import "hmpps/pics"; // wholesale styles from PICS team service
@@ -31,4 +33,3 @@ $moj-assets-path: '/public/';
 @import "hmpps/sirius"; // OPG styles for service user due dates
 @import "hmpps/reporting"; // OPG styles for service user due dates
 @import "hmpps/risk"; // rules ot allow recreation of Figma designs from ARN team
-@import "accessible-autocomplete";

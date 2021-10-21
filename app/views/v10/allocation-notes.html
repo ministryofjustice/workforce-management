@@ -1,0 +1,87 @@
+{% extends "layout_workforce-nav.html" %}
+
+
+{% block pageTitle %}
+Allocation reasons | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
+  </div>
+</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<h2 class="govuk-heading-l">Allocation notes</h2>
+<form action="allocation-complete" method="post" novalidate>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+      What should we tell {{ data['allocated-officer'] }} about this case?
+    </label>
+    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+  </div>
+
+  <h2 class="govuk-heading-m">Let's make a list!</h2>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="ex-reasons-hint">
+      <legend class="govuk-fieldset__legend">
+        Common tasks (if applicable) will be listed here to make it simpler and faster to allocate.
+      </legend>
+      <div id="ex-reasons-hint" class="govuk-hint">
+        Select all that apply.
+      </div>
+      <div class="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons" name="ex-reasons" type="checkbox" value="complex">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons">
+            Confirm assessment
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-2" name="ex-reasons" type="checkbox" value="suitable">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-2">
+            Request PSR from admin
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-3" name="ex-reasons" type="checkbox" value="continuity">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-3">
+            Read CPS for history
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-4" name="ex-reasons" type="checkbox" value="staffing">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-4">
+             Speak to me
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-5" name="ex-reasons" type="checkbox" value="training">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-5">
+            Ask admin to book induction
+          </label>
+        </div>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+</form>
+  </div>
+</div>
+{% endblock %}
