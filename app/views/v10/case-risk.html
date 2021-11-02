@@ -1,5 +1,5 @@
 +
-{% extends "layout_cases-nav.html" %}
+{% extends "layout_cases-nav-notes.html" %}
 
 
 {% block pageTitle %}
@@ -7,7 +7,20 @@ J678910 | Overview | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}

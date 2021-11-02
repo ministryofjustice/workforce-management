@@ -6,7 +6,24 @@ J678910 | Allocate | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    },
+    {
+      text: "Case view",
+      href: "case-view"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -22,23 +39,7 @@ J678910 | Allocate | Workforce planning
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <nav class="moj-sub-navigation" aria-label="Sub navigation">
-      <ul class="moj-sub-navigation__list">
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-view">Summary</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">

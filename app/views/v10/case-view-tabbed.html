@@ -1,0 +1,397 @@
+{% extends "layout_cases-nav-notes.html" %}
+
+
+{% block pageTitle %}
+J678910 | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
+  </div>
+</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#summary">
+            Summary
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#probation-record">
+            Probation record
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#risk">
+            Risk
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="summary">
+        <h2 class="govuk-heading-l">Summary</h2>
+        <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+          <header class="app-summary-card__header">
+            <h2 class="app-summary-card__title">Personal details</h2>
+          </header>
+          <div class="app-summary-card__body">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Name</dt>
+                <dd class="govuk-summary-list__value">Dylan Adam Armstrong</dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Gender</dt>
+                <dd class="govuk-summary-list__value">Male</dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Date of birth</dt>
+                <dd class="govuk-summary-list__value">27 September 1984 (37 years old)</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+          <header class="app-summary-card__header">
+            <h2 class="app-summary-card__title">Sentence</h2>
+          </header>
+          <div class="app-summary-card__body">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Offence</dt>
+                <dd class="govuk-summary-list__value">
+                  <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                     Common assault and battery
+                  </h3>
+                  <p class="govuk-body-s secondary-text-col"><strong>Contrary to section 39 of the Criminal Justice Act 1988.</strong></p>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Detail</dt>
+                <dd class="govuk-summary-list__value">On Wednesday 15th February 2021 at Grey Lane, S10 1AG, assaulted Sarah Smith by beating her.
+                </dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Order</dt>
+                <dd class="govuk-summary-list__value">
+                  <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                    Community Order (12 months)
+                  </h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Start date: 16 July 2021</li>
+                    <li>End date: 15 July 2022</li>
+                  </ul>
+                </dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Requirements</dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Rehabilitation Activity Requirement (RAR): 15 days</li>
+                    <li>Accredited Programme: Building Better Relationships (BBR)</li>
+                    <li>Unpaid Work: 120 hours</li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+          <header class="app-summary-card__header">
+            <h2 class="app-summary-card__title">Case details</h2>
+          </header>
+          <div class="app-summary-card__body">
+            <dl class="govuk-summary-list">
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key"><div class="tooltip">PNC<span class="tooltiptext">Police National Computer</span></div></dt>
+                <dd class="govuk-summary-list__value">2012/123400000F</dd>
+              </div>
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">CPS pack
+                </dt>
+                <dd class="govuk-summary-list__value">Uploaded on {{ moment().subtract(1, 'days').format(longDateFormat) }}<br><a href="#" class="govuk-link--no-visited-state">View pack</a></dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Pre-convictions</dt>
+                <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--red moj-badge--large">Missing</span></dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Pre-sentence report<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Pre-Sentence Report - Oral</span></dt>
+                <dd class="govuk-summary-list__value">Delivered {{ moment().subtract(4, 'days').format(longDateFormat) }}<br><a href="#" class="govuk-link--no-visited-state">View pack</a></dd>
+              </div>  
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Last OASys assessment<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">OASys Assessment Layer 3</span></dt>
+                <dd class="govuk-summary-list__value">
+                  <span class="app-!-font-family-tabular">Completed on {{ moment().subtract(190, 'days').format(longDateFormat) }}<br><a href="#" class="govuk-link--no-visited-state">View pack</a></span>
+                </dd>
+              </div>
+
+            </dl>
+          </div>
+        </section>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="probation-record">
+        <h2 class="govuk-heading-l">Probation record</h2>
+        <table class="govuk-table govuk-table-xl">
+          <caption class="govuk-table__caption govuk-table__caption--m">Currently managed order</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width: 30%;">Sentence</th>
+              <th scope="col" class="govuk-table__header" style="width: 36%;">Offence</th>
+              <th scope="col" class="govuk-table__header" style="width: 13%;">Start date</th>
+              <th scope="col" class="govuk-table__header" style="width: 21%;">Offender manager</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">ORA Community Order(18 Months)</th>
+              <td class="govuk-table__cell">Common assault and battery - 10501</td>
+              <td class="govuk-table__cell">5 Nov 2020</td>
+              <td class="govuk-table__cell">
+                <p class="govuk-body">Faraz Haynes<br><span class="secondary-text-col">Allocated on 11 Nov 2020</span></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="govuk-table govuk-table-xl">
+          <caption class="govuk-table__caption govuk-table__caption--m">Recent previous orders</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width: 30%;">Sentence</th>
+              <th scope="col" class="govuk-table__header" style="width: 36%;">Offence</th>
+              <th scope="col" class="govuk-table__header" style="width: 13%;">End date</th>
+              <th scope="col" class="govuk-table__header" style="width: 21%;">Offender manager</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">CJA
+              Community Order (12 months)</th>
+              <td class="govuk-table__cell">Breach of a Non-Molestation Order - 06639</td>
+              <td class="govuk-table__cell">24 Feb 2021</td>
+              <td class="govuk-table__cell">
+                <p class="govuk-body">Margaret Dawson<br><span class="secondary-text-col">Allocated on 28 Feb 2020</span></p>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">CJA
+              Community Order (12 months)</th>
+              <td class="govuk-table__cell">Breach of a Non-Molestation Order - 06639</td>
+              <td class="govuk-table__cell">08 Nov 2020</td>
+              <td class="govuk-table__cell">
+                <p class="govuk-body">Daron Threvallan<br>
+                <span class="secondary-text-col">Allocated on 06 Nov 2019</span></p>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">CJA
+              Community Order (12 months)</th>
+              <td class="govuk-table__cell">Common assault and battery - 10501</td>
+              <td class="govuk-table__cell">15 Mar 2019</td>
+              <td class="govuk-table__cell">
+                <p class="govuk-body">Daron Threvallan<br>
+                <span class="secondary-text-col">Allocated on 18 Mar 2018</span></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#" class="govuk-link--no-visited-state">View all previous orders (12)</a>
+        
+
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="risk">
+        <h2 class="govuk-heading-l">Risk</h2>
+        <h3 class="govuk-heading-m">Assessment tools</h3>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter">
+            <section class="index-card">
+             <h1 class="govuk-heading-l"><div class="tooltip">ROSH<span class="tooltiptext govuk-body-s">Risk of Serious Harm</span></div></h1>
+             <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
+              <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 34%;"></div>
+              <div style="float: left; height: 10px; width: 25%; background-color: #85994B;"></div>
+               <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #F47738;"></div>
+               <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #D4351C;"></div>
+               <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #761708;"></div>
+             </div>
+            <span class="govuk-tag moj-tag--orange">Medium</span>
+            </section>
+          </div>
+
+          <div class="govuk-grid-column-one-quarter">
+            <section class="index-card">
+              <h1 class="govuk-heading-l"><div class="tooltip">RSR<span class="tooltiptext govuk-body-s">Risk of Serious Recidivism</span></div> <span>3.8%</span></h1>
+              <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
+              <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 31%;"></div>
+               <div style="float: left; height: 10px; width: 33%; background-color: #85994B;"></div>
+               <div style="float: left; height: 10px; width: 34%; margin-left:  -1px; border-left: solid 1px white; background-color: #F47738;"></div>
+               <div style="float: left; height: 10px; width: 33%; margin-left:  -1px; border-left: solid 1px white; background-color: #D4351C;"></div>
+             </div>
+              <span class="govuk-tag moj-tag--orange">Medium</span>
+            </section>
+          </div>
+
+          <div class="govuk-grid-column-one-quarter">
+            <section class="index-card">
+              <h1 class="govuk-heading-l"><div class="tooltip">OGRS<span class="tooltiptext govuk-body-s">Offender Group Reconviction Scale</span></div> <span>87%</span></h1>
+              <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
+              <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 44%;"></div>
+               <div style="float: left; height: 10px; width: 25%; background-color: #85994B;"></div>
+               <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #F47738;"></div>
+               <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #D4351C;"></div>
+               <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #761708;"></div>
+             </div>
+              <span class="govuk-tag moj-tag--orange">Medium</span>
+            </section>
+          </div>
+        </div>
+
+        <h3 class="govuk-heading-m">Register</h3>
+
+        <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+              Contents
+            </h2>
+            <ul class="govuk-tabs__list" role="tablist">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                <a class="govuk-tabs__tab" href="#active" id="tab_active" role="tab" aria-controls="active" aria-selected="true" tabindex="0">
+                  Active (6)
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item" role="presentation">
+                <a class="govuk-tabs__tab" href="#inactive" id="tab_inactive" role="tab" aria-controls="inactive" aria-selected="false" tabindex="-1">
+                  Inactive (1)
+                </a>
+              </li>
+            </ul>
+            <section class="govuk-tabs__panel" id="active" role="tabpanel" aria-labelledby="tab_active">
+              <h2 class="govuk-heading-m">Active registrations</h2>
+              <table class="govuk-table govuk-table-xl">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <!-- <th scope="col" class="govuk-table__header">Type</th> -->
+                    <th scope="col" class="govuk-table__header">Type</th>
+                    <!-- <th scope="col" class="govuk-table__header">Status</th> -->
+                    <th scope="col" class="govuk-table__header">Registered</th>
+                    <th scope="col" class="govuk-table__header">Next review</th>
+                    <th scope="col" class="govuk-table__header">Notes</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <!-- <td class="govuk-table__cell">Safeguarding</td> -->
+                    <th scope="row" class="govuk-table__header">Suicide/Self Harm</th>
+                    <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
+                    <td class="govuk-table__cell">13 Dec 2020</td>
+                    <td class="govuk-table__cell">13 June 2021</td>
+                    <td class="govuk-table__cell">Previous suicide /self harm attempt. Needs further investigating.</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <!-- <td class="govuk-table__cell">Safeguarding</td> -->
+                    <th scope="row" class="govuk-table__header">Child concerns</th>
+                    <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
+                    <td class="govuk-table__cell">13 Dec 2020</td>
+                    <td class="govuk-table__cell">13 March 2021</td>
+                    <td class="govuk-table__cell">awaiting outcome of social services enquiry</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <!-- <td class="govuk-table__cell">RoSH</td> -->
+                    <th scope="row" class="govuk-table__header">Medium RoSH</th>
+                    <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
+                    <td class="govuk-table__cell">09 Nov 2021</td>
+                    <td class="govuk-table__cell">09 May 2021</td>
+                    <td class="govuk-table__cell">-</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <!-- <td class="govuk-table__cell">Public protection</td> -->
+                    <th scope="row" class="govuk-table__header">Domestic Abuse Perpetrator</th>
+                    <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
+                    <td class="govuk-table__cell">04 July 2011</td>
+                    <td class="govuk-table__cell">26 Dec 2019</td>
+                    <td class="govuk-table__cell">-</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <!-- <td class="govuk-table__cell">Alerts </td> -->
+                    <th scope="row" class="govuk-table__header">Mental health issues</th>
+                    <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
+                    <td class="govuk-table__cell">04 July 2011</td>
+                    <td class="govuk-table__cell">26 Dec 2019</td>
+                    <td class="govuk-table__cell">personality disorder</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inactive" role="tabpanel" aria-labelledby="tab_inactive">
+              <h2 class="govuk-heading-m">Inactive registrations</h2>
+              <table class="govuk-table govuk-table-xl">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Type</th>
+                    <!-- <th scope="col" class="govuk-table__header">Description</th> -->
+                    <!-- <th scope="col" class="govuk-table__header">Status</th> -->
+                    <th scope="col" class="govuk-table__header">Registered</th>
+                    <th scope="col" class="govuk-table__header">End date</th>
+                    <th scope="col" class="govuk-table__header">Notes</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <!-- <td class="govuk-table__cell">Public protection </td> -->
+                    <th scope="row" class="govuk-table__header">MAPPA Considered</th>
+                    <!-- <td class="govuk-table__cell"></td> -->
+                    <td class="govuk-table__cell"> 14 June 2012</td>
+                    <td class="govuk-table__cell"> 26 Nov 2019</td>
+                    <td class="govuk-table__cell">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
