@@ -19,13 +19,14 @@ $moj-assets-path: '/public/';
 @import "components/cookie-banner";
 @import "components/card";
 @import "components/cards";
+@import "components/summary-card";
 @import "../../views/allocations/0/partial/key-details-bar/template"; //???
 @import "components/accessible-autocomplete";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 // @import "hmpps/pics"; // wholesale styles from PICS team service
 
-@import "hmpps/global"; // styles that affect all screens
+@import "hmpps/global"; // styles that affect all screens - mainly screen width
 @import "hmpps/index"; // Prototpye index page styles
 @import "hmpps/capacity"; // components used to display capacity info
 @import "hmpps/case"; // case-specific styles
