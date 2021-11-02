@@ -25,12 +25,19 @@ Allocation complete | Workforce planning
           </div>
         </div><br><br>
 
+        <p class="govuk-body">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Details of this allocation have been added to NDelius automatically</li>
+            <li><strong>{{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</strong> has been notified about this allocation, and we have sent a copy of your allocation instructions.</li>
+          </ul>
+        </p>
+
         <h2 class="govuk-heading-m">What happens next</h2>
 
         <p class="govuk-body">
           <ul class="govuk-list govuk-list--bullet">
-            <li>Details of this allocation have been added to NDelius automatically</li>
-            <li>You need to contact <strong>{{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</strong> about this allocation: <a href="mailto:MJOnps11@justice.gov.uk">MJOnps11@justice.gov.uk</a></li>
+            <li>You will still need to allocate unpaid work, or similar</li>
+            <li>Contact admin staff to assign any relevant work to them</li>
             <li>The induction interview is scheduled for <strong>{{ moment().add(1, 'days').format(longDateFormat) }}</strong></li>
           </ul>
         </p>
