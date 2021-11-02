@@ -22,21 +22,22 @@ Allocation reasons | Workforce planning
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-<h2 class="govuk-heading-l">Review allocation notes</h2>
+<h2 class="govuk-heading-l">Allocation notes</h2>
 <form action="allocation-complete" method="post" novalidate>
   <div class="govuk-form-group">
     <label class="govuk-label" for="more-detail">
-      These are the notes you made while reviewing ht case. Please ensure they are complete with everything you want to tell the offender manager, as they will be sent as part of the allocation.
+      What should we tell {{ data['allocated-officer'] | default("Molly O\'Sullivan") }} about this case?
     </label>
-    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="15">
-      {{ data['casenotes'] }}
-    </textarea>
+    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
   </div>
 
-  <h2 class="govuk-heading-m">Common tasks</h2>
+  <h2 class="govuk-heading-m">Let's make a list!</h2>
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset" aria-describedby="ex-reasons-hint">
+      <legend class="govuk-fieldset__legend">
+        Common tasks (if applicable) will be listed here to make it simpler and faster to allocate.
+      </legend>
       <div id="ex-reasons-hint" class="govuk-hint">
         Select all that apply.
       </div>
@@ -44,31 +45,31 @@ Allocation reasons | Workforce planning
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="ex-reasons" name="ex-reasons" type="checkbox" value="complex">
           <label class="govuk-label govuk-checkboxes__label" for="ex-reasons">
-            Check with social services
+            Confirm assessment
           </label>
         </div>
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="ex-reasons-2" name="ex-reasons" type="checkbox" value="suitable">
           <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-2">
-            Complete a police check
+            Request PSR from admin
           </label>
         </div>
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="ex-reasons-3" name="ex-reasons" type="checkbox" value="continuity">
           <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-3">
-            Ensure registers are correct
+            Read CPS for history
           </label>
         </div>
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="ex-reasons-4" name="ex-reasons" type="checkbox" value="staffing">
           <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-4">
-             Check MAPPA eligible
+             Speak to me
           </label>
         </div>
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="ex-reasons-5" name="ex-reasons" type="checkbox" value="training">
           <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-5">
-            Link in with Youth Justice
+            Ask admin to book induction
           </label>
         </div>
       </div>
