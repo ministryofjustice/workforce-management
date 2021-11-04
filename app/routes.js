@@ -21,7 +21,6 @@ router.use('/v9', v9)
 router.use('/v10', v10)
 router.use('/_mvp', mvp)
 
-
 router.post('/allocate-handler', function (req, res) {
   var allocated = req.session.data['allocated-officer']
   if (allocated === '') {

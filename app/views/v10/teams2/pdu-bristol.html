@@ -1,0 +1,94 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "region"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">HMPPS</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ data['select-region'] }}</h1>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="teams-bristol" method="post" novalidate>
+
+
+
+
+        {{ govukRadios({
+          idPrefix: "your-pdu",
+          name: "select-pdu",
+          fieldset: {
+            legend: {
+              text: "Select your Probation Delivery Unit",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Bath and North Somerset",
+              text: "Bath and North Somerset"
+            },
+            {
+              value: "Bristol and South Gloucestershire",
+              text: "Bristol and South Gloucestershire"
+            },
+            {
+              value: "Cornwall and Isles of Scilly",
+              text: "Cornwall and Isles of Scilly"
+            },
+            {
+              value: "Devon and Torbay",
+              text: "Devon and Torbay"
+            },
+            {
+              value: "Dorset",
+              text: "Dorset"
+            },
+            {
+              value: "Gloucestershire",
+              text: "Gloucestershire"
+            },
+            {
+              value: "Plymouth",
+              text: "Plymouth"
+            },
+            {
+              value: "Somerset",
+              text: "Somerset"
+            },
+            {
+              value: "Swindon and Wiltshire",
+              text: "Swindon and Wiltshire"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "region"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">HMPPS</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ data['select-region'] }}</h1>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="teams-wrexham" method="post" novalidate>
+
+
+
+
+        {{ govukRadios({
+          idPrefix: "your-pdu",
+          name: "select-pdu",
+          fieldset: {
+            legend: {
+              text: "Select your Probation Delivery Unit",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Cardiff and Vale",
+              text: "Cardiff and Vale"
+            },
+            {
+              value: "Cwm Taf Morgannwg",
+              text: "Cwm Taf Morgannwg"
+            },
+            {
+              value: "Dyfed Powys",
+              text: "Dyfed Powys"
+            },
+            {
+              value: "Gwent",
+              text: "Gwent"
+            },
+            {
+              value: "Inactive Level 2(N03)",
+              text: "Inactive Level 2(N03)"
+            },
+            {
+              value: "North Wales",
+              text: "North Wales"
+            },
+            {
+              value: "Public Protection Community",
+              text: "Public Protection Community"
+            },
+            {
+              value: "Swansea, Neath Port-Talbot",
+              text: "Swansea, Neath Port-Talbot"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
