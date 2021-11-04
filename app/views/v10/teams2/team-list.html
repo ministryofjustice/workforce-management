@@ -1,6 +1,6 @@
 {% extends "layout_no-cases-nav.html" %}
 {% block pageTitle %}
-Allocation complete | Workforce planning
+Your teams | Manage a workforce
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,7 @@ Allocation complete | Workforce planning
       <tbody class="govuk-table__body">
       {% for i in data['select-teams'] %} <!-- loop through iterations -->
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">{{i}}</th>
+        <th scope="row" class="govuk-table__header">{{i}} <span class="case-number">(3) <span class="sr-only">unallocated cases</span></span></th>
         <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="../unallocated-cases?selected-team={{i}}">View cases</a></td>
       </tr>
       {% endfor %}
@@ -36,7 +36,7 @@ Allocation complete | Workforce planning
     </table>
     {% endif %}
 
-    <a class="govuk-link--no-visited-state" href="pdu-bristol">Edit teams</a>
+    <a class="govuk-link--no-visited-state" href="teams-bristol">Edit teams</a>
   </div>
 </div>
 

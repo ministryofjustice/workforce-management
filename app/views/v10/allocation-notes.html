@@ -6,7 +6,28 @@ Allocation reasons | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    },
+    {
+      text: "Case view",
+      href: "case-view"
+    },
+    {
+      text: "Allocate case",
+      href: "case-allocate"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -76,9 +97,10 @@ Allocation reasons | Workforce planning
     </fieldset>
   </div>
 
-  <button class="govuk-button" data-module="govuk-button">
-    Continue
-  </button>
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <a class="govuk-link" href="case-allocate">Cancel</a>
+      </div>
 
 </form>
   </div>
