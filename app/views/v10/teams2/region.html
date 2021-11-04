@@ -1,0 +1,94 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">National</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">HMPPS</h1>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/v10/region-handler" method="post" novalidate>
+
+        {{ govukRadios({
+          idPrefix: "your-region",
+          name: "select-region",
+          fieldset: {
+            legend: {
+              text: "Select your region",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "East of England",
+              text: "East of England"
+            },
+            {
+              value: "London",
+              text: "London"
+            },
+            {
+              value: "East Midlands Region",
+              text: "East Midlands Region"
+            },
+            {
+              value: "Greater Manchester",
+              text: "Greater Manchester"
+            },
+            {
+              value: "Kent Surrey Sussex Region",
+              text: "Kent Surrey Sussex Region"
+            },
+            {
+              value: "North East Region",
+              text: "North East Region"
+            },
+            {
+              value: "North West Region",
+              text: "North West Region"
+            },
+            {
+              value: "Yorkshire and The Humber",
+              text: "Yorkshire and The Humber"
+            },
+            {
+              value: "South Central",
+              text: "South Central"
+            },
+            {
+              value: "South West",
+              text: "South West"
+            },
+            {
+              value: "Wales",
+              text: "Wales"
+            },
+            {
+              value: "West Midlands Region",
+              text: "West Midlands Region"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

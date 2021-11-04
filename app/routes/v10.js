@@ -82,4 +82,18 @@ router.post('/allocate-handler', function (req, res) {
 
 })
 
+router.post('/region-handler', function (req, res) {
+  var region = req.session.data['select-region']
+  if (region === 'Yorkshire and The Humber'){
+    res.redirect('/v10/teams2/pdu-doncaster')
+  } else if (region === 'South West'){
+    res.redirect('/v10/teams2/pdu-bristol')
+  } else if (region === 'Wales'){
+    res.redirect('/v10/teams2/pdu-wrexham')
+  } else {
+    res.redirect('/v10/teams2/region-out')
+  }
+
+})
+
 module.exports = router

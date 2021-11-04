@@ -1,0 +1,44 @@
+{% extends "layout_no-cases-nav.html" %}
+{% block pageTitle %}
+Allocation complete | Workforce planning
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">{{ data['select-region'] }}</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ data['select-pdu'] }}</h1>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if  (data['select-teams'] | length )  %} <!-- check if the variable is an array -->
+   <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--l">Unallocated cases by team</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      {% for i in data['select-teams'] %} <!-- loop through iterations -->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">{{i}}</th>
+        <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="../unallocated-cases?selected-team={{i}}">View cases</a></td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    <a class="govuk-link--no-visited-state" href="pdu-bristol">Edit teams</a>
+  </div>
+</div>
+
+
+{% endblock %}
