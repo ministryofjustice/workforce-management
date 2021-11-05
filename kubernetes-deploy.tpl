@@ -50,7 +50,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     external-dns.alpha.kubernetes.io/aws-weight: "100"
-    external-dns.alpha.kubernetes.io/set-identifier: ${PROTOTYPE_NAME}-${KUBE_NAMESPACE}-blue
+    external-dns.alpha.kubernetes.io/set-identifier: prototype-ingress-${KUBE_NAMESPACE}-green
 spec:
   tls:
   - hosts:
