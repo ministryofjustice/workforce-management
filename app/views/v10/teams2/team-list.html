@@ -6,17 +6,17 @@ Your teams | Manage a workforce
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <span class="govuk-caption-xl">{{ data['select-region'] }}</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ data['select-pdu'] }}</h1>
+      <span class="govuk-caption-xl">{{ region or data['select-region'] }}</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ pdu or data['select-pdu'] }}</h1>
     </div>
   </div>
 
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-  
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if  (data['select-teams'] | length )  %} <!-- check if the variable is an array -->
+    {% if  ( teams or (data['select-teams']) | length )  %} <!-- check if the variable is an array -->
    <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--l">Unallocated cases by team</caption>
       <thead class="govuk-table__head">
@@ -26,17 +26,17 @@ Your teams | Manage a workforce
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-      {% for i in data['select-teams'] %} <!-- loop through iterations -->
+      {% for i in ( teams or data['select-teams']) %} <!-- loop through iterations -->
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">{{i}} <span class="case-number">(3) <span class="sr-only">unallocated cases</span></span></th>
-        <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="../unallocated-cases?selected-team={{i}}">View cases</a></td>
+        <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="unallocated-cases?selected-team={{i}}">View cases</a></td>
       </tr>
       {% endfor %}
       </tbody>
     </table>
     {% endif %}
 
-    <a class="govuk-link--no-visited-state" href="teams-doncaster">Edit teams</a>
+    <a class="govuk-link--no-visited-state" href="teams">Edit teams</a>
   </div>
 </div>
 

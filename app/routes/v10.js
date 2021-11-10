@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const moment = require('moment')
 const { generateTeam, updateProbationPractitioner } = require('../data/generateData')
+const probationTeams = require('../data/probation-teams.json')
 const {
   getTeamTotals,
   getPractitioner,
@@ -32,7 +33,7 @@ router.get('/officer-view/:id', ({ params: { id }, session }, res) => {
     id: id,
     casesDueToEnd: getCasesDueToEnd(probationPractitioner),
     sentencesDueToEnd: getSentencesDueToEnd(probationPractitioner),
-    paroleReportsDue: getParoleReportsDue(probationPractitioner),
+    paroleReportsDue: getParoleReportsDue(probationPractitioner)
   }
   Object.assign(res.locals, data)
   Object.assign(session[id] || {}, data)
@@ -73,27 +74,53 @@ router.post('/officer-view/:id/contracted-hours', ({ body, params: { id }, sessi
 })
 
 router.post('/allocate-handler', function (req, res) {
-  var allocated = req.session.data['selected']
+  var allocated = req.session.data.selected
   if (allocated === 'yes') {
     res.redirect('/v10/allocation-complete')
   } else {
     res.redirect('/v10/allocation-error')
   }
-
 })
 
 router.post('/region-handler', function (req, res) {
-  var region = req.session.data['select-region']
-  if (region === 'Yorkshire and The Humber'){
-    res.redirect('/v10/teams2/pdu-doncaster')
-  } else if (region === 'South West'){
-    res.redirect('/v10/teams2/pdu-bristol')
-  } else if (region === 'Wales'){
-    res.redirect('/v10/teams2/pdu-wrexham')
-  } else {
-    res.redirect('/v10/teams2/region-out')
-  }
+  const region = req.session.data['select-region']
+  res.render('v10/teams2/pdu', { data: probationTeams, region })
+})
 
+router.get('/region-handler', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  res.render('v10/teams2/pdu', { data: probationTeams, pdu, region })
+})
+
+router.post('/teams', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  res.render('v10/teams2/teams', { data: probationTeams, pdu, region })
+})
+
+router.get('/teams', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  const teams = req.session.data['select-teams']
+  res.render('v10/teams2/teams', { data: probationTeams, pdu, region, teams })
+})
+
+router.post('/team-list', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  const teams = req.session.data['select-teams']
+  res.render('v10/teams2/team-list', { data: probationTeams, pdu, region, teams })
+})
+
+router.get('/unallocated-cases', function (req, res) {
+  res.render('v10/unallocated-cases')
+})
+
+router.get('/team-list', function (req, res) {
+  const region = req.session.data['select-region']
+  const teams = req.session.data['select-teams']
+  res.render('v10/teams2/team-list', { region, teams })
 })
 
 module.exports = router

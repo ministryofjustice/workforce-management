@@ -1,310 +1,310 @@
-
-teams: [
-            {
-              "regionName": "East of England",
-              "pduList": [
-                {
-                  "pduName": "Bedfordshire",
-                  "teamList": [
-                    "BDS-Bedford OM1",
-                    "BDS-Luton OM1",
-                    "BDS-Luton OM2"
-                  ]
-                },
-                {
-                  "pduName": "Cambridgeshire and Peterborough",
-                  "teamList": [
-                    "CBS-Cambridge",
-                    "CBS-Huntingdon",
-                    "CBS-Peterborough"
-                  ]
-                },
-                {
-                  "pduName": "Enforcement",
-                  "teamList": [
-                    "ENF-BeNCH Enforcement Team",
-                    "ENF-ESX and NS Enforcement Team"
-                  ]
-                },
-                {
-                  "pduName": "Essex North",
-                  "teamList": [
-                    "EXN-Mid Essex OM1",
-                    "EXN-North East Essex OM1",
-                    "EXN-West Essex OM1"
-                  ]
-                },
-                {
-                  "pduName": "Essex South",
-                  "teamList": [
-                    "EXS-SEE and Southend OM1",
-                    "EXS-SEE and Southend OM2",
-                    "EXS-South Essex OM",
-                    "EXS-Thurrock OM"
-                  ]
-                },
-                {
-                  "pduName": "Hertfordshire",
-                  "teamList": [
-                    "HFS-East Herts",
-                    "HFS-Mid Herts",
-                    "HFS-North Herts",
-                    "HFS-South and West Herts"
-                  ]
-                },
-                {
-                  "pduName": "Inactive Level 2(N56)",
-                  "teamList": [
-                    "Inactive Team(N56)"
-                  ]
-                },
-                {
-                  "pduName": "Norfolk",
-                  "teamList": [
-                    "NFK-King's Lynn",
-                    "NFK-Norwich"
-                  ]
-                },
-                {
-                  "pduName": "Northamptonshire",
-                  "teamList": [
-                    "NTH-Northampton",
-                    "NTH-Wellingborough"
-                  ]
-                },
-                {
-                  "pduName": "Suffolk",
-                  "teamList": [
-                    "SFK-Bury St Edmunds",
-                    "SFK-Ipswich",
-                    "SFK-Lowestoft"
-                  ]
-                },
-                {
-                  "pduName": "Unallocated Level2(N56)",
-                  "teamList": [
-                    "Unallocated Team(N56)"
-                  ]
-                }
-              ]
-            },
-            {
-              "regionName": "London"
-              ,
-              "pduList": [
-                {
-                  "pduName": "Barking and Dagenham and Havering",
-                  "teamList": [
-                    "BDH NPS1",
-                    "BDH NPS2",
-                    "Brent NPS"
-                  ]
-                },
-                {
-                  "pduName": "Brent",
-                  "teamList": [
-                    "Brent NPS",
-                    "NPS Awaiting Allocation BRENT"
-                  ]
-                },
-                {
-                  "pduName": "Camden, Islington",
-                  "teamList": [
-                    "CAI NPS CRT",
-                    "CAI NPS1",
-                    "CAI NPS2",
-                    "CAI NPS3",
-                    "CAI NPS4",
-                    "NPS Awaiting Allocation CAMDEN"
-                  ]
-                },
-                {
-                  "pduName": "Croydon",
-                  "teamList": [
-                    "CRO NPS CRT",
-                    "CRO NPS1",
-                    "CRO NPS2",
-                    "CRO NPS3",
-                    "CRO NPS4"
-                  ]
-                },
-                {
-                  "pduName": "Ealing and Hillingdon",
-                  "teamList": [
-                    "EAL NPS1",
-                    "EAL NPS2",
-                    "EHH NPS PQIP",
-                    "HIL NPS1",
-                    "HIL NPS2",
-                    "NPS Awaiting Allocation EALING",
-                    "NPS Awaiting Allocation HILLINGDON"
-                  ]
-                },
-                {
-                  "pduName": "Enfield and Haringey",
-                  "teamList": [
-                    "Enfield NPS",
-                    "HAR NPS1",
-                    "HAR NPS2",
-                    "HAR NPS3",
-                    "NPS Awaiting Allocation ENFIELD"
-                  ]
-                },
-                {
-                  "pduName": "Enforcement",
-                  "teamList": [
-                    "Legal Proceedings Team (East)",
-                    "Legal Proceedings Team (North)",
-                    "Legal Proceedings Team (South)",
-                    "Legal Proceedings Team (West)"
-                  ]
-                },
-                {
-                  "pduName": "Greenwich and Bexley",
-                  "teamList": [
-                    "BEX BRO NPS CRT",
-                    "BEX NPS1",
-                    "GRE NPS1",
-                    "GRE NPS2"
-                  ]
-                },
-                {
-                  "pduName": "Hackney and City",
-                  "teamList": [
-                    "HAC NPS CRT",
-                    "HAC NPS1",
-                    "HAC NPS2"
-                  ]
-                },
-                {
-                  "pduName": "Hammersmith, Fulham, Kensington, Chelsea and Westminster",
-                  "teamList": [
-                    "HFKCW NPS1",
-                    "HFKCW NPS2",
-                    "HFKCW NPS3",
-                    "NPS Awaiting Allocation HAMMERSMITH & FULHAM",
-                    "NPS Awaiting Allocation KENSINGTON CHELSEA WESTMIN"
-                  ]
-                },
-                {
-                  "pduName": "Harrow and Barnet",
-                  "teamList": [
-                    "Barnet NPS",
-                    "HRW NPS1",
-                    "NPS Awaiting Allocation BARNET"
-                  ]
-                },
-                {
-                  "pduName": "Headquarters",
-                  "teamList": [
-                    "Public Protection Team HQ"
-                  ]
-                },
-                {
-                  "pduName": "Inactive Level 2(N07)",
-                  "teamList": [
-                    "Inactive Team(N07)"
-                  ]
-                },
-                {
-                  "pduName": "Kingston, Richmond and Hounslow",
-                  "teamList": [
-                    "HOU NPS1",
-                    "KAR NPS1"
-                  ]
-                },
-                {
-                  "pduName": "Lambeth",
-                  "teamList": [
-                    "LAM NPS1",
-                    "LAM NPS2",
-                    "LAM NPS3",
-                    "LAW PQIP"
-                  ]
-                },
-                {
-                  "pduName": "Lewisham and Bromley",
-                  "teamList": [
-                    "BRO NPS1",
-                    "LEW NPS1",
-                    "LEW NPS2",
-                    "NPS Awaiting Allocation BROMLEY",
-                    "NPS Awaiting Allocation LEWISHAM"
-                  ]
-                },
-                {
-                  "pduName": "London All",
-                  "teamList": [
-                    "ZZCP Greenwich and Lewisham(old)",
-                    "ZZWandsworth OMT3 (old)"
-                  ]
-                },
-                {
-                  "pduName": "Newham",
-                  "teamList": [
-                    "NEW NPS1",
-                    "NEW NPS2",
-                    "NEW NPS3",
-                    "NPS Awaiting Allocation NEWHAM"
-                  ]
-                },
-                {
-                  "pduName": "Public Protection Community",
-                  "teamList": [
-                    "Hmp Belmarsh",
-                    "Hmp Wandsworth",
-                    "NPS FOREIGN NATIONALS UNIT"
-                  ]
-                },
-                {
-                  "pduName": "Public Protection London",
-                  "teamList": [
-                    "Other Third Party EM Supervision"
-                  ]
-                },
-                {
-                  "pduName": "Redbridge and Waltham Forest",
-                  "teamList": [
-                    "RWF NPS1",
-                    "RWF NPS2",
-                    "RWF NPS3",
-                    "RWF NPS4"
-                  ]
-                },
-                {
-                  "pduName": "Southwark",
-                  "teamList": [
-                    "NPS Awaiting Allocation SOUTHWARK",
-                    "SOU NPS1",
-                    "SOU NPS2",
-                    "SOU NPS3"
-                  ]
-                },
-                {
-                  "pduName": "Tower Hamlets",
-                  "teamList": [
-                    "TWR NPS CRT",
-                    "TWR NPS1",
-                    "TWR NPS2"
-                  ]
-                },
-                {
-                  "pduName": "Unallocated Level 2(N07)",
-                  "teamList": [
-                    "Default Designated Transfer Team",
-                    "Unallocated Team(N07)"
-                  ]
-                },
-                {
-                  "pduName": "Wandsworth, Merton and Sutton",
-                  "teamList": [
-                    "MER NPS1",
-                    "NPS Awaiting Allocation WANDSWORTH",
-                    "SUT NPS1",
-                    "WAN NPS CRT",
-                    "WAN NPS1"
-                  ]
-                }
-              ]
-            }
+{
+  "teams": [
+    {
+      "regionName": "East of England",
+      "pduList": [
+        {
+          "pduName": "Bedfordshire",
+          "teamList": [
+            "BDS-Bedford OM1",
+            "BDS-Luton OM1",
+            "BDS-Luton OM2"
           ]
+        },
+        {
+          "pduName": "Cambridgeshire and Peterborough",
+          "teamList": [
+            "CBS-Cambridge",
+            "CBS-Huntingdon",
+            "CBS-Peterborough"
+          ]
+        },
+        {
+          "pduName": "Enforcement",
+          "teamList": [
+            "ENF-BeNCH Enforcement Team",
+            "ENF-ESX and NS Enforcement Team"
+          ]
+        },
+        {
+          "pduName": "Essex North",
+          "teamList": [
+            "EXN-Mid Essex OM1",
+            "EXN-North East Essex OM1",
+            "EXN-West Essex OM1"
+          ]
+        },
+        {
+          "pduName": "Essex South",
+          "teamList": [
+            "EXS-SEE and Southend OM1",
+            "EXS-SEE and Southend OM2",
+            "EXS-South Essex OM",
+            "EXS-Thurrock OM"
+          ]
+        },
+        {
+          "pduName": "Hertfordshire",
+          "teamList": [
+            "HFS-East Herts",
+            "HFS-Mid Herts",
+            "HFS-North Herts",
+            "HFS-South and West Herts"
+          ]
+        },
+        {
+          "pduName": "Inactive Level 2(N56)",
+          "teamList": [
+            "Inactive Team(N56)"
+          ]
+        },
+        {
+          "pduName": "Norfolk",
+          "teamList": [
+            "NFK-King's Lynn",
+            "NFK-Norwich"
+          ]
+        },
+        {
+          "pduName": "Northamptonshire",
+          "teamList": [
+            "NTH-Northampton",
+            "NTH-Wellingborough"
+          ]
+        },
+        {
+          "pduName": "Suffolk",
+          "teamList": [
+            "SFK-Bury St Edmunds",
+            "SFK-Ipswich",
+            "SFK-Lowestoft"
+          ]
+        },
+        {
+          "pduName": "Unallocated Level2(N56)",
+          "teamList": [
+            "Unallocated Team(N56)"
+          ]
+        }
+      ]
+    },
+    {
+      "regionName": "London",
+      "pduList": [
+        {
+          "pduName": "Barking and Dagenham and Havering",
+          "teamList": [
+            "BDH NPS1",
+            "BDH NPS2",
+            "Brent NPS"
+          ]
+        },
+        {
+          "pduName": "Brent",
+          "teamList": [
+            "Brent NPS",
+            "NPS Awaiting Allocation BRENT"
+          ]
+        },
+        {
+          "pduName": "Camden, Islington",
+          "teamList": [
+            "CAI NPS CRT",
+            "CAI NPS1",
+            "CAI NPS2",
+            "CAI NPS3",
+            "CAI NPS4",
+            "NPS Awaiting Allocation CAMDEN"
+          ]
+        },
+        {
+          "pduName": "Croydon",
+          "teamList": [
+            "CRO NPS CRT",
+            "CRO NPS1",
+            "CRO NPS2",
+            "CRO NPS3",
+            "CRO NPS4"
+          ]
+        },
+        {
+          "pduName": "Ealing and Hillingdon",
+          "teamList": [
+            "EAL NPS1",
+            "EAL NPS2",
+            "EHH NPS PQIP",
+            "HIL NPS1",
+            "HIL NPS2",
+            "NPS Awaiting Allocation EALING",
+            "NPS Awaiting Allocation HILLINGDON"
+          ]
+        },
+        {
+          "pduName": "Enfield and Haringey",
+          "teamList": [
+            "Enfield NPS",
+            "HAR NPS1",
+            "HAR NPS2",
+            "HAR NPS3",
+            "NPS Awaiting Allocation ENFIELD"
+          ]
+        },
+        {
+          "pduName": "Enforcement",
+          "teamList": [
+            "Legal Proceedings Team (East)",
+            "Legal Proceedings Team (North)",
+            "Legal Proceedings Team (South)",
+            "Legal Proceedings Team (West)"
+          ]
+        },
+        {
+          "pduName": "Greenwich and Bexley",
+          "teamList": [
+            "BEX BRO NPS CRT",
+            "BEX NPS1",
+            "GRE NPS1",
+            "GRE NPS2"
+          ]
+        },
+        {
+          "pduName": "Hackney and City",
+          "teamList": [
+            "HAC NPS CRT",
+            "HAC NPS1",
+            "HAC NPS2"
+          ]
+        },
+        {
+          "pduName": "Hammersmith, Fulham, Kensington, Chelsea and Westminster",
+          "teamList": [
+            "HFKCW NPS1",
+            "HFKCW NPS2",
+            "HFKCW NPS3",
+            "NPS Awaiting Allocation HAMMERSMITH & FULHAM",
+            "NPS Awaiting Allocation KENSINGTON CHELSEA WESTMIN"
+          ]
+        },
+        {
+          "pduName": "Harrow and Barnet",
+          "teamList": [
+            "Barnet NPS",
+            "HRW NPS1",
+            "NPS Awaiting Allocation BARNET"
+          ]
+        },
+        {
+          "pduName": "Headquarters",
+          "teamList": [
+            "Public Protection Team HQ"
+          ]
+        },
+        {
+          "pduName": "Inactive Level 2(N07)",
+          "teamList": [
+            "Inactive Team(N07)"
+          ]
+        },
+        {
+          "pduName": "Kingston, Richmond and Hounslow",
+          "teamList": [
+            "HOU NPS1",
+            "KAR NPS1"
+          ]
+        },
+        {
+          "pduName": "Lambeth",
+          "teamList": [
+            "LAM NPS1",
+            "LAM NPS2",
+            "LAM NPS3",
+            "LAW PQIP"
+          ]
+        },
+        {
+          "pduName": "Lewisham and Bromley",
+          "teamList": [
+            "BRO NPS1",
+            "LEW NPS1",
+            "LEW NPS2",
+            "NPS Awaiting Allocation BROMLEY",
+            "NPS Awaiting Allocation LEWISHAM"
+          ]
+        },
+        {
+          "pduName": "London All",
+          "teamList": [
+            "ZZCP Greenwich and Lewisham(old)",
+            "ZZWandsworth OMT3 (old)"
+          ]
+        },
+        {
+          "pduName": "Newham",
+          "teamList": [
+            "NEW NPS1",
+            "NEW NPS2",
+            "NEW NPS3",
+            "NPS Awaiting Allocation NEWHAM"
+          ]
+        },
+        {
+          "pduName": "Public Protection Community",
+          "teamList": [
+            "Hmp Belmarsh",
+            "Hmp Wandsworth",
+            "NPS FOREIGN NATIONALS UNIT"
+          ]
+        },
+        {
+          "pduName": "Public Protection London",
+          "teamList": [
+            "Other Third Party EM Supervision"
+          ]
+        },
+        {
+          "pduName": "Redbridge and Waltham Forest",
+          "teamList": [
+            "RWF NPS1",
+            "RWF NPS2",
+            "RWF NPS3",
+            "RWF NPS4"
+          ]
+        },
+        {
+          "pduName": "Southwark",
+          "teamList": [
+            "NPS Awaiting Allocation SOUTHWARK",
+            "SOU NPS1",
+            "SOU NPS2",
+            "SOU NPS3"
+          ]
+        },
+        {
+          "pduName": "Tower Hamlets",
+          "teamList": [
+            "TWR NPS CRT",
+            "TWR NPS1",
+            "TWR NPS2"
+          ]
+        },
+        {
+          "pduName": "Unallocated Level 2(N07)",
+          "teamList": [
+            "Default Designated Transfer Team",
+            "Unallocated Team(N07)"
+          ]
+        },
+        {
+          "pduName": "Wandsworth, Merton and Sutton",
+          "teamList": [
+            "MER NPS1",
+            "NPS Awaiting Allocation WANDSWORTH",
+            "SUT NPS1",
+            "WAN NPS CRT",
+            "WAN NPS1"
+          ]
+        }
+      ]
+    }
+  ]
+}
