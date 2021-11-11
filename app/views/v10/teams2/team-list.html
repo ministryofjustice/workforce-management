@@ -7,29 +7,33 @@ Your teams | Manage a workforce
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">{{ region or data['select-region'] }}</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ pdu or data['select-pdu'] }}</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-9">{{ pdu or data['select-pdu'] }}</h1>
     </div>
   </div>
 
-  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+ 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <p>Hello Camilla Horace.</p>
+    <p>You are currently responsible for allocating cases to 3 teams.</p>
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <!-- concerned that they are not responsible! - and can just remove teams from teh list - need to think about htis -->
 
     {% if  ( teams or (data['select-teams']) | length )  %} <!-- check if the variable is an array -->
    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--l">Unallocated cases by team</caption>
+      <caption class="govuk-table__caption govuk-table__caption--l">Allocate cases by team</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Team name</th>
           <th scope="col" class="govuk-table__header">Action</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
       {% for i in ( teams or data['select-teams']) %} <!-- loop through iterations -->
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">{{i}} <span class="case-number">(3) <span class="sr-only">unallocated cases</span></span></th>
-        <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="unallocated-cases?selected-team={{i}}">View cases</a></td>
+        <th scope="row" class="govuk-table__header govuk-!-width-one-half">{{i}}</th>
+        <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="unallocated-cases?selected-team={{i}}">View unallocated cases (3)</a></td>
       </tr>
       {% endfor %}
       </tbody>

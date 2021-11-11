@@ -11,16 +11,12 @@ Select your region | Manage a workforce
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <span class="govuk-caption-xl">National</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">HMPPS</h1>
-    </div>
-  </div>
-
-  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-  
-  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Allocations</span>
+      <h1 class="govuk-heading-xl">Select your team(s)</h1>
+      <p>You must select the teams you allocate cases to, as this is your first time accessing ‘Allocations’.
+      <p class="govuk-!-margin-bottom-9">This information will be saved, but you can edit your team list anytime.</p>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
       <form action="/v10/region-handler" method="post" novalidate>
 
         {{ govukRadios({

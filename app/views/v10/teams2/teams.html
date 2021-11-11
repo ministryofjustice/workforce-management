@@ -54,12 +54,10 @@ Select your teams | Manage a workforce
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Select your team
+                Select your teams
               </h1>
             </legend>
-            <div id="waste-hint" class="govuk-hint">
-              Select all that apply.
-            </div>
+            <div id="waste-hint" class="govuk-hint">Select all teams you currently allocate cases to. This can include the team(s) you manage and other teams you allocate for when on duty allocations.</div>
               {% for team in teamsList %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
@@ -74,9 +72,13 @@ Select your teams | Manage a workforce
           </fieldset>
         </div>
 
-        {{ govukButton({
-        text: "Continue"
-        }) }}
+                <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+          <a class="govuk-link govuk-link--no-visited-state" href="region-handler">Back</a>
+        </div>
 
       </form>
 
