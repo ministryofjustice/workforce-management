@@ -305,6 +305,77 @@
           ]
         }
       ]
+    },
+    {
+      "regionName": "East Midlands Region",
+      "pduList": [
+        {
+          "pduName": "Derby City",
+          "teamList": [
+            "Derby City"
+          ]
+        },
+        {
+          "pduName": "Derbyshire",
+          "teamList": [
+            "Buxton",
+            "Chesterfield",
+            "Ilkeston"
+          ]
+        },
+        {
+          "pduName": "Enforcement",
+          "teamList": [
+            "Enforcement - Leicestershire",
+            "Enforcement - Nottinghamshire"
+          ]
+        },
+        {
+          "pduName": "Leicester, Leicestershire and Rutland",
+          "teamList": [
+            "Coalville Loughb'h Melton Mowbray (County North)",
+            "Leicester City 1",
+            "Leicester City 2",
+            "Leicester City 3",
+            "Leicester City PQUIP",
+            "Leicester City PSOs",
+            "Leicester City Resettlement",
+            "Leicestershire Priority IOM"
+          ]
+        },
+        {
+          "pduName": "Lincolnshire East and West",
+          "teamList": [
+            "Boston",
+            "Grantham",
+            "Lincoln",
+            "Skegness"
+          ]
+        },
+        {
+          "pduName": "Nottingham City",
+          "teamList": [
+            "Nottingham City North",
+            "Nottingham City South",
+            "Nottinghamshire IOM",
+            "Nottinghamshire South"
+          ]
+        },
+        {
+          "pduName": "Nottinghamshire",
+          "teamList": [
+            "Bassetlaw (Worksop)",
+            "Mansfield and Ashfield",
+            "PDU Management Nottinghamshire"
+          ]
+        },
+        {
+          "pduName": "Personality Disorder Projects",
+          "teamList": [
+            "OPD Lincolnshire"
+          ]
+        }
+      ]
     }
   ]
 }
