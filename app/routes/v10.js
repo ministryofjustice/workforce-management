@@ -84,33 +84,33 @@ router.post('/allocate-handler', function (req, res) {
 
 router.post('/region-handler', function (req, res) {
   const region = req.session.data['select-region']
-  res.render('v10/teams2/pdu', { data: probationTeams, region })
+  res.render('v10/pdu', { data: probationTeams, region })
 })
 
 router.get('/region-handler', function (req, res) {
   const pdu = req.session.data['select-pdu']
   const region = req.session.data['select-region']
-  res.render('v10/teams2/pdu', { data: probationTeams, pdu, region })
+  res.render('v10/pdu', { data: probationTeams, pdu, region })
 })
 
 router.post('/teams', function (req, res) {
   const pdu = req.session.data['select-pdu']
   const region = req.session.data['select-region']
-  res.render('v10/teams2/teams', { data: probationTeams, pdu, region })
+  res.render('v10/teams', { data: probationTeams, pdu, region })
 })
 
 router.get('/teams', function (req, res) {
   const pdu = req.session.data['select-pdu']
   const region = req.session.data['select-region']
   const teams = req.session.data['select-teams']
-  res.render('v10/teams2/teams', { data: probationTeams, pdu, region, teams })
+  res.render('v10/teams', { data: probationTeams, pdu, region, teams })
 })
 
 router.post('/team-list', function (req, res) {
   const pdu = req.session.data['select-pdu']
   const region = req.session.data['select-region']
   const teams = req.session.data['select-teams']
-  res.render('v10/teams2/team-list', { data: probationTeams, pdu, region, teams })
+  res.render('v10/team-list', { data: probationTeams, pdu, region, teams })
 })
 
 router.get('/unallocated-cases', function (req, res) {
@@ -120,7 +120,7 @@ router.get('/unallocated-cases', function (req, res) {
 router.get('/team-list', function (req, res) {
   const region = req.session.data['select-region']
   const teams = req.session.data['select-teams']
-  res.render('v10/teams2/team-list', { region, teams })
+  res.render('v10/team-list', { region, teams })
 })
 
 module.exports = router
