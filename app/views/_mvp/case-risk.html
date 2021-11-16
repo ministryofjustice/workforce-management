@@ -11,11 +11,7 @@ J678910 | Overview | Workforce planning
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
-  </div>
+{% include "./partials/pop-title.html" %}
   <div class="govuk-grid-column-one-third">
     <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
   </div>
@@ -125,34 +121,34 @@ J678910 | Overview | Workforce planning
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Safeguarding</td> -->
-                <th scope="row" class="govuk-table__header">Suicide/Self Harm</th>
+                <th scope="row" class="govuk-table__header">Suicide/self-harm</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
                 <td class="govuk-table__cell">13 Dec 2020</td>
-                <td class="govuk-table__cell">13 June 2021</td>
-                <td class="govuk-table__cell">Previous suicide /self harm attempt. Needs further investigating.</td>
+                <td class="govuk-table__cell">13 Jun 2022</td>
+                <td class="govuk-table__cell">Previous suicide /self-harm attempt. Needs further investigating.</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Safeguarding</td> -->
                 <th scope="row" class="govuk-table__header">Child concerns</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
                 <td class="govuk-table__cell">13 Dec 2020</td>
-                <td class="govuk-table__cell">13 March 2021</td>
-                <td class="govuk-table__cell">awaiting outcome of social services enquiry</td>
+                <td class="govuk-table__cell">13 Mar 2022</td>
+                <td class="govuk-table__cell">Awaiting outcome of social services enquiry</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">RoSH</td> -->
                 <th scope="row" class="govuk-table__header">Medium RoSH</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell">09 Nov 2021</td>
-                <td class="govuk-table__cell">09 May 2021</td>
+                <td class="govuk-table__cell">9 Nov 2021</td>
+                <td class="govuk-table__cell">9 May 2022</td>
                 <td class="govuk-table__cell">-</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Public protection</td> -->
-                <th scope="row" class="govuk-table__header">Domestic Abuse Perpetrator</th>
+                <th scope="row" class="govuk-table__header">Domestic abuse perpetrator</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
-                <td class="govuk-table__cell">04 July 2011</td>
-                <td class="govuk-table__cell">26 Dec 2019</td>
+                <td class="govuk-table__cell">4 Jul 2011</td>
+                <td class="govuk-table__cell">26 Dec 2021</td>
                 <td class="govuk-table__cell">-</td>
               </tr>
               <tr class="govuk-table__row">
@@ -160,7 +156,7 @@ J678910 | Overview | Workforce planning
                 <th scope="row" class="govuk-table__header">Mental health issues</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
                 <td class="govuk-table__cell">04 July 2011</td>
-                <td class="govuk-table__cell">26 Dec 2019</td>
+                <td class="govuk-table__cell">26 Dec 2021</td>
                 <td class="govuk-table__cell">personality disorder</td>
               </tr>
             </tbody>
@@ -182,9 +178,9 @@ J678910 | Overview | Workforce planning
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Public protection </td> -->
-                <th scope="row" class="govuk-table__header">MAPPA Considered</th>
+                <th scope="row" class="govuk-table__header">MAPPA considered</th>
                 <!-- <td class="govuk-table__cell"></td> -->
-                <td class="govuk-table__cell"> 14 June 2012</td>
+                <td class="govuk-table__cell"> 14 Jun 2012</td>
                 <td class="govuk-table__cell"> 26 Nov 2019</td>
                 <td class="govuk-table__cell">-</td>
               </tr>

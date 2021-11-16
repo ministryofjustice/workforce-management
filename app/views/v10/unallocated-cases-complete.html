@@ -15,7 +15,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
     <nav class="moj-sub-navigation" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="unallocated-cases-complete"><span id="notifications">Unallocated cases ({{ data['unallocated-number'] | default("3") }})</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="unallocated-cases-complete"><span id="notifications">Unallocated community cases ({{ data['unallocated-number'] | default("3") }})</a>
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="allocated-recently"><span id="notifications">Cases allocated in last 30 days (1)</a>
@@ -31,14 +31,14 @@ Unallocated cases | Southampton Team 1 | Workforce planning
     <div class="moj-scrollable-pane">
       <div class="moj-scrollable-pane__wrapper">
 
-        <table class="govuk-table govuk-table-xl">
+                <table class="govuk-table govuk-table-xl">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Initial appointment</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Induction appointment</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Action</th>
             </tr>
           </thead>
@@ -54,12 +54,12 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 A1
               </td>
               <td class="govuk-table__cell  due-date">
-                {{ moment().subtract(3, 'days').format(longDateFormat) }}
+                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
               </td>
               
               <td class="govuk-table__cell due-date">
-                {{ moment().add(2, 'days').format(longDateFormat) }}
-                <span class="secondary due">In 2 days</span>
+                {{ moment().add(2, 'days').format("D MMM YYYY") }}
+                <span class="secondary overdue">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 New to probation
@@ -80,11 +80,11 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 C2
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().subtract(1, 'days').format(longDateFormat) }}
+                {{ moment().subtract(1, 'days').format("D MMM YYYY") }}
               </td>
 
-              <td class="govuk-table__cell due-date">
-                No date provided
+              <td class="govuk-table__cell due-date">Not booked
+                <span class="secondary overdue">Due In 4 days</span>
               </td>
               <td class="govuk-table__cell">
                 Previously managed<br>

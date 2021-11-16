@@ -6,51 +6,26 @@ Allocation impact | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
+<a href="case-allocate" class="govuk-back-link">Back to case allocation</a>
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
-  </div>
+{% include "./partials/pop-title.html" %}
 </div>
 
-<div class="govuk-grid-row">
+ <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-top-9">
   <div class="govuk-grid-column-full">
-    <nav class="moj-sub-navigation" aria-label="Sub navigation">
-      <ul class="moj-sub-navigation__list">
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-view">Summary</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
+      <h3 id="cleared" class="govuk-heading-l">You are allocating probation practitioner {{ data['allocated-officer'] | default("Molly O\'Sullivan") }} (PO) to this case.</h3>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-      <h3 id="cleared" class="govuk-heading-l">Change to capacity</h3>
-
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        Allocating this case will change the capacity score of {{ data['allocated-officer'] | default("Molly O\'Sullivan") }} from 90% to 98%.
-      </strong>
-    </div>
+<p>
+        This will increase their workload capacity from 90% to 98%.
+</p>
 
     <form action="allocation-complete" method="post" novalidate>
       <div class="govuk-button-group">
         <button class="govuk-button" data-module="govuk-button">Continue</button>
-        <a class="govuk-link" href="case-allocate">Cancel</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="case-allocate">Return to probation practitioner list</a>
       </div>
       <input type="hidden" name="unallocated-number" value="2">
     </form>

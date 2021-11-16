@@ -1,4 +1,4 @@
-{% extends "layout_cases-nav-notes.html" %}
+{% extends "layout_cases-nav.html" %}
 
 
 {% block pageTitle %}
@@ -23,11 +23,7 @@ J678910 | Overview | Workforce planning
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
-  </div>
+{% include "./partials/pop-title.html" %}
   <div class="govuk-grid-column-one-third">
     <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
   </div>
@@ -58,38 +54,38 @@ J678910 | Overview | Workforce planning
 </div>
 
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-padding-bottom-9">
   <div class="govuk-grid-column-full">
     <table class="govuk-table govuk-table-xl">
-      <caption class="govuk-table__caption govuk-table__caption--m">Currently managed order</caption>
+      <caption class="govuk-table__caption govuk-table__caption--m">Managed order</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header" style="width: 30%;">Sentence</th>
           <th scope="col" class="govuk-table__header" style="width: 36%;">Offence</th>
           <th scope="col" class="govuk-table__header" style="width: 13%;">Start date</th>
-          <th scope="col" class="govuk-table__header" style="width: 21%;">Offender manager</th>
+          <th scope="col" class="govuk-table__header" style="width: 21%;">Probation practitioner</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">ORA Community Order(18 Months)</th>
+          <th scope="row" class="govuk-table__header">ORA Community Order (18 Months)</th>
           <td class="govuk-table__cell">Common assault and battery - 10501</td>
           <td class="govuk-table__cell">5 Nov 2020</td>
           <td class="govuk-table__cell">
-            <p class="govuk-body">Faraz Haynes<br><span class="secondary-text-col">Allocated on 11 Nov 2020</span></p>
+            <p class="govuk-body">Faraz Haynes<br><span class="secondary-text-col">Allocated 11 Nov 2020</span></p>
           </td>
         </tr>
       </tbody>
     </table>
 
     <table class="govuk-table govuk-table-xl">
-      <caption class="govuk-table__caption govuk-table__caption--m">Recent previous orders</caption>
+      <caption class="govuk-table__caption govuk-table__caption--m">Previous orders</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header" style="width: 30%;">Sentence</th>
           <th scope="col" class="govuk-table__header" style="width: 36%;">Offence</th>
           <th scope="col" class="govuk-table__header" style="width: 13%;">End date</th>
-          <th scope="col" class="govuk-table__header" style="width: 21%;">Offender manager</th>
+          <th scope="col" class="govuk-table__header" style="width: 21%;">Probation practitioner</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -99,7 +95,7 @@ J678910 | Overview | Workforce planning
           <td class="govuk-table__cell">Breach of a Non-Molestation Order - 06639</td>
           <td class="govuk-table__cell">24 Feb 2021</td>
           <td class="govuk-table__cell">
-            <p class="govuk-body">Margaret Dawson<br><span class="secondary-text-col">Allocated on 28 Feb 2020</span></p>
+            <p class="govuk-body">Margaret Dawson<br><span class="secondary-text-col">Allocated 28 Feb 2020</span></p>
           </td>
         </tr>
 
@@ -107,10 +103,10 @@ J678910 | Overview | Workforce planning
           <th scope="row" class="govuk-table__header">CJA
           Community Order (12 months)</th>
           <td class="govuk-table__cell">Breach of a Non-Molestation Order - 06639</td>
-          <td class="govuk-table__cell">08 Nov 2020</td>
+          <td class="govuk-table__cell">8 Nov 2020</td>
           <td class="govuk-table__cell">
             <p class="govuk-body">Daron Threvallan<br>
-            <span class="secondary-text-col">Allocated on 06 Nov 2019</span></p>
+            <span class="secondary-text-col">Allocated 6 Nov 2019</span></p>
           </td>
         </tr>
 
@@ -121,7 +117,7 @@ J678910 | Overview | Workforce planning
           <td class="govuk-table__cell">15 Mar 2019</td>
           <td class="govuk-table__cell">
             <p class="govuk-body">Daron Threvallan<br>
-            <span class="secondary-text-col">Allocated on 18 Mar 2018</span></p>
+            <span class="secondary-text-col">Allocated 18 Mar 2018</span></p>
           </td>
         </tr>
       </tbody>
@@ -129,4 +125,5 @@ J678910 | Overview | Workforce planning
     <a href="#" class="govuk-link--no-visited-state">View all previous orders (12)</a>
   </div>
 </div>
+{% include "../includes/case-notes.html" %}
 {% endblock %}

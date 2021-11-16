@@ -33,11 +33,7 @@ Allocation reasons | Workforce planning
 {% block content %}
 
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
-  </div>
+{% include "./partials/pop-title.html" %}
 </div>
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 

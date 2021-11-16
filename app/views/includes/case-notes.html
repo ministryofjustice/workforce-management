@@ -1,21 +1,20 @@
-<section class="key-details-bar" style="margin: 0; padding: 0 15px;" aria-label="Key details">
-    <div class="key-details-bar__key-details">
-      <div class="key-details-bar__top-block">
-            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <section aria-label="allocation-instructions">
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-    {{ govukTextarea({
-      name: "more-detail",
-      id: "more-detail",
-      classes: "allocation-notes-colour",
-      label: {
-        text: "Allocation instructions",
-        classes: "govuk-label--l",
-        isPageHeading: true
-      },
-      hint: {
-        text: "Add anything here you want to highlight to the allocated officer. You will have a chance to review later."
-      }
-    }) }}
-    </div>
+        {{ govukTextarea({
+          name: "more-detail",
+          id: "more-detail",
+          label: {
+            text: "Write allocation notes",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Enter any details you want to highlight to the probation practitioner. You will have a chance to review later."
+          }
+        }) }}
+    </section>
   </div>
-</section>
+</div>
