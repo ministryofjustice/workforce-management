@@ -15,7 +15,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
     <nav class="moj-sub-navigation" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#"><span id="notifications">Unallocated cases ({{ data['unallocated-number'] | default("3") }})</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#"><span id="notifications">Unallocated community cases ({{ data['unallocated-number'] | default("3") }})</a>
         </li>
       </ul>
     </nav>
@@ -34,8 +34,8 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Initial appointment</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Induction appointment</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Action</th>
             </tr>
           </thead>
@@ -50,16 +50,16 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 C1
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().subtract(4, 'days').format(longDateFormat) }}
+                {{ moment().subtract(4, 'days').format("D MMM YYYY") }}
               </td>
              
               <td class="govuk-table__cell due-date">
-                {{ moment().add(1, 'days').format(longDateFormat) }}
+                {{ moment().add(1, 'days').format("D MMM YYYY") }}
                 <span class="secondary overdue">Tomorrow</span>
               </td>
               <td class="govuk-table__cell">
                 Currently managed<br>
-                <span class="govuk-body-s">(Faraz Haynes)</span>
+                <span class="govuk-body-s">(Faraz Haynes, PO)</span>
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
@@ -77,12 +77,12 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 A1
               </td>
               <td class="govuk-table__cell  due-date">
-                {{ moment().subtract(3, 'days').format(longDateFormat) }}
+                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
               </td>
               
               <td class="govuk-table__cell due-date">
-                {{ moment().add(2, 'days').format(longDateFormat) }}
-                <span class="secondary due">In 2 days</span>
+                {{ moment().add(2, 'days').format("D MMM YYYY") }}
+                <span class="secondary overdue">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 New to probation
@@ -103,11 +103,11 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 C2
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().subtract(1, 'days').format(longDateFormat) }}
+                {{ moment().subtract(1, 'days').format("D MMM YYYY") }}
               </td>
 
-              <td class="govuk-table__cell due-date">
-                No date provided
+              <td class="govuk-table__cell due-date">Not booked
+                <span class="secondary overdue">Due In 4 days</span>
               </td>
               <td class="govuk-table__cell">
                 Previously managed<br>
@@ -129,9 +129,12 @@ Unallocated cases | Southampton Team 1 | Workforce planning
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-l">Other unallocated cases</h2>
-    <div class="govuk-inset-text">
-      There may currently be unallocated custody cases on NDelius.
-    </div>
+    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "You must also check NDelius for any custody cases that need to be allocated.",
+  iconFallbackText: "Warning"
+}) }}
   </div>
 </div>
 
