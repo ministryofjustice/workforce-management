@@ -43,7 +43,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Induction appointment</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Action</th>
+              <th scope="col" class="govuk-table__header">Action</th>
             </tr>
           </thead>
 
@@ -144,4 +144,14 @@ Unallocated cases | Southampton Team 1 | Workforce planning
   </div>
 </div>
 
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
 {% endblock %}
