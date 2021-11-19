@@ -29,7 +29,6 @@ J678910 | Allocate | Workforce planning
 {% block content %}
 {% include "./partials/pop-title.html" %}
 </div>
-
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 <div class="govuk-grid-row">
@@ -68,7 +67,7 @@ J678910 | Allocate | Workforce planning
         {% for probationPractitioner in team %}
           <tr class="govuk-table__row">
             
-            <td class="govuk-table__cell">{{ probationPractitioner.name }}</td>
+            <td class="govuk-table__cell"><label for="allocate-officer-{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</label></td>
             {% set gradeDescription = gradeDescriptions[probationPractitioner.grade] %}
             <td class="govuk-table__cell" data-sort-value="{{ gradeDescription }}">
             <div class="tooltip">{{ probationPractitioner.grade }}<span class="tooltiptext">{{ gradeDescription }}</span></div></td>
