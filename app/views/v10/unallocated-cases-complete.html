@@ -44,7 +44,6 @@ Unallocated cases | Southampton Team 1 | Workforce planning
           </thead>
 
           <tbody class="govuk-table__body">
-
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 <strong>Andrei Edwards</strong>
@@ -54,11 +53,11 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 A1
               </td>
               <td class="govuk-table__cell  due-date">
-                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
+                {{ moment().subtract(3, 'days').format(longDateFormat) }}
               </td>
-              
               <td class="govuk-table__cell due-date">
-                {{ moment().add(2, 'days').format("D MMM YYYY") }}
+                {{ moment().add(2, 'days').format(longDateFormat) }}
+                <span class="secondary overdue">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 New to probation
@@ -83,6 +82,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               </td>
 
               <td class="govuk-table__cell due-date">Not booked
+                <span class="secondary overdue">Due in 4 days</span>
               </td>
               <td class="govuk-table__cell">
                 Previously managed<br>
