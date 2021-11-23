@@ -37,7 +37,7 @@ router.get('/officer-view/:id', ({ params: { id }, session }, res) => {
   }
   Object.assign(res.locals, data)
   Object.assign(session[id] || {}, data)
-  res.render('v9/officer-view')
+  res.render('v10/officer-view')
 })
 
 function updateLocals (res, id, session) {

@@ -56,7 +56,6 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               
               <td class="govuk-table__cell due-date">
                 {{ moment().add(2, 'days').format(longDateFormat) }}
-                <span class="secondary due">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 New to probation
@@ -81,7 +80,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               </td>
 
               <td class="govuk-table__cell due-date">
-                No date provided
+                Not booked
               </td>
               <td class="govuk-table__cell">
                 Previously managed<br>
@@ -102,10 +101,13 @@ Unallocated cases | Southampton Team 1 | Workforce planning
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Other unallocated cases</h2>
-    <div class="govuk-inset-text">
-      There may currently be unallocated custody cases on NDelius.
-    </div>
+    <h2 class="govuk-heading-l">Unallocated custody cases</h2>
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "You must also check NDelius for any custody cases that need to be allocated.",
+  iconFallbackText: "Warning"
+}) }}
   </div>
 </div>
 
