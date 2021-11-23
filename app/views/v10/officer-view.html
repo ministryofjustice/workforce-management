@@ -180,30 +180,28 @@
     <h3 class="govuk-heading-m">Case mix</h3>
     <figure style="margin: 0;" class="govuk-!-padding-bottom-4">
       <div id="piechart" style="width: 256px; height: 256px;"></div>
-      <figcaption class="visually-hidden sr-only">Pie chart showing breakdown of different case types</figcaption>
+      <figcaption class="visually-hidden sr-only">Pie chart showing number of cases managed by tier</figcaption>
     </figure>
-    <ul class="govuk-list">
+    
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Tier</th>
+          <th scope="col" class="govuk-table__header">Number of cases</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
 
-    {% for tier in tiers %}
-      {% if probationPractitioner.totals[tier] %}
-        <li><span class="caseload-swatch tier-{{ tier }}"></span>Tier {{ tier }}: {{ probationPractitioner.totals[tier] }}</li>
-      {% endif %}
-    {% endfor %}
-    </ul>
-
-     <h3 class="govuk-heading-m">Completed training</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      {% for completedTrainingItem in probationPractitioner.completedTraining %}
-        <li>{{ completedTrainingItem }}</li>
+      {% for tier in tiers %}
+        {% if probationPractitioner.totals[tier] %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><span class="caseload-swatch tier-{{ tier }}"></span>{{ tier }}</td>
+          <td class="govuk-table__cell">{{ probationPractitioner.totals[tier] }}</td>
+        </tr>
+        {% endif %}
       {% endfor %}
-    </ul>
-
-     <h3 class="govuk-heading-m">Specialist experience</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      {% for specialistArea in probationPractitioner.specialistAreas %}
-        <li>{{ specialistArea }}</li>
-      {% endfor %}
-    </ul>
+      </tbody>
+    </table>
 
   </div>
 </div>

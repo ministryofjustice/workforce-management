@@ -40,7 +40,7 @@ Faraz Haynes | Active cases | Workforce planning
           <tbody class="govuk-table__body">
           {% for case in probationPractitioner.serviceUsers %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{ case.crn }}</td>
+            <td class="govuk-table__cell"><strong>{{ case.name }}</strong><span class="govuk-body-s" style="display: block;">{{ case.crn }}</span></td>
             <td class="govuk-table__cell">{{ case.tier }}</td>
             <td class="govuk-table__cell">{{ case.receivingFrom | capitalize }}</td>
             <td class="govuk-table__cell">{{ case.sentenceStart.format('Do MMM YYYY') }}</td>
