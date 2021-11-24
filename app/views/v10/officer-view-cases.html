@@ -43,8 +43,8 @@ Faraz Haynes | Active cases | Workforce planning
             <td class="govuk-table__cell"><strong>{{ case.name }}</strong><span class="govuk-body-s" style="display: block;">{{ case.crn }}</span></td>
             <td class="govuk-table__cell">{{ case.tier }}</td>
             <td class="govuk-table__cell">{{ case.receivingFrom | capitalize }}</td>
-            <td class="govuk-table__cell">{{ case.sentenceStart.format('Do MMM YYYY') }}</td>
-            <td class="govuk-table__cell">{{ case.sentenceEnd.format('Do MMM YYYY') }}</td>
+            <td class="govuk-table__cell">{{ case.sentenceStart.format('D MMM YYYY') }}</td>
+            <td class="govuk-table__cell">{{ case.sentenceEnd.format('D MMM YYYY') }}</td>
           </tr>
           {% endfor %}
           </tbody>

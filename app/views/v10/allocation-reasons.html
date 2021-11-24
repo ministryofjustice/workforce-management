@@ -7,40 +7,14 @@ Allocation reasons | Workforce planning
 
 {% block beforeContent %}
 <div class="govuk-breadcrumbs">
-  <a href="unallocated-cases" class="govuk-back-link govuk-body">Back to unallocated cases</a>
+  <a href="case-allocate" class="govuk-back-link govuk-body">Back to allocate case</a>
 </div>
 {% endblock %}
 
 {% block content %}
-
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
-  </div>
+{% include "./partials/pop-title.html" %}
 </div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <nav class="moj-sub-navigation" aria-label="Sub navigation">
-      <ul class="moj-sub-navigation__list">
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-view">Summary</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
-        </li>
-                 <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-allocate">Allocate to an officer</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
