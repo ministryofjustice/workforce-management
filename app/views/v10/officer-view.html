@@ -96,7 +96,7 @@
       <li>Last allocation on 22 Jan</li>
     </ul> -->
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9" style="max-width: 727px;">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Weekly hours
@@ -115,7 +115,7 @@
               Reductions
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ probationPractitioner.totalReductions }} hours until {{ probationPractitioner.nextChange.format('DD MMM YYYY') }}
+              {{ probationPractitioner.totalReductions }} hours until {{ probationPractitioner.nextChange.format('D MMM YYYY') }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state"  href="{{versionUrl}}/officer-view/{{id}}/reductions">
@@ -128,7 +128,7 @@
               Last case allocated
             </dt>
             <dd class="govuk-summary-list__value">
-              22 Jan (Tier B2, on licence in community)
+              {{ moment().subtract(24, 'days').format("D MMM YYYY") }} (Tier C2, on licence in community)
             </dd>
             <dd class="govuk-summary-list__actions">
 
@@ -178,7 +178,7 @@
 
   <div class="govuk-grid-column-one-third">
     
-    <div class="aside-card">
+    <!--<div class="aside-card">-->
       <h3 class="govuk-heading-m">Case mix by tier</h3>
       <figure>
         <div id="piechart" style="width: 256px; height: 256px;"></div>
@@ -204,7 +204,7 @@
         {% endfor %}
         </tbody>
       </table>
-    </div>
+    <!--</div>-->
 
   </div>
 </div>

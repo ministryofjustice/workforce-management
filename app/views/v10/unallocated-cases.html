@@ -84,10 +84,10 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 A1
               </td>
               <td class="govuk-table__cell  due-date">
-                {{ moment().subtract(3, 'days').format(longDateFormat) }}
+                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().add(2, 'days').format(longDateFormat) }}
+                {{ moment().add(2, 'days').format("D MMM YYYY") }}
                 <span class="secondary overdue">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
