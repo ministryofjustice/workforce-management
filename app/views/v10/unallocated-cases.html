@@ -1,7 +1,7 @@
 {% extends "layout_cases-nav.html" %}
 
 {% block pageTitle %}
-Unallocated cases | Southampton Team 1 | Workforce planning
+Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
@@ -32,6 +32,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-l">Unallocated community cases</h2>
+    <p class="govuk-body-s secondary-text-col" style="margin: -25px 0 30px;">Last updated: {{ moment().subtract(0, 'days').format("D MMM YYYY") }}</p>
     <div class="moj-scrollable-pane">
       <div class="moj-scrollable-pane__wrapper">
 
@@ -54,19 +55,19 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 <span class="govuk-body-s" style="display: block;">J678910</span>
               </td>
               <td class="govuk-table__cell">
-                C1
+                B1
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().subtract(4, 'days').format("D MMM YYYY") }}
+                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
               </td>
              
               <td class="govuk-table__cell due-date">
-                {{ moment().add(1, 'days').format("D MMM YYYY") }}
-                <span class="secondary overdue">Tomorrow</span>
+                {{ moment().add(2, 'days').format("D MMM YYYY") }}
+                <span class="secondary overdue">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 Currently managed<br>
-                <span class="govuk-body-s">(Faraz Haynes, PO)</span>
+                <span class="govuk-body-s">(Teigan Kaye, PSO)</span>
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
@@ -81,14 +82,13 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 <span class="govuk-body-s" style="display: block;">J680648</span>
               </td>
               <td class="govuk-table__cell">
-                A1
+                A3
               </td>
               <td class="govuk-table__cell  due-date">
-                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
+                {{ moment().subtract(2, 'days').format("D MMM YYYY") }}
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().add(2, 'days').format("D MMM YYYY") }}
-                <span class="secondary overdue">In 2 days</span>
+                {{ moment().add(3, 'days').format("D MMM YYYY") }}
               </td>
               <td class="govuk-table__cell">
                 New to probation
@@ -106,7 +106,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 <span class="govuk-body-s" style="display: block;">J680660</span>
               </td>
               <td class="govuk-table__cell">
-                C2
+                D0
               </td>
               <td class="govuk-table__cell due-date">
                 {{ moment().subtract(1, 'days').format("D MMM YYYY") }}

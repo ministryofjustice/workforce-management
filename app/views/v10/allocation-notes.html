@@ -38,67 +38,70 @@ Allocation reasons | Workforce planning
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-<h2 class="govuk-heading-l">Review allocation notes</h2>
+  <div class="govuk-grid-column-one-half">
 <form action="allocation-complete" method="post" novalidate>
   <div class="govuk-form-group">
-    <label class="govuk-label" for="more-detail">
-      These are the notes you made while reviewing the case. Please ensure they are complete with everything you want to tell the offender manager, as they will be sent as part of the allocation.
-    </label>
-    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="15">
-      {{ data['casenotes'] }}
-    </textarea>
-  </div>
+    <section aria-label="allocation-instructions">
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-  <h2 class="govuk-heading-m">Common tasks</h2>
+        {{ govukTextarea({
+          name: "more-detail",
+          id: "txt",
+          label: {
+            text: "Review allocation notes",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Enter any details you want to highlight to the probation practitioner. You will have a chance to review later."
+          }
+        }) }}
+    </section>
+  </div>
 
   <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" aria-describedby="ex-reasons-hint">
-      <div id="ex-reasons-hint" class="govuk-hint">
-        Select all that apply.
-      </div>
-      <div class="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="ex-reasons" name="ex-reasons" type="checkbox" value="complex">
-          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons">
-            Check with social services
-          </label>
-        </div>
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="ex-reasons-2" name="ex-reasons" type="checkbox" value="suitable">
-          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-2">
-            Complete a police check
-          </label>
-        </div>
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="ex-reasons-3" name="ex-reasons" type="checkbox" value="continuity">
-          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-3">
-            Ensure registers are correct
-          </label>
-        </div>
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="ex-reasons-4" name="ex-reasons" type="checkbox" value="staffing">
-          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-4">
-             Check MAPPA eligible
-          </label>
-        </div>
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="ex-reasons-5" name="ex-reasons" type="checkbox" value="training">
-          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-5">
-            Link in with Youth Justice
-          </label>
-        </div>
-      </div>
-
-    </fieldset>
+    {% include "./partials/add-another-email.html" %}
   </div>
 
-      <div class="govuk-button-group">
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-        <a class="govuk-link" href="case-allocate">Cancel</a>
-      </div>
+  <div class="govuk-button-group">
+    <button class="govuk-button" data-module="govuk-button">Continue</button>
+    <a class="govuk-link" href="case-allocate">Cancel</a>
+  </div>
 
 </form>
   </div>
 </div>
 {% endblock %}
+
+{% block scripts %}
+<script>
+  var textarea = document.getElementById("txt");
+  textarea.addEventListener('input', writeLocalStorage);
+
+  function writeLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         localStorage.setItem("text", textarea.value);
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  function readLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         textarea.value = localStorage.getItem("text");
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
+  if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", readLocalStorage);
+  } else {  // `DOMContentLoaded` already fired
+      readLocalStorage();
+  }
+  </script>
+      <script type="text/javascript">
+      MOJFrontend.initAll();
+    </script>
+  {% endblock %}
