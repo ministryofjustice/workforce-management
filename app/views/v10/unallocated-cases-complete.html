@@ -1,7 +1,7 @@
 {% extends "layout_cases-nav.html" %}
 
 {% block pageTitle %}
-Unallocated cases | Southampton Team 1 | Workforce planning
+Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Workforce planning
 {% endblock %}
 
 {% block content %}
@@ -64,7 +64,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
-                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-unavailable">Review case</a></li>
                 </ul>
               </td>
             </tr>
