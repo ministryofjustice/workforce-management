@@ -23,7 +23,7 @@ Allocation reasons | Workforce planning
       href: "case-view"
     },
     {
-      text: "Allocate case",
+      text: "Allocate to probation practitioner",
       href: "case-allocate"
     }
   ]
@@ -39,7 +39,6 @@ Allocation reasons | Workforce planning
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-<form action="allocation-complete" method="post" novalidate>
   <div class="govuk-form-group">
     <section aria-label="allocation-instructions">
                 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
@@ -62,7 +61,7 @@ Allocation reasons | Workforce planning
   <div class="govuk-form-group">
     {% include "./partials/add-another-email.html" %}
   </div>
-
+<form action="allocation-complete" method="post" novalidate>
   <div class="govuk-button-group">
     <button class="govuk-button" data-module="govuk-button">Continue</button>
     <a class="govuk-link" href="case-allocate">Cancel</a>
