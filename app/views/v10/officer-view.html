@@ -225,6 +225,20 @@
       </table>
     <!--</div>-->
 
+    <h3 class="govuk-heading-m">Completed training</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      {% for completedTrainingItem in probationPractitioner.completedTraining %}
+        <li>{{ completedTrainingItem }}</li>
+      {% endfor %}
+    </ul>
+
+     <h3 class="govuk-heading-m">Specialist experience</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      {% for specialistArea in probationPractitioner.specialistAreas %}
+        <li>{{ specialistArea }}</li>
+      {% endfor %}
+    </ul>
+    
   </div>
 </div>
 
