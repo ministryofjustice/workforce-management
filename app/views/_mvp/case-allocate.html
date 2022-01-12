@@ -57,7 +57,7 @@ J678910 | Allocate | Workforce planning
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Cases in past 7 days</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Workload details</th>
+          <th scope="col" class="govuk-table__header">Workload details</th>
           <th scope="col" class="govuk-table__header">Select</th>
           
         </tr>
@@ -76,7 +76,7 @@ J678910 | Allocate | Workforce planning
             <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.allocationsInLast7.length }}">{{ probationPractitioner.allocationsInLast7.length }}</td>
             <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.community }}">{{ probationPractitioner.totals.community }}</td>
             <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.custody }}">{{ probationPractitioner.totals.custody }}</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="officer-view/{{ probationPractitioner.OM_Key }}">View</a></td>
+            <td class="govuk-table__cell" style="text-align: center;"><a class="govuk-link--no-visited-state" href="officer-view/{{ probationPractitioner.OM_Key }}">View</a></td>
             <td class="govuk-table__cell">
               <div class="govuk-radios govuk-radios--small">
                 <div class="govuk-radios__item">
