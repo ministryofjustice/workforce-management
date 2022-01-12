@@ -5,8 +5,8 @@
 
 <div data-module="moj-add-another">
 
-<p class="govuk-!-margin-bottom-7">These notes will automatically be sent to the probation practitioner you have chosen.<br>
-You can also send a copy of the notes to another recipient, for example your case admin officer.</p>
+<p class="govuk-!-margin-bottom-7">These notes will automatically be sent to <br>{{ data['allocated-officer'] | default("Molly O\'Sullivan") }} (<em>MJOnps11@justice.gov.uk</em>)</p>
+<p>You can also send a copy of the notes to another recipient, for example your case admin officer.</p>
 
 
     {% call govukFieldset({
