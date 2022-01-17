@@ -124,12 +124,16 @@ J678910 | Overview | Workforce planning
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">CPS pack
             </dt>
-            <dd class="govuk-summary-list__value">{{ moment().subtract(1, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">View pack (opens in new window)</a></dd>
+            <dd class="govuk-summary-list__value">
+              <span class="moj-badge moj-badge--red moj-badge--large">Missing</span>
+
+              <!-- {{ moment().subtract(1, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">View pack (opens in new window)</a> -->
+            </dd>
           </div>
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Pre-convictions</dt>
-            <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--red moj-badge--large">NOT SAVED IN OFFENDER INDEX</span></dd>
+            <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--red moj-badge--large">Missing</span></dd>
           </div>
         
           <!--<div class="govuk-summary-list__row">
@@ -138,8 +142,11 @@ J678910 | Overview | Workforce planning
           </div>-->
 
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Pre-sentence report</dt>
-            <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--black moj-badge--large">No report created</span></dd>
+            <dt class="govuk-summary-list__key">Pre-sentence report<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Oral</span></dt>
+            <dd class="govuk-summary-list__value">
+              {{ moment().subtract(1, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">View report (opens in new window)</a>
+
+              <!--<span class="moj-badge moj-badge--black moj-badge--large">No report created</span></dd>-->
           </div>
         
           <div class="govuk-summary-list__row">
