@@ -6,7 +6,27 @@ Allocation impact | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<a href="case-allocate" class="govuk-back-link">Back to case allocation</a>
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    },
+    {
+      text: "Case view",
+      href: "case-view"
+    },
+    {
+      text: "Allocate to probation practitioner",
+      href: "case-allocate"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
