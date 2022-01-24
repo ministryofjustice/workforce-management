@@ -1,0 +1,72 @@
+{% extends "layout-notify.html" %}
+
+{% block pageTitle %}
+  Dylan Adam Armstrong (J678910) has been allocated to you
+{% endblock %}
+
+{% block content %}
+<p><strong>Subject:</strong> Dylan Adam Armstrong (J678910) has been allocated to you<br />
+<strong>From:</strong> manage.a.workforce@notifications.service.gov.uk</p>
+
+<img src="{{ asset_path }}images/HMPPS.jpg" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Hello {{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</p>
+
+    <p><strong>Dylan Adam Armstrong (J678910)</strong> has been allocated to you for immediate case management.</p>
+
+    <section aria-label="allocation-instructions">
+
+      <div class="govuk-form-group>
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="more-detail">
+            Allocation notes
+          </label>
+        </h1>
+        <textarea disabled class="govuk-textarea hmpps-email" name="more-detail" id="txt" rows="8" aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+    </section>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <p>Please notifiy your administrator of employment, accommodation, and education attainment level as soon as possible so that Delius can be updated.</p>
+
+    <p>Also please update Personal Circumstances in Delius with the contact arrangements during Covid 19.</p>
+
+    
+    <p>Regards,<br />Senior Probation Officer, Wrexham</p>
+
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+  var textarea = document.getElementById("txt");
+  textarea.addEventListener('input', writeLocalStorage);
+
+  function writeLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         localStorage.setItem("text", textarea.value);
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  function readLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         textarea.value = localStorage.getItem("text");
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
+  if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", readLocalStorage);
+  } else {  // `DOMContentLoaded` already fired
+      readLocalStorage();
+  }
+  </script>
+      <script type="text/javascript">
+      MOJFrontend.initAll();
+    </script>
+  {% endblock %}
