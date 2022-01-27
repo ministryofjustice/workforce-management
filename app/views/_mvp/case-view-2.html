@@ -1,0 +1,170 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+J678910 | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Hannah Francis
+      <span class="govuk-caption-xl">Tier: C2</span>
+      <span class="govuk-caption-xl">CRN: J680660</span>
+    </h1>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <a href="#" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-view-2">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history-2">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk-2">Risk</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Summary</h2>
+        <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Personal details</h2>
+      </header>
+      <div class="app-summary-card__body">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Name</dt>
+            <dd class="govuk-summary-list__value">Hannah Francis</dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Gender</dt>
+            <dd class="govuk-summary-list__value">Female</dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Date of birth</dt>
+            <dd class="govuk-summary-list__value">13 May 1998 (23 years old)</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Sentence</h2>
+      </header>
+      <div class="app-summary-card__body">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Offence</dt>
+            <dd class="govuk-summary-list__value">
+              <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                 Common and other types of assault
+              </h3>
+              <p class="govuk-body-s secondary-text-col"><strong>Contrary to section 37(c) of the Criminal Justice Act 1988.</strong></p>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Detail</dt>
+            <dd class="govuk-summary-list__value">
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Order</dt>
+            <dd class="govuk-summary-list__value">
+              <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                Community Order (12 months)
+              </h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Start date: {{ moment().subtract(1, 'days').format("D MMM YYYY") }}</li>
+                <li>Estimated end date: 01 Feb 2023</li>
+              </ul>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Requirements</dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Rehabilitation Activity Requirement (RAR): 15 days</li>
+                <li>Unpaid work: regular</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Case details</h2>
+      </header>
+      <div class="app-summary-card__body">
+        <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key"><div class="tooltip">PNC<span class="tooltiptext">Police National Computer</span></div></dt>
+            <dd class="govuk-summary-list__value">2012/123400000F</dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">CPS pack
+            </dt>
+            <dd class="govuk-summary-list__value">{{ moment().subtract(170, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">View pack (opens in new window)</a></dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Pre-convictions</dt>
+            <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--red moj-badge--large">Missing</span></dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Pre-sentence report</dt>
+            <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--red moj-badge--large">Missing</span></dd>
+          </div>  
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Last OASys assessment<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">OASys Assessment Layer 3</span></dt>
+            <dd class="govuk-summary-list__value">
+              <span class="app-!-font-family-tabular">{{ moment().subtract(190, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">View assessment (opens in new window)</a></span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% endblock %}
