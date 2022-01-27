@@ -12,7 +12,8 @@ J678910 | Overview | Workforce planning
 {{ govukBreadcrumbs({
   items: [
     {
-      text: "Home"
+      text: "Home",
+      href: "#"
     },
     {
       text: "Unallocated cases",
@@ -23,9 +24,15 @@ J678910 | Overview | Workforce planning
 {% endblock %}
 
 {% block content %}
-{% include "./partials/pop-title.html" %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Hannah Francis
+      <span class="govuk-caption-xl">Tier: C2</span>
+      <span class="govuk-caption-xl">CRN: J680660</span>
+    </h1>
+  </div>
   <div class="govuk-grid-column-one-third">
-    <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
+    <a href="#" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
   </div>
 </div>
 
@@ -34,13 +41,13 @@ J678910 | Overview | Workforce planning
     <nav class="moj-sub-navigation" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state"   href="case-view">Summary</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"   href="case-view-2">Summary</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history-2">Probation record</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-risk">Risk</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-risk-2">Risk</a>
         </li>
       </ul>
     </nav>
@@ -59,27 +66,43 @@ J678910 | Overview | Workforce planning
     <section class="index-card">
      <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">ROSH<span class="tooltiptext govuk-body-s">Risk of Serious Harm</span></div></h1>
      <p class="govuk-body-s secondary-text-col" style="margin-bottom: 30px;">Last updated: 11 Jan 2022</p>
-     
-    <span class="govuk-tag moj-tag--green">Low</span>
+     <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
+      <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 34%;"></div>
+      <div style="float: left; height: 10px; width: 25%; background-color: #85994B;"></div>
+       <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #F47738;"></div>
+       <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #D4351C;"></div>
+       <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #761708;"></div>
+     </div>
+    <span class="govuk-tag moj-tag--orange">Medium</span>
     </section>
   </div>
 
   <div class="govuk-grid-column-one-quarter">
     <section class="index-card">
-      <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">RSR<span class="tooltiptext govuk-body-s">Risk of Serious Recidivism</span></div> <span>3.8%</span></h1>
+      <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">RSR<span class="tooltiptext govuk-body-s">Risk of Serious Recidivism</span></div> <span>7.2%</span></h1>
       <p class="govuk-body-s secondary-text-col" style="margin-bottom: 30px;">Last updated: 13 May 2021</p>
-      
-      <span class="govuk-tag moj-tag--orange">Medium</span>
+      <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
+      <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 71%;"></div>
+       <div style="float: left; height: 10px; width: 33%; background-color: #85994B;"></div>
+       <div style="float: left; height: 10px; width: 34%; margin-left:  -1px; border-left: solid 1px white; background-color: #F47738;"></div>
+       <div style="float: left; height: 10px; width: 33%; margin-left:  -1px; border-left: solid 1px white; background-color: #D4351C;"></div>
+     </div>
+      <span class="govuk-tag moj-tag--red">High</span>
     </section>
   </div>
 
   <div class="govuk-grid-column-one-quarter">
     <section class="index-card">
-      <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">OGRS<span class="tooltiptext govuk-body-s">Offender Group Reconviction Scale</span></div> <span>87%</span></h1>
+      <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">OGRS<span class="tooltiptext govuk-body-s">Offender Group Reconviction Scale</span></div> <span>26%</span></h1>
       <p class="govuk-body-s secondary-text-col" style="margin-bottom: 30px;">Last updated: 26 May 2021</p>
-     
-      <span class="govuk-tag moj-tag--red" style="visibility: hidden;">High</span>
-      <!-- <span class="govuk-tag moj-tag--black">Very High</span> -->
+      <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
+      <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 16%;"></div>
+       <div style="float: left; height: 10px; width: 25%; background-color: #85994B;"></div>
+       <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #F47738;"></div>
+       <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #D4351C;"></div>
+       <div style="float: left; height: 10px; width: 25%; margin-left:  -1px; border-left: solid 1px white; background-color: #761708;"></div>
+     </div>
+      <span class="govuk-tag moj-tag--green">Low</span>
     </section>
   </div>
 </div>
@@ -95,7 +118,7 @@ J678910 | Overview | Workforce planning
         <ul class="govuk-tabs__list" role="tablist">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
             <a class="govuk-tabs__tab" href="#active" id="tab_active" role="tab" aria-controls="active" aria-selected="true" tabindex="0">
-              Active (6)
+              Active (0)
             </a>
           </li>
           <li class="govuk-tabs__list-item" role="presentation">
@@ -107,56 +130,9 @@ J678910 | Overview | Workforce planning
         <section class="govuk-tabs__panel" id="active" role="tabpanel" aria-labelledby="tab_active">
           <h2 class="govuk-heading-m">Active registrations</h2>
           <table class="govuk-table govuk-table-xl">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <!-- <th scope="col" class="govuk-table__header">Type</th> -->
-                <th scope="col" class="govuk-table__header">Type</th>
-                <!-- <th scope="col" class="govuk-table__header">Status</th> -->
-                <th scope="col" class="govuk-table__header">Registered</th>
-                <th scope="col" class="govuk-table__header">Next review</th>
-                <th scope="col" class="govuk-table__header">Notes</th>
-              </tr>
-            </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <!-- <td class="govuk-table__cell">Safeguarding</td> -->
-                <th scope="row" class="govuk-table__header">Suicide/self-harm</th>
-                <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
-                <td class="govuk-table__cell">13 Dec 2020</td>
-                <td class="govuk-table__cell">13 Jun 2022</td>
-                <td class="govuk-table__cell">Previous suicide /self-harm attempt. Needs further investigating.</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <!-- <td class="govuk-table__cell">Safeguarding</td> -->
-                <th scope="row" class="govuk-table__header">Child concerns</th>
-                <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell">13 Dec 2020</td>
-                <td class="govuk-table__cell">13 Mar 2022</td>
-                <td class="govuk-table__cell">Awaiting outcome of social services enquiry.</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <!-- <td class="govuk-table__cell">RoSH</td> -->
-                <th scope="row" class="govuk-table__header">Medium RoSH</th>
-                <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell">9 Nov 2021</td>
-                <td class="govuk-table__cell">9 May 2022</td>
-                <td class="govuk-table__cell">-</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <!-- <td class="govuk-table__cell">Public protection</td> -->
-                <th scope="row" class="govuk-table__header">Domestic abuse perpetrator</th>
-                <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
-                <td class="govuk-table__cell">4 Jul 2011</td>
-                <td class="govuk-table__cell">26 Dec 2021</td>
-                <td class="govuk-table__cell">-</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <!-- <td class="govuk-table__cell">Alerts </td> -->
-                <th scope="row" class="govuk-table__header">Mental health issues</th>
-                <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell">4 Jul 2011</td>
-                <td class="govuk-table__cell">26 Dec 2021</td>
-                <td class="govuk-table__cell">Personality disorder.</td>
+                <td class="govuk-table__cell">No active registrations</td>
               </tr>
             </tbody>
           </table>
@@ -189,7 +165,4 @@ J678910 | Overview | Workforce planning
       </div>
     </div>
   </div>
-</div>
-
-
 {% endblock %}
