@@ -14,11 +14,11 @@
   <div class="govuk-grid-column-two-thirds">
     <p>Hello {{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</p>
     <p><strong>Dylan Adam Armstrong (J678910)</strong> has been allocated to you for immediate case management.</p>
-    
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
     <!--<p>They were previously managed by Margaret Dawson in Sheffield Team 1.</p>-->
     <p>They  were sentenced at Sheffield Magistrates' Court on  {{ moment().subtract(3, 'days').format("D MMM YYYY") }}.</p>
 
-    <p>Their induction has not been booked, and is due on {{ moment().add(2, 'days').format("D MMM YYYY") }}.</p>
+    <p>Their induction has <strong>not been booked</strong>, and is due on {{ moment().add(2, 'days').format("D MMM YYYY") }}.</p>
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
     <h1 class="govuk-heading-s">Offence</h1>
     <ol class="govuk-list govuk-list--number">
