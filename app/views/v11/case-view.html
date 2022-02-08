@@ -103,12 +103,11 @@ J678910 | Overview | Workforce planning
             <dt class="govuk-summary-list__key">Order</dt>
             <dd class="govuk-summary-list__value">
               <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
-                Custody Order (12 months)
+                Community Order (12 months)
               </h3>
               <ul class="govuk-list govuk-list--bullet">
-                <li>Start date: 16 Jul 2021</li>
-                <li>Expected licence release date: 15 Jan 2022</li>
-                <li>Estimated <div class="tooltip">PSS<span class="tooltiptext govuk-body-s">Post sentence supervision</span></div> expiry date: 15 Jan 2023</li>
+                <li>Start date: {{ moment().subtract(3, 'days').format("D MMM YYYY") }}</li>
+                <li>End date: {{ moment().add(362, 'days').format("D MMM YYYY") }}</li>
               </ul>
             </dd>
           </div>
