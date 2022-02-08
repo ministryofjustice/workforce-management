@@ -1,0 +1,228 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+J678910 | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+{% include "./partials/pop-title.html" %}
+  <div class="govuk-grid-column-one-third">
+    <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-view">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Summary</h2>
+        <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Personal details</h2>
+      </header>
+      <div class="app-summary-card__body">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Name</dt>
+            <dd class="govuk-summary-list__value">Dylan Adam Armstrong</dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Gender</dt>
+            <dd class="govuk-summary-list__value">Male</dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Date of birth</dt>
+            <dd class="govuk-summary-list__value">27 Sep 1984 (37 years old)</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Sentence</h2>
+      </header>
+      <div class="app-summary-card__body">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Offence</dt>
+            <dd class="govuk-summary-list__value">
+              <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                 1. Common assault and battery
+              </h3>
+              <p class="govuk-body-s secondary-text-col"><strong>Contrary to section 39 of the Criminal Justice Act 1988.</strong></p>
+              <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                 2. Automobile theft
+              </h3>
+              <p class="govuk-body-s secondary-text-col"><strong>Contrary to section 12 of the Criminal Justice Act 1988.</strong></p>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Detail</dt>
+            <dd class="govuk-summary-list__value">On Wednesday 15 February 2021 at Grey Lane, S10 1AG, assaulted Sarah Smith by beating her.<br>On Wednesday 15 February 2021 at Grey Lane, S10 1AG, took without permission a red Nissan Micra LD02 JXR, registered to Sarah Smith.
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Order</dt>
+            <dd class="govuk-summary-list__value">
+              <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
+                Custody Order (12 months)
+              </h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Start date: 16 Jul 2021</li>
+                <li>Expected licence release date: 15 Jan 2022</li>
+                <li>Estimated <div class="tooltip">PSS<span class="tooltiptext govuk-body-s">Post sentence supervision</span></div> expiry date: 15 Jan 2023</li>
+              </ul>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Requirements</dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Rehabilitation Activity Requirement (RAR): 15 days</li>
+                <li>Accredited programme: Building Better Relationships (BBR)</li>
+                <li>Unpaid work: 120 hours</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+      <header class="app-summary-card__header">
+        <h2 class="app-summary-card__title">Case details</h2>
+      </header>
+      <div class="app-summary-card__body">
+        <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key"><div class="tooltip">PNC<span class="tooltiptext">Police National Computer</span></div></dt>
+            <dd class="govuk-summary-list__value">2012/123400000F</dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">CPS pack
+            </dt>
+            <dd class="govuk-summary-list__value">{{ moment().subtract(170, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">View pack (opens in new window)</a></dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Pre-convictions</dt>
+            <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--red moj-badge--large">Not saved in offender index</span></dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Pre-sentence report</dt>
+            <dd class="govuk-summary-list__value"><span class="moj-badge moj-badge--black moj-badge--large">No report created</span></dd>
+          </div>  
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Last OASys assessment<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">OASys Assessment Layer 3</span></dt>
+            <dd class="govuk-summary-list__value">
+              <span class="app-!-font-family-tabular">{{ moment().subtract(190, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">View assessment (opens in new window)</a></span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <section aria-label="allocation-instructions">
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          name: "more-detail",
+          id: "txt",
+          label: {
+            text: "Write allocation notes",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Enter any details you want to highlight to the probation practitioner. You will have a chance to review later."
+          }
+        }) }}
+    </section>
+  </div>
+
+ <!-- <div class="govuk-grid-column-one-third">
+    {% include "./partials/notes-checklist.html" %}
+  </div>
+-->
+
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  var textarea = document.getElementById("txt");
+  textarea.addEventListener('input', writeLocalStorage);
+
+  function writeLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         localStorage.setItem("text", textarea.value);
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  function readLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         textarea.value = localStorage.getItem("text");
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
+  if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", readLocalStorage);
+  } else {  // `DOMContentLoaded` already fired
+      readLocalStorage();
+  }
+  </script>
+  {% endblock %}

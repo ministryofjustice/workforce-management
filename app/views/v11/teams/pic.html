@@ -1,0 +1,1161 @@
+{% extends "layout_no-cases-nav.html" %}
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+  .autocomplete__wrapper {
+    position: relative
+  }
+  .autocomplete__hint, .autocomplete__input {
+    -webkit-appearance: none;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-bottom: 0;
+    width: 66%
+  }
+  .autocomplete__input {
+    background-color: transparent;
+    position: relative
+  }
+  .autocomplete__hint {
+    color: #b1b4b6;
+    position: absolute
+  }
+  .autocomplete__input--default {
+    padding: 5px
+  }
+  .autocomplete__input--focused {
+    outline: 3px solid #fd0;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 2px
+  }
+  .autocomplete__input--show-all-values {
+    padding: 5px 34px 5px 5px;
+    cursor: pointer
+  }
+  .autocomplete__dropdown-arrow-down {
+    z-index: -1;
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    top: 10px
+  }
+  .autocomplete__menu {
+    background-color: #fff;
+    border: 2px solid #0b0c0c;
+    border-top: 0;
+    color: #0b0c0c;
+    margin: 0;
+    max-height: 342px;
+    overflow-x: hidden;
+    padding: 0;
+    width: 100%;
+    width: calc(66% - 4px)
+  }
+  .autocomplete__menu--visible {
+    display: block
+  }
+  .autocomplete__menu--hidden {
+    display: none
+  }
+  .autocomplete__menu--overlay {
+    box-shadow: rgba(0, 0, 0, .256863) 0 2px 6px;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 100
+  }
+  .autocomplete__menu--inline {
+    position: relative
+  }
+  .autocomplete__option {
+    font-family: "GDS Transport";
+    border-bottom: solid #b1b4b6;
+    border-width: 1px 0;
+    cursor: pointer;
+    display: block;
+    position: relative
+  }
+  .autocomplete__option > * {
+    pointer-events: none
+  }
+  .autocomplete__option:first-of-type {
+    border-top-width: 0
+  }
+  .autocomplete__option:last-of-type {
+    border-bottom-width: 0
+  }
+  .autocomplete__option--odd {
+    background-color: #fafafa
+  }
+  .autocomplete__option--focused, .autocomplete__option:hover {
+    background-color: #1d70b8;
+    border-color: #1d70b8;
+    color: #fff;
+    outline: 0
+  }
+  .autocomplete__option--no-results {
+    background-color: #fafafa;
+    color: #646b6f;
+    cursor: not-allowed
+  }
+  .autocomplete__hint, .autocomplete__input, .autocomplete__option {
+    font-family: "GDS Transport";
+    font-size: 16px;
+    line-height: 1.25
+  }
+  .autocomplete__hint, .autocomplete__option {
+    padding: 5px
+  }
+  .form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  @media (min-width: 641px) {
+    .autocomplete__hint, .autocomplete__input, .autocomplete__option {
+      font-size: 19px;
+      line-height: 1.31579
+    }
+  }
+</style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-error-summary govuk-visually-hidden" aria-labelledby="error-summary-title" role="alert"
+         tabindex="-1" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#team-selection">You must add a team</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h1 class="govuk-heading-l">Which team(s) do you allocate cases for?</h1>
+    <p>Add all the teams you work with to create your list.</p>
+    <p>After you save your list, you can:
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+      <li>allocate cases assigned to those teams</li>
+      <li>edit the list to add or remove teams</li>
+    </ul>
+    </p>
+
+    <ul class="govuk-list" id="teams"></ul>
+    <h4 class="govuk-heading-s">Add team</h4>
+    <div class="govuk-!-margin-bottom-5">
+      {%- set teamList = [
+      {name: "Derby City"},
+      {name: "Buxton"},
+      {name: "Chesterfield"},
+      {name: "Ilkeston"},
+      {name: "Enforcement - Leicestershire"},
+      {name: "Enforcement - Nottinghamshire"},
+      {name: "Coalville Loughb'h Melton Mowbray (County North)"},
+      {name: "Leicester City 1"},
+      {name: "Leicester City 2"},
+      {name: "Leicester City 3"},
+      {name: "Leicester City PQUIP"},
+      {name: "Leicester City PSOs"},
+      {name: "Leicester City Resettlement"},
+      {name: "Leicestershire Priority IOM"},
+      {name: "Boston"},
+      {name: "Grantham"},
+      {name: "Lincoln"},
+      {name: "Skegness"},
+      {name: "Nottingham City North"},
+      {name: "Nottingham City South"},
+      {name: "Nottinghamshire IOM"},
+      {name: "Nottinghamshire South"},
+      {name: "Bassetlaw (Worksop)"},
+      {name: "Mansfield and Ashfield"},
+      {name: "PDU Management Nottinghamshire"},
+      {name: "OPD Lincolnshire"},
+      {name: "BDS-Bedford OM1"},
+      {name: "BDS-Luton OM1"},
+      {name: "BDS-Luton OM2"},
+      {name: "CBS-Cambridge"},
+      {name: "CBS-Huntingdon"},
+      {name: "CBS-Peterborough"},
+      {name: "ENF-BeNCH Enforcement Team"},
+      {name: "ENF-ESX and NS Enforcement Team"},
+      {name: "EXN-Mid Essex OM1"},
+      {name: "EXN-North East Essex OM1"},
+      {name: "EXN-West Essex OM1"},
+      {name: "EXS-SEE and Southend OM1"},
+      {name: "EXS-SEE and Southend OM2"},
+      {name: "EXS-South Essex OM"},
+      {name: "EXS-Thurrock OM"},
+      {name: "HFS-East Herts"},
+      {name: "HFS-Mid Herts"},
+      {name: "HFS-North Herts"},
+      {name: "HFS-South and West Herts"},
+      {name: "Inactive Team(N56)"},
+      {name: "NFK-King's Lynn"},
+      {name: "NFK-Norwich"},
+      {name: "NTH-Northampton"},
+      {name: "NTH-Wellingborough"},
+      {name: "SFK-Bury St Edmunds"},
+      {name: "SFK-Ipswich"},
+      {name: "SFK-Lowestoft"},
+      {name: "Unallocated Team(N56)"},
+      {name: "Bolton 2"},
+      {name: "Bolton NPS Admin"},
+      {name: "Bury 2"},
+      {name: "Rochdale 2"},
+      {name: "Cheetham 1"},
+      {name: "Miles Platting 1"},
+      {name: "Longsight 1"},
+      {name: "Moss Side 1"},
+      {name: "Wythenshawe 1"},
+      {name: "Oldham 2"},
+      {name: "MAPPT - MAPPA and Public Protection Team"},
+      {name: "Salford 1"},
+      {name: "Salford 2"},
+      {name: "Stockport 3"},
+      {name: "Stockport 4"},
+      {name: "Stockport and Trafford Admin"},
+      {name: "Trafford 1"},
+      {name: "Tameside 1"},
+      {name: "Tameside 2"},
+      {name: "Wigan 2"},
+      {name: "Wigan NPS Admin"},
+      {name: "SXE-Brighton"},
+      {name: "SXE-Eastbourne"},
+      {name: "SXE-Hastings"},
+      {name: "KTE-Canterbury"},
+      {name: "KTE-South East Kent"},
+      {name: "KTE-Thanet"},
+      {name: "Inactive Team(N57)"},
+      {name: "SRY-Guildford"},
+      {name: "SRY-Redhill"},
+      {name: "SRY-Staines"},
+      {name: "Unallocated Team(N57)"},
+      {name: "KTW-Dartford and Gravesham"},
+      {name: "KTW-Medway"},
+      {name: "KTW-Mid Kent"},
+      {name: "SXW-Crawley"},
+      {name: "SXW-Littlehampton"},
+      {name: "SXW-Worthing"},
+      {name: "BDH NPS1"},
+      {name: "BDH NPS2"},
+      {name: "Brent NPS"},
+      {name: "NPS Awaiting Allocation BRENT"},
+      {name: "CAI NPS CRT"},
+      {name: "CAI NPS1"},
+      {name: "CAI NPS2"},
+      {name: "CAI NPS3"},
+      {name: "CAI NPS4"},
+      {name: "NPS Awaiting Allocation CAMDEN"},
+      {name: "CRO NPS CRT"},
+      {name: "CRO NPS1"},
+      {name: "CRO NPS2"},
+      {name: "CRO NPS3"},
+      {name: "CRO NPS4"},
+      {name: "EAL NPS1"},
+      {name: "EAL NPS2"},
+      {name: "EHH NPS PQIP"},
+      {name: "HIL NPS1"},
+      {name: "HIL NPS2"},
+      {name: "NPS Awaiting Allocation EALING"},
+      {name: "NPS Awaiting Allocation HILLINGDON"},
+      {name: "Enfield NPS"},
+      {name: "HAR NPS1"},
+      {name: "HAR NPS2"},
+      {name: "HAR NPS3"},
+      {name: "NPS Awaiting Allocation ENFIELD"},
+      {name: "Legal Proceedings Team (East)"},
+      {name: "Legal Proceedings Team (North)"},
+      {name: "Legal Proceedings Team (South)"},
+      {name: "Legal Proceedings Team (West)"},
+      {name: "BEX BRO NPS CRT"},
+      {name: "BEX NPS1"},
+      {name: "GRE NPS1"},
+      {name: "GRE NPS2"},
+      {name: "HAC NPS CRT"},
+      {name: "HAC NPS1"},
+      {name: "HAC NPS2"},
+      {name: "HFKCW NPS1"},
+      {name: "HFKCW NPS2"},
+      {name: "HFKCW NPS3"},
+      {name: "NPS Awaiting Allocation HAMMERSMITH & FULHAM"},
+      {name: "NPS Awaiting Allocation KENSINGTON CHELSEA WESTMIN"},
+      {name: "Barnet NPS"},
+      {name: "HRW NPS1"},
+      {name: "NPS Awaiting Allocation BARNET"},
+      {name: "Public Protection Team HQ"},
+      {name: "Inactive Team(N07)"},
+      {name: "HOU NPS1"},
+      {name: "KAR NPS1"},
+      {name: "LAM NPS1"},
+      {name: "LAM NPS2"},
+      {name: "LAM NPS3"},
+      {name: "LAW PQIP"},
+      {name: "BRO NPS1"},
+      {name: "LEW NPS1"},
+      {name: "LEW NPS2"},
+      {name: "NPS Awaiting Allocation BROMLEY"},
+      {name: "NPS Awaiting Allocation LEWISHAM"},
+      {name: "ZZCP Greenwich and Lewisham(old)"},
+      {name: "ZZWandsworth OMT3 (old)"},
+      {name: "NEW NPS1"},
+      {name: "NEW NPS2"},
+      {name: "NEW NPS3"},
+      {name: "NPS Awaiting Allocation NEWHAM"},
+      {name: "Hmp Belmarsh"},
+      {name: "Hmp Wandsworth"},
+      {name: "NPS FOREIGN NATIONALS UNIT"},
+      {name: "Other Third Party EM Supervision"},
+      {name: "RWF NPS1"},
+      {name: "RWF NPS2"},
+      {name: "RWF NPS3"},
+      {name: "RWF NPS4"},
+      {name: "NPS Awaiting Allocation SOUTHWARK"},
+      {name: "SOU NPS1"},
+      {name: "SOU NPS2"},
+      {name: "SOU NPS3"},
+      {name: "TWR NPS CRT"},
+      {name: "TWR NPS1"},
+      {name: "TWR NPS2"},
+      {name: "Default Designated Transfer Team"},
+      {name: "Unallocated Team(N07)"},
+      {name: "MER NPS1"},
+      {name: "NPS Awaiting Allocation WANDSWORTH"},
+      {name: "SUT NPS1"},
+      {name: "WAN NPS CRT"},
+      {name: "WAN NPS1"},
+      {name: "NPS - Darlington"},
+      {name: "NPS - Durham Central"},
+      {name: "NPS - Durham West"},
+      {name: "NPS - Newton Aycliffe"},
+      {name: "NPS - Peterlee"},
+      {name: "NPS - Gateshead"},
+      {name: "NPS - Gateshead 2"},
+      {name: "NPS - South Tyneside"},
+      {name: "Inactive Team(N54)"},
+      {name: "NPS - Newcastle OMU1"},
+      {name: "NPS - Newcastle OMU2"},
+      {name: "NPS - Newcastle OMU3"},
+      {name: "NPS - North Tyneside"},
+      {name: "NPS - Northumberland"},
+      {name: "NPS - Middlesbrough"},
+      {name: "NPS - Middlesbrough OMU2"},
+      {name: "NPS - South Bank"},
+      {name: "NPS - Hartlepool"},
+      {name: "NPS - Stockton"},
+      {name: "NPS - Sunderland North"},
+      {name: "NPS - Sunderland South"},
+      {name: "nallocated Team(N02)"},
+      {name: "Blackburn 1"},
+      {name: "Blackburn 2"},
+      {name: "Chorley"},
+      {name: "Preston 1"},
+      {name: "Preston 2"},
+      {name: "Skelmersdale"},
+      {name: "Crewe"},
+      {name: "Macclesfield"},
+      {name: "Chester"},
+      {name: "Northwich"},
+      {name: "Barrow"},
+      {name: "Carlisle 1"},
+      {name: "Carlisle 2"},
+      {name: "Kendal"},
+      {name: "Workington"},
+      {name: "Burnley 1"},
+      {name: "Burnley 2"},
+      {name: "Halton"},
+      {name: "Warrington"},
+      {name: "Knowsley 1"},
+      {name: "Knowsley 2"},
+      {name: "Knowsley 3"},
+      {name: "Knowsley 4"},
+      {name: "Merseyside SO IOM"},
+      {name: "St Helens 1"},
+      {name: "St Helens 2"},
+      {name: "St Helens Unallocated"},
+      {name: "Liverpool North 1"},
+      {name: "Liverpool North 2"},
+      {name: "Liverpool North 3"},
+      {name: "Liverpool North 4"},
+      {name: "Liverpool North 5"},
+      {name: "Liverpool North IOM"},
+      {name: "Liverpool North Unallocated"},
+      {name: "Liverpool South 1"},
+      {name: "Liverpool South 2"},
+      {name: "Liverpool South 3"},
+      {name: "Liverpool South 4"},
+      {name: "Liverpool South 5"},
+      {name: "Merseyside Resettle"},
+      {name: "Blackpool 1"},
+      {name: "Blackpool 2"},
+      {name: "Blackpool 3"},
+      {name: "Lancaster"},
+      {name: "Sefton 2"},
+      {name: "Sefton 3"},
+      {name: "Sefton 4"},
+      {name: "Sefton IOM"},
+      {name: "Sefton Unallocated"},
+      {name: "Merseyside Womens Services"},
+      {name: "Wirral 1"},
+      {name: "Wirral 2"},
+      {name: "Wirral 3"},
+      {name: "Wirral 4"},
+      {name: "Wirral 5"},
+      {name: "Wirral 6"},
+      {name: "Bucks ACE"},
+      {name: "Bucks PPU"},
+      {name: "Milton Keynes PPU"},
+      {name: "Default Designated Transfer Team"},
+      {name: "Bracknell OM"},
+      {name: "East Berks ACE"},
+      {name: "Slough OM"},
+      {name: "NPS Aldershot, Farnborough"},
+      {name: "NPS Andover, Basingstoke, Winchester"},
+      {name: "NPS Havant, Fareham"},
+      {name: "Portsmouth and Isle of Wight OM Team 1"},
+      {name: "Portsmouth and Isle of Wight OM Team 2"},
+      {name: "NPS New Forest, Eastleigh"},
+      {name: "NPS Southampton OM Team 1"},
+      {name: "NPS Southampton OM Team 2"},
+      {name: "Bicester PPU"},
+      {name: "Oxford PPU"},
+      {name: "Oxon ACE"},
+      {name: "Reading OM1"},
+      {name: "Reading OM2"},
+      {name: "West Berks ACE"},
+      {name: "NPS SOM Banes"},
+      {name: "NPS SOM Nth Som"},
+      {name: "NPS BSG Bristol 1"},
+      {name: "NPS BSG Bristol 2"},
+      {name: "NPS BSG Bristol IOM (IRiS)"},
+      {name: "NPS BSG Under 25"},
+      {name: "Offender Management - East"},
+      {name: "Offender Management - West"},
+      {name: "OM - North Devon"},
+      {name: "OM - Torbay"},
+      {name: "OM1 - Exeter"},
+      {name: "NPS Bournemouth OM and Ass"},
+      {name: "NPS Weymouth, Poole OM and Ass"},
+      {name: "NPS GCS Cheltenham and Tewkesbury"},
+      {name: "NPS GCS Gloucester and Forest"},
+      {name: "Offender Management - Plymouth"},
+      {name: "NPS SOM Bridgwater"},
+      {name: "NPS SOM Taunton"},
+      {name: "NPS SOM Yeovil"},
+      {name: "NPS WTS Chippenham"},
+      {name: "NPS WTS Salisbury"},
+      {name: "NPS WTS Swindon 1"},
+      {name: "NPS - Awaiting Allocation Cardiff and Vale"},
+      {name: "NPS - Cardiff - East Team"},
+      {name: "NPS - Cardiff - IOM Wisdom Team"},
+      {name: "NPS - Cardiff - North Team"},
+      {name: "NPS - Cardiff - South Team"},
+      {name: "NPS - Cardiff - West Team"},
+      {name: "NPS - Cardiff - Women's Pathfinder Team"},
+      {name: "NPS - Cardiff and Vale - STS Team"},
+      {name: "NPS - Vale - IOM Women Team"},
+      {name: "NPS - Vale - Team"},
+      {name: "NPS - Awaiting Allocation Cwm Taf Morgannwg"},
+      {name: "NPS - Bridgend - IOM Team"},
+      {name: "NPS - Bridgend - STS Team"},
+      {name: "NPS - Bridgend - Team 1"},
+      {name: "NPS - Bridgend - Team 2"},
+      {name: "NPS - Merthyr - STS Team"},
+      {name: "NPS - Merthyr - Team 2"},
+      {name: "NPS - RCT - STS Team"},
+      {name: "NPS - RCT - Team 1"},
+      {name: "NPS - RCT - Team 2"},
+      {name: "NPS - RCT - Team 3"},
+      {name: "NPS - Awaiting Allocation Dyfed Powys"},
+      {name: "NPS - Carmarthenshire - Team 1"},
+      {name: "NPS - Carmarthenshire - Team 2"},
+      {name: "NPS - Ceredigion - Team 1"},
+      {name: "NPS - Pembrokeshire - Team 1"},
+      {name: "NPS - Powys - Team 1"},
+      {name: "NPS - Caerphilly\Blaenau Gwent Team 1"},
+      {name: "NPS - Caerphilly\Blaenau Gwent Team 2"},
+      {name: "NPS - Caerphilly\Blaenau Gwent Team 3"},
+      {name: "NPS - East Gwent Team"},
+      {name: "NPS - Gwent - IOM Team"},
+      {name: "NPS - Gwent - STS Team"},
+      {name: "NPS - Newport - Team 1"},
+      {name: "NPS - Newport - Team 2"},
+      {name: "NPS - Newport - Team 3"},
+      {name: "Inactive Team(N03)"},
+      {name: "NPS - Conwy - Team 1"},
+      {name: "NPS - Denbighshire - Team 1"},
+      {name: "NPS - Flintshire - Team 1"},
+      {name: "NPS - Gwynedd - Team 1"},
+      {name: "NPS - North Wales - Central IOM STC Team"},
+      {name: "NPS - North Wales - East IOM STC Team"},
+      {name: "NPS - North Wales - West IOM STC Team"},
+      {name: "NPS - Wrexham - Team 1"},
+      {name: "NPS - Ynys Mon - Team 1"},
+      {name: "NPS - HMP Swansea"},
+      {name: "NPS - Swansea - Team 1"},
+      {name: "NPS - Swansea - Team 2"},
+      {name: "NPS - Swansea - Team 3"},
+      {name: "NPS - Swansea - Team 4"},
+      {name: "NPS - Swansea - Team 5"},
+      {name: "NPS - Swansea - Team 6"},
+      {name: "Central Birmingham Team 1"},
+      {name: "Central Birmingham Team 2"},
+      {name: "IOM Birmingham Team"},
+      {name: "Multi-Agency Gang Unit (MAGU)"},
+      {name: "South Birmingham Team 1"},
+      {name: "South Birmingham Team 2"},
+      {name: "South Birmingham Team 3"},
+      {name: "East Birmingham"},
+      {name: "North Birmingham Team 1"},
+      {name: "North Birmingham Team 3"},
+      {name: "Solihull"},
+      {name: "Coventry"},
+      {name: "Dudley Team 1"},
+      {name: "Dudley Team 2"},
+      {name: "Sandwell Team 1"},
+      {name: "Sandwell Team 2"},
+      {name: "Sandwell Team 4 PQUIP"},
+      {name: "Hereford"},
+      {name: "Shrewsbury"},
+      {name: "Telford"},
+      {name: "PROSPER West Midlands"},
+      {name: "Extremism Team West Midlands"},
+      {name: "West Midlands Private Prisons"},
+      {name: "Cannock"},
+      {name: "South East Staffordshire"},
+      {name: "Stafford"},
+      {name: "Stoke Team 1"},
+      {name: "Stoke Team 2"},
+      {name: "Stoke Team 3"},
+      {name: "Walsall Team 1"},
+      {name: "Walsall Team 2"},
+      {name: "Wolverhampton Team 1"},
+      {name: "Wolverhampton Team 2"},
+      {name: "Leamington"},
+      {name: "Nuneaton and Rugby"},
+      {name: "Kidderminster"},
+      {name: "Redditch"},
+      {name: "Worcester"},
+      {name: "NPS - YSS Barnsley OMU 1"},
+      {name: "NPS - YSS Barnsley OMU 2"},
+      {name: "NPS - YSS Rotherham OMU 1"},
+      {name: "NPS - YSS Rotherham OMU 2"},
+      {name: "NPS Awaiting Allocation Barnsley and Rotherham"},
+      {name: "Bradford NPS OMU 1 (BNA)"},
+      {name: "Bradford NPS OMU 2 (BNB)"},
+      {name: "Bradford NPS OMU 4 YOT (BND)"},
+      {name: "Bradford NPS OMU 5 (BNE)"},
+      {name: "Calderdale NPS OMU 1 (CNA)"},
+      {name: "NPS Awaiting Allocation Bradford and Calderdale"},
+      {name: "NPS - YSS Doncaster OMU 1"},
+      {name: "NPS - YSS Doncaster OMU 2"},
+      {name: "NPS - YSS Doncaster OMU 3"},
+      {name: "NPS Awaiting Allocation Doncaster"},
+      {name: "NPS - EYK BEV PPU1"},
+      {name: "NPS - EYK BRI PPU2"},
+      {name: "NPS - EYK GOOLE PPU3"},
+      {name: "NPS - HUL Public Protection Unit 1"},
+      {name: "NPS - HUL Public Protection Unit 2"},
+      {name: "NPS - HUL Public Protection Unit 3"},
+      {name: "Inactive Team(N55)"},
+      {name: "Kirklees NPS OMU 1 (KNA)"},
+      {name: "Kirklees NPS OMU 2 (KNB)"},
+      {name: "Leeds NPS OMU 1 (LNA)"},
+      {name: "Leeds NPS OMU 2 (LNB)"},
+      {name: "Leeds NPS OMU 3 (LNC)"},
+      {name: "Leeds NPS OMU 5 (LNE)"},
+      {name: "Leeds NPS OMU 6 (LNF)"},
+      {name: "Leeds NPS OMU 7 (LNG)"},
+      {name: "NPS - GRI PPU1"},
+      {name: "NPS - GRI PPU2"},
+      {name: "NPS - SCU PPU1"},
+      {name: "NPS Awaiting Allocation Grimsby"},
+      {name: "NPS - YSN Harrogate PP OMU"},
+      {name: "NPS - YSN Northallerton PP OMU"},
+      {name: "NPS - YSN Scarborough PP OMU"},
+      {name: "NPS - YSN Skipton PP OMU"},
+      {name: "NPS - YSS Sheffield OMU 1"},
+      {name: "NPS - YSS Sheffield OMU 2"},
+      {name: "NPS - YSS Sheffield OMU 3"},
+      {name: "NPS - YSS Sheffield OMU 4"},
+      {name: "NPS Awaiting Allocation Sheffield"},
+      {name: "Unallocated Team(N02)"},
+      {name: "Wakefield NPS OMU 1 (WNA)"},
+      {name: "Wakefield NPS OMU2 (WNB)"},
+      {name: "YaTH Enforcement QA Hub - Wakefield"},
+      {name: "NPS - YSN York PP OMU"}
+      ] -%}
+      <div id="team-form" class="govuk-form-group">
+        <label for="team-selection" class="govuk-label govuk-!-margin-bottom-3" style="color:#505a5f">Type in
+          the name of the team</label>
+        <span class="govuk-visually-hidden" id="team-error">
+    <span class="govuk-visually-hidden">Error:</span> Enter a team
+  </span>
+        <select id="team-selection" name="team-selection">
+          <option value="">Select a team</option>
+          {% for team in teamList %}
+          <option id="team-name" value="{{ team }}">{{ team.name }}</option>
+          {% endfor %}
+        </select>
+        <div>
+          <button onclick="addTeam()" class="govuk-button govuk-button--secondary govuk-!-margin-top-5"
+                  data-module="govuk-button">Add team
+          </button>
+        </div>
+      </div>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <div class="govuk-!-margin-top-8">
+        <a href="javascript:void(0);" role="button" draggable="false" class="govuk-button moj-button-menu__item"
+           data-module="govuk-button" onclick="saveAndContinue()">Save and continue</a>
+      </div>
+      <div id="result"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+  const selectEl = document.querySelector('#team-selection')
+  accessibleAutocomplete.enhanceSelectElement({
+    autoselect: true,
+    confirmOnBlur: true,
+    defaultValue: '',
+    minLength: 2,
+    selectElement: selectEl
+  })
+  let teams = []
+
+  const hasError = (error) => {
+    const errorSummary = document.querySelector('.govuk-error-summary')
+    const teamInput = document.querySelector('#team-name')
+    const teamForm = document.querySelector('#team-form')
+    const teamError = document.querySelector('#team-error')
+    if (error) {
+      errorSummary.classList.remove('govuk-visually-hidden')
+      teamInput.classList.add('govuk-input--error')
+      teamForm.classList.add('govuk-form-group--error')
+      teamError.classList.add('govuk-error-message')
+      teamError.classList.remove('govuk-visually-hidden')
+    } else {
+      errorSummary.classList.add('govuk-visually-hidden')
+      teamInput.classList.remove('govuk-input--error')
+      teamForm.classList.remove('govuk-form-group--error')
+      teamError.classList.remove('govuk-error-message')
+      teamError.classList.add('govuk-visually-hidden')
+    }
+  }
+
+  const addTeam = () => {
+    const teamName = document.querySelector('#team-selection').value
+
+    document.querySelector('#team-selection').value = ''
+
+    if (teamName === '') {
+      hasError(true)
+    } else if (!teams.includes(teamName)) {
+      hasError(false)
+
+      teams.push(teamName)
+      sessionStorage.teams = teams
+
+      const li = document.createElement('li')
+      li.innerText = teamName
+      li.classList.add('govuk-heading-s')
+      li.classList.add('govuk-!-margin-top-4')
+      document.querySelector('#teams').appendChild(li)
+
+      const removeBtn = document.createElement('a')
+      removeBtn.innerText = 'Remove'
+      removeBtn.classList.add('govuk-link')
+      removeBtn.style.textDecoration = 'underline'
+      removeBtn.style.color = '#1d70b8'
+      removeBtn.style.fontWeight = 1
+      removeBtn.style.cssFloat = 'right'
+      removeBtn.style.cursor = 'pointer'
+      removeBtn.onclick = remove
+      li.appendChild(removeBtn)
+
+      const hr = document.createElement('hr')
+      li.appendChild(hr)
+      hr.classList.add('govuk-section-break govuk-section-break--m govuk-section-break--visible')
+    }
+  }
+  const remove = e => {
+    const el = e.target
+    el.parentNode.remove()
+    const team = el.parentNode.textContent
+    const res = team.replace('Remove', '')
+    deleteTeam(res)
+    sessionStorage.filteredCourts = teams
+  }
+  const deleteTeam = name => {
+    teams = teams.filter(team => team !== name)
+  }
+  const saveAndContinue = () => {
+    if (teams.length) {
+      hasError(false)
+      window.location = 'my-teams.html'
+    } else {
+      hasError(true)
+    }
+  }
+</script>
+
+
+<!--      <div class="autocomplete-wrapper">-->
+<!--        <select name="last-location" id="last-location">-->
+<!--          <option value="">Select a team</option>-->
+<!--          <option value="der">Derby City</option>-->
+<!--          <option value="bux">Buxton</option>-->
+<!--          <option value="che">Chesterfield</option>-->
+<!--          <option value="ilk">Ilkeston</option>-->
+<!--          <option value="enf,lei">Enforcement - Leicestershire</option>-->
+<!--          <option value="enf,not">Enforcement - Nottinghamshire</option>-->
+<!--          <option value="coa,mel">Coalville Loughb'h Melton Mowbray (County North)</option>-->
+<!--          <option value="lei">Leicester City 1</option>-->
+<!--          <option value="lei">Leicester City 2</option>-->
+<!--          <option value="lei">Leicester City 3</option>-->
+<!--          <option value="lei">Leicester City PQUIP</option>-->
+<!--          <option value="lei">Leicester City PSOs</option>-->
+<!--          <option value="lei">Leicester City Resettlement</option>-->
+<!--          <option value="lei">Leicestershire Priority IOM</option>-->
+<!--          <option value="bos">Boston</option>-->
+<!--          <option value="gra">Grantham</option>-->
+<!--          <option value="lin">Lincoln</option>-->
+<!--          <option value="ske">Skegness</option>-->
+<!--          <option value="not">Nottingham City North</option>-->
+<!--          <option value="not">Nottingham City South</option>-->
+<!--          <option value="not">Nottinghamshire IOM</option>-->
+<!--          <option value="not">Nottinghamshire South</option>-->
+<!--          <option value="bas">Bassetlaw (Worksop)</option>-->
+<!--          <option value="man">Mansfield and Ashfield</option>-->
+<!--          <option value="not">PDU Management Nottinghamshire</option>-->
+<!--          <option value="lin">OPD Lincolnshire</option>-->
+<!--          <option value="bed">BDS-Bedford OM1</option>-->
+<!--          <option value="lut">BDS-Luton OM1</option>-->
+<!--          <option value="lut">BDS-Luton OM2</option>-->
+<!--          <option value="cam">CBS-Cambridge</option>-->
+<!--          <option value="hun">CBS-Huntingdon</option>-->
+<!--          <option value="pet">CBS-Peterborough</option>-->
+<!--          <option value="ben,enf">ENF-BeNCH Enforcement Team</option>-->
+<!--          <option value="enf">ENF-ESX and NS Enforcement Team</option>-->
+<!--          <option value="mid,ess">EXN-Mid Essex OM1</option>-->
+<!--          <option value="east,ess">EXN-North East Essex OM1</option>-->
+<!--          <option value="west,ess">EXN-West Essex OM1</option>-->
+<!--          <option value="sou">EXS-SEE and Southend OM1</option>-->
+<!--          <option value="sou">EXS-SEE and Southend OM2</option>-->
+<!--          <option value="sou">EXS-South Essex OM</option>-->
+<!--          <option value="example">EXS-Thurrock OM</option>-->
+<!--          <option value="example">HFS-East Herts</option>-->
+<!--          <option value="example">HFS-Mid Herts</option>-->
+<!--          <option value="example">HFS-North Herts</option>-->
+<!--          <option value="example">HFS-South and West Herts</option>-->
+<!--          <option value="example">Inactive Team(N56)</option>-->
+<!--          <option value="example">NFK-King's Lynn</option>-->
+<!--          <option value="example">NFK-Norwich</option>-->
+<!--          <option value="example">NTH-Northampton</option>-->
+<!--          <option value="example">NTH-Wellingborough</option>-->
+<!--          <option value="example">SFK-Bury St Edmunds</option>-->
+<!--          <option value="example">SFK-Ipswich</option>-->
+<!--          <option value="example">SFK-Lowestoft</option>-->
+<!--          <option value="example">Unallocated Team(N56)</option>-->
+<!--          <option value="example">Bolton 2</option>-->
+<!--          <option value="example">Bolton NPS Admin</option>-->
+<!--          <option value="example">Bury 2</option>-->
+<!--          <option value="example">Rochdale 2</option>-->
+<!--          <option value="example">Cheetham 1</option>-->
+<!--          <option value="example">Miles Platting 1</option>-->
+<!--          <option value="example">Longsight 1</option>-->
+<!--          <option value="example">Moss Side 1</option>-->
+<!--          <option value="example">Wythenshawe 1</option>-->
+<!--          <option value="example">Oldham 2</option>-->
+<!--          <option value="example">MAPPT - MAPPA and Public Protection Team</option>-->
+<!--          <option value="example">Salford 1</option>-->
+<!--          <option value="example">Salford 2</option>-->
+<!--          <option value="example">Stockport 3</option>-->
+<!--          <option value="example">Stockport 4</option>-->
+<!--          <option value="example">Stockport and Trafford Admin</option>-->
+<!--          <option value="example">Trafford 1</option>-->
+<!--          <option value="example">Tameside 1</option>-->
+<!--          <option value="example">Tameside 2</option>-->
+<!--          <option value="example">Wigan 2</option>-->
+<!--          <option value="example">Wigan NPS Admin</option>-->
+<!--          <option value="example">SXE-Brighton</option>-->
+<!--          <option value="example">SXE-Eastbourne</option>-->
+<!--          <option value="example">SXE-Hastings</option>-->
+<!--          <option value="example">KTE-Canterbury</option>-->
+<!--          <option value="example">KTE-South East Kent</option>-->
+<!--          <option value="example">KTE-Thanet</option>-->
+<!--          <option value="example">Inactive Team(N57)</option>-->
+<!--          <option value="example">SRY-Guildford</option>-->
+<!--          <option value="example">SRY-Redhill</option>-->
+<!--          <option value="example">SRY-Staines</option>-->
+<!--          <option value="example">Unallocated Team(N57)</option>-->
+<!--          <option value="example">KTW-Dartford and Gravesham</option>-->
+<!--          <option value="example">KTW-Medway</option>-->
+<!--          <option value="example">KTW-Mid Kent</option>-->
+<!--          <option value="example">SXW-Crawley</option>-->
+<!--          <option value="example">SXW-Littlehampton</option>-->
+<!--          <option value="example">SXW-Worthing</option>-->
+<!--          <option value="example">BDH NPS1</option>-->
+<!--          <option value="example">BDH NPS2</option>-->
+<!--          <option value="example">Brent NPS</option>-->
+<!--          <option value="example">NPS Awaiting Allocation BRENT</option>-->
+<!--          <option value="example">CAI NPS CRT</option>-->
+<!--          <option value="example">CAI NPS1</option>-->
+<!--          <option value="example">CAI NPS2</option>-->
+<!--          <option value="example">CAI NPS3</option>-->
+<!--          <option value="example">CAI NPS4</option>-->
+<!--          <option value="example">NPS Awaiting Allocation CAMDEN</option>-->
+<!--          <option value="example">CRO NPS CRT</option>-->
+<!--          <option value="example">CRO NPS1</option>-->
+<!--          <option value="example">CRO NPS2</option>-->
+<!--          <option value="example">CRO NPS3</option>-->
+<!--          <option value="example">CRO NPS4</option>-->
+<!--          <option value="example">EAL NPS1</option>-->
+<!--          <option value="example">EAL NPS2</option>-->
+<!--          <option value="example">EHH NPS PQIP</option>-->
+<!--          <option value="example">HIL NPS1</option>-->
+<!--          <option value="example">HIL NPS2</option>-->
+<!--          <option value="example">NPS Awaiting Allocation EALING</option>-->
+<!--          <option value="example">NPS Awaiting Allocation HILLINGDON</option>-->
+<!--          <option value="example">Enfield NPS</option>-->
+<!--          <option value="example">HAR NPS1</option>-->
+<!--          <option value="example">HAR NPS2</option>-->
+<!--          <option value="example">HAR NPS3</option>-->
+<!--          <option value="example">NPS Awaiting Allocation ENFIELD</option>-->
+<!--          <option value="example">Legal Proceedings Team (East)</option>-->
+<!--          <option value="example">Legal Proceedings Team (North)</option>-->
+<!--          <option value="example">Legal Proceedings Team (South)</option>-->
+<!--          <option value="example">Legal Proceedings Team (West)</option>-->
+<!--          <option value="example">BEX BRO NPS CRT</option>-->
+<!--          <option value="example">BEX NPS1</option>-->
+<!--          <option value="example">GRE NPS1</option>-->
+<!--          <option value="example">GRE NPS2</option>-->
+<!--          <option value="example">HAC NPS CRT</option>-->
+<!--          <option value="example">HAC NPS1</option>-->
+<!--          <option value="example">HAC NPS2</option>-->
+<!--          <option value="example">HFKCW NPS1</option>-->
+<!--          <option value="example">HFKCW NPS2</option>-->
+<!--          <option value="example">HFKCW NPS3</option>-->
+<!--          <option value="example">NPS Awaiting Allocation HAMMERSMITH & FULHAM</option>-->
+<!--          <option value="example">NPS Awaiting Allocation KENSINGTON CHELSEA WESTMIN</option>-->
+<!--          <option value="example">Barnet NPS</option>-->
+<!--          <option value="example">HRW NPS1</option>-->
+<!--          <option value="example">NPS Awaiting Allocation BARNET</option>-->
+<!--          <option value="example">Public Protection Team HQ</option>-->
+<!--          <option value="example">Inactive Team(N07)</option>-->
+<!--          <option value="example">HOU NPS1</option>-->
+<!--          <option value="example">KAR NPS1</option>-->
+<!--          <option value="example">LAM NPS1</option>-->
+<!--          <option value="example">LAM NPS2</option>-->
+<!--          <option value="example">LAM NPS3</option>-->
+<!--          <option value="example">LAW PQIP</option>-->
+<!--          <option value="example">BRO NPS1</option>-->
+<!--          <option value="example">LEW NPS1</option>-->
+<!--          <option value="example">LEW NPS2</option>-->
+<!--          <option value="example">NPS Awaiting Allocation BROMLEY</option>-->
+<!--          <option value="example">NPS Awaiting Allocation LEWISHAM</option>-->
+<!--          <option value="example">ZZCP Greenwich and Lewisham(old)</option>-->
+<!--          <option value="example">ZZWandsworth OMT3 (old)</option>-->
+<!--          <option value="example">NEW NPS1</option>-->
+<!--          <option value="example">NEW NPS2</option>-->
+<!--          <option value="example">NEW NPS3</option>-->
+<!--          <option value="example">NPS Awaiting Allocation NEWHAM</option>-->
+<!--          <option value="example">Hmp Belmarsh</option>-->
+<!--          <option value="example">Hmp Wandsworth</option>-->
+<!--          <option value="example">NPS FOREIGN NATIONALS UNIT</option>-->
+<!--          <option value="example">Other Third Party EM Supervision</option>-->
+<!--          <option value="example">RWF NPS1</option>-->
+<!--          <option value="example">RWF NPS2</option>-->
+<!--          <option value="example">RWF NPS3</option>-->
+<!--          <option value="example">RWF NPS4</option>-->
+<!--          <option value="example">NPS Awaiting Allocation SOUTHWARK</option>-->
+<!--          <option value="example">SOU NPS1</option>-->
+<!--          <option value="example">SOU NPS2</option>-->
+<!--          <option value="example">SOU NPS3</option>-->
+<!--          <option value="example">TWR NPS CRT</option>-->
+<!--          <option value="example">TWR NPS1</option>-->
+<!--          <option value="example">TWR NPS2</option>-->
+<!--          <option value="example">Default Designated Transfer Team</option>-->
+<!--          <option value="example">Unallocated Team(N07)</option>-->
+<!--          <option value="example">MER NPS1</option>-->
+<!--          <option value="example">NPS Awaiting Allocation WANDSWORTH</option>-->
+<!--          <option value="example">SUT NPS1</option>-->
+<!--          <option value="example">WAN NPS CRT</option>-->
+<!--          <option value="example">WAN NPS1</option>-->
+<!--          <option value="example">NPS - Darlington</option>-->
+<!--          <option value="example">NPS - Durham Central</option>-->
+<!--          <option value="example">NPS - Durham West</option>-->
+<!--          <option value="example">NPS - Newton Aycliffe</option>-->
+<!--          <option value="example">NPS - Peterlee</option>-->
+<!--          <option value="example">NPS - Gateshead</option>-->
+<!--          <option value="example">NPS - Gateshead 2</option>-->
+<!--          <option value="example">NPS - South Tyneside</option>-->
+<!--          <option value="example">Inactive Team(N54)</option>-->
+<!--          <option value="example">NPS - Newcastle OMU1</option>-->
+<!--          <option value="example">NPS - Newcastle OMU2</option>-->
+<!--          <option value="example">NPS - Newcastle OMU3</option>-->
+<!--          <option value="example">NPS - North Tyneside</option>-->
+<!--          <option value="example">NPS - Northumberland</option>-->
+<!--          <option value="example">NPS - Middlesbrough</option>-->
+<!--          <option value="example">NPS - Middlesbrough OMU2</option>-->
+<!--          <option value="example">NPS - South Bank</option>-->
+<!--          <option value="example">NPS - Hartlepool</option>-->
+<!--          <option value="example">NPS - Stockton</option>-->
+<!--          <option value="example">NPS - Sunderland North</option>-->
+<!--          <option value="example">NPS - Sunderland South</option>-->
+<!--          <option value="example">nallocated Team(N02)</option>-->
+<!--          <option value="example">Blackburn 1</option>-->
+<!--          <option value="example">Blackburn 2</option>-->
+<!--          <option value="example">Chorley</option>-->
+<!--          <option value="example">Preston 1</option>-->
+<!--          <option value="example">Preston 2</option>-->
+<!--          <option value="example">Skelmersdale</option>-->
+<!--          <option value="example">Crewe</option>-->
+<!--          <option value="example">Macclesfield</option>-->
+<!--          <option value="example">Chester</option>-->
+<!--          <option value="example">Northwich</option>-->
+<!--          <option value="example">Barrow</option>-->
+<!--          <option value="example">Carlisle 1</option>-->
+<!--          <option value="example">Carlisle 2</option>-->
+<!--          <option value="example">Kendal</option>-->
+<!--          <option value="example">Workington</option>-->
+<!--          <option value="example">Burnley 1</option>-->
+<!--          <option value="example">Burnley 2</option>-->
+<!--          <option value="example">Halton</option>-->
+<!--          <option value="example">Warrington</option>-->
+<!--          <option value="example">Knowsley 1</option>-->
+<!--          <option value="example">Knowsley 2</option>-->
+<!--          <option value="example">Knowsley 3</option>-->
+<!--          <option value="example">Knowsley 4</option>-->
+<!--          <option value="example">Merseyside SO IOM</option>-->
+<!--          <option value="example">St Helens 1</option>-->
+<!--          <option value="example">St Helens 2</option>-->
+<!--          <option value="example">St Helens Unallocated</option>-->
+<!--          <option value="example">Liverpool North 1</option>-->
+<!--          <option value="example">Liverpool North 2</option>-->
+<!--          <option value="example">Liverpool North 3</option>-->
+<!--          <option value="example">Liverpool North 4</option>-->
+<!--          <option value="example">Liverpool North 5</option>-->
+<!--          <option value="example">Liverpool North IOM</option>-->
+<!--          <option value="example">Liverpool North Unallocated</option>-->
+<!--          <option value="example">Liverpool South 1</option>-->
+<!--          <option value="example">Liverpool South 2</option>-->
+<!--          <option value="example">Liverpool South 3</option>-->
+<!--          <option value="example">Liverpool South 4</option>-->
+<!--          <option value="example">Liverpool South 5</option>-->
+<!--          <option value="example">Merseyside Resettle</option>-->
+<!--          <option value="example">Blackpool 1</option>-->
+<!--          <option value="example">Blackpool 2</option>-->
+<!--          <option value="example">Blackpool 3</option>-->
+<!--          <option value="example">Lancaster</option>-->
+<!--          <option value="example">Sefton 2</option>-->
+<!--          <option value="example">Sefton 3</option>-->
+<!--          <option value="example">Sefton 4</option>-->
+<!--          <option value="example">Sefton IOM</option>-->
+<!--          <option value="example">Sefton Unallocated</option>-->
+<!--          <option value="example">Merseyside Womens Services</option>-->
+<!--          <option value="example">Wirral 1</option>-->
+<!--          <option value="example">Wirral 2</option>-->
+<!--          <option value="example">Wirral 3</option>-->
+<!--          <option value="example">Wirral 4</option>-->
+<!--          <option value="example">Wirral 5</option>-->
+<!--          <option value="example">Wirral 6</option>-->
+<!--          <option value="example">Bucks ACE</option>-->
+<!--          <option value="example">Bucks PPU</option>-->
+<!--          <option value="example">Milton Keynes PPU</option>-->
+<!--          <option value="example">Default Designated Transfer Team</option>-->
+<!--          <option value="example">Bracknell OM</option>-->
+<!--          <option value="example">East Berks ACE</option>-->
+<!--          <option value="example">Slough OM</option>-->
+<!--          <option value="example">NPS Aldershot, Farnborough</option>-->
+<!--          <option value="example">NPS Andover, Basingstoke, Winchester</option>-->
+<!--          <option value="example">NPS Havant, Fareham</option>-->
+<!--          <option value="example">Portsmouth and Isle of Wight OM Team 1</option>-->
+<!--          <option value="example">Portsmouth and Isle of Wight OM Team 2</option>-->
+<!--          <option value="example">NPS New Forest, Eastleigh</option>-->
+<!--          <option value="example">NPS Southampton OM Team 1</option>-->
+<!--          <option value="example">NPS Southampton OM Team 2</option>-->
+<!--          <option value="example">Bicester PPU</option>-->
+<!--          <option value="example">Oxford PPU</option>-->
+<!--          <option value="example">Oxon ACE</option>-->
+<!--          <option value="example">Reading OM1</option>-->
+<!--          <option value="example">Reading OM2</option>-->
+<!--          <option value="example">West Berks ACE</option>-->
+<!--          <option value="example">NPS SOM Banes</option>-->
+<!--          <option value="example">NPS SOM Nth Som</option>-->
+<!--          <option value="example">NPS BSG Bristol 1</option>-->
+<!--          <option value="example">NPS BSG Bristol 2</option>-->
+<!--          <option value="example">NPS BSG Bristol IOM (IRiS)</option>-->
+<!--          <option value="example">NPS BSG Under 25</option>-->
+<!--          <option value="example">Offender Management - East</option>-->
+<!--          <option value="example">Offender Management - West</option>-->
+<!--          <option value="example">OM - North Devon</option>-->
+<!--          <option value="example">OM - Torbay</option>-->
+<!--          <option value="example">OM1 - Exeter</option>-->
+<!--          <option value="example">NPS Bournemouth OM and Ass</option>-->
+<!--          <option value="example">NPS Weymouth, Poole OM and Ass</option>-->
+<!--          <option value="example">NPS GCS Cheltenham and Tewkesbury</option>-->
+<!--          <option value="example">NPS GCS Gloucester and Forest</option>-->
+<!--          <option value="example">Offender Management - Plymouth</option>-->
+<!--          <option value="example">NPS SOM Bridgwater</option>-->
+<!--          <option value="example">NPS SOM Taunton</option>-->
+<!--          <option value="example">NPS SOM Yeovil</option>-->
+<!--          <option value="example">NPS WTS Chippenham</option>-->
+<!--          <option value="example">NPS WTS Salisbury</option>-->
+<!--          <option value="example">NPS WTS Swindon 1</option>-->
+<!--          <option value="example">NPS - Awaiting Allocation Cardiff and Vale</option>-->
+<!--          <option value="example">NPS - Cardiff - East Team</option>-->
+<!--          <option value="example">NPS - Cardiff - IOM Wisdom Team</option>-->
+<!--          <option value="example">NPS - Cardiff - North Team</option>-->
+<!--          <option value="example">NPS - Cardiff - South Team</option>-->
+<!--          <option value="example">NPS - Cardiff - West Team</option>-->
+<!--          <option value="example">NPS - Cardiff - Women's Pathfinder Team</option>-->
+<!--          <option value="example">NPS - Cardiff and Vale - STS Team</option>-->
+<!--          <option value="example">NPS - Vale - IOM Women Team</option>-->
+<!--          <option value="example">NPS - Vale - Team</option>-->
+<!--          <option value="example">NPS - Awaiting Allocation Cwm Taf Morgannwg</option>-->
+<!--          <option value="example">NPS - Bridgend - IOM Team</option>-->
+<!--          <option value="example">NPS - Bridgend - STS Team</option>-->
+<!--          <option value="example">NPS - Bridgend - Team 1</option>-->
+<!--          <option value="example">NPS - Bridgend - Team 2</option>-->
+<!--          <option value="example">NPS - Merthyr - STS Team</option>-->
+<!--          <option value="example">NPS - Merthyr - Team 2</option>-->
+<!--          <option value="example">NPS - RCT - STS Team</option>-->
+<!--          <option value="example">NPS - RCT - Team 1</option>-->
+<!--          <option value="example">NPS - RCT - Team 2</option>-->
+<!--          <option value="example">NPS - RCT - Team 3</option>-->
+<!--          <option value="example">NPS - Awaiting Allocation Dyfed Powys</option>-->
+<!--          <option value="example">NPS - Carmarthenshire - Team 1</option>-->
+<!--          <option value="example">NPS - Carmarthenshire - Team 2</option>-->
+<!--          <option value="example">NPS - Ceredigion - Team 1</option>-->
+<!--          <option value="example">NPS - Pembrokeshire - Team 1</option>-->
+<!--          <option value="example">NPS - Powys - Team 1</option>-->
+<!--          <option value="example">NPS - Caerphilly\Blaenau Gwent Team 1</option>-->
+<!--          <option value="example">NPS - Caerphilly\Blaenau Gwent Team 2</option>-->
+<!--          <option value="example">NPS - Caerphilly\Blaenau Gwent Team 3</option>-->
+<!--          <option value="example">NPS - East Gwent Team</option>-->
+<!--          <option value="example">NPS - Gwent - IOM Team</option>-->
+<!--          <option value="example">NPS - Gwent - STS Team</option>-->
+<!--          <option value="example">NPS - Newport - Team 1</option>-->
+<!--          <option value="example">NPS - Newport - Team 2</option>-->
+<!--          <option value="example">NPS - Newport - Team 3</option>-->
+<!--          <option value="example">Inactive Team(N03)</option>-->
+<!--          <option value="example">NPS - Conwy - Team 1</option>-->
+<!--          <option value="example">NPS - Denbighshire - Team 1</option>-->
+<!--          <option value="example">NPS - Flintshire - Team 1</option>-->
+<!--          <option value="example">NPS - Gwynedd - Team 1</option>-->
+<!--          <option value="example">NPS - North Wales - Central IOM STC Team</option>-->
+<!--          <option value="example">NPS - North Wales - East IOM STC Team</option>-->
+<!--          <option value="example">NPS - North Wales - West IOM STC Team</option>-->
+<!--          <option value="example">NPS - Wrexham - Team 1</option>-->
+<!--          <option value="example">NPS - Ynys Mon - Team 1</option>-->
+<!--          <option value="example">NPS - HMP Swansea</option>-->
+<!--          <option value="example">NPS - Swansea - Team 1</option>-->
+<!--          <option value="example">NPS - Swansea - Team 2</option>-->
+<!--          <option value="example">NPS - Swansea - Team 3</option>-->
+<!--          <option value="example">NPS - Swansea - Team 4</option>-->
+<!--          <option value="example">NPS - Swansea - Team 5</option>-->
+<!--          <option value="example">NPS - Swansea - Team 6</option>-->
+<!--          <option value="example">Central Birmingham Team 1</option>-->
+<!--          <option value="example">Central Birmingham Team 2</option>-->
+<!--          <option value="example">IOM Birmingham Team</option>-->
+<!--          <option value="example">Multi-Agency Gang Unit (MAGU)</option>-->
+<!--          <option value="example">South Birmingham Team 1</option>-->
+<!--          <option value="example">South Birmingham Team 2</option>-->
+<!--          <option value="example">South Birmingham Team 3</option>-->
+<!--          <option value="example">East Birmingham</option>-->
+<!--          <option value="example">North Birmingham Team 1</option>-->
+<!--          <option value="example">North Birmingham Team 3</option>-->
+<!--          <option value="example">Solihull</option>-->
+<!--          <option value="example">Coventry</option>-->
+<!--          <option value="example">Dudley Team 1</option>-->
+<!--          <option value="example">Dudley Team 2</option>-->
+<!--          <option value="example">Sandwell Team 1</option>-->
+<!--          <option value="example">Sandwell Team 2</option>-->
+<!--          <option value="example">Sandwell Team 4 PQUIP</option>-->
+<!--          <option value="example">Hereford</option>-->
+<!--          <option value="example">Shrewsbury</option>-->
+<!--          <option value="example">Telford</option>-->
+<!--          <option value="example">PROSPER West Midlands</option>-->
+<!--          <option value="example">Extremism Team West Midlands</option>-->
+<!--          <option value="example">West Midlands Private Prisons</option>-->
+<!--          <option value="example">Cannock</option>-->
+<!--          <option value="example">South East Staffordshire</option>-->
+<!--          <option value="example">Stafford</option>-->
+<!--          <option value="example">Stoke Team 1</option>-->
+<!--          <option value="example">Stoke Team 2</option>-->
+<!--          <option value="example">Stoke Team 3</option>-->
+<!--          <option value="example">Walsall Team 1</option>-->
+<!--          <option value="example">Walsall Team 2</option>-->
+<!--          <option value="example">Wolverhampton Team 1</option>-->
+<!--          <option value="example">Wolverhampton Team 2</option>-->
+<!--          <option value="example">Leamington</option>-->
+<!--          <option value="example">Nuneaton and Rugby</option>-->
+<!--          <option value="example">Kidderminster</option>-->
+<!--          <option value="example">Redditch</option>-->
+<!--          <option value="example">Worcester</option>-->
+<!--          <option value="example">NPS - YSS Barnsley OMU 1</option>-->
+<!--          <option value="example">NPS - YSS Barnsley OMU 2</option>-->
+<!--          <option value="example">NPS - YSS Rotherham OMU 1</option>-->
+<!--          <option value="example">NPS - YSS Rotherham OMU 2</option>-->
+<!--          <option value="example">NPS Awaiting Allocation Barnsley and Rotherham</option>-->
+<!--          <option value="example">Bradford NPS OMU 1 (BNA)</option>-->
+<!--          <option value="example">Bradford NPS OMU 2 (BNB)</option>-->
+<!--          <option value="example">Bradford NPS OMU 4 YOT (BND)</option>-->
+<!--          <option value="example">Bradford NPS OMU 5 (BNE)</option>-->
+<!--          <option value="example">Calderdale NPS OMU 1 (CNA)</option>-->
+<!--          <option value="example">NPS Awaiting Allocation Bradford and Calderdale</option>-->
+<!--          <option value="example">NPS - YSS Doncaster OMU 1</option>-->
+<!--          <option value="example">NPS - YSS Doncaster OMU 2</option>-->
+<!--          <option value="example">NPS - YSS Doncaster OMU 3</option>-->
+<!--          <option value="example">NPS Awaiting Allocation Doncaster</option>-->
+<!--          <option value="example">NPS - EYK BEV PPU1</option>-->
+<!--          <option value="example">NPS - EYK BRI PPU2</option>-->
+<!--          <option value="example">NPS - EYK GOOLE PPU3</option>-->
+<!--          <option value="example">NPS - HUL Public Protection Unit 1</option>-->
+<!--          <option value="example">NPS - HUL Public Protection Unit 2</option>-->
+<!--          <option value="example">NPS - HUL Public Protection Unit 3</option>-->
+<!--          <option value="example">Inactive Team(N55)</option>-->
+<!--          <option value="example">Kirklees NPS OMU 1 (KNA)</option>-->
+<!--          <option value="example">Kirklees NPS OMU 2 (KNB)</option>-->
+<!--          <option value="example">Leeds NPS OMU 1 (LNA)</option>-->
+<!--          <option value="example">Leeds NPS OMU 2 (LNB)</option>-->
+<!--          <option value="example">Leeds NPS OMU 3 (LNC)</option>-->
+<!--          <option value="example">Leeds NPS OMU 5 (LNE)</option>-->
+<!--          <option value="example">Leeds NPS OMU 6 (LNF)</option>-->
+<!--          <option value="example">Leeds NPS OMU 7 (LNG)</option>-->
+<!--          <option value="example">NPS - GRI PPU1</option>-->
+<!--          <option value="example">NPS - GRI PPU2</option>-->
+<!--          <option value="example">NPS - SCU PPU1</option>-->
+<!--          <option value="example">NPS Awaiting Allocation Grimsby</option>-->
+<!--          <option value="example">NPS - YSN Harrogate PP OMU</option>-->
+<!--          <option value="example">NPS - YSN Northallerton PP OMU</option>-->
+<!--          <option value="example">NPS - YSN Scarborough PP OMU</option>-->
+<!--          <option value="example">NPS - YSN Skipton PP OMU</option>-->
+<!--          <option value="example">NPS - YSS Sheffield OMU 1</option>-->
+<!--          <option value="example">NPS - YSS Sheffield OMU 2</option>-->
+<!--          <option value="example">NPS - YSS Sheffield OMU 3</option>-->
+<!--          <option value="example">NPS - YSS Sheffield OMU 4</option>-->
+<!--          <option value="example">NPS Awaiting Allocation Sheffield</option>-->
+<!--          <option value="example">Unallocated Team(N02)</option>-->
+<!--          <option value="example">Wakefield NPS OMU 1 (WNA)</option>-->
+<!--          <option value="example">Wakefield NPS OMU2 (WNB)</option>-->
+<!--          <option value="example">YaTH Enforcement QA Hub - Wakefield</option>-->
+<!--          <option value="example">NPS - YSN York PP OMU</option>-->
+<!--        </select>-->
+<!--      </div>-->
+
+
+{% endblock %}

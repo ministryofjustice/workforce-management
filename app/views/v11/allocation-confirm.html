@@ -1,0 +1,57 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+Allocation impact | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    },
+    {
+      text: "Case view",
+      href: "case-view"
+    },
+    {
+      text: "Allocate to probation practitioner",
+      href: "case-allocate"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+{% include "./partials/pop-title.html" %}
+</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+      <h3 id="cleared" class="govuk-heading-l">You are allocating probation practitioner {{ data['allocated-officer'] | default("Molly O\'Sullivan") }} (PO) to this case.</h3>
+
+<p>
+        This will increase their workload capacity from 90% to 98%.
+</p>
+
+    <form action="allocation-notes" method="post" novalidate>
+      <div class="govuk-form-group govuk-!-margin-top-9">
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <a class="govuk-link govuk-link--no-visited-state" href="case-allocate">Choose a different probation practitioner</a>
+        </div>
+      </div>
+      <input type="hidden" name="unallocated-number" value="2">
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+J678910 | Overview | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases-complete"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ data['pop-name'] | default("Andrei Edwards") }}
+      <span class="govuk-caption-xl">Tier: {{ data['tier'] | default("A3") }}</span>
+      <span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J680648") }}</span>
+    </h1>
+  </div>
+</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">This case has already been allocated</h2>
+    <p><a class="govuk-link--no-visited-state" href="unallocated-cases-complete">Return to unallocated cases</a></p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">National</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">HMPPS</h1>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="step-2" method="post" novalidate>
+
+        {{ govukRadios({
+          idPrefix: "your-region",
+          name: "where-do-you-work",
+          fieldset: {
+            legend: {
+              text: "Where do you work?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "1",
+              text: "CPA Cheshire and Gtr Manchester"
+            },
+            {
+              value: "2",
+              text: "CPA Cumbria and Lancashire"
+            },
+            {
+              value: "3",
+              text: "CPA Derby Leics Notts Rutland"
+            },
+            {
+              value: "4",
+              text: "CPA Humber Lincs & N Yorks"
+            },
+            {
+              value: "5",
+              text: "CPA Kent Surrey and Sussex"
+            },
+            {
+              value: "6",
+              text: "CPA Merseyside"
+            },
+            {
+              value: "7",
+              text: "CPA South Yorkshire"
+            },
+            {
+              value: "8",
+              text: "CPA West Yorkshire"
+            },
+            {
+              value: "9",
+              text: "East of England"
+            },
+            {
+              value: "10",
+              text: "London"
+            },
+            {
+              value: "11",
+              text: "North East Region"
+            },
+            {
+              value: "12",
+              text: "NPS East Midlands Region"
+            },
+            {
+              value: "13",
+              text: "NPS Greater Manchester"
+            },
+            {
+              value: "14",
+              text: "NPS Kent Surrey Sussex Region"
+            },
+            {
+              value: "15",
+              text: "NPS North West Region"
+            },
+            {
+              value: "16",
+              text: "NPS Yorkshire and The Humber"
+            },
+            {
+              value: "17",
+              text: "South Central"
+            },
+            {
+              value: "18",
+              text: "South West"
+            },
+            {
+              value: "19",
+              text: "Wales"
+            },
+            {
+              value: "20",
+              text: "West Midlands Region"
+            }
+          ]
+        }) }}
+<!--
+POST-MIGRATION LIST
+East of England
+London
+National Security Division
+East Midlands Region
+Greater Manchester
+Kent Surrey Sussex Region
+North East Region
+North West Region
+Yorkshire and The Humber
+South Central
+South West
+Wales
+West Midlands Region
+
+-->
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

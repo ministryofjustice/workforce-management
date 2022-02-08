@@ -1,0 +1,68 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Unallocated cases | Southampton Team 1 | Workforce planning
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {%- from "govuk/components/button/macro.njk" import govukButton -%}
+    {%- from "govuk/components/date-input/macro.njk" import govukDateInput -%}
+    {%- from "govuk/components/fieldset/macro.njk" import govukFieldset -%}
+    {%- from "govuk/components/input/macro.njk" import govukInput -%}
+    {%- from "govuk/components/textarea/macro.njk" import govukTextarea -%}
+    <div data-module="moj-add-another">
+
+      <h2 class="govuk-heading-l moj-add-another__heading" tabindex="-1">Add a team</h2>
+
+      <form method="post">
+
+        {% call govukFieldset({
+          classes: 'moj-add-another__item',
+          legend: {
+            text: 'Team',
+            classes: 'moj-add-another__title govuk-fieldset__legend--m',
+            isPageHeading: false
+          }
+        }) %}
+
+        {{ govukInput({
+          id: 'team[0][team_name]',
+          name: 'team[0][team_name]',
+          label: {
+            html: 'Team name',
+            classes: 'govuk-!-font-weight-bold'
+          },
+          attributes: {
+            'data-name': 'team[%index%][team_name]',
+            'data-id': 'team[%index%][team_name]'
+          }
+        }) }}
+
+
+        {% endcall %}
+
+        <div class="moj-button-action">
+          {{ govukButton({
+            text: 'Add another team',
+            classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+          }) }}
+        </div>
+
+        <div class="moj-button-action">
+          {{ govukButton({
+            text: 'Submit'
+          }) }}
+        </div>
+
+      </form>
+
+    </div>
+   
+  </div>
+</div>
+
+
+{% endblock %}

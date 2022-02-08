@@ -7,6 +7,7 @@ const v7 = require('./routes/v7.js')
 const v8 = require('./routes/v8.js')
 const v9 = require('./routes/v9.js')
 const v10 = require('./routes/v10.js')
+const v11 = require('./routes/v11.js')
 const mvp = require('./routes/mvp.js')
 
 // Add your routes here - above the module.exports line
@@ -19,6 +20,7 @@ router.use('/v7', v7)
 router.use('/v8', v8)
 router.use('/v9', v9)
 router.use('/v10', v10)
+router.use('/v11', v11)
 router.use('/_mvp', mvp)
 
 router.post('/allocate-handler', function (req, res) {

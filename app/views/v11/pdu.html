@@ -1,0 +1,72 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Select your PDU | Manage a workforce
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/v10/region"
+}) }}
+{% endblock %}
+
+    {% set pdus = [] %}
+    {% for item in data.teams %}
+      {% for pdu in item.pduList %}
+      {% if item.regionName === region %}
+        {{ pdus.push(pdu.pduName) }}
+      {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">HMPPS</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">{{ region }}</h1>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="teams" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Select your Probation Delivery Unit
+              </h1>
+            </legend>
+            {% for pdu in pdus %}
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="your-pdus" name="select-pdu" type="radio" value="{{pdu}}">
+                <label class="govuk-label govuk-radios__label"  for="your-pdus">
+                  {{ pdu }}
+                </label>
+              </div>
+              {% endfor %}
+
+          </fieldset>
+
+        </div>
+
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
