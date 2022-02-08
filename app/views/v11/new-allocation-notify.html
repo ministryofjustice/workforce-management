@@ -1,0 +1,24 @@
+{% extends "layout-notify.html" %}
+
+{% block pageTitle %}
+  New householder planning appeal
+{% endblock %}
+
+{% block content %}
+<p><strong>Subject:</strong> A new case has been added<br />
+<strong>From:</strong> manage.a.workforce@notifications.service.gov.uk</p>
+
+<img src="{{ asset_path }}images/HMPPS.jpg" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Hello</p>
+
+    <p>A new <strong>community case</strong> has has been added to a team you have indicated you are responsible for.</p>
+
+    <p>You need to <a href="lpa-task-list">view the unallocated cases list</a> to complete this allocation.</p>
+    <p>Regards,<br />Manage a Workforce</p>
+
+  </div>
+</div>
+{% endblock %}

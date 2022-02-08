@@ -1,0 +1,108 @@
+{% extends "layout-notify.html" %}
+
+{% block pageTitle %}
+  Dylan Adam Armstrong (J678910) has been allocated to you
+{% endblock %}
+
+{% block content %}
+<p><strong>Subject:</strong> Dylan Adam Armstrong (J678910) has been allocated to you<br />
+<strong>From:</strong> manage.a.workforce@notifications.service.gov.uk</p>
+
+<img src="{{ asset_path }}images/HMPPS.jpg" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Hello {{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</p>
+    <p><strong>Dylan Adam Armstrong (J678910)</strong> has been allocated to you for immediate case management.</p>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!--<p>They were previously managed by Margaret Dawson in Sheffield Team 1.</p>-->
+    <p>They  were sentenced at Sheffield Magistrates' Court on  {{ moment().subtract(3, 'days').format("D MMM YYYY") }}.</p>
+
+    <p>Their induction has <strong>not been booked</strong>, and is due on {{ moment().add(2, 'days').format("D MMM YYYY") }}.</p>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h1 class="govuk-heading-s">Offence</h1>
+    <ol class="govuk-list govuk-list--number">
+      <li>Common assault and battery - 10501</li>
+      <li>Automobile theft - 10500</li>
+    </ol>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h1 class="govuk-heading-s">Order</h1>
+    <p>Community Order (12 months)</p>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h1 class="govuk-heading-s">Requirements</h1>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Rehabilitation Activity Requirement (RAR): 15 days</li>
+      <li>Accredited programme: Building Better Relationships (BBR)</li>
+      <li>Unpaid work: 120 hours</li>
+    </ul>
+    
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h1 class="govuk-heading-s">Risk</h1>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Tier: C1</li>
+      <li>ROSH: Medium</li>
+      <li>RSR: Medium (3.8%)</li>
+      <li>OGRS: Medium (87%)</li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h1 class="govuk-heading-s">Previous convictions</h1>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Breach of a Non-Molestation Order - 06639</li>
+      <li>Breach of a Non-Molestation Order - 06639</li>
+      <li>Common assault and battery - 10501</li>
+    </ul>
+    
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <section aria-label="allocation-instructions">
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-s">Notes from the allocating SPO</h1>
+        <p>Please ask admin to chase up PSR <br> note they need booking on BBR <br> previously managed by PSO but tier change means they need a PO</p>
+      <!--<textarea disabled class="govuk-textarea hmpps-email" name="more-detail" id="txt" rows="8" aria-describedby="more-detail-hint"></textarea>-->
+      </div>
+    </section>
+    
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <div class="govuk-inset-text">
+      <p>Please notifiy your administrator of employment, accommodation, and education attainment level as soon as possible so that Delius can be updated.</p>
+      <p>Also please update Personal Circumstances in Delius with the contact arrangements during Covid 19.</p>
+      <p>Regards,<br />Senior Probation Officer, Wrexham</p>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+  var textarea = document.getElementById("txt");
+  textarea.addEventListener('input', writeLocalStorage);
+
+  function writeLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         localStorage.setItem("text", textarea.value);
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  function readLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         textarea.value = localStorage.getItem("text");
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
+  if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", readLocalStorage);
+  } else {  // `DOMContentLoaded` already fired
+      readLocalStorage();
+  }
+  </script>
+      <script type="text/javascript">
+      MOJFrontend.initAll();
+    </script>
+  {% endblock %}

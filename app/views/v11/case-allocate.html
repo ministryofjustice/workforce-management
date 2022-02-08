@@ -1,0 +1,152 @@
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+J678910 | Allocate | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    },
+    {
+      text: "Case view",
+      href: "case-view"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+{% include "./partials/pop-title.html" %}
+</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+      <h2 id="cleared" class="govuk-heading-l">Allocate to a probation practitioner <br>in {{ data['selected-team'] | default("South Tyneside")}}</h2>
+
+    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+    {{ govukWarningText({
+      text: "Dylan Adam Armstrong is currently managed by Teigan Kaye (PSO).",
+      iconFallbackText: "Warning"
+    }) }}
+
+    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+    {{ govukInsetText({
+      text: "All SPO’s allocating cases, should consider the appropriateness of allocating Tier B cases in the community (or with less than 12mths to serve in custody) to newly qualified officers."
+    }) }}
+
+    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+    {{ govukInsetText({
+      text: "Trainee Probation Officers and PSOs can undertake case management support tasks on A and B cases but they cannot be the allocated OM; this must be a qualified PO."
+    }) }}
+
+  <div class="moj-scrollable-pane">
+
+    <div class="moj-scrollable-pane__wrapper">
+    <!--<form action="/allocate-handler" method="post" novalidate>-->
+    <form action="allocation-confirm" method="post" novalidate>
+            <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          
+          <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="Ascending">Capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Cases in past 7 days</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Custody cases</th>
+          <th scope="col" class="govuk-table__header">Workload details</th>
+          <th scope="col" class="govuk-table__header">Select</th>
+          
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      {% set gradeDescriptions = {PO: 'Probation Officer', PSO: 'Probation Service Officer', NQO: 'Newly Qualified Officer', PQiP: 'Trainee Probation Officer', SPO: 'Senior Probation Officer'} %}
+        {% for probationPractitioner in team %}
+          <tr class="govuk-table__row">
+            
+            <td class="govuk-table__cell"><label for="allocate-officer-{{ probationPractitioner.OM_Key }}">{{ probationPractitioner.name }}</label></td>
+            {% set gradeDescription = gradeDescriptions[probationPractitioner.grade] %}
+            <td class="govuk-table__cell" data-sort-value="{{ gradeDescription }}">
+            <div class="tooltip">{{ probationPractitioner.grade }}<span class="tooltiptext">{{ gradeDescription }}</span></div></td>
+
+            <td class="govuk-table__cell govuk-table__cell--numeric{% if probationPractitioner.capacity > 99 %} percentage-extra-over{% endif %}" data-sort-value="{{ probationPractitioner.capacity }}">{{ probationPractitioner.capacity }}%</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.allocationsInLast7.length }}">{{ probationPractitioner.allocationsInLast7.length }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.community }}">{{ probationPractitioner.totals.community }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="{{ probationPractitioner.totals.custody }}">{{ probationPractitioner.totals.custody }}</td>
+            <td class="govuk-table__cell" style="text-align: center;"><a class="govuk-link--no-visited-state" href="officer-view/{{ probationPractitioner.OM_Key }}">View</a></td>
+            <td class="govuk-table__cell">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="allocate-officer-{{ probationPractitioner.OM_Key }}" name="allocated-officer" type="radio" value="{{ probationPractitioner.name }}">
+                  <label class="govuk-label govuk-radios__label" for="allocate-officer-{{ probationPractitioner.OM_Key }}"></label>
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <input type="hidden" name="allocated-capacity" value="{{ probationPractitioner.capacity }}">
+      <button class="govuk-button" data-module="govuk-button" style="float: left; margin-right: 30px;">
+        Allocate case
+      </button>
+    </form>
+  
+   
+  
+
+    </div>
+
+  </div>
+
+    <form action="case-allocate#cleared" method="post" novalidate>
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Clear selection
+      </button>
+    </form>    
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    new MOJFrontend.FilterToggleButton({
+      bigModeMediaQuery: '(min-width: 48.063em)',
+      startHidden: true,
+      toggleButton: {
+        container: $('.moj-action-bar__filter'),
+        showText: 'Filter this list',
+        hideText: 'Hide filter',
+        classes: 'govuk-button--secondary'
+      },
+      closeButton: {
+        container: $('.moj-filter__header-action'),
+        text: 'Close'
+      },
+      filter: {
+        container: $('.moj-filter')
+      }
+    });
+  </script>
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}

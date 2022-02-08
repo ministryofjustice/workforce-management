@@ -1,0 +1,115 @@
+{% extends "layout_wmt.html" %}
+
+{% block pageTitle %}
+National - HMPPS - WMT
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    A new case has been added.
+    <a class="govuk-notification-banner__link" href="unallocated-cases">View allocations</a>.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html,
+  titleHtml: 'Notice'
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">National</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">HMPPS</h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Overview</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Capacity</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">NPS Caseload</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">CRC Caseload</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Case Progress</a>
+        </li>
+         <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#">Dashboard</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="govuk-grid-column-full">
+    <a href="/probation/hmpps/0/overview/caseload-csv" class="govuk-button sln-export floatRightBottom10" data-module="govuk-button">Export Overview</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <table id="example" class="govuk-table js-data-table data-table dataTable width100Percent" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;"><thead>
+            <tr role="row"><th class="sln-table-org-level" id="om" rowspan="1" colspan="1">Region</th><th id="cap" colspan="4" rowspan="1">Capacity</th><th id="hrs" colspan="2" rowspan="1">Hours</th><th id="cases" rowspan="1" colspan="1">Cases</th></tr>
+    
+            <tr class="headers" role="row"><th headers="om" id="name" class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 120px;">Name</th><th headers="cap" id="current" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Current(%): activate to sort column ascending" style="width: 85px;">Current(%)</th><th headers="cap" id="points" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Available Points: activate to sort column ascending" style="width: 120px;">Available Points</th><th headers="cap" id="totalPoints" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Total Points Used: activate to sort column ascending" style="width: 130px;">Total Points Used</th><th headers="cap" id="remaining" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Remaining Points: activate to sort column ascending" style="width: 129px;">Remaining Points</th><th headers="hrs" id="contracted" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Contracted: activate to sort column ascending" style="width: 86px;">Contracted</th><th headers="hrs" id="reduction" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Reduction: activate to sort column ascending" style="width: 77px;">Reduction</th><th headers="cases" id="total" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending" style="width: 38px;">Total</th></tr>
+        </thead>
+        
+        <tbody>
+            
+        <tr role="row" class="odd">
+              <td headers="name om" class="sorting_1"><a class="govuk-link" href="/probation/region/2">NPS Test Region</a></td>
+            
+            
+              <td class="capacity-red" headers="current cap">200%</td>
+            
+            <td headers="points cap">25</td>
+            <td headers="totalPoints cap">50</td>
+            
+              <td class="capacity-red" headers="remaining cap">-25</td>
+            
+            <td headers="hrs contracted">37.5</td>
+            <td headers="hrs reduction">3</td>
+            <td headers="cases total">8</td>
+          </tr></tbody>
+        <tfoot>    
+        
+            <tr><td headers="name om" rowspan="1" colspan="1">NPS Total / Average</td><td headers="current cap" rowspan="1" colspan="1">200%</td><td headers="points cap" rowspan="1" colspan="1">25</td><td headers="totalPoints cap" rowspan="1" colspan="1">50</td><td headers="remaining cap" rowspan="1" colspan="1">-25</td><td headers="hrs contracted" rowspan="1" colspan="1">37.5</td><td headers="hrs reduction" rowspan="1" colspan="1">3</td><td headers="cases total" rowspan="1" colspan="1">8</td></tr>
+            
+            <tr><td headers="name om" rowspan="1" colspan="1">CRC Total / Average</td><td headers="current cap" rowspan="1" colspan="1">0%</td><td headers="points cap" rowspan="1" colspan="1">0</td><td headers="totalPoints cap" rowspan="1" colspan="1">0</td><td headers="remaining cap" rowspan="1" colspan="1">0</td><td headers="hrs contracted" rowspan="1" colspan="1">0</td><td headers="hrs reduction" rowspan="1" colspan="1">0</td><td headers="cases total" rowspan="1" colspan="1">0</td></tr>
+                       
+        </tfoot>
+      </table>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+    <p class="govuk-body govuk-!-font-size-16 lastUpdated">Last updated on  <strong>{{ moment().subtract(1, 'days').format(longDateFormat) }}</strong></p>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}
