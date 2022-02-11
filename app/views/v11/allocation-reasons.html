@@ -6,9 +6,28 @@ Allocation reasons | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<div class="govuk-breadcrumbs">
-  <a href="case-allocate" class="govuk-back-link govuk-body">Back to allocate case</a>
-</div>
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    },
+    {
+      text: "Case view",
+      href: "case-view"
+    },
+    {
+      text: "Allocate to probation practitioner",
+      href: "case-allocate"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -18,16 +37,8 @@ Allocation reasons | Workforce planning
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-<h2 class="govuk-heading-l">Reasons for allocation</h2>
+<h2 class="govuk-heading-l">Management override</h2>
 <form action="allocation-complete" method="post" novalidate>
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="more-detail">
-      Why are you allocating {{ data['allocated-officer'] }} to this case?
-    </label>
-    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
-  </div>
-
-  <h2 class="govuk-heading-m">Management override</h2>
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset" aria-describedby="ex-reasons-hint">

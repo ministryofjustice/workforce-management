@@ -7,10 +7,6 @@
 
 
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-
-<div class="govuk-inset-text govuk-!-margin-bottom-7">
-  <p>These notes will automatically be sent to <br>{{ data['allocated-officer'] | default("Molly O\'Sullivan") }} (<em>MJOnps11@justice.gov.uk</em>)</p>
-</div>
 <p>You can also send a copy of the notes to another recipient, for example your case admin officer.</p>
 
     {% call govukFieldset({
