@@ -28,7 +28,7 @@ Allocation complete | Workforce planning
             <li>Details of this allocation have been added to NDelius automatically</li>
             <li>You need to contact <strong>{{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</strong> about this allocation: <a href="mailto:MJOnps11@justice.gov.uk">MJOnps11@justice.gov.uk</a></li>
             <li>You may also need to contact your case admin</li>
-            <li>The induction interview is scheduled for <strong>{{ moment().add(1, 'days').format(longDateFormat) }}</strong></li>
+            <li>The induction interview is scheduled for <strong>{{ moment().add(1, 'days').format(longDateFormat) }}</strong> / The induction interview needs to be scheduled by <strong>{{ moment().add(4, 'days').format(longDateFormat) }}</strong></li>
           </ul>
         </p>
 
