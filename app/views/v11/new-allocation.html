@@ -1,13 +1,25 @@
-+
 {% extends "layout_cases-nav.html" %}
 
 
 {% block pageTitle %}
-J678910 | Overview | Workforce planning
+J678910 | Risk | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
-<a href="unallocated-cases" class="govuk-back-link">Back to unallocated cases</a>
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -26,11 +38,7 @@ J678910 | Overview | Workforce planning
   titleHtml: 'Notice'
 }) }}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    <span class="tier-flag">{{ data['tier'] | default("C1") }}</span><h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-xl">CRN: {{ data['pop-crn'] | default("J678910") }}</span>{{ data['pop-name'] | default("Dylan Adam Armstrong") }}</h1>    
-  </div>
+{% include "./partials/pop-title.html" %}
   <div class="govuk-grid-column-one-third">
     <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
   </div>
@@ -64,7 +72,8 @@ J678910 | Overview | Workforce planning
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-quarter">
     <section class="index-card">
-     <h1 class="govuk-heading-l"><div class="tooltip">ROSH<span class="tooltiptext govuk-body-s">Risk of Serious Harm</span></div></h1>
+     <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">ROSH<span class="tooltiptext govuk-body-s">Risk of Serious Harm</span></div></h1>
+     <p class="govuk-body-s secondary-text-col" style="margin-bottom: 30px;">Last updated: 11 Jan 2022</p>
      <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
       <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 34%;"></div>
       <div style="float: left; height: 10px; width: 25%; background-color: #85994B;"></div>
@@ -78,7 +87,8 @@ J678910 | Overview | Workforce planning
 
   <div class="govuk-grid-column-one-quarter">
     <section class="index-card">
-      <h1 class="govuk-heading-l"><div class="tooltip">RSR<span class="tooltiptext govuk-body-s">Risk of Serious Recidivism</span></div> <span>3.8%</span></h1>
+      <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">RSR<span class="tooltiptext govuk-body-s">Risk of Serious Recidivism</span></div> <span>3.8%</span></h1>
+      <p class="govuk-body-s secondary-text-col" style="margin-bottom: 30px;">Last updated: 13 May 2021</p>
       <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
       <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 31%;"></div>
        <div style="float: left; height: 10px; width: 33%; background-color: #85994B;"></div>
@@ -91,7 +101,8 @@ J678910 | Overview | Workforce planning
 
   <div class="govuk-grid-column-one-quarter">
     <section class="index-card">
-      <h1 class="govuk-heading-l"><div class="tooltip">OGRS<span class="tooltiptext govuk-body-s">Offender Group Reconviction Scale</span></div> <span>87%</span></h1>
+      <h1 class="govuk-heading-l" style="margin-bottom: 5px;"><div class="tooltip">OGRS<span class="tooltiptext govuk-body-s">Offender Group Reconviction Scale</span></div> <span>87%</span></h1>
+      <p class="govuk-body-s secondary-text-col" style="margin-bottom: 30px;">Last updated: 26 May 2021</p>
       <div style="position: relative; width: 100%; background-color: white; height: 10px; margin-bottom: 15px;">
       <div class="arrow-down" style="z-index:99; position: absolute; top: -17px; left: 44%;"></div>
        <div style="float: left; height: 10px; width: 25%; background-color: #85994B;"></div>
@@ -140,43 +151,43 @@ J678910 | Overview | Workforce planning
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Safeguarding</td> -->
-                <th scope="row" class="govuk-table__header">Suicide/Self Harm</th>
+                <th scope="row" class="govuk-table__header">Suicide/self-harm</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
-                <td class="govuk-table__cell">13 Dec 2020</td>
-                <td class="govuk-table__cell">13 June 2021</td>
-                <td class="govuk-table__cell">Previous suicide /self harm attempt. Needs further investigating.</td>
+                <td class="govuk-table__cell no-break">13 Dec 2020</td>
+                <td class="govuk-table__cell no-break">13 Jun 2022</td>
+                <td class="govuk-table__cell">Previous suicide /self-harm attempt. Needs further investigating.</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Safeguarding</td> -->
                 <th scope="row" class="govuk-table__header">Child concerns</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell">13 Dec 2020</td>
-                <td class="govuk-table__cell">13 March 2021</td>
-                <td class="govuk-table__cell">awaiting outcome of social services enquiry</td>
+                <td class="govuk-table__cell no-break">13 Dec 2020</td>
+                <td class="govuk-table__cell no-break">13 Mar 2022</td>
+                <td class="govuk-table__cell">Awaiting outcome of social services enquiry.</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">RoSH</td> -->
                 <th scope="row" class="govuk-table__header">Medium RoSH</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell">09 Nov 2021</td>
-                <td class="govuk-table__cell">09 May 2021</td>
+                <td class="govuk-table__cell no-break">9 Nov 2021</td>
+                <td class="govuk-table__cell no-break">9 May 2022</td>
                 <td class="govuk-table__cell">-</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Public protection</td> -->
-                <th scope="row" class="govuk-table__header">Domestic Abuse Perpetrator</th>
+                <th scope="row" class="govuk-table__header">Domestic abuse perpetrator.</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
-                <td class="govuk-table__cell">04 July 2011</td>
-                <td class="govuk-table__cell">26 Dec 2019</td>
+                <td class="govuk-table__cell no-break">4 Jul 2011</td>
+                <td class="govuk-table__cell no-break">26 Dec 2021</td>
                 <td class="govuk-table__cell">-</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Alerts </td> -->
                 <th scope="row" class="govuk-table__header">Mental health issues</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell">04 July 2011</td>
-                <td class="govuk-table__cell">26 Dec 2019</td>
-                <td class="govuk-table__cell">personality disorder</td>
+                <td class="govuk-table__cell no-break">4 Jul 2011</td>
+                <td class="govuk-table__cell no-break">26 Dec 2021</td>
+                <td class="govuk-table__cell">Personality disorder.</td>
               </tr>
             </tbody>
           </table>
@@ -197,9 +208,9 @@ J678910 | Overview | Workforce planning
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Public protection </td> -->
-                <th scope="row" class="govuk-table__header">MAPPA Considered</th>
+                <th scope="row" class="govuk-table__header">MAPPA considered</th>
                 <!-- <td class="govuk-table__cell"></td> -->
-                <td class="govuk-table__cell"> 14 June 2012</td>
+                <td class="govuk-table__cell"> 14 Jun 2012</td>
                 <td class="govuk-table__cell"> 26 Nov 2019</td>
                 <td class="govuk-table__cell">-</td>
               </tr>
@@ -209,7 +220,55 @@ J678910 | Overview | Workforce planning
       </div>
     </div>
   </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <section aria-label="allocation-instructions">
+                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          name: "more-detail",
+          id: "txt",
+          label: {
+            text: "Write allocation notes",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Enter any details you want to highlight to the probation practitioner. You will have a chance to review later."
+          }
+        }) }}
+    </section>
+  </div>
 </div>
-
-
 {% endblock %}
+
+{% block scripts %}
+<script>
+  var textarea = document.getElementById("txt");
+  textarea.addEventListener('input', writeLocalStorage);
+
+  function writeLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         localStorage.setItem("text", textarea.value);
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  function readLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         textarea.value = localStorage.getItem("text");
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
+  if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", readLocalStorage);
+  } else {  // `DOMContentLoaded` already fired
+      readLocalStorage();
+  }
+  </script>
+  {% endblock %}
