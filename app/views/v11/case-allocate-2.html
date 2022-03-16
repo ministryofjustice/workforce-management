@@ -26,32 +26,19 @@ J678910 | Allocate | Workforce planning
 {% endblock %}
 
 {% block content %}
-{% include "./partials/pop-title.html" %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Hannah Francis
+      <span class="govuk-caption-xl">Tier: C2</span>
+      <span class="govuk-caption-xl">CRN: J680660</span>
+    </h1>
+  </div>
 </div>
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
       <h2 id="cleared" class="govuk-heading-l">Allocate to a probation practitioner <br>in {{ data['selected-team'] | default("South Tyneside")}}</h2>
-
-    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
-    {{ govukWarningText({
-      text: "Dylan Adam Armstrong is currently managed by Teigan Kaye (PSO).",
-      iconFallbackText: "Warning"
-    }) }}
-
-    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-
-    {{ govukInsetText({
-      text: "All SPO’s allocating cases, should consider the appropriateness of allocating Tier B cases in the community (or with less than 12 months to serve in custody) to newly qualified officers."
-    }) }}
-
-    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-
-    {{ govukInsetText({
-      text: "Trainee Probation Officers and PSOs can undertake case management support tasks on A and B cases but they cannot be the allocated OM; this must be a qualified PO."
-    }) }}
 
   <div class="moj-scrollable-pane">
 
