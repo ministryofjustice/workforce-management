@@ -1,0 +1,62 @@
+{% extends "layout_no-cases-nav.html" %}
+
+{% block pageTitle %}
+Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% block team %}
+{% include "./partials/team-title.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#"><span id="notifications">Unallocated community cases</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="allocated-recently-empty"><span id="notifications">Cases allocated in last 30 days</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Unallocated community cases</h2>
+    <p class="govuk-body-s secondary-text-col" style="margin: -25px 0 30px;">Last updated: 7:30am {{ moment().subtract(0, 'days').format("D MMM YYYY") }}</p>
+    <p>There are no unallocated community cases.</p>
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Unallocated custody cases</h2>
+    <div class="moj-scrollable-pane">
+      <div class="moj-scrollable-pane__wrapper">
+        <p>There are currently <a href="#" class="govuk-link--no-visited-state"><strong>4</strong> unallocated cases on NDelius</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}
