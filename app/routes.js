@@ -33,13 +33,4 @@ router.post('/allocate-handler', function (req, res) {
 
 })
 
-router.get('/check-team-list', function(req, res) {
-  var teamcheck = req.session.data['selected-team']
-  if (teamcheck === 'EXN-West Essex OM1') {
-    res.redirect('/v10/region')
-  } else {
-    res.redirect('/v10/team-list')
-  }
-})
-
 module.exports = router

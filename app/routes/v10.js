@@ -123,4 +123,12 @@ router.get('/team-list', function (req, res) {
   res.render('v10/teams2/team-list', { region, teams })
 })
 
+router.get('/check-team-list', function(req, res) {
+  var teamcheck = req.session.data['selected-team']
+  if (teamcheck === 'EXN-West Essex OM1') {
+    res.redirect('v10/region')
+  } else {
+    res.redirect('v10/team-list')
+  }
+})
 module.exports = router

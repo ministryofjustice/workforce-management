@@ -124,4 +124,12 @@ router.get('/team-list', function (req, res) {
   res.render('_mvp/teams/team-list', { region, teams })
 })
 
+router.get('/check-team-list', function(req, res) {
+  var teamcheck = req.session.data['selected-team']
+  if (teamcheck === '') {
+    res.redirect('_mvp/region')
+  } else {
+    res.redirect('_mvp/team-list')
+  }
+})
 module.exports = router
