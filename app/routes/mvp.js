@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const moment = require('moment')
 const { generateTeam, updateProbationPractitioner } = require('../data/generateData')
+const probationTeams = require('../data/probation-teams.json')
 const {
   getTeamTotals,
   getPractitioner,
@@ -80,6 +81,47 @@ router.post('/allocate-handler', function (req, res) {
     res.redirect('/_mvp/allocation-error')
   }
 
+})
+
+router.post('/region-handler', function (req, res) {
+  const region = req.session.data['select-region']
+  res.render('_mvp/teams/pdu', { data: probationTeams, region })
+})
+
+router.get('/region-handler', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  res.render('_mvp/teams/pdu', { data: probationTeams, pdu, region })
+})
+
+router.post('/teams', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  res.render('_mvp/teams/teams', { data: probationTeams, pdu, region })
+})
+
+router.get('/teams', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  const teams = req.session.data['select-teams']
+  res.render('_mvp/teams/teams', { data: probationTeams, pdu, region, teams })
+})
+
+router.post('/team-list', function (req, res) {
+  const pdu = req.session.data['select-pdu']
+  const region = req.session.data['select-region']
+  const teams = req.session.data['select-teams']
+  res.render('_mvp/teams/team-list', { data: probationTeams, pdu, region, teams })
+})
+
+router.get('/unallocated-cases', function (req, res) {
+  res.render('_mvp/teams/unallocated-cases')
+})
+
+router.get('/team-list', function (req, res) {
+  const region = req.session.data['select-region']
+  const teams = req.session.data['select-teams']
+  res.render('_mvp/teams/team-list', { region, teams })
 })
 
 module.exports = router

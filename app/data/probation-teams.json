@@ -530,6 +530,578 @@
       ]
     },
     {
+      "regionName": "Greater Manchester",
+      "pduList": [
+        {
+          "pduName": "Bolton",
+          "teamList": [
+            "Bolton 2",
+            "Bolton NPS Admin"
+          ]
+        },
+        {
+          "pduName": "Bury and Rochdale",
+          "teamList": [
+            "Bury 2",
+            "Rochdale 2"
+          ]
+        },
+        {
+          "pduName": "Manchester North",
+          "teamList": [
+            "Cheetham 1",
+            "Miles Platting 1"
+          ]
+        },
+        {
+          "pduName": "Manchester South",
+          "teamList": [
+            "Longsite 1",
+            "Moss Side 1",
+            "Wythenshawe 1"
+          ]
+        },
+        {
+          "pduName": "Oldham",
+          "teamList": [
+            "Oldham 2"
+          ]
+        },
+        {
+          "pduName": "Public Protection Community",
+          "teamList": [
+            "MAPPT - MAPPA and Public Protection Team"
+          ]
+        },
+        {
+          "pduName": "Salford",
+          "teamList": [
+            "Salford 1",
+            "Salford 2"
+          ]
+        },
+        {
+          "pduName": "Stockport and Trafford",
+          "teamList": [
+            "Stockport 3",
+            "Stockport 4",
+            "Stockport and Trafford Admin",
+            "Trafford 1"
+          ]
+        },
+        {
+          "pduName": "Tameside",
+          "teamList": [
+            "Tameside 1",
+            "Tameside 2"
+          ]
+        },
+        {
+          "pduName": "Wigan",
+          "teamList": [
+            "Wigan 2",
+            "Wigan NOS Admin"
+          ]
+        }
+      ]
+    },
+    {
+      "regionName": "Kent Surrey Sussex Region",
+      "pduList": [
+        {
+          "pduName": "Brighton and East Sussex",
+          "teamList": [
+            "SXE-Brighton",
+            "SXE-Eastborne",
+            "SXE-Hastings"
+          ]
+        },
+        {
+          "pduName": "East Kent",
+          "teamList": [
+            "KTE-Canterbury",
+            "KTE-South East Kent",
+            "KTE-Thanet"
+          ]
+        },
+        {
+          "pduName": "Inactive Level 2(N57)",
+          "teamList": [
+            "Inactive Team(N57)"
+          ]
+        },
+        {
+          "pduName": "Surrey",
+          "teamList": [
+            "SRY-Guildford",
+            "SRY-Redhill",
+            "SRY-Staines"
+          ]
+        },
+        {
+          "pduName": "Unallocated level 2(N57)",
+          "teamList": [
+            "Unallocated Team(N57)"
+          ]
+        },
+        {
+          "pduName": "West Kent",
+          "teamList": [
+            "KTW-Dartford and Gravesham",
+            "KTW-Medway",
+            "KTW-Mid Kent"
+          ]
+        },
+        {
+          "pduName": "West Sussex",
+          "teamList": [
+            "SXW-Crawley",
+            "SXW-Littlehampton",
+            "SXW-Worthing"
+          ]
+        }
+      ]
+    },
+    {
+      "regionName": "North East Region",
+      "pduList": [
+        {
+          "pduName": "County Durham and Darlington Total",
+          "teamList": [
+            "NPS - Darlington",
+            "NPS - Durham Central",
+            "NPS - Durham West",
+            "NPS - Newton Aycliffe",
+            "NPS - Peterlee"
+          ]
+        },
+        {
+          "pduName": "Gateshead and South Tyneside",
+          "teamList": [
+            "NPS - Gateshead",
+            "NPS - Gateshead 2",
+            "NPS - South Tyneside"
+          ]
+        },
+        {
+          "pduName": "Inactive Level 2(N54)",
+          "teamList": [
+            "Inactive Team(N54)"
+          ]
+        },
+        {
+          "pduName": "Newcastle Upon Tyne",
+          "teamList": [
+            "NPS - Newcastle OMU1",
+            "NPS - Newcastle OMU2",
+            "NPS - Newcastle OMU3"
+          ]
+        },
+        {
+          "pduName": "North Tyneside and Northumberland",
+          "teamList": [
+            "NPS - North Tyneside",
+            "NPS - Northumberland"
+          ]
+        },
+        {
+          "pduName": "Redcar, Cleveland and Middlesbrough",
+          "teamList": [
+            "NPS - Middlesbrough",
+            "NPS - Middlesbrough OMU2",
+            "NPS - South Bank"
+          ]
+        },
+        {
+          "pduName": "Stockton and Hartlepool",
+          "teamList": [
+            "NPS - Hartlepool",
+            "NPS - Stockton"
+          ]
+        },
+        {
+          "pduName": "Sunderland",
+          "teamList": [
+            "NPS - Sunderland North",
+            "NPS - Sunderland South"
+          ]
+        },
+        {
+          "pduName": "Unallocated Level(N54)",
+          "teamList": [
+            "Unallocated Team(N02)"
+          ]
+        }
+      ]
+    },
+    {
+      "regionName": "North West Region",
+      "pduList": [
+        {
+          "pduName": "Blackburn and Darwen",
+          "teamList": [
+            "Blackburn 1",
+            "Blackburn 2"
+          ]
+        },
+        {
+          "pduName": "Central Lancashire",
+          "teamList": [
+            "Chorley",
+            "Preston 1",
+            "Preston 2",
+            "Skelmersdale"
+          ]
+        },
+        {
+          "pduName": "Cheshire East",
+          "teamList": [
+            "Crewe",
+            "Macclesfield"
+          ]
+        },
+        {
+          "pduName": "Cheshire West",
+          "teamList": [
+            "Chester",
+            "Northwich"
+          ]
+        },
+        {
+          "pduName": "Cumbria",
+          "teamList": [
+            "Barrow",
+            "Carlisle 1",
+            "Carlisle 2",
+            "Kendal",
+            "Workington"
+          ]
+        },
+        {
+          "pduName": "East Lancashire",
+          "teamList": [
+            "Burnley 1",
+            "Burnley 2"
+          ]
+        },
+        {
+          "pduName": "Halton and Warrington",
+          "teamList": [
+            "Halton",
+            "Warrington"
+          ]
+        },
+        {
+          "pduName": "Knowsley and St Helens",
+          "teamList": [
+            "Knowsley 1",
+            "Knowsley 2",
+            "Knowsley 3",
+            "Knowsley 4",
+            "Merseyside SO IOM",
+            "St Helens 1",
+            "St Helens 2",
+            "St Helens Unallocated"
+          ]
+        },
+        {
+          "pduName": "Liverpool North",
+          "teamList": [
+            "Liverpool North 1",
+            "Liverpool North 2",
+            "Liverpool North 3",
+            "Liverpool North 4",
+            "Liverpool North 5",
+            "Liverpool North IOM",
+            "Liverpool North Unallocated"
+          ]
+        },
+        {
+          "pduName": "Liverpool South",
+          "teamList": [
+            "Liverpool South 1",
+            "Liverpool South 2",
+            "Liverpool South 3",
+            "Liverpool South 4",
+            "Liverpool South 5"
+          ]
+        },
+        {
+          "pduName": "Merseyside Resettle",
+          "teamList": [
+            "Merseyside Resettle"
+          ]
+        },
+        {
+          "pduName": "North West Lancashire",
+          "teamList": [
+            "Blackpool 1",
+            "Blackpool 2",
+            "Blackpool 3",
+            "Lancaster"
+          ]
+        },
+        {
+          "pduName": "Sefton",
+          "teamList": [
+            "Sefton 2",
+            "Sefton 3",
+            "Sefton 4",
+            "Sefton IOM",
+            "Sefton Unallocated"
+          ]
+        },
+        {
+          "pduName": "Wirral",
+          "teamList": [
+            "Merseyside Womens Services",
+            "Wirral 1",
+            "Wirral 2",
+            "Wirral 3",
+            "Wirral 4",
+            "Wirral 5",
+            "Wirral 6"
+          ]
+        }
+      ]
+    },
+    {
+      "regionName": "South Central",
+      "pduList": [
+        {
+          "pduName": "Buckinghamshire and M Keynes",
+          "teamList": [
+            "Bucks ACE",
+            "Bucks PPU",
+            "Milton Keynes PPU"
+          ]
+        },
+        {
+          "pduName": "Default Unallocated Borough",
+          "teamList": [
+            "Default Designated Transfer Team"
+          ]
+        },
+        {
+          "pduName": "East Berkshire",
+          "teamList": [
+            "Bracknell OM",
+            "East Berks ACE",
+            "Slough OM"
+          ]
+        },
+        {
+          "pduName": "Hampshire North and East",
+          "teamList": [
+            "NPS Aldershot, Farnborough",
+            "NPS Andover, Basingstoke, Winchester",
+            "NPS Havant, Fareham"
+          ]
+        },
+        {
+          "pduName": "Hampshire South and IoW",
+          "teamList": [
+            "Portsmouth and Isle of Wight OM Team 1",
+            "Portsmouth and Isle of Wight OM Team 2"
+          ]
+        },
+        {
+          "pduName": "Hampshire South West",
+          "teamList": [
+            "NPS New Forest, Eastleigh",
+            "NPS Southampton OM Team 1",
+            "NPS Southampton OM Team 2"
+          ]
+        },
+        {
+          "pduName": "Oxfordshire",
+          "teamList": [
+            "Bicester PPU",
+            "Oxford PPU",
+            "Oxon ACE"
+          ]
+        },
+        {
+          "pduName": "West Berkshire",
+          "teamList": [
+            "Reading OM1",
+            "Reading OM2",
+            "West Berks ACE"
+          ]
+        }
+      ]
+    },
+    {
+      "regionName": "South West",
+      "pduList": [
+        {
+          "pduName": "Bath and North Somerset",
+          "teamList": [
+            "NPS SOM Banes",
+            "NPS SOM Nth Som"
+          ]
+        },
+        {
+          "pduName": "Bristol and South Gloucestershire",
+          "teamList": [
+            "NPS BSG Bristol 1",
+            "NPS BSG Bristol 2",
+            "NPS BSG Bristol IOM (IRiS)",
+            "NPS BSG Under 25"
+          ]
+        },
+        {
+          "pduName": "Cornwall and Isles of Scilly",
+          "teamList": [
+            "Offender Management - East",
+            "Offender Management - West"
+          ]
+        },
+        {
+          "pduName": "Devon and Torbay",
+          "teamList": [
+            "OM - North Devon",
+            "OM - Torbay",
+            "OM1 - Exeter"
+          ]
+        },
+        {
+          "pduName": "Dorset",
+          "teamList": [
+            "NPS Bournemouth OM and Ass",
+            "NPS Weymouth, Poole OM and Ass"
+          ]
+        },
+        {
+          "pduName": "Gloucestershire",
+          "teamList": [
+            "NPS GCS Cheltenham and Tewkesbury",
+            "NPS GCS Gloucester and Forest"
+          ]
+        },
+        {
+          "pduName": "Plymouth",
+          "teamList": [
+            "Offender Management - Plymouth"
+          ]
+        },
+        {
+          "pduName": "Somerset",
+          "teamList": [
+            "NPS SOM Bridgwater",
+            "NPS SOM Taunton",
+            "NPS SOM Yeovil"
+          ]
+        },
+        {
+          "pduName": "Swindon and Wiltshire",
+          "teamList": [
+            "NPS WTS Chippenham",
+            "NPS WTS Salisbury",
+            "NPS WTS Swindon 1"
+          ]
+        }
+      ]
+    },
+    {
+      "regionName": "Wales",
+      "pduList": [
+        {
+          "pduName": "Cardiff and Vale",
+          "teamList": [
+            "NPS - Awaiting Allocation Cardiff and Vale",
+            "NPS - Cardiff - East Team",
+            "NPS - Cardiff - IOM Wisdom Team",
+            "NPS - Cardiff - North Team",
+            "NPS - Cardiff - South Team",
+            "NPS - Cardiff - West Team",
+            "NPS - Cardiff - Women's Pathfinder Team",
+            "NPS - Cardiff and Vale - STS Team",
+            "NPS - Vale - IOM Women Team",
+            "NPS - Vale - Team"
+          ]
+        },
+        {
+          "pduName": "Cwm Taf Morgannwg",
+          "teamList": [
+            "NPS - Awaiting Allocation Cwm Taf Morgannwg",
+            "NPS - Bridgend - IOM Team",
+            "NPS - Bridgend - STS Team",
+            "NPS - Bridgend - Team 1",
+            "NPS - Bridgend - Team 2",
+            "NPS - Merthyr - STS Team",
+            "NPS - Merthyr - Team 2",
+            "NPS - RCT - STS Team",
+            "NPS - RCT - Team 1",
+            "NPS - RCT - Team 2",
+            "NPS - RCT - Team 3"
+          ]
+        },
+        {
+          "pduName": "Dyfed Powys",
+          "teamList": [
+            "NPS - Awaiting Allocation Dyfed Powys",
+            "NPS - Carmarthenshire - Team 1",
+            "NPS - Carmarthenshire - Team 2",
+            "NPS - Ceredigion - Team 1",
+            "NPS - Pembrokeshire - Team 1",
+            "NPS - Powys - Team 1"
+          ]
+        },
+        {
+          "pduName": "Gwent",
+          "teamList": [
+            "NPS - Caerphilly/Blaenau Gwent Team 1",
+            "NPS - Caerphilly/Blaenau Gwent Team 2",
+            "NPS - Caerphilly/Blaenau Gwent Team 3",
+            "NPS - East Gwent Team",
+            "NPS - Gwent - IOM Team",
+            "NPS - Gwent - STS Team",
+            "NPS - Newport - Team 1",
+            "NPS - Newport - Team 2",
+            "NPS - Newport - Team 3"
+          ]
+        },
+        {
+          "pduName": "Inactive Level 2(N03)",
+          "teamList": [
+            "Inactive Team(N03)"
+          ]
+        },
+        {
+          "pduName": "North Wales",
+          "teamList": [
+            "NPS - Conwy - Team 1",
+            "NPS - Denbighshire - Team 1",
+            "NPS - Flintshire - Team 1",
+            "NPS - Gwynedd - Team 1",
+            "NPS - North Wales - Central IOM STC Team",
+            "NPS - North Wales - East IOM STC Team",
+            "NPS - North Wales - West IOM STC Team",
+            "NPS - Wrexham - Team 1",
+            "NPS - Ynys Mon - Team 1"
+          ]
+        },
+        {
+          "pduName": "Public Protection Community",
+          "teamList": [
+            "NPS - HMP Swansea"
+          ]
+        },
+        {
+          "pduName": "Swansea, Neath Port-Talbot",
+          "teamList": [
+            "NPS - Swansea - Team 1",
+            "NPS - Swansea - Team 2",
+            "NPS - Swansea - Team 3",
+            "NPS - Swansea - Team 4",
+            "NPS - Swansea - Team 5",
+            "NPS - Swansea - Team 6"
+          ]
+        }
+      ]
+    },
+    {
       "regionName": "Yorkshire and The Humber",
       "pduList": [
         {
