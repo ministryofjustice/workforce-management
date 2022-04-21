@@ -1,4 +1,3 @@
-
 {% extends "layout_no-cases-nav.html" %}
 {% block pageTitle %}
 Your teams | Manage a workforce
@@ -37,14 +36,14 @@ Your teams | Manage a workforce
       {% for i in ( teams or data['select-teams']) %} <!-- loop through iterations -->
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header govuk-!-width-one-half">{{i}}</th>
-        <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="unallocated-cases-prefs?selected-team={{i}}">View unallocated cases (3)</a></td>
+        <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="/_mvp/unallocated-cases-teams?selected-team={{i}}">View unallocated cases (3)</a></td>
       </tr>
       {% endfor %}
       </tbody>
     </table>
     {% endif %}
 
-    <p>If you need to add or remove teams, you can <a class="govuk-link--no-visited-state" href="team-edit">edit your team list</a>.</p>
+    <p>If you need to add or remove teams, you can <a class="govuk-link--no-visited-state" href="/_mvp/teams">edit your team list</a>.</p>
   </div>
 </div>
 

@@ -16,7 +16,8 @@ Select your region | Manage a workforce
       <h1 class="govuk-heading-xl">Select your team(s)</h1>
       <p>You must select the teams you allocate cases to, as this is your first time accessing ‘Allocations’.
       <p class="govuk-!-margin-bottom-9">This information will be saved, but you can edit your team list anytime.</p>
-      <form action="pdu" method="post" novalidate>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <form action="/_mvp/region-handler" method="post" novalidate>
 
         {{ govukRadios({
           idPrefix: "your-region",
@@ -34,6 +35,10 @@ Select your region | Manage a workforce
               text: "East of England"
             },
             {
+              value: "London",
+              text: "London"
+            },
+            {
               value: "East Midlands Region",
               text: "East Midlands Region"
             },
@@ -46,16 +51,16 @@ Select your region | Manage a workforce
               text: "Kent Surrey Sussex Region"
             },
             {
-              value: "London",
-              text: "London"
-            },
-            {
               value: "North East Region",
               text: "North East Region"
             },
             {
               value: "North West Region",
               text: "North West Region"
+            },
+            {
+              value: "Yorkshire and The Humber",
+              text: "Yorkshire and The Humber"
             },
             {
               value: "South Central",
@@ -72,10 +77,6 @@ Select your region | Manage a workforce
             {
               value: "West Midlands Region",
               text: "West Midlands Region"
-            },
-            {
-              value: "Yorkshire and The Humber",
-              text: "Yorkshire and The Humber"
             }
           ]
         }) }}

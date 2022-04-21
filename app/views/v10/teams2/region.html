@@ -17,7 +17,7 @@ Select your region | Manage a workforce
       <p>You must select the teams you allocate cases to, as this is your first time accessing ‘Allocations’.
       <p class="govuk-!-margin-bottom-9">This information will be saved, but you can edit your team list anytime.</p>
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-      <form action="region-handler" method="post" novalidate>
+      <form action="/v10/region-handler" method="post" novalidate>
 
         {{ govukRadios({
           idPrefix: "your-region",

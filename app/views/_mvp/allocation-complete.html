@@ -25,10 +25,16 @@ Allocation complete | Workforce planning
 
         <p class="govuk-body">
           <ul class="govuk-list govuk-list--bullet">
-            <li>Details of this allocation have been added to NDelius automatically</li>
+            <li>Allow up to 60 minutes for this allocation to update in NDelius</li>
             <li>You need to contact <strong>{{ data['allocated-officer'] | default("Molly O\'Sullivan") }}</strong> about this allocation: <a href="mailto:MJOnps11@justice.gov.uk">MJOnps11@justice.gov.uk</a></li>
             <li>You may also need to contact your case admin</li>
-            <li>The induction interview is scheduled for <strong>{{ moment().add(1, 'days').format(longDateFormat) }}</strong> / The induction interview needs to be scheduled by <strong>{{ moment().add(4, 'days').format(longDateFormat) }}</strong></li>
+            <li>
+              No induction interview is needed as they are currently managed
+              
+              <!--The induction interview is scheduled for <strong>{{ moment().add(1, 'days').format(longDateFormat) }}</strong>-->
+
+              <!--The induction interview needs to be scheduled by <strong>{{ moment().add(4, 'days').format(longDateFormat) }}</strong>-->
+            </li>
           </ul>
         </p>
 
