@@ -1,7 +1,7 @@
 {% extends "layout_cases-nav.html" %}
 
 {% block pageTitle %}
-Unallocated cases | Southampton Team 1 | Workforce planning
+Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Workforce planning
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,10 @@ Unallocated cases | Southampton Team 1 | Workforce planning
     <nav class="moj-sub-navigation" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="unallocated-cases-complete"><span id="notifications">Unallocated cases ({{ data['unallocated-number'] | default("3") }})</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="unallocated-cases-complete"><span id="notifications">Unallocated community cases ({{ data['unallocated-number'] | default("3") }})</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="allocated-recently"><span id="notifications">Cases allocated in last 30 days (1)</a>
         </li>
       </ul>
     </nav>
@@ -25,44 +28,45 @@ Unallocated cases | Southampton Team 1 | Workforce planning
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-l">Unallocated community cases</h2>
+     <p class="govuk-body-s secondary-text-col" style="margin: -25px 0 30px;">Last updated: {{ moment().subtract(0, 'days').format("h:mma D MMM YYYY") }}</p>
     <div class="moj-scrollable-pane">
       <div class="moj-scrollable-pane__wrapper">
 
-        <table class="govuk-table govuk-table-xl">
+                <table class="govuk-table govuk-table-xl">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Initial appointment</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Action</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Induction appointment</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
+              <th scope="col" class="govuk-table__header">Action</th>
             </tr>
           </thead>
 
           <tbody class="govuk-table__body">
-
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 <strong>Andrei Edwards</strong>
                 <span class="govuk-body-s" style="display: block;">J680648</span>
               </td>
               <td class="govuk-table__cell">
-                A1
+                A3
               </td>
               <td class="govuk-table__cell  due-date">
-                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
+                {{ moment().subtract(2, 'days').format("D MMM YYYY") }}
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().add(2, 'days').format("D MMM YYYY") }}
-                <span class="secondary overdue">In 2 days</span>
+                {{ moment().add(3, 'days').format("D MMM YYYY") }}
+
               </td>
               <td class="govuk-table__cell">
-                New to probation
+                Previously managed<br>
+                <span class="govuk-body-s">(10 Nov 2019)</span>
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
-                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-unavailable">Review case</a></li>
                 </ul>
               </td>
             </tr>
@@ -83,12 +87,11 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 <span class="secondary overdue">Due in 4 days</span>
               </td>
               <td class="govuk-table__cell">
-                Previously managed<br>
-                <span class="govuk-body-s">(10 Nov 2019)</span>
+                New to probation
               </td>
               <td class="govuk-table__cell">
                 <ul class="govuk-list">
-                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                  <li><a class="govuk-link--no-visited-state" href="case-view-2">Review case</a></li>
                 </ul>
               </td>
             </tr>
@@ -102,13 +105,22 @@ Unallocated cases | Southampton Team 1 | Workforce planning
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-l">Unallocated custody cases</h2>
-        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
-{{ govukWarningText({
-  text: "You must also check NDelius for any custody cases that need to be allocated.",
-  iconFallbackText: "Warning"
-}) }}
+    <div class="moj-scrollable-pane">
+      <div class="moj-scrollable-pane__wrapper">
+        <p>There are currently <a href="#" class="govuk-link--no-visited-state"><strong>4</strong> unallocated cases on NDelius</a>.</p>
+      </div>
+    </div>
   </div>
 </div>
 
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
 {% endblock %}
