@@ -16,6 +16,10 @@ J678910 | Overview | Workforce planning
     {
       text: "Unallocated cases",
       href: "unallocated-cases"
+    },
+    {
+      text: "Dylan Adam Armstrong",
+      href: "case-view"
     }
   ]
 }) }}
@@ -68,6 +72,11 @@ J678910 | Overview | Workforce planning
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Date of birth</dt>
             <dd class="govuk-summary-list__value">27 Sep 1984 (37 years old)</dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key"><div class="tooltip">PNC<span class="tooltiptext">Police National Computer</span></div></dt>
+            <dd class="govuk-summary-list__value">2012/123400000F</dd>
           </div>
         </dl>
       </div>
@@ -128,41 +137,39 @@ J678910 | Overview | Workforce planning
 
     <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
       <header class="app-summary-card__header">
-        <h2 class="app-summary-card__title">Case details</h2>
+        <h2 class="app-summary-card__title">Case documents</h2>
+        <div>
+          <ul class="app-summary-card__actions-list">
+            <li class="app-summary-card__actions-list-item">
+              <a class="govuk-link" href="additional-docs">
+                View all documents
+              </a>
+            </li>
+          </ul>
+        </div>
       </header>
       <div class="app-summary-card__body">
         <dl class="govuk-summary-list">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key"><div class="tooltip">PNC<span class="tooltiptext">Police National Computer</span></div></dt>
-            <dd class="govuk-summary-list__value">2012/123400000F</dd>
-          </div>
           
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">CPS pack
             </dt>
-            <dd class="govuk-summary-list__value">{{ moment().subtract(170, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">Download pack</a></dd>
+            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">CPS pack</a><br>Last updated {{ moment().subtract(170, 'days').format("DD MMM YYYY") }}<br></dd>
           </div>
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Pre-convictions</dt>
-            <dd class="govuk-summary-list__value"><strong class="govuk-tag">
-  Check NDelius
-</strong></dd>
+            <dd class="govuk-summary-list__value"><strong class="govuk-tag">Check NDelius</strong></dd>
           </div>
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Pre-sentence report</dt>
-            <dd class="govuk-summary-list__value"><strong class="govuk-tag govuk-tag--grey">
-  No report created
-</strong></dd>
+            <dd class="govuk-summary-list__value"><strong class="govuk-tag govuk-tag--grey">No report created</strong></dd>
           </div>  
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Last OASys assessment<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">OASys Assessment Layer 3</span></dt>
-            <dd class="govuk-summary-list__value">
-              <span class="app-!-font-family-tabular">{{ moment().subtract(190, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">Download assessment</a></span>
-            </dd>
+            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">OASys assessment</a><br>Last updated {{ moment().subtract(190, 'days').format("DD MMM YYYY") }}<br></dd>
           </div>
         </dl>
       </div>
@@ -174,9 +181,8 @@ J678910 | Overview | Workforce planning
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <section aria-label="allocation-instructions">
-                {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-        {{ govukTextarea({
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+          {{ govukTextarea({
           name: "more-detail",
           id: "txt",
           label: {

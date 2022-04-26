@@ -68,6 +68,12 @@ J678910 | Overview | Workforce planning
             <dt class="govuk-summary-list__key">Date of birth</dt>
             <dd class="govuk-summary-list__value">27 Sep 1984 (37 years old)</dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key"><div class="tooltip">PNC<span class="tooltiptext">Police National Computer</span></div></dt>
+            <dd class="govuk-summary-list__value">2012/123400000F</dd>
+          </div>
+
         </dl>
       </div>
     </section>
@@ -127,19 +133,12 @@ J678910 | Overview | Workforce planning
       </header>
       <div class="app-summary-card__body">
         <dl class="govuk-summary-list">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key"><div class="tooltip">PNC<span class="tooltiptext">Police National Computer</span></div></dt>
-            <dd class="govuk-summary-list__value">2012/123400000F</dd>
-          </div>
           
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">CPS pack
             </dt>
             <dd class="govuk-summary-list__value">
-              <!--<strong class="govuk-tag">
-  Check NDelius
-</strong>-->
+              <!--<strong class="govuk-tag" Check NDelius</strong>-->
 
               {{ moment().subtract(1, 'days').format("DD MMM YYYY") }}<br><a target="_blank" href="#" class="govuk-link--no-visited-state">Download pack</a>
             </dd>
@@ -147,9 +146,7 @@ J678910 | Overview | Workforce planning
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Pre-convictions</dt>
-            <dd class="govuk-summary-list__value"><strong class="govuk-tag govuk-tag--grey">
-  No report created
-</strong></dd>
+            <dd class="govuk-summary-list__value"><strong class="govuk-tag govuk-tag--grey">No report created</strong></dd>
           </div>
         
           <!--<div class="govuk-summary-list__row">
