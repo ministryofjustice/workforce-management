@@ -33,4 +33,8 @@ $moj-assets-path: '/public/';
 @import "hmpps/team-view"; // rules for the team overview screens
 @import "hmpps/sirius"; // OPG styles for service user due dates
 @import "hmpps/reporting"; // OPG styles for service user due dates
-@import "hmpps/risk"; // rules ot allow recreation of Figma designs from ARN team
+@import "hmpps/risk"; // rules to allow recreation of Figma designs from ARN team
+
+@import "risk/predictor-scores";
+@import "risk/widgets";
+@import "risk/timeline";

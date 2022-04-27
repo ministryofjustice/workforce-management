@@ -100,3 +100,20 @@ $mappa-colour: #4c2c92;
   padding: govuk-spacing(4);
   margin-bottom: govuk-spacing(4);
 }
+
+
+// MaW specific
+.rosh-widget {
+  h3 {
+    strong {
+      text-transform: uppercase;
+    }
+
+    span {
+      background-color: #F9E8BD;
+      color: #000;
+      font-weight: 800;
+      padding: 4px 6px;
+    }
+  }
+}

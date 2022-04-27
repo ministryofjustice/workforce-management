@@ -29,10 +29,15 @@
 {% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
 
-{% from "moj/components/banner/macro.njk" import mojBanner %}
-{% from "moj/components/header/macro.njk" import mojHeader %}
-{% from "moj/components/badge/macro.njk" import mojBadge %}
-{% from "moj/components/pagination/macro.njk" import mojPagination %}
+{% from "moj/components/banner/macro.njk"             import mojBanner %}
+{% from "moj/components/header/macro.njk"             import mojHeader %}
+{% from "moj/components/badge/macro.njk"              import mojBadge %}
+{% from "moj/components/pagination/macro.njk"         import mojPagination %}
+
+{% from "components/predictor-score/macro.njk"        import predictorScore %}
+{% from "components/predictor-timeline/macro.njk"     import predictorTimeline %}
+{% from "components/widgets/macro.njk"                import widgets %}
+
 
 {% block head %}
   {% include "includes/head.html" %}
