@@ -100,3 +100,38 @@ $mappa-colour: #4c2c92;
   padding: govuk-spacing(4);
   margin-bottom: govuk-spacing(4);
 }
+
+
+// MaW specific
+$no-score-colour: #505a5f;
+$no-score-border-colour: #505a5f;
+$no-score-background-colour: #f8f8f8;
+$predictor-score-background-colour: #f9e8bd;
+
+.rosh-widget {
+  h3 {
+    strong {
+      text-transform: uppercase;
+    }
+
+    span {
+      background-color: $predictor-score-background-colour;
+      color: $govuk-text-colour;
+      font-weight: 800;
+      padding: 4px 6px;
+    }
+  }
+}
+
+.rosh-widget--none {
+  background-color: $no-score-background-colour;
+  border: 2px solid $no-score-border-colour;
+
+  & h3 {
+    color: $no-score-colour;
+  }
+}
+
+.rosh-widget__risk--none {
+  color: $no-score-colour;
+}
