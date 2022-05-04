@@ -1,0 +1,221 @@
++
+{% extends "layout_cases-nav.html" %}
+
+
+{% block pageTitle %}
+J678910 | Risk | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+{% include "./partials/pop-title.html" %}
+  <div class="govuk-grid-column-one-third">
+    <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state"   href="case-view">Summary</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-risk">Risk</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Risk</h2>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">Register</h3>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+          Contents
+        </h2>
+        <ul class="govuk-tabs__list" role="tablist">
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+            <a class="govuk-tabs__tab" href="#active" id="tab_active" role="tab" aria-controls="active" aria-selected="true" tabindex="0">
+              Active (6)
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#inactive" id="tab_inactive" role="tab" aria-controls="inactive" aria-selected="false" tabindex="-1">
+              Inactive (1)
+            </a>
+          </li>
+        </ul>
+        <section class="govuk-tabs__panel" id="active" role="tabpanel" aria-labelledby="tab_active">
+          <h2 class="govuk-heading-m">Active registrations</h2>
+          <table class="govuk-table govuk-table-xl">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <!-- <th scope="col" class="govuk-table__header">Type</th> -->
+                <th scope="col" class="govuk-table__header">Type</th>
+                <!-- <th scope="col" class="govuk-table__header">Status</th> -->
+                <th scope="col" class="govuk-table__header">Registered</th>
+                <th scope="col" class="govuk-table__header">Next review</th>
+                <th scope="col" class="govuk-table__header">Notes</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <!-- <td class="govuk-table__cell">Safeguarding</td> -->
+                <th scope="row" class="govuk-table__header">Suicide/self-harm</th>
+                <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
+                <td class="govuk-table__cell no-break">13 Dec 2020</td>
+                <td class="govuk-table__cell no-break">13 Jun 2022</td>
+                <td class="govuk-table__cell">Previous suicide /self-harm attempt. Needs further investigating.</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <!-- <td class="govuk-table__cell">Safeguarding</td> -->
+                <th scope="row" class="govuk-table__header">Child concerns</th>
+                <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
+                <td class="govuk-table__cell no-break">13 Dec 2020</td>
+                <td class="govuk-table__cell no-break">13 Mar 2022</td>
+                <td class="govuk-table__cell">Awaiting outcome of social services enquiry.</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <!-- <td class="govuk-table__cell">RoSH</td> -->
+                <th scope="row" class="govuk-table__header">Medium RoSH</th>
+                <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
+                <td class="govuk-table__cell no-break">9 Nov 2021</td>
+                <td class="govuk-table__cell no-break">9 May 2022</td>
+                <td class="govuk-table__cell">-</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <!-- <td class="govuk-table__cell">Public protection</td> -->
+                <th scope="row" class="govuk-table__header">Domestic abuse perpetrator.</th>
+                <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
+                <td class="govuk-table__cell no-break">4 Jul 2011</td>
+                <td class="govuk-table__cell no-break">26 Dec 2021</td>
+                <td class="govuk-table__cell">-</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <!-- <td class="govuk-table__cell">Alerts </td> -->
+                <th scope="row" class="govuk-table__header">Mental health issues</th>
+                <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
+                <td class="govuk-table__cell no-break">4 Jul 2011</td>
+                <td class="govuk-table__cell no-break">26 Dec 2021</td>
+                <td class="govuk-table__cell">Personality disorder.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="inactive" role="tabpanel" aria-labelledby="tab_inactive">
+          <h2 class="govuk-heading-m">Inactive registrations</h2>
+          <table class="govuk-table govuk-table-xl">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Type</th>
+                <!-- <th scope="col" class="govuk-table__header">Description</th> -->
+                <!-- <th scope="col" class="govuk-table__header">Status</th> -->
+                <th scope="col" class="govuk-table__header">Registered</th>
+                <th scope="col" class="govuk-table__header">End date</th>
+                <th scope="col" class="govuk-table__header">Notes</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <!-- <td class="govuk-table__cell">Public protection </td> -->
+                <th scope="row" class="govuk-table__header">MAPPA considered</th>
+                <!-- <td class="govuk-table__cell"></td> -->
+                <td class="govuk-table__cell"> 14 Jun 2012</td>
+                <td class="govuk-table__cell"> 26 Nov 2019</td>
+                <td class="govuk-table__cell">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+    <h3 class="govuk-heading-m">Assessment tools</h3>
+    
+    <div class="rosh-widget rosh-widget--low">
+      <h3 class="govuk-heading-m"><strong>Low</strong> RoSH</h3>
+      <p class="govuk-body-m">Risk of serious harm
+        <br><span class="govuk-body-s secondary-text-col">Last updated: 10th October 2021</span>
+        <br><span class="govuk-body-s secondary-text-col">Update by: Elin Neale</span>
+      </p>
+    </div>
+
+    <div class="rosh-widget rosh-widget--medium">
+      <h3 class="govuk-heading-m"><strong>Medium</strong> RSR <span>3.8%</span></h3>
+      <p class="govuk-body-m">Risk of serious recidivism
+        <br><span class="govuk-body-s secondary-text-col">Last updated: 13th May 2021</span>
+        <br><span class="govuk-body-s secondary-text-col">Update by: Faraz Haynes</span>
+      </p>
+    </div>
+
+    <div class="rosh-widget rosh-widget--medium">
+      <h3 class="govuk-heading-m"><strong>Medium</strong> OGRS <span>64%</span></h3>
+      <p class="govuk-body-m">Offender group reconviction scale
+        <br><span class="govuk-body-s secondary-text-col">Last updated: 13th May 2021</span>
+        <br><span class="govuk-body-s secondary-text-col">Update by: Faraz Haynes</span>
+      </p>
+    </div>
+  </div>
+  </div>
+
+{% include "./partials/notes.html" %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  var textarea = document.getElementById("txt");
+  textarea.addEventListener('input', writeLocalStorage);
+
+  function writeLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         localStorage.setItem("text", textarea.value);
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  function readLocalStorage() {
+     if (typeof(Storage) !== "undefined") {
+         textarea.value = localStorage.getItem("text");
+     } else {
+         document.getElementById("err").innerHTML = "Localstorage not supported";
+     }
+  }
+
+  // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
+  if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", readLocalStorage);
+  } else {  // `DOMContentLoaded` already fired
+      readLocalStorage();
+  }
+  </script>
+  {% endblock %}
