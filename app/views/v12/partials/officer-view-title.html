@@ -1,0 +1,7 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+	<span class="govuk-caption-xl">{{ data['selected-team'] | default("South Tyneside")}}</span>
+    {% set gradeDescriptions = {PO: 'PO', PSO: 'PSO', NQO: 'NQO', PQiP: 'PQiP', SPO: 'SPO'} %}
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ probationPractitioner.name }} <span class="workforce-grade">{{ gradeDescriptions[probationPractitioner.grade] }}</span></h1>
+  </div>
+</div>

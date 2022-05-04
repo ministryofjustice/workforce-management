@@ -1,0 +1,205 @@
+{% extends "layout_cases-nav.html" %}
+
+{% block pageTitle %}
+Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{% block team %}
+{% include "./partials/team-title.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#"><span id="notifications">Unallocated community cases ({{ data['unallocated-number'] | default("5") }})</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Unallocated community cases</h2>
+    <p class="govuk-body-s secondary-text-col" style="margin: -25px 0 30px;">Last updated: 7:30am {{ moment().subtract(0, 'days').format("D MMM YYYY") }}</p>
+    <div class="moj-scrollable-pane">
+      <div class="moj-scrollable-pane__wrapper">
+
+                <table class="govuk-table govuk-table-xl">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Induction appointment</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
+              <th scope="col" class="govuk-table__header">Action</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <strong>Dylan Adam Armstrong</strong>
+                <span class="govuk-body-s" style="display: block;">J678910</span>
+              </td>
+              <td class="govuk-table__cell">
+                B1
+              </td>
+              <td class="govuk-table__cell due-date">
+                {{ moment().subtract(4, 'days').format("D MMM YYYY") }}
+              </td>
+             
+              <td class="govuk-table__cell due-date">
+                {{ moment().add(1, 'days').format("D MMM YYYY") }}
+              </td>
+              <td class="govuk-table__cell">
+                Currently managed<br>
+                <span class="govuk-body-s">(Teigan Kaye, PSO)</span>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="case-view">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <strong>Andrei Edwards</strong>
+                <span class="govuk-body-s" style="display: block;">J680648</span>
+              </td>
+              <td class="govuk-table__cell">
+                A3
+              </td>
+              <td class="govuk-table__cell  due-date">
+                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
+              </td>
+              <td class="govuk-table__cell due-date">
+                {{ moment().add(3, 'days').format("D MMM YYYY") }}
+              </td>
+              <td class="govuk-table__cell">
+                 New to probation
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="case-unavailable">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <strong>Hannah Francis</strong>
+                <span class="govuk-body-s" style="display: block;">J680660</span>
+              </td>
+              <td class="govuk-table__cell">
+                C2
+              </td>
+              <td class="govuk-table__cell due-date">
+                {{ moment().subtract(2, 'days').format("D MMM YYYY") }}
+              </td>
+
+              <td class="govuk-table__cell due-date">Not booked
+                <span class="secondary overdue">Due in 4 days</span>
+              </td>
+               <td class="govuk-table__cell">
+                Previously managed<br>
+                <span class="govuk-body-s">(10 Nov 2019)</span>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="case-view-2">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <strong>Mark Dean Davies</strong>
+                <span class="govuk-body-s" style="display: block;">J462339</span>
+              </td>
+              <td class="govuk-table__cell">
+                D0
+              </td>
+              <td class="govuk-table__cell due-date">
+                {{ moment().subtract(8, 'days').format("D MMM YYYY") }}
+              </td>
+
+              <td class="govuk-table__cell due-date">
+                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
+                <span class="secondary due">Attended</span>
+              </td>
+               <td class="govuk-table__cell">
+                Currently managed<br>
+                <span class="govuk-body-s">(Hamid Rivas, PQiP)</span>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="#">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <strong>Stephen Simmonds</strong>
+                <span class="govuk-body-s" style="display: block;">J591100</span>
+              </td>
+              <td class="govuk-table__cell">
+                B2
+              </td>
+              <td class="govuk-table__cell due-date">
+                {{ moment().subtract(1, 'days').format("D MMM YYYY") }}
+              </td>
+
+              <td class="govuk-table__cell due-date">
+                Not needed<span class="secondary due">Custody case</span>
+              </td>
+               <td class="govuk-table__cell">
+                Currently managed<br>
+                <span class="govuk-body-s">(Margaret Dawson, PO)</span>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a class="govuk-link--no-visited-state" href="#">Review case</a></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Unallocated custody cases</h2>
+    <div class="moj-scrollable-pane">
+      <div class="moj-scrollable-pane__wrapper">
+        <p>There are currently <a href="#" class="govuk-link--no-visited-state"><strong>4</strong> unallocated cases on NDelius</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}

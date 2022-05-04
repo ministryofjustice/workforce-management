@@ -1,0 +1,83 @@
+{% extends "layout_no-cases-nav.html" %}
+n0-
+{% block pageTitle %}
+Select your teams | Manage a workforce
+{% endblock %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block beforeContent %}
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "region-handler"
+}) }}
+{% endblock %}
+
+    {% set teams = [] %}
+    {% set teamsList = [] %}
+
+    {% for item in data.teams %}
+      {% for team in item.pduList %}
+      {{ teams.push(team) }}
+      {% endfor %}
+    {% endfor %}
+
+    {% for team in teams %}
+    {% if team.pduName == pdu %}
+      {% for team in team.teamList %}
+      {{ teamsList.push(team) }}
+      {% endfor %}
+    {% endif %}
+    {% endfor %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">{{ region }}</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">{{ pdu }}</h1>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="team-list" method="post" novalidate>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Select your teams
+              </h1>
+            </legend>
+            <div id="waste-hint" class="govuk-hint">Select all teams you currently allocate cases to. This can include the team(s) you manage and other teams you allocate for when on duty allocations.</div>
+              {% for team in teamsList %}
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="your-teams" name="select-teams" type="checkbox" value="{{team}}">
+                <label class="govuk-label govuk-checkboxes__label" for="your-teams">
+                  {{ team }}
+                </label>
+              </div>
+                {% endfor %}
+            </div>
+
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

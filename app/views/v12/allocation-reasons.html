@@ -1,0 +1,137 @@
+{% extends "layout_workforce-nav.html" %}
+
+
+{% block pageTitle %}
+Allocation reasons | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "teams/step-list"
+    },
+    {
+      text: "Unallocated cases",
+      href: "unallocated-cases"
+    },
+    {
+      text: "Case view",
+      href: "case-view"
+    },
+    {
+      text: "Allocate to probation practitioner",
+      href: "case-allocate"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+{% include "./partials/pop-title.html" %}
+</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<h2 class="govuk-heading-l">Case allocation – SPO oversight</h2>
+<form action="allocation-complete" method="post" novalidate>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="ex-reasons-hint">
+      <legend class="govuk-fieldset__legend">
+        If allocation of PO/PSO is outside the general guidance indicate reasons.
+      </legend>
+      <div id="ex-reasons-hint" class="govuk-hint">
+        Select all that apply.
+      </div>
+      <div class="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons" name="ex-reasons" type="checkbox" value="complex">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons">
+            Assessed as too complex for PSO
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-2" name="ex-reasons" type="checkbox" value="suitable">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-2">
+            Assessed as suitable for PSO
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-3" name="ex-reasons" type="checkbox" value="continuity">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-3">
+            Maintain continuity with previous OM
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-4" name="ex-reasons" type="checkbox" value="staffing">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-4">
+             Insufficient staff resources of required grade
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ex-reasons-5" name="ex-reasons" type="checkbox" value="training">
+          <label class="govuk-label govuk-checkboxes__label" for="ex-reasons-5">
+            Insufficiently trained PSOs in team
+          </label>
+        </div>
+      </div>
+
+    </fieldset>
+  </div>
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "If Tier B case in the community (or with 12 months or less to serve in custody) is allocated to a NQO the SPO must place an entry on nDelius using the ‘Case allocation – SPO oversight’ contact entry which clearly details the SPO decision to allocate the case.
+
+ This should outline their assessment of officer suitability to manage the complexities and risks attached to the case and detail the level of support that will be offered to the NQO.  This may include additional reflective case discussions, observation of practice, a period of co-working with an experienced officer or an enhanced level of oversight of reports/assessments."
+}) }}
+
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "The same applies in instances of risk escalation where a lower tier case is held by an NQO and there is an escalation of risk taking it to a tier A or B case; the SPO needs to complete a  ‘Case allocation – SPO oversight’ entry evidencing why the NQO would continue to manage the case and what support will be put in place for them using the the ‘Case allocation – SPO oversight’"
+}) }}
+
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "POs may need to manage particularly complex cases that sit in C2 / C3 e.g. cases where there are significant child safeguarding concerns and involvement via a Child in Need plan that require PO management. This needs to be clearly recorded on nDelius using the ‘Case allocation – SPO oversight’ entry."
+}) }}
+
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "Upon allocating a more complex case, (such as a C2/C3 tiered case) to a PSO, the SPO must enter a ‘‘Case allocation – SPO oversiight’ entry record into Delius which clearly details the SPO decision to allocate the case. This should take into account the post training assessment framework and their assessment of officer suitability to manage the complexities and risks attached to the case."
+}) }}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "Case allocation – SPO oversight’ entry is required for the reallocation of any case that either reduces or increases in their risk of harm or other risk factors. This needs to be clearly recorded on NDelius using the management oversight contact entry."
+}) }}
+
+{{ govukInsetText({
+  text: "Where a manager has decided to allocate a more complex case to a PSO (e.g. a C3 case) the manager must enter a ‘case allocation-SPO oversight’ record into nDelius which clearly details their use of discretion and the decision to allocate the case based on their assessment of officer suitability.  This entry needs to reflect the final decision made, as well as the rationale for the decision."
+}) }} 
+
+{{ govukInsetText({
+  text: "Upon reallocating a case (at a later point in the period of supervision), the manager should record the reason and rationale behind reallocation, recording the suitability assessment of the receiving officer."
+}) }} 
+
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+</form>
+  </div>
+</div>
+{% endblock %}

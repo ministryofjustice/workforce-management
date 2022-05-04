@@ -1,0 +1,66 @@
+{% extends "layout_workforce-nav.html" %}
+
+
+{% block pageTitle %}
+Faraz Haynes | Active cases | Workforce planning
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <a href="../../case-allocate" class="govuk-back-link govuk-body">Back to case allocation</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% block officerTitle %}
+{% include "./partials/officer-view-title.html" %}
+{% endblock %}
+
+{% set currentPage = 2 %}
+{% block subNav %}
+  {% include "./partials/officer-view-nav.html" %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Active cases</h2>
+    <div class="moj-scrollable-pane">
+      <div class="moj-scrollable-pane__wrapper">
+        <table class="govuk-table govuk-table-xl">
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" aria-sort="none">CRN</th>
+            <th scope="col" class="govuk-table__header" aria-sort="ascending">Tier</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Type of case</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Sentence start</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Sentence end</th>
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for case in probationPractitioner.serviceUsers %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><strong>{{ case.name }}</strong><span class="govuk-body-s" style="display: block;">{{ case.crn }}</span></td>
+            <td class="govuk-table__cell">{{ case.tier }}</td>
+            <td class="govuk-table__cell">{{ case.receivingFrom | capitalize }}</td>
+            <td class="govuk-table__cell">{{ case.sentenceStart.format('D MMM YYYY') }}</td>
+            <td class="govuk-table__cell">{{ case.sentenceEnd.format('D MMM YYYY') }}</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endblock %}
+  {% block scripts %}
+  {{ super() }}
+  <script>
+    console.log($('table'))
+
+    new MOJFrontend.SortableTable({
+      table: $('table')[0]
+    })
+  </script>
+  {% endblock %}
