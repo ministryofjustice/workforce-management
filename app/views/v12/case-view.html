@@ -16,10 +16,6 @@ J678910 | Overview | Workforce planning
     {
       text: "Unallocated cases",
       href: "unallocated-cases"
-    },
-    {
-      text: "Dylan Adam Armstrong",
-      href: "case-view"
     }
   ]
 }) }}
@@ -37,7 +33,10 @@ J678910 | Overview | Workforce planning
     <nav class="moj-sub-navigation" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-view">Summary</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-documents">Documents</a>
         </li>
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
@@ -52,7 +51,7 @@ J678910 | Overview | Workforce planning
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h2 class="govuk-heading-l">Summary</h2>
+    <h2 class="govuk-heading-l">Overview</h2>
         <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
       <header class="app-summary-card__header">
         <h2 class="app-summary-card__title">Personal details</h2>
@@ -82,29 +81,28 @@ J678910 | Overview | Workforce planning
       </div>
     </section>
 
-    <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
+<section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
       <header class="app-summary-card__header">
         <h2 class="app-summary-card__title">Sentence</h2>
       </header>
       <div class="app-summary-card__body">
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Offence</dt>
+            <dt class="govuk-summary-list__key">Offence list</dt>
             <dd class="govuk-summary-list__value">
               <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
                  1. Common assault and battery
               </h3>
               <p class="govuk-body-s secondary-text-col"><strong>Contrary to section 39 of the Criminal Justice Act 1988.</strong></p>
+              <p>On Wednesday 15 February 2021 at Grey Lane, S10 1AG, assaulted Sarah Smith by beating her.
+              </p>
+              <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
               <h3 class="govuk-heading-s govuk-!-margin-top-0 govuk-!-margin-bottom-1">
                  2. Automobile theft
               </h3>
               <p class="govuk-body-s secondary-text-col"><strong>Contrary to section 12 of the Criminal Justice Act 1988.</strong></p>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Detail</dt>
-            <dd class="govuk-summary-list__value">On Wednesday 15 February 2021 at Grey Lane, S10 1AG, assaulted Sarah Smith by beating her.<br>On Wednesday 15 February 2021 at Grey Lane, S10 1AG, took without permission a red Nissan Micra LD02 JXR, registered to Sarah Smith.
+              <p>On Wednesday 15 February 2021 at Grey Lane, S10 1AG, took without permission a red Nissan Micra LD02 JXR, registered to Sarah Smith.
+              </p>
             </dd>
           </div>
         
@@ -135,18 +133,12 @@ J678910 | Overview | Workforce planning
       </div>
     </section>
 
+    
+
     <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
       <header class="app-summary-card__header">
         <h2 class="app-summary-card__title">Case documents</h2>
-        <div>
-          <ul class="app-summary-card__actions-list">
-            <li class="app-summary-card__actions-list-item">
-              <a class="govuk-link" href="additional-docs">
-                View all documents
-              </a>
-            </li>
-          </ul>
-        </div>
+        <a class="govuk-link" href="case-documents">View all documents</a>
       </header>
       <div class="app-summary-card__body">
         <dl class="govuk-summary-list">
@@ -154,7 +146,7 @@ J678910 | Overview | Workforce planning
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">CPS pack
             </dt>
-            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">CPS pack</a><br>Last updated {{ moment().subtract(170, 'days').format("DD MMM YYYY") }}<br></dd>
+            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">Download CPS pack</a><br>Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}<br></dd>
           </div>
         
           <div class="govuk-summary-list__row">
@@ -164,12 +156,12 @@ J678910 | Overview | Workforce planning
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Pre-sentence report</dt>
-            <dd class="govuk-summary-list__value"><strong class="govuk-tag govuk-tag--grey">No report created</strong></dd>
+            <dd class="govuk-summary-list__value"><strong class="govuk-tag govuk-tag--grey">No report found</strong></dd>
           </div>  
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Last OASys assessment<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">OASys Assessment Layer 3</span></dt>
-            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">OASys assessment</a><br>Last updated {{ moment().subtract(190, 'days').format("DD MMM YYYY") }}<br></dd>
+            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">View OASys assessment</a><br>Last updated {{ moment().subtract(190, 'days').format("DD MMM YYYY") }}</dd>
           </div>
         </dl>
       </div>
