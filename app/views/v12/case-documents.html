@@ -16,23 +16,41 @@ J678910 | Overview | Workforce planning
     {
       text: "Unallocated cases",
       href: "unallocated-cases"
-    },
-    {
-      text: "Dylan Adam Armstrong",
-      href: "case-view"
-    },
-    {
-      text: "All documents",
-      href: "additional-docs"
     }
   ]
 }) }}
 {% endblock %}
 
-{% block content %}
+{% block content %}{% include "./partials/pop-title.html" %}
+  <div class="govuk-grid-column-one-third">
+    <a href="case-allocate" role="button" draggable="false" class="govuk-button" style="margin: 40px 0 0;" data-module="govuk-button">Allocate case</a>
+  </div>
+</div>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">All documents</h1>
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-view">Overview</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-documents">Documents</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-risk">Risk</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Documents</h1>
 
     <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
       <header class="app-summary-card__header">
@@ -62,21 +80,72 @@ J678910 | Overview | Workforce planning
           </div>
 
           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Offender related
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">Dylan Adam Armstrong - Court Paperwork.pdf</a>
+                  <br>Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}
+                </li>
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">DYLAN ARMSTRONG_Pre Cons.pdf</a>
+                  <br>Last updated {{ moment().subtract(2, 'days').format("DD MMM YYYY") }}
+                </li>
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">Dylan Adam Armstrong - PSR.pdf</a>
+                  <br>Last updated {{ moment().subtract(3, 'days').format("DD MMM YYYY") }}
+                </li>
+              </ul>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Sentence related
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">BR19 Amendment September 2014.doc</a>
+                  <br>Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}
+                </li>
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">Community Order.pdf</a>
+                  <br>Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}
+                </li>
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">RESOLVE post prog report.pdf</a>
+                  <br>Last updated {{ moment().subtract(5, 'days').format("DD MMM YYYY") }}
+                </li>
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">compact.PDF</a>
+                  <br>Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}
+                </li>
+              </ul>
+            </dd>
+          </div>
+
+           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Police intelligence check
             </dt>
             <dd class="govuk-summary-list__value">
-              <a target="_blank" href="#" class="govuk-link--no-visited-state">DV Check request.doc</a>
-              <br>
-              Last updated {{ moment().subtract(165, 'days').format("DD MMM YYYY") }}
-              <br>
-              <a target="_blank" href="#" class="govuk-link--no-visited-state">DV Check Response.docx</a><br>Last updated {{ moment().subtract(162, 'days').format("DD MMM YYYY") }}
+              <ul class="govuk-list">
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">DV Check request.doc</a>
+                  <br>Last updated {{ moment().subtract(165, 'days').format("DD MMM YYYY") }}
+                </li>
+                <li>
+                  <a target="_blank" href="#" class="govuk-link--no-visited-state">DV Check Response.docx</a>
+                  <br>Last updated {{ moment().subtract(162, 'days').format("DD MMM YYYY") }}
+                </li>
+              </ul>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Other documents
             </dt>
-            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">Restraining-order.doc</a><br>Last updated {{ moment().subtract(165, 'days').format("DD MMM YYYY") }}<br></dd>
+            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">Restraining-order.doc</a><br>Last updated {{ moment().subtract(165, 'days').format("DD MMM YYYY") }}</dd>
           </div>
         </dl>
       </div>
