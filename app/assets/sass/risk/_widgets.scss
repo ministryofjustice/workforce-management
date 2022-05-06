@@ -8,7 +8,8 @@ $very-high-score-colour: #711a0d;
 $very-high-score-border-colour: #942514;
 $mappa-colour: #4c2c92;
 
-.rosh-widget {
+.rosh-widget,
+.risk-badge {
   border: 2px solid govuk-colour("black");
   padding: govuk-spacing(4);
   margin-bottom: govuk-spacing(4);
@@ -19,7 +20,19 @@ $mappa-colour: #4c2c92;
   }
 }
 
-.rosh-widget--low {
+.risk-badge {
+  display: inline-block;
+  padding: govuk-spacing(1);
+  margin: 0 govuk-spacing(1) govuk-spacing(1) 0;
+
+  & h3 {
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+}
+
+.rosh-widget--low,
+.risk-badge--low {
   border: 2px solid $low-score-border-colour;
 
   & h3 {
@@ -27,7 +40,8 @@ $mappa-colour: #4c2c92;
   }
 }
 
-.rosh-widget--medium {
+.rosh-widget--medium,
+.risk-badge--medium {
   border: 2px solid $medium-score-border-colour;
 
   & h3 {
@@ -35,7 +49,8 @@ $mappa-colour: #4c2c92;
   }
 }
 
-.rosh-widget--high {
+.rosh-widget--high,
+.risk-badge--high {
   border: 2px solid $high-score-border-colour;
 
   & h3 {
@@ -43,7 +58,8 @@ $mappa-colour: #4c2c92;
   }
 }
 
-.rosh-widget--very-high {
+.rosh-widget--very-high,
+.risk-badge--very-high {
   border: 2px solid $very-high-score-border-colour;
 
   & h3 {
@@ -66,19 +82,23 @@ $mappa-colour: #4c2c92;
   }
 }
 
-.rosh-widget__risk--low {
+.rosh-widget__risk--low,
+.risk-badge--low {
   color: $low-score-colour;
 }
 
-.rosh-widget__risk--medium {
+.rosh-widget__risk--medium,
+.risk-badge--medium {
   color: $medium-score-colour;
 }
 
-.rosh-widget__risk--high {
+.rosh-widget__risk--high,
+.risk-badge--high {
   color: $high-score-colour;
 }
 
-.rosh-widget__risk--very-high {
+.rosh-widget__risk--very-high,
+.risk-badge--very-high {
   color: $very-high-score-colour;
 }
 
@@ -108,7 +128,10 @@ $no-score-border-colour: #505a5f;
 $no-score-background-colour: #f8f8f8;
 $predictor-score-background-colour: #f9e8bd;
 
-.rosh-widget {
+
+
+.rosh-widget,
+.risk-badge {
   h3 {
     strong {
       text-transform: uppercase;
@@ -123,7 +146,8 @@ $predictor-score-background-colour: #f9e8bd;
   }
 }
 
-.rosh-widget--none {
+.rosh-widget--none,
+.risk-badge--none {
   background-color: $no-score-background-colour;
   border: 2px solid $no-score-border-colour;
 
@@ -132,6 +156,7 @@ $predictor-score-background-colour: #f9e8bd;
   }
 }
 
-.rosh-widget__risk--none {
+.rosh-widget__risk--none,
+.risk-badge--none {
   color: $no-score-colour;
 }
