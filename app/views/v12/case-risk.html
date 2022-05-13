@@ -85,7 +85,6 @@ J678910 | Risk | Workforce planning
                 <th scope="col" class="govuk-table__header">Type</th>
                 <!-- <th scope="col" class="govuk-table__header">Status</th> -->
                 <th scope="col" class="govuk-table__header">Registered</th>
-                <th scope="col" class="govuk-table__header">Next review</th>
                 <th scope="col" class="govuk-table__header">Notes</th>
               </tr>
             </thead>
@@ -94,40 +93,35 @@ J678910 | Risk | Workforce planning
                 <!-- <td class="govuk-table__cell">Safeguarding</td> -->
                 <th scope="row" class="govuk-table__header">Suicide/self-harm</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
-                <td class="govuk-table__cell no-break">13 Dec 2020</td>
-                <td class="govuk-table__cell no-break">13 Jun 2022</td>
+                <td class="govuk-table__cell no-break">13 Dec 2021</td>
                 <td class="govuk-table__cell">Previous suicide /self-harm attempt. Needs further investigating.</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Safeguarding</td> -->
                 <th scope="row" class="govuk-table__header">Child concerns</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell no-break">13 Dec 2020</td>
-                <td class="govuk-table__cell no-break">13 Mar 2022</td>
+                <td class="govuk-table__cell no-break">13 Dec 2021</td>
                 <td class="govuk-table__cell">Awaiting outcome of social services enquiry.</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">RoSH</td> -->
                 <th scope="row" class="govuk-table__header">Medium RoSH</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell no-break">9 Nov 2021</td>
-                <td class="govuk-table__cell no-break">9 May 2022</td>
+                <td class="govuk-table__cell no-break">1 Nov 2021</td>
                 <td class="govuk-table__cell">-</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Public protection</td> -->
-                <th scope="row" class="govuk-table__header">Domestic abuse perpetrator.</th>
+                <th scope="row" class="govuk-table__header">Domestic abuse perpetrator</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge moj-badge--red">high</span></td> -->
-                <td class="govuk-table__cell no-break">4 Jul 2011</td>
-                <td class="govuk-table__cell no-break">26 Dec 2021</td>
+                <td class="govuk-table__cell no-break">4 Jul 2018</td>
                 <td class="govuk-table__cell">-</td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">Alerts </td> -->
                 <th scope="row" class="govuk-table__header">Mental health issues</th>
                 <!-- <td class="govuk-table__cell"><span class="moj-badge">medium</span></td> -->
-                <td class="govuk-table__cell no-break">4 Jul 2011</td>
-                <td class="govuk-table__cell no-break">26 Dec 2021</td>
+                <td class="govuk-table__cell no-break">4 Jul 2016</td>
                 <td class="govuk-table__cell">Personality disorder.</td>
               </tr>
             </tbody>
@@ -163,27 +157,27 @@ J678910 | Risk | Workforce planning
     <div class="govuk-grid-column-one-third">
     <h3 class="govuk-heading-m">Assessment tools</h3>
     
-    <div class="rosh-widget rosh-widget--low">
-      <h3 class="govuk-heading-m"><strong>Low</strong> RoSH</h3>
+    <div class="rosh-widget rosh-widget--medium">
+      <h3 class="govuk-heading-m"><strong>Medium</strong> RoSH</h3>
       <p class="govuk-body-m">Risk of serious harm
-        <br><span class="govuk-body-s secondary-text-col">Last updated: 10th October 2021</span>
-        <br><span class="govuk-body-s secondary-text-col">Update by: Elin Neale</span>
+        <br><span class="govuk-body-s secondary-text-col">Last updated: {{ moment().subtract(5, 'days').format("D MMM YYYY") }}</span>
+        <br><span class="govuk-body-s secondary-text-col">Update by: Court Duty Officer</span>
       </p>
     </div>
 
-    <div class="rosh-widget rosh-widget--medium">
-      <h3 class="govuk-heading-m"><strong>Medium</strong> RSR <span>3.8%</span></h3>
+    <div class="rosh-widget rosh-widget--high">
+      <h3 class="govuk-heading-m"><strong>High</strong> RSR <span>6.9%</span></h3>
       <p class="govuk-body-m">Risk of serious recidivism
-        <br><span class="govuk-body-s secondary-text-col">Last updated: 13th May 2021</span>
-        <br><span class="govuk-body-s secondary-text-col">Update by: Faraz Haynes</span>
+        <br><span class="govuk-body-s secondary-text-col">Last updated: {{ moment().subtract(320, 'days').format("D MMM YYYY") }}</span>
+        <br><span class="govuk-body-s secondary-text-col">Update by: Probation Practitioner</span>
       </p>
     </div>
 
     <div class="rosh-widget rosh-widget--medium">
       <h3 class="govuk-heading-m"><strong>Medium</strong> OGRS <span>64%</span></h3>
       <p class="govuk-body-m">Offender group reconviction scale
-        <br><span class="govuk-body-s secondary-text-col">Last updated: 13th May 2021</span>
-        <br><span class="govuk-body-s secondary-text-col">Update by: Faraz Haynes</span>
+        <br><span class="govuk-body-s secondary-text-col">Last updated: {{ moment().subtract(320, 'days').format("D MMM YYYY") }}</span>
+        <br><span class="govuk-body-s secondary-text-col">Update by: Probation Practitioner</span>
       </p>
     </div>
   </div>
