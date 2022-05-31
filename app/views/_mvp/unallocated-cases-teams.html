@@ -34,7 +34,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Induction appointment</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Date of induction booking</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
               <th scope="col" class="govuk-table__header">Action</th>
             </tr>
@@ -54,7 +54,8 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               </td>
              
               <td class="govuk-table__cell due-date">
-                Not needed
+                Not needed<br>
+                <span class="govuk-body-s">Custody case</span>
               </td>
               <td class="govuk-table__cell">
                 Currently managed<br>
@@ -80,7 +81,6 @@ Unallocated cases | Southampton Team 1 | Workforce planning
               </td>
               <td class="govuk-table__cell due-date">
                 {{ moment().add(2, 'days').format("D MMM YYYY") }}
-                <span class="secondary overdue">In 2 days</span>
               </td>
               <td class="govuk-table__cell">
                 Previously managed<br>
@@ -105,8 +105,7 @@ Unallocated cases | Southampton Team 1 | Workforce planning
                 {{ moment().subtract(1, 'days').format("D MMM YYYY") }}
               </td>
 
-              <td class="govuk-table__cell due-date">Not booked
-                <span class="secondary overdue">Due in 4 days</span>
+              <td class="govuk-table__cell due-date">No date found
               </td>
                <td class="govuk-table__cell">
                 New to probation
