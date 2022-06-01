@@ -39,7 +39,6 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Induction appointment</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
               <th scope="col" class="govuk-table__header">Action</th>
             </tr>
@@ -56,10 +55,6 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
               </td>
               <td class="govuk-table__cell due-date">
                 {{ moment().subtract(4, 'days').format("D MMM YYYY") }}
-              </td>
-             
-              <td class="govuk-table__cell due-date">
-                {{ moment().add(1, 'days').format("D MMM YYYY") }}
               </td>
               <td class="govuk-table__cell">
                 Currently managed<br>
@@ -83,9 +78,6 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
               <td class="govuk-table__cell  due-date">
                 {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
               </td>
-              <td class="govuk-table__cell due-date">
-                {{ moment().add(3, 'days').format("D MMM YYYY") }}
-              </td>
               <td class="govuk-table__cell">
                  New to probation
               </td>
@@ -108,9 +100,6 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
                 {{ moment().subtract(2, 'days').format("D MMM YYYY") }}
               </td>
 
-              <td class="govuk-table__cell due-date">Not booked
-                <span class="secondary overdue">Due in 4 days</span>
-              </td>
                <td class="govuk-table__cell">
                 Previously managed<br>
                 <span class="govuk-body-s">(10 Nov 2019)</span>
@@ -133,11 +122,6 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
               <td class="govuk-table__cell due-date">
                 {{ moment().subtract(8, 'days').format("D MMM YYYY") }}
               </td>
-
-              <td class="govuk-table__cell due-date">
-                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
-                <span class="secondary due">Attended</span>
-              </td>
                <td class="govuk-table__cell">
                 Currently managed<br>
                 <span class="govuk-body-s">(Hamid Rivas, PQiP)</span>
@@ -159,10 +143,6 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
               </td>
               <td class="govuk-table__cell due-date">
                 {{ moment().subtract(1, 'days').format("D MMM YYYY") }}
-              </td>
-
-              <td class="govuk-table__cell due-date">
-                Not needed<span class="secondary due">Custody case</span>
               </td>
                <td class="govuk-table__cell">
                 Currently managed<br>
