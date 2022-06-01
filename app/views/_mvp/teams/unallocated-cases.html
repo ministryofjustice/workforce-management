@@ -39,7 +39,7 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
               <th scope="col" class="govuk-table__header" aria-sort="none">Name / CRN</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Tier</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Sentence date</th>
-              <th scope="col" class="govuk-table__header" aria-sort="none">Date of induction booking</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Initial appointment date</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Probation status</th>
               <th scope="col" class="govuk-table__header">Action</th>
             </tr>
@@ -82,10 +82,10 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
                 A3
               </td>
               <td class="govuk-table__cell  due-date">
-                {{ moment().subtract(2, 'days').format("D MMM YYYY") }}
+                {{ moment().subtract(8, 'days').format("D MMM YYYY") }}
               </td>
               <td class="govuk-table__cell due-date">
-                {{ moment().add(3, 'days').format("D MMM YYYY") }}
+                {{ moment().subtract(3, 'days').format("D MMM YYYY") }}
               </td>
               <td class="govuk-table__cell">
                 Previously managed<br>
@@ -110,7 +110,7 @@ Unallocated cases | {{ data['selected-team'] | default("South Tyneside")}} | Wor
                 {{ moment().subtract(1, 'days').format("D MMM YYYY") }}
               </td>
 
-              <td class="govuk-table__cell due-date">No date found
+              <td class="govuk-table__cell due-date">Not found<span class="govuk-body-s">Check with your team</span>
               </td>
                <td class="govuk-table__cell">
                 New to probation
