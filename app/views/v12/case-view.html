@@ -179,22 +179,35 @@ J678910 | Overview | Workforce planning
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">CPS pack
             </dt>
-            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">Download CPS pack</a><br>Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}<br></dd>
+            <dd class="govuk-summary-list__value">
+              <a target="_blank" href="#" class="govuk-link--no-visited-state">Download CPS pack</a>
+              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}</span>
+            </dd>
           </div>
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Pre-convictions</dt>
-            <dd class="govuk-summary-list__value"><strong class="govuk-tag">Check NDelius</strong></dd>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag">Check NDelius</strong>
+            </dd>
           </div>
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Pre-sentence report</dt>
-            <dd class="govuk-summary-list__value"><strong class="govuk-tag govuk-tag--grey">No report found</strong></dd>
+            <dd class="govuk-summary-list__value">
+              Pre-Sentence Report - Oral
+              <br><a target="_blank" href="#" class="govuk-link--no-visited-state">Download report</a>
+              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}</span>
+            </dd>
           </div>  
         
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Last OASys assessment<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">OASys Assessment Layer 3</span></dt>
-            <dd class="govuk-summary-list__value"><a target="_blank" href="#" class="govuk-link--no-visited-state">View OASys assessment</a><br>Last updated {{ moment().subtract(190, 'days').format("DD MMM YYYY") }}</dd>
+            <dt class="govuk-summary-list__key">Last OASys assessment</dt>
+            <dd class="govuk-summary-list__value">
+              OASys Assessment Layer 3
+              <br><a target="_blank" href="#" class="govuk-link--no-visited-state">View all assessments on OASys</a>
+              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Last updated {{ moment().subtract(190, 'days').format("DD MMM YYYY") }}</span>
+            </dd>
           </div>
         </dl>
       </div>
