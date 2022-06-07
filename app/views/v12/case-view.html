@@ -36,9 +36,6 @@ J678910 | Overview | Workforce planning
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="case-view">Overview</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-documents">Documents</a>
-        </li>
-        <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="case-history">Probation record</a>
         </li>
         <li class="moj-sub-navigation__item">
@@ -159,7 +156,7 @@ J678910 | Overview | Workforce planning
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Risk registrations</dt>
             <dd class="govuk-summary-list__value">
-              Mental health issues, Domestic abuse perpetrator, Medium RoSH, Child concerns, Suicide/self-harm
+              Mental health issues, Domestic abuse perpetrator, Medium RoSH, Suicide/self-harm
             </dd>
           </div>
         </dl>
@@ -171,7 +168,6 @@ J678910 | Overview | Workforce planning
     <section class="app-summary-card govuk-!-margin-bottom-6 app-summary-card--large-title">  
       <header class="app-summary-card__header">
         <h2 class="app-summary-card__title">Case documents</h2>
-        <a class="govuk-link" href="case-documents">View all documents</a>
       </header>
       <div class="app-summary-card__body">
         <dl class="govuk-summary-list">
@@ -181,7 +177,7 @@ J678910 | Overview | Workforce planning
             </dt>
             <dd class="govuk-summary-list__value">
               <a target="_blank" href="#" class="govuk-link--no-visited-state">Download CPS pack</a>
-              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}</span>
+              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Uploaded {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}</span>
             </dd>
           </div>
         
@@ -197,16 +193,16 @@ J678910 | Overview | Workforce planning
             <dd class="govuk-summary-list__value">
               Pre-Sentence Report - Oral
               <br><a target="_blank" href="#" class="govuk-link--no-visited-state">Download report</a>
-              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Last updated {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}</span>
+              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Uploaded {{ moment().subtract(4, 'days').format("DD MMM YYYY") }}</span>
             </dd>
           </div>  
         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Last OASys assessment</dt>
             <dd class="govuk-summary-list__value">
-              OASys Assessment Layer 3
-              <br><a target="_blank" href="#" class="govuk-link--no-visited-state">View all assessments on OASys</a>
-              <br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Last updated {{ moment().subtract(190, 'days').format("DD MMM YYYY") }}</span>
+              <!-- OASys Assessment Layer 3
+              <br> --><a target="_blank" href="#" class="govuk-link--no-visited-state">View all assessments on OASys</a>
+              <!--<br><span class="govuk-!-font-size-16 govuk-!-font-weight-regular">Last updated {{ moment().subtract(190, 'days').format("DD MMM YYYY") }}</span> -->
             </dd>
           </div>
         </dl>
