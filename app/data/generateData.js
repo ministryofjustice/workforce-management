@@ -99,14 +99,6 @@ const getTotalInTimePeriod = (serviceUsers, key, days = 7) => {
     .sort((suA, suB) => moment.utc(suA[key].timeStamp).diff(moment.utc(suB[key].timeStamp)))
 }
 
-
-function getRandomInt(min, max) {
-  min = Math.ceil(1);
-  max = Math.floor(4);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
-
-
 const updateProbationPractitioner = probationPractitioner => {
   const totalReductions = calculateTotalReductions(probationPractitioner)
   const pointsAvailable = calculatePointsAvailable(probationPractitioner.contractedHours, totalReductions)
@@ -115,7 +107,7 @@ const updateProbationPractitioner = probationPractitioner => {
 
   return Object.assign(probationPractitioner,
     {
-      allocationsInLast7: getRandomInt,
+      allocationsInLast7: getTotalInTimePeriod(probationPractitioner.serviceUsers, 'allocationDate'),
       totalReductions: totalReductions,
       nextChange: calculateNextChange(probationPractitioner),
       pointsUsed: pointsUsed,
@@ -141,7 +133,7 @@ const generateProbationPractitioner = (index, teamCode, OM_KeyPrefix) => {
       Team_Code: teamCode,
       OM_Key,
       serviceUsers,
-      allocationsInLast7: getRandomInt,
+      allocationsInLast7: getTotalInTimePeriod(serviceUsers, 'allocationDate'),
       totalReductions,
       nextChange,
       pointsUsed,
