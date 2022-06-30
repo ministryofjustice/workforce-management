@@ -1,30 +1,43 @@
-{% extends "layout_index.html" %}
+{% extends "layout_index.html" %} {% block pageTitle %} Prototype | HMPPS |
+Manage a workforce {% endblock %} 
 
-{% block pageTitle %}
-Prototype | HMPPS | Manage a workforce
-{% endblock %}
+{% block content %} 
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-{% block content %}
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    This version of the manage a workforce prototype is no longer updated.
+  </p>
+  <p>
+    To view the latest version, please follow the link below and enter the password: <strong>workforce</strong>.<br>
+  </p>
+  <p><a class="govuk-notification-banner__link" href="https://manage-a-workforce-main.apps.live.cloud-platform.service.justice.gov.uk/">View new version of the prototype</a>.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
 <div class="govuk-grid-row">
-
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-m">Build prototype</h1>
-    <p>Always-up-to-date version of the full allocation journey we are building.</p>
     <form action="_mvp/unallocated-cases" method="post">
-    <div class="govuk-button-group">
-      <input type="submit" class="govuk-button" value="View prototype">
+      <div class="govuk-button-group">
+        <input type="submit" class="govuk-button" value="View prototype" />
 
-      <a href="_mvp/teams/region">multiple teams journey</a>
-    </div>
-    <input type="hidden" name="unallocated-number" value="3">
+        <a href="_mvp/teams/region">multiple teams journey</a>
+      </div>
+      <input type="hidden" name="unallocated-number" value="3" />
     </form>
 
-
-
     <h1 class="govuk-heading-m">Sprint-based hypotheses and experiments</h1>
-    <p>Individual screens and incomplete journeys to gather user feedback and test assumptions about doing things differently when we have control of WMT functionality.</p>
+    <p>
+      Individual screens and incomplete journeys to gather user feedback and
+      test assumptions about doing things differently when we have control of
+      WMT functionality.
+    </p>
     <a href="versions">List of versions</a>
-    
   </div>
 </div>
-  {% endblock %}
+{% endblock %}
